@@ -4,6 +4,8 @@ import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 //-Styles
 import {apolloColors} from './data/apollo30styles'
+//-Images
+import logoImg from './assets/images/apollo30Logo.png'
 
 
 //STYLES
@@ -52,7 +54,9 @@ const SideNav = styled.div`
     background: ${apolloColors.dark};
   }
 `
-const RightContainer = styled.div`
+
+
+const ContentContainer = styled.div`
   position: absolute;
   right: 0;
   top: 0;
@@ -62,12 +66,50 @@ const TopFold = styled.section`
   position: relative;
   width: 100%;
   height: 100vh;
+
+  .logo{
+    position: absolute;
+    right: 60px;
+    top: 60px;
+    height: 60px;
+    z-index: 100;
+  }
   .heroTop{
     position: absolute;
     top: 0;
     width: 100%;
     height: calc(100% - 150px);
     background: ${apolloColors.dark};
+
+    .welcomeHeadingComposition{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+
+      .welcomeIntro{
+        color: ${apolloColors.light};
+        /* SubHeading 3 - VCR OSD Mono - ALLCAPS */
+        font-family: 'VCR OSD Mono';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 18px;
+        text-transform: uppercase;
+      }
+      .welcomeHeading{
+        margin-top: 20px;
+        color: ${apolloColors.light};
+        /* Heading 1 Graphik ALLCAPS */
+        font-family: 'Graphik';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 60px;
+        line-height: 66px;
+        text-transform: uppercase;
+      }
+    }
   }
   .heroBottom{
     position: absolute;
@@ -87,8 +129,8 @@ const TopFold = styled.section`
         font-family: 'VCR OSD Mono';
         font-style: normal;
         font-weight: normal;
-        font-size: 14px;
-        line-height: 14px;
+        font-size: 12px;
+        line-height: 12px;
         text-transform: uppercase;
       }
     }
@@ -105,13 +147,14 @@ const TopFold = styled.section`
         /* Pargraph Large - Graphik */
         font-family: 'Graphik';
         font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 28px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
       }
     }  
   }
 `
+
 const LaunchesSection = styled.section`
   width: 100%;
   height: 1430px;
@@ -134,33 +177,38 @@ function App() {
         </div>
       </SideNav>
 
-      <RightContainer>
+      <ContentContainer>
 
         <TopFold>
+
+          <img className="logo" src={logoImg} alt="Apollo30 Logo" />
+
           <div className="heroTop">
-
+            <div className="welcomeHeadingComposition">
+              <div className="welcomeIntro">Welcome</div>
+              <div className="welcomeHeading">WE ARE <br/> APOLLO30</div>
+            </div>
           </div>
-          <div className="heroBottom">
 
+          <div className="heroBottom">
             <button className="ctaButton">
               <div className="ctaText">Call Houston</div>
             </button>
-
             <div className="descriptionBox">
                 <p>
                   We are a creative studio based in Barcelona.<br/>
                   We develop creative communication strategies.
                 </p>
             </div>
-
           </div>
+
         </TopFold>
 
         <LaunchesSection>
 
         </LaunchesSection>
 
-      </RightContainer>
+      </ContentContainer>
     </>
   )
 }
