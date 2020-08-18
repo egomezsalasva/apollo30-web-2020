@@ -205,7 +205,7 @@ const Section = styled.section`
 `
 const PhotoContainer = styled.div`
   position: absolute;
-  top: 1134px;
+  top: calc( 100vh + 130px + 90px + 144px);
   right: 0;
   width: calc(100vw - 990px);
   min-width: calc(370px + 40px);
@@ -337,7 +337,7 @@ function App() {
             </div>
             <div className="tab">
                 <h3 className="tabTitle">Premis Butaca</h3>
-                <div className="tabRole">Campaing, Web, Video & Photography</div>
+                <div className="tabRole">Campaign, Web, Video & Photography</div>
             </div>
             <div className="tab">
                 <h3 className="tabTitle">Owl Institute</h3>
