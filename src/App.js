@@ -3,7 +3,7 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 //-Styles
-import {apolloColors} from './data/apollo30styles'
+import {apolloColors, apolloFonts} from './data/apollo30styles'
 //-Images
 import logoImg from './assets/images/apollo30Logo.png'
 
@@ -12,6 +12,7 @@ import logoImg from './assets/images/apollo30Logo.png'
 //-Vars
 const leftSideWidth = "360px"
 const topFoldStripHeight = "150px"
+
 //-Components
 const GlobalStyle = createGlobalStyle`
   *{
@@ -35,6 +36,7 @@ const SideNav = styled.div`
   bottom: 0;
   width: ${leftSideWidth};
   height: 100vh;
+
   .sidenavTop{
     position: absolute;
     top: 0;
@@ -43,6 +45,20 @@ const SideNav = styled.div`
     width: 100%;
     height: calc(100% - ${topFoldStripHeight});
     background: ${apolloColors.light};
+
+    .fullMenuContainer{
+      position: absolute;
+      top: 50%;
+      left: 120px;
+      transform: translateY(-50%);
+
+      .menuHeading{
+        ${apolloFonts.textSpecial};
+      }
+      .menuContainer{
+
+      }
+    }
   }
   .sidenavBottom{
     position: absolute;
@@ -52,6 +68,15 @@ const SideNav = styled.div`
     width: 100%;
     height: ${topFoldStripHeight};
     background: ${apolloColors.dark};
+
+    .sidenavBottomText{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: ${apolloColors.light};
+      ${apolloFonts.textSmall}
+    }
   }
 `
 
@@ -101,13 +126,7 @@ const TopFold = styled.section`
       .welcomeHeading{
         margin-top: 20px;
         color: ${apolloColors.light};
-        /* Heading 1 Graphik ALLCAPS */
-        font-family: 'Graphik';
-        font-style: normal;
-        font-weight: 900;
-        font-size: 60px;
-        line-height: 66px;
-        text-transform: uppercase;
+        ${apolloFonts.heading01};
       }
     }
   }
@@ -170,10 +189,14 @@ function App() {
 
       <SideNav>
         <div className="sidenavTop">
+          <div className="fullMenuContainer">
+            <div className="menuHeading">Menu</div>
+
+          </div>
 
         </div>
         <div className="sidenavBottom">
-
+          <div className="sidenavBottomText">Scroll Down</div>
         </div>
       </SideNav>
 
@@ -185,7 +208,7 @@ function App() {
 
           <div className="heroTop">
             <div className="welcomeHeadingComposition">
-              <div className="welcomeIntro">Welcome</div>
+              <div className="welcomeIntro">Welcome,</div>
               <div className="welcomeHeading">WE ARE <br/> APOLLO30</div>
             </div>
           </div>
