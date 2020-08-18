@@ -169,6 +169,32 @@ const Section = styled.section`
       }
     }
 
+    .coordinates{
+      margin: 20px 0 0 10px;
+      color: ${apolloColors.dark};
+      ${apolloFonts.subheading03};
+    }
+
+    .address{
+      margin: 20px 0 0 10px;
+      color: ${apolloColors.dark};
+      ${apolloFonts.textLarge};
+    }
+
+    .contactText{
+      margin: 10px 0 0 10px;
+      color: ${apolloColors.dark};
+      ${apolloFonts.textLarge};
+    }
+
+    .phoneText{
+      margin-top: 20px;
+    }
+
+    .linkedinText{
+      margin-bottom: 0px;
+    }
+
   }
 
 `
@@ -330,34 +356,61 @@ function App() {
             </div>
             <div className="tab">
               <h3 className="tabTitle">Cesar</h3>
-              <div className="tabRole">Read More</div>
+              <div className="tabRole">Videographer / Motion Designer </div>
             </div>
             <div className="tab">
-              <h3 className="tabTitle">Development</h3>
-              <div className="tabRole">Read More</div>
+              <h3 className="tabTitle">Paula</h3>
+              <div className="tabRole">Community Manager / Junior Designer</div>
             </div>
           </div>
 
           <div className="apolloList">
-            <h5 className="listTitle">Technitians</h5>
+            <h5 className="listTitle">Technicians</h5>
 
             <div className="divisionLine topLine"></div>
             <div className="tab">
               <h3 className="tabTitle">Kike</h3>
-              <div className="tabRole">UX & UI Designer / Front-end Developer</div>
+              <div className="tabRole">UX & UI Designer / Front-End Developer</div>
             </div>
             <div className="tab">
-              <h3 className="tabTitle">Brand Innovation</h3>
-              <div className="tabRole">Read More</div>  
+              <h3 className="tabTitle">Pablo</h3>
+              <div className="tabRole">Full-Stack Developer</div>  
             </div>
             <div className="tab">
-              <h3 className="tabTitle">Media Activation</h3>
-              <div className="tabRole">Read More</div>
+              <h3 className="tabTitle">Nathan</h3>
+              <div className="tabRole">Photographer</div>
             </div>
-            <div className="tab">
-              <h3 className="tabTitle">Development</h3>
-              <div className="tabRole">Read More</div>
+          </div>
+
+        </Section>
+
+        <Section id="base">
+
+          <h2 className="sectionTitle">Base</h2>
+
+          <div className="apolloList">
+            <h5 className="listTitle">Apollo30 Headquarters</h5>
+
+            <div className="divisionLine topLine"></div>
+
+            <h5 className="coordinates">41.2145º N, 2.0739º E</h5>
+            
+            <div className="address">
+              C/ d’Enric Morera 5-7, <br/>
+              08902, l’Hospitalet de Llobregat, BCN, ES 
             </div>
+          </div>
+
+          <div className="apolloList">
+            <h5 className="listTitle">Establish Communication</h5>
+
+            <div className="divisionLine topLine"></div>
+        
+            <div className="contactText phoneText">+34 693 037 682</div>
+            <div className="contactText">contact@apollo30.com</div>
+            <div className="contactText"><a href="https://www.instagram.com/apollo30com/" target="_blank" rel="noopener noreferrer">Instagram</a>Instagram</div>
+            <div className="contactText linkedinText"><a href="https://www.linkedin.com/company/apollo-30/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+
           </div>
 
         </Section>
