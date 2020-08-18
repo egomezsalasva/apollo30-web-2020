@@ -3,7 +3,7 @@
 import React from 'react'
 import styled from 'styled-components'
 //-Styles
-import {apolloColors, apolloFonts} from './data/apollo30styles'
+import {apolloColors, apolloFonts} from '../data/apollo30styles'
 
 
 //STYLES
