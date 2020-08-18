@@ -168,8 +168,10 @@ const TopFold = styled.section`
 `
 const LaunchesSection = styled.section`
   width: 100%;
-  height: 1430px;
+  padding: 130px;
   background: ${apolloColors.light};
+
+
 `
 
 
@@ -233,6 +235,7 @@ function App() {
         </TopFold>
 
         <LaunchesSection>
+          
 
         </LaunchesSection>
 
