@@ -206,7 +206,7 @@ function App() {
 
         <FirstSectionSpace/>
 
-        <Section>
+        <Section id="launches">
           <h2 className="sectionTitle">Launches</h2>
           <p className="sectionDescription">Here are some non-confidential launches we have picked from our archives</p>
 
@@ -215,24 +215,24 @@ function App() {
 
             <div className="divisionLine topLine"></div>
             <div className="tab">
-                <h3 className="tabTitle">Trick.Wtf</h3>
-                <div className="tabRole">Branding & Development</div>
+              <h3 className="tabTitle">Nike Shox</h3>
+              <div className="tabRole">Branded Content Campaign</div>
             </div>
             <div className="tab">
-                <h3 className="tabTitle">Three Marks Coffee</h3>
-                <div className="tabRole">E-commerce Development</div>
+              <h3 className="tabTitle">Mucho Muchacho</h3>
+              <div className="tabRole">Vinyl Cover & Website</div>  
             </div>
             <div className="tab">
-                <h3 className="tabTitle">Nike Shox</h3>
-                <div className="tabRole">Branded Content Campaign</div>
+              <h3 className="tabTitle">Sita Abellán</h3>
+              <div className="tabRole">Branding</div>
             </div>
             <div className="tab">
-                <h3 className="tabTitle">Mucho Muchacho</h3>
-                <div className="tabRole">Vinyl Cover & Website</div>
+              <h3 className="tabTitle">Three Marks Coffee</h3>
+              <div className="tabRole">E-commerce Development</div>
             </div>
             <div className="tab">
-                <h3 className="tabTitle">Sita Abellán</h3>
-                <div className="tabRole">Branding</div>
+              <h3 className="tabTitle">Trick.Wtf</h3>
+              <div className="tabRole">Branding & Development</div>
             </div>
             <div className="tab">
                 <h3 className="tabTitle">New Icons</h3>
@@ -280,8 +280,8 @@ function App() {
 
         </Section>
 
-        <Section>
-          
+        <Section id="services">
+
           <h2 className="sectionTitle">Services</h2>
           <p className="sectionDescription">We believe that in our current era, there’s a saturation of stimuli. This requires differentiation through tailored content.</p>
 
