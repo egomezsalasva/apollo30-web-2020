@@ -270,8 +270,24 @@ function App() {
 
             <div className="divisionLine topLine"></div>
             <div className="tab">
+              <h3 className="tabTitle">Vogue</h3>
+              <div className="tabRole">?</div>
+            </div>
+            <div className="tab">
               <h3 className="tabTitle">Nike Shox</h3>
               <div className="tabRole">Branded Content Campaign</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">Can Pizza</h3>
+              <div className="tabRole">?</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">Xemei</h3>
+              <div className="tabRole">?</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">La Zorra </h3>
+              <div className="tabRole">?</div>
             </div>
             <div className="tab">
               <h3 className="tabTitle">Mucho Muchacho</h3>
