@@ -6,6 +6,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import {apolloColors, apolloFonts} from './data/apollo30styles'
 //-Images
 import logoImg from './assets/images/apollo30Logo.png'
+import apolloPortfolio from './assets/images/apolloPortfolio.gif'
 //-Components
 import SideNav from './components/SideNav'
 
@@ -185,6 +186,10 @@ const Section = styled.section`
       margin: 10px 0 0 10px;
       color: ${apolloColors.dark};
       ${apolloFonts.textLarge};
+      a{
+        text-decoration: none;
+        color: ${apolloColors.dark};
+      }
     }
 
     .phoneText{
@@ -196,9 +201,27 @@ const Section = styled.section`
     }
 
   }
-
 `
+const PhotoContainer = styled.div`
+  position: absolute;
+  top: 1134px;
+  right: 0;
+  width: calc(100vw - 990px);
+  min-width: calc(370px + 40px);
+  height: 303.4px;
 
+  .photoBox{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 370px;
+    height: 303.4px;
+    background: url(${apolloPortfolio});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+`
 
 //MAIN COMPONENT
 function App() {
@@ -308,8 +331,10 @@ function App() {
                 <div className="tabRole">Packaging Design</div>
             </div>
           </div>
-
         </Section>
+        <PhotoContainer>
+          <div className="photoBox"></div>
+        </PhotoContainer>
 
         <Section id="services">
 
@@ -408,7 +433,7 @@ function App() {
         
             <div className="contactText phoneText">+34 693 037 682</div>
             <div className="contactText">contact@apollo30.com</div>
-            <div className="contactText"><a href="https://www.instagram.com/apollo30com/" target="_blank" rel="noopener noreferrer">Instagram</a>Instagram</div>
+            <div className="contactText"><a href="https://www.instagram.com/apollo30com/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
             <div className="contactText linkedinText"><a href="https://www.linkedin.com/company/apollo-30/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
 
           </div>
