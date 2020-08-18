@@ -55,8 +55,19 @@ const SideNav = styled.div`
       .menuHeading{
         ${apolloFonts.textSpecial};
       }
-      .menuContainer{
+      .menuOptions{
+        margin-top: 20px;
+        list-style: none;
+        ${apolloFonts.subheading02};
 
+        li{
+          margin: 10px 0;
+
+          a{
+            text-decoration: none;
+            color: ${apolloColors.dark};
+          }
+        }
       }
     }
   }
@@ -79,7 +90,6 @@ const SideNav = styled.div`
     }
   }
 `
-
 
 const ContentContainer = styled.div`
   position: absolute;
@@ -156,7 +166,6 @@ const TopFold = styled.section`
     }  
   }
 `
-
 const LaunchesSection = styled.section`
   width: 100%;
   height: 1430px;
@@ -174,7 +183,20 @@ function App() {
         <div className="sidenavTop">
           <div className="fullMenuContainer">
             <div className="menuHeading">Menu</div>
-
+            <ul className="menuOptions">
+              <li className="active">
+                <a href="#launches">Launches</a>
+              </li>
+              <li>
+                <a href="#services">Services</a>
+              </li>
+              <li>
+                <a href="#tripulation">Tripulation</a>
+              </li>
+              <li>
+                <a href="#base">Base</a>
+              </li>
+            </ul>
           </div>
 
         </div>
