@@ -115,13 +115,7 @@ const TopFold = styled.section`
 
       .welcomeIntro{
         color: ${apolloColors.light};
-        /* SubHeading 3 - VCR OSD Mono - ALLCAPS */
-        font-family: 'VCR OSD Mono';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 18px;
-        text-transform: uppercase;
+        ${apolloFonts.subheading03};
       }
       .welcomeHeading{
         margin-top: 20px;
@@ -144,13 +138,7 @@ const TopFold = styled.section`
       cursor: pointer;
       .ctaText{
         color: ${apolloColors.dark};
-        /* Paragraph Special - VCR OSD Mono - ALLCAPS */
-        font-family: 'VCR OSD Mono';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 12px;
-        line-height: 12px;
-        text-transform: uppercase;
+        ${apolloFonts.textSpecial};
       }
     }
     .descriptionBox{
@@ -163,12 +151,7 @@ const TopFold = styled.section`
         margin: 40px;
         text-align: left;
         color: ${apolloColors.light};
-        /* Pargraph Large - Graphik */
-        font-family: 'Graphik';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 26px;
+        ${apolloFonts.textLarge};
       }
     }  
   }
