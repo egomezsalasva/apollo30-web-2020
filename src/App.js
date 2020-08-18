@@ -122,6 +122,7 @@ const Section = styled.section`
   }
   .sectionDescription{
     margin-top: 30px;
+    max-width: 560px;
     color: ${apolloColors.dark};
     ${apolloFonts.textLarge};
   }
