@@ -125,7 +125,7 @@ const Section = styled.section`
     ${apolloFonts.textLarge};
   }
 
-  .listOfClients{
+  .apolloList{
     margin-top: 50px;
     width: 500px;
 
@@ -153,6 +153,11 @@ const Section = styled.section`
         display: inline-block;
         color: ${apolloColors.dark};
         ${apolloFonts.subheading01};
+      }
+      .tabTitleServices{
+        display: inline-block;
+        color: ${apolloColors.dark};
+        ${apolloFonts.subheading03};
       }
       .tabRole{
         position: absolute;
@@ -210,7 +215,7 @@ function App() {
           <h2 className="sectionTitle">Launches</h2>
           <p className="sectionDescription">Here are some non-confidential launches we have picked from our archives</p>
 
-          <div className="listOfClients list2020">
+          <div className="apolloList list2020">
             <h5 className="listTitle">2020</h5>
 
             <div className="divisionLine topLine"></div>
@@ -248,7 +253,7 @@ function App() {
             </div>
           </div>
 
-          <div className="listOfClients list2019">
+          <div className="apolloList list2019">
             <h5 className="listTitle">2019</h5>
 
             <div className="divisionLine topLine"></div>
@@ -284,6 +289,76 @@ function App() {
 
           <h2 className="sectionTitle">Services</h2>
           <p className="sectionDescription">We believe that in our current era, there’s a saturation of stimuli. This requires differentiation through tailored content.</p>
+
+          <div className="apolloList">
+            <div className="divisionLine topLine"></div>
+            <div className="tab">
+              <h3 className="tabTitleServices">Creativity</h3>
+              <div className="tabRole">Read More</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitleServices">Brand Innovation</h3>
+              <div className="tabRole">Read More</div>  
+            </div>
+            <div className="tab">
+              <h3 className="tabTitleServices">Media Activation</h3>
+              <div className="tabRole">Read More</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitleServices">Development</h3>
+              <div className="tabRole">Read More</div>
+            </div>
+          </div>
+
+        </Section>
+
+        <Section id="tripulation">
+
+          <h2 className="sectionTitle">Tripulation</h2>
+
+          <div className="apolloList">
+            <h5 className="listTitle">Operations</h5>
+
+            <div className="divisionLine topLine"></div>
+            <div className="tab">
+              <h3 className="tabTitle">Anto</h3>
+              <div className="tabRole">Creative Director</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">Sandra</h3>
+              <div className="tabRole">General Manager</div>  
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">Cesar</h3>
+              <div className="tabRole">Read More</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">Development</h3>
+              <div className="tabRole">Read More</div>
+            </div>
+          </div>
+
+          <div className="apolloList">
+            <h5 className="listTitle">Technitians</h5>
+
+            <div className="divisionLine topLine"></div>
+            <div className="tab">
+              <h3 className="tabTitle">Kike</h3>
+              <div className="tabRole">UX & UI Designer / Front-end Developer</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">Brand Innovation</h3>
+              <div className="tabRole">Read More</div>  
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">Media Activation</h3>
+              <div className="tabRole">Read More</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">Development</h3>
+              <div className="tabRole">Read More</div>
+            </div>
+          </div>
 
         </Section>
 

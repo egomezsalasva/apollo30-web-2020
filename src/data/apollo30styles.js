@@ -29,7 +29,7 @@ const apolloFonts = {
         font-style: normal;
         font-weight: 900;
         font-size: 18px;
-        line-height: 18px;
+        line-height: 20px;
         text-transform: uppercase;
     `,
     subheading02:  props => `
@@ -46,7 +46,8 @@ const apolloFonts = {
         font-style: normal;
         font-weight: normal;
         font-size: 18px;
-        line-height: 18px;
+        line-height: 20px;
+        text-transform: uppercase;
     `,
 
     textLarge:  props => `
