@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, {useRef, useEffect} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
 //-Styles
@@ -281,7 +281,8 @@ function App() {
   const ctaButtonTl = gsap.timeline({paused: true, reversed: true})
 
   useEffect( () => {
-    ctaButtonTl.to(ctaButtonRef, { duration: 0.8, width: 360 })
+    ctaButtonTl.to(ctaButtonRef, { duration: 0.6, width: 360 })
+    // gnfekjne
   }, [ctaButtonTl])
   
 
