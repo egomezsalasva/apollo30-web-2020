@@ -273,6 +273,7 @@ const BackgroundLogo = styled.div`
   mask-repeat: no-repeat;
   mask-size: 75%;
   mask-position: center;
+  opacity: 0;
 `
 
 //MAIN COMPONENT
@@ -287,20 +288,21 @@ function App() {
   //
 
 
-  if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger)
-    // gsap.core.globals("ScrollTrigger", ScrollTrigger)
-  }
-  let photoBoxRef = useRef()
-  useEffect(() => {
-    ScrollTrigger.create({
-      trigger: photoBoxRef,
-      pin: photoBoxRef,
-      start: "center center",
-      endTrigger: ".list2019",
-      end: "center 0%+=317px",
-    })
-  })
+  //IMAGE SCROLL FOLLOWER
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger)
+    }
+    let photoBoxRef = useRef()
+    useEffect(() => {
+      ScrollTrigger.create({
+        trigger: photoBoxRef,
+        pin: photoBoxRef,
+        start: "center center",
+        endTrigger: ".list2019",
+        end: "center 0%+=317px",
+      })
+    }, [])
+  //
   
 
   return (
