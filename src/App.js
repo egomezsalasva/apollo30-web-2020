@@ -3,6 +3,7 @@
 import React, {useRef, useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 //-Styles
 import {apolloColors, apolloFonts} from './data/apollo30styles'
 //-Images
@@ -267,7 +268,7 @@ const BackgroundLogo = styled.div`
   background: url(https://media.giphy.com/media/l0K4lUxBzIOeJd1EA/giphy.gif);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 75%;
   mask: url(${bigLogo});
   mask-repeat: no-repeat;
   mask-size: 75%;
@@ -277,13 +278,29 @@ const BackgroundLogo = styled.div`
 //MAIN COMPONENT
 function App() {
 
-  let ctaButtonRef = useRef()
-  const ctaButtonTl = gsap.timeline({paused: true, reversed: true})
+  //CTA BUTTON ANIMATION
+    let ctaButtonRef = useRef()
+    const ctaButtonTl = gsap.timeline({paused: true, reversed: true})
+    useEffect( () => {
+      ctaButtonTl.to(ctaButtonRef, { duration: 0.6, width: 360 })
+    }, [ctaButtonTl])
+  //
 
-  useEffect( () => {
-    ctaButtonTl.to(ctaButtonRef, { duration: 0.6, width: 360 })
-    // gnfekjne
-  }, [ctaButtonTl])
+
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger)
+    // gsap.core.globals("ScrollTrigger", ScrollTrigger)
+  }
+  let photoBoxRef = useRef()
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: photoBoxRef,
+      pin: photoBoxRef,
+      start: "center center",
+      endTrigger: ".list2019",
+      end: "center 0%+=317px",
+    })
+  })
   
 
   return (
@@ -417,7 +434,7 @@ function App() {
             </div>
           </div>
         </Section>
-        <PhotoContainer>
+        <PhotoContainer ref={el => photoBoxRef = el}>
           <div className="photoBox"></div>
         </PhotoContainer>
 
