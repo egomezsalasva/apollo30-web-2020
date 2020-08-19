@@ -282,7 +282,7 @@ function App() {
 
   useEffect( () => {
     ctaButtonTl.to(ctaButtonRef, { duration: 0.8, width: 360 })
-  }, [])
+  }, [ctaButtonTl])
   
 
   return (
