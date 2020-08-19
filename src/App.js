@@ -1,12 +1,14 @@
 //IMPORTS
 //-Modules
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
+import gsap from 'gsap'
 //-Styles
 import {apolloColors, apolloFonts} from './data/apollo30styles'
 //-Images
-import logoImg from './assets/images/apollo30Logo.png'
+// import logoImg from './assets/images/apollo30Logo.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
+import bigLogo from './assets/images/apollo30BigLogo.svg'
 //-Components
 import SideNav from './components/SideNav'
 
@@ -118,7 +120,7 @@ const TopFold = styled.section`
     background: ${apolloColors.dark};
     display: flex;
     .ctaButton{
-      width: 350px;
+      width: 300px;
       height: 100%;
       background: ${apolloColors.light};
       cursor: pointer;
@@ -128,13 +130,13 @@ const TopFold = styled.section`
       }
     }
     .descriptionBox{
-      width: 100%;
+      width: calc(100% - 300px);
       align-self: center;
       text-align: center;
 
       p{
         display: inline-block;
-        margin: 40px;
+        padding: 40px;
         text-align: left;
         color: ${apolloColors.light};
         ${apolloFonts.textLarge};
@@ -259,9 +261,30 @@ const PhotoContainer = styled.div`
     background-repeat: no-repeat;
   }
 `
+const BackgroundLogo = styled.div`
+  height: 100%;
+  width: 100%;
+  background: url(https://media.giphy.com/media/l0K4lUxBzIOeJd1EA/giphy.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  mask: url(${bigLogo});
+  mask-repeat: no-repeat;
+  mask-size: 75%;
+  mask-position: center;
+`
 
 //MAIN COMPONENT
 function App() {
+
+  let ctaButtonRef = useRef()
+  const ctaButtonTl = gsap.timeline({paused: true, reversed: true})
+
+  useEffect( () => {
+    ctaButtonTl.to(ctaButtonRef, { duration: 0.8, width: 360 })
+  }, [])
+  
+
   return (
     <>
       <GlobalStyle/>
@@ -274,7 +297,10 @@ function App() {
 
           {/* <img className="logo" src={logoImg} alt="Apollo30 Logo" /> */}
 
+          
+
           <div className="heroTop">
+            <BackgroundLogo />
             <div className="welcomeHeadingComposition">
               <div className="welcomeIntro">Welcome,</div>
               <div className="welcomeHeading">WE ARE <br/> APOLLO30</div>
@@ -282,7 +308,12 @@ function App() {
           </div>
 
           <div className="heroBottom">
-            <button className="ctaButton">
+            <button 
+              className="ctaButton" 
+              ref={el => ctaButtonRef = el} 
+              onMouseEnter={() => ctaButtonTl.play()}
+              onMouseLeave={() => ctaButtonTl.reverse()}
+            >
               <div className="ctaText">Call Houston</div>
             </button>
             <div className="descriptionBox">
