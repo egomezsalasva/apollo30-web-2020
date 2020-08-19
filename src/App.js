@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, {useRef, useEffect, useState} from 'react'
+import React, {useRef, useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
 //-Styles
