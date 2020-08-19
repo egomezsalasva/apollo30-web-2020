@@ -60,7 +60,7 @@ const Wrapper = styled.div`
             width: 12px;
             height: 8px;
             margin-right: 10px;
-            transform: translateY(-1px);
+            transform: translate(-1px -2px);
           }
         }
 

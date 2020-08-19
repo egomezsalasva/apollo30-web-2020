@@ -272,7 +272,7 @@ function App() {
 
         <TopFold>
 
-          <img className="logo" src={logoImg} alt="Apollo30 Logo" />
+          {/* <img className="logo" src={logoImg} alt="Apollo30 Logo" /> */}
 
           <div className="heroTop">
             <div className="welcomeHeadingComposition">
