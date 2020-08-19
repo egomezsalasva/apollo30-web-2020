@@ -17,12 +17,48 @@ const leftSideWidth = "360px"
 
 //-Components
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: normal;  
+    src: url('./assets/fonts/Graphik-Regular.eot');
+    src: url('./assets/fonts/Graphik-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/Graphik-Regular.woff2') format('woff2'),
+        url('./assets/fonts/Graphik-Regular.woff') format('woff'),
+        url('./assets/fonts/Graphik-Regular.ttf') format('truetype'),
+        url('./assets/fonts/Graphik-Regular.svg#Graphik-Regular') format('svg');
+    /* font-display: swap; */
+  }
+  @font-face {
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: 900;
+    src: url('./assets/fonts/Graphik-Black.eot');
+    src: url('./assets/fonts/Graphik-Black.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/Graphik-Black.woff2') format('woff2'),
+        url('./assets/fonts/Graphik-Black.woff') format('woff'),
+        url('./assets/fonts/Graphik-Black.ttf') format('truetype'),
+        url('./assets/fonts/Graphik-Black.svg#Graphik-Black') format('svg');
+    /* font-display: swap; */
+  }
+  @font-face {
+    font-family: 'VCR OSD Mono';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/VCROSDMono.eot');
+    src: url('./assets/fonts/VCROSDMono.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/VCROSDMono.woff2') format('woff2'),
+        url('./assets/fonts/VCROSDMono.woff') format('woff'),
+        url('./assets/fonts/VCROSDMono.ttf') format('truetype'),
+        url('./assets/fonts/VCROSDMono.svg#VCROSDMono') format('svg');
+  }
   *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   body {
+    font-family: 'Graphik', 'Helvetica', Arial, sans-serif;
     background: ${apolloColors.light};
   }
   button{

@@ -38,7 +38,7 @@ const apolloFonts = {
         font-style: normal;
         font-weight: 900;
         font-size: 18px;
-        line-height: 18px;
+        line-height: 20px;
     `,
     subheading03:  props => `
         /* SubHeading 3 - VCR OSD Mono - ALLCAPS */

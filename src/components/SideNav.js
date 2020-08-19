@@ -4,6 +4,8 @@ import React from 'react'
 import styled from 'styled-components'
 //-Styles
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
+//-Images
+import arrowImg from '../assets/images/apoolloArrow.svg'
 
 
 //STYLES
@@ -50,6 +52,27 @@ const Wrapper = styled.div`
             text-decoration: none;
             color: ${apolloColors.dark};
           }
+          &:hover::before{
+            display: inline-block;
+            content: '';
+            background: url(${arrowImg});
+            background-repeat: no-repeat;
+            width: 12px;
+            height: 8px;
+            margin-right: 10px;
+            transform: translateY(-1px);
+          }
+        }
+
+        .active::before{
+          display: inline-block;
+          content: '';
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: ${apolloColors.dark};
+          margin-right: 10px;
+          transform: translateY(-1px);
         }
       }
     }
