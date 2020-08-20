@@ -17,6 +17,11 @@ import nikeImg04 from './assets/images/nike/nike04.jpg'
 import unikoImg01 from './assets/images/uniko/uniko01.jpg'
 import trickImg01 from './assets/images/trick/trick01.gif'
 import threeMarksImg01 from './assets/images/threeMarks/threeMarksImg01.gif'
+import premisButacaImg01 from './assets/images/premisButaca/premisButaca01.gif'
+import muchoMuchachoImg01 from './assets/images/muchoMuchacho/muchoMuchacho01.gif'
+import sitaImg01 from './assets/images/sitaAbellan/sitaAbellan01.jpg'
+import newIconsImg01 from './assets/images/newIcons/newIcons01.gif'
+import laProaImg01 from './assets/images/laProa/laProa01.jpg'
 //-Components
 import SideNav from './components/SideNav'
 
@@ -307,8 +312,27 @@ const imagesForLaunches = {
 
   threeMarks: [
     threeMarksImg01
-  ]
-   
+  ],
+
+  premisButaca: [
+    premisButacaImg01
+  ],
+  
+  muchoMuchacho: [
+    muchoMuchachoImg01
+  ],
+
+  sita: [
+    sitaImg01
+  ],
+
+  newIcons: [
+    newIconsImg01
+  ],
+
+  laProa: [
+    laProaImg01
+  ],
 }
 
 //MAIN COMPONENT
@@ -452,11 +476,11 @@ function App() {
               <h3 className="tabTitle">La Zorra </h3>
               <div className="tabRole">?</div>
             </div>
-            <div className="tab">
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)} onMouseLeave={() => defaultGif()}>
               <h3 className="tabTitle">Mucho Muchacho</h3>
               <div className="tabRole">Vinyl Cover & Website</div>  
             </div>
-            <div className="tab">
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.sita)} onMouseLeave={() => defaultGif()}>
               <h3 className="tabTitle">Sita Abellán</h3>
               <div className="tabRole">Branding</div>
             </div>
@@ -468,11 +492,11 @@ function App() {
               <h3 className="tabTitle">Trick.Wtf</h3>
               <div className="tabRole">Branding & Development</div>
             </div>
-            <div className="tab">
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
                 <h3 className="tabTitle">New Icons</h3>
                 <div className="tabRole">Branding</div>
             </div>
-            <div className="tab">
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
                 <h3 className="tabTitle">La Proa 04</h3>
                 <div className="tabRole">Branding & Website</div>
             </div>
@@ -498,7 +522,7 @@ function App() {
                 <h3 className="tabTitle">The New Storytellers</h3>
                 <div className="tabRole">Website</div>
             </div>
-            <div className="tab">
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
                 <h3 className="tabTitle">Premis Butaca</h3>
                 <div className="tabRole">Campaign, Web, Video & Photography</div>
             </div>
