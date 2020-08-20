@@ -10,6 +10,13 @@ import {apolloColors, apolloFonts} from './data/apollo30styles'
 // import logoImg from './assets/images/apollo30Logo.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
 import bigLogo from './assets/images/apollo30BigLogo.svg'
+import nikeImg01 from './assets/images/nike/nike01.jpg'
+import nikeImg02 from './assets/images/nike/nike02.jpg'
+import nikeImg03 from './assets/images/nike/nike03.jpg'
+import nikeImg04 from './assets/images/nike/nike04.jpg'
+import unikoImg01 from './assets/images/uniko/uniko01.jpg'
+import trickImg01 from './assets/images/trick/trick01.gif'
+import threeMarksImg01 from './assets/images/threeMarks/threeMarksImg01.gif'
 //-Components
 import SideNav from './components/SideNav'
 
@@ -247,17 +254,18 @@ const PhotoContainer = styled.div`
   top: calc( 100vh + 130px + 90px + 144px);
   right: 0;
   width: calc(100vw - 990px);
-  min-width: calc(370px + 40px);
-  height: 303.4px;
+  min-width: calc(300px + 40px);
+  height: 300px;
 
   .photoBox{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 370px;
-    height: 303.4px;
+    width: 300px;
+    height: 300px;
     background: url(${apolloPortfolio});
-    background-size: cover;
+    /* background: red; */
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -276,6 +284,33 @@ const BackgroundLogo = styled.div`
   opacity: 0;
 `
 
+const imagesForLaunches = {
+
+  default: [
+      apolloPortfolio
+  ],
+
+  nike: [
+    nikeImg01,
+    nikeImg02,
+    nikeImg03,
+    nikeImg04,
+  ],
+
+  uniko: [
+    unikoImg01
+  ], 
+
+  trick: [
+    trickImg01
+  ],
+
+  threeMarks: [
+    threeMarksImg01
+  ]
+   
+}
+
 //MAIN COMPONENT
 function App() {
 
@@ -289,19 +324,60 @@ function App() {
 
 
   //IMAGE SCROLL FOLLOWER
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger)
-    }
-    let photoBoxRef = useRef()
-    useEffect(() => {
-      ScrollTrigger.create({
-        trigger: photoBoxRef,
-        pin: photoBoxRef,
-        start: "center center",
-        endTrigger: ".list2019",
-        end: "center 0%+=317px",
-      })
-    }, [])
+    //SCROLL FOLLOW
+      if (typeof window !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger)
+      }
+      let photoBoxRef = useRef()
+      useEffect(() => {
+        ScrollTrigger.create({
+          trigger: photoBoxRef,
+          pin: photoBoxRef,
+          start: "center center",
+          endTrigger: ".list2019",
+          end: "center top+=350px",
+        })
+      }, [])
+    //
+    //LOOP IMAGES FUNCTION
+      /*const loopImages = arrayOfImages => {
+          let counterImgs = 0
+          document.querySelector(".photoBox").style.background = `url(${arrayOfImages[counterImgs]})`
+          document.querySelector(".photoBox").style.backgroundPosition = "center"
+          document.querySelector(".photoBox").style.backgroundSize = "contain"
+          document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
+          let interval = setInterval( () => {
+            counterImgs++
+            if(counterImgs === arrayOfImages.length){
+              counterImgs = 0
+            }
+            document.querySelector(".photoBox").style.background = `url(${arrayOfImages[counterImgs]})`
+            document.querySelector(".photoBox").style.backgroundPosition = "center"
+            document.querySelector(".photoBox").style.backgroundSize = "contain"
+            document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
+          },2000)
+          return () => clearInterval(interval);
+      }
+      const resetToDefaultLoopImage = () => {
+          loopImages(imagesForLaunches.portfolio)
+      }
+      */
+
+      const defaultGif = () => {
+        document.querySelector(".photoBox").style.background = `url(${imagesForLaunches.default[0]})`
+        document.querySelector(".photoBox").style.backgroundPosition = "center"
+        document.querySelector(".photoBox").style.backgroundSize = "contain"
+        document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
+      }
+      const setImage = img => {
+        document.querySelector(".photoBox").style.background = `url(${img[0]})`
+        document.querySelector(".photoBox").style.backgroundPosition = "center"
+        document.querySelector(".photoBox").style.backgroundSize = "contain"
+        document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
+      }
+
+      
+    //
   //
   
 
@@ -322,7 +398,7 @@ function App() {
           <div className="heroTop">
             <BackgroundLogo />
             <div className="welcomeHeadingComposition">
-              <div className="welcomeIntro">Welcome,</div>
+              <div className="welcomeIntro">Hi Humans,</div>
               <div className="welcomeHeading">WE ARE <br/> APOLLO30</div>
             </div>
           </div>
@@ -360,7 +436,7 @@ function App() {
               <h3 className="tabTitle">Vogue</h3>
               <div className="tabRole">?</div>
             </div>
-            <div className="tab">
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.nike)} onMouseLeave={() => defaultGif()}>
               <h3 className="tabTitle">Nike Shox</h3>
               <div className="tabRole">Branded Content Campaign</div>
             </div>
@@ -384,11 +460,11 @@ function App() {
               <h3 className="tabTitle">Sita Abellán</h3>
               <div className="tabRole">Branding</div>
             </div>
-            <div className="tab">
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.threeMarks)} onMouseLeave={() => defaultGif()}>
               <h3 className="tabTitle">Three Marks Coffee</h3>
               <div className="tabRole">E-commerce Development</div>
             </div>
-            <div className="tab">
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
               <h3 className="tabTitle">Trick.Wtf</h3>
               <div className="tabRole">Branding & Development</div>
             </div>
@@ -410,7 +486,7 @@ function App() {
             <h5 className="listTitle">2019</h5>
 
             <div className="divisionLine topLine"></div>
-            <div className="tab">
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.uniko)} onMouseLeave={() => defaultGif()}>
                 <h3 className="tabTitle">Uniko. "Model Agency"</h3>
                 <div className="tabRole">Rebranding</div>
             </div>
