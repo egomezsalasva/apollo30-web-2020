@@ -104,6 +104,7 @@ const Wrapper = styled.div`
   }
 `
 
+
 //MAIN COMPONENT
 function SideNav() {
 
@@ -115,7 +116,7 @@ function SideNav() {
           <div className="fullMenuContainer">
             <div className="menuHeading">Menu</div>
             <ul className="menuOptions">
-              <li className="">
+              <li className="lauchesRef">
                 <a href="#launches">Launches</a>
               </li>
               <li>

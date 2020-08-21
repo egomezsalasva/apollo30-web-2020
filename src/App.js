@@ -30,7 +30,6 @@ import SideNav from './components/SideNav'
 //STYLES
 //-Vars
 const leftSideWidth = "25vw"
-
 //-Components
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -82,7 +81,6 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
   }
 `
-
 const FirstAnimContainer = styled.div`
   position: fixed;
   top: 0;
@@ -100,7 +98,6 @@ const FirstAnimContainer = styled.div`
 
   }
 `
-
 const ContentContainer = styled.div`
   position: absolute;
   right: 0;
@@ -157,7 +154,8 @@ const TopFold = styled.section`
     background: ${apolloColors.dark};
     display: flex;
     .ctaButton{
-      width: 20.8333333vw; /* 300px */
+      /*width: 20.8333333vw;  300px */
+      width: 25vw;
       height: 100%;
       background: ${apolloColors.light};
       cursor: pointer;
@@ -167,7 +165,7 @@ const TopFold = styled.section`
       }
     }
     .descriptionBox{
-      width: calc(100% - 300px);
+      width: calc(100% - 25vw);
       align-self: center;
       text-align: center;
 
@@ -312,6 +310,8 @@ const BackgroundLogo = styled.div`
   opacity: 0;
 `
 
+
+//DATA
 const imagesForLaunches = {
 
   default: [
@@ -362,32 +362,34 @@ const imagesForLaunches = {
   ]
 }
 
+
 //MAIN COMPONENT
 function App() {
 
-  let effectText01 = useRef({
-    duration: 0.8,
-    y: 66,
-    rotate: 2,
-    stagger: 0.4,
-    ease: "power2.inOut",
-  })
+  //GLOBAL ANIM EFFECTS
+    let effectText01 = useRef({
+      duration: 0.8,
+      y: 66,
+      rotate: 2,
+      stagger: 0.4,
+      ease: "power2.inOut",
+    })
+  //
 
   //INTRO TOP FOLD ANIMATION
     const introTl = gsap.timeline()
     useEffect( () => {
       introTl
-      .to(".firstAnimBox01", { scaleX: 0, transformOrigin:"right", duration: 0.8}, "start").delay(0.4)
-      .to(".firstAnimBox02", { scaleX: 0, transformOrigin:"right", duration: 0.8}, "start")
-      .to(".firstAnimBox03", { scaleX: 0, transformOrigin:"right", duration: 0.8}, "start")
-      .to(".firstAnimBox04", { scaleX: 0, transformOrigin:"right", duration: 0.8}, "start")
+      //Division 4 Anim
+      .to(".firstAnimBox01", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start").delay(0.8)
+      .to(".firstAnimBox02", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
+      .to(".firstAnimBox03", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
+      .to(".firstAnimBox04", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
       .to(".firstAnimContainer", {duration: 0, display: "none"})
+      //We are Apollo30 Anim
       .from(".welcomeHeadingInner", effectText01.current)
-      .to(".sidenavBottomText", {
-        duration: 0.8,
-        y: -12,
-        ease: "power2.inOut",
-      })
+      //Scroll Me Anim
+      .to(".sidenavBottomText", {duration: 0.8, y: -12,ease: "power2.inOut"}).delay(0.8)
     }, [introTl])
   //
 
@@ -397,7 +399,7 @@ function App() {
     useEffect( () => {
       ctaButtonTl.to(ctaButtonRef, { 
         duration: 0.8, 
-        width: 360,
+        width: "33vw",
         ease: "power2.inOut",
       })
     }, [ctaButtonTl])
@@ -420,6 +422,7 @@ function App() {
         })
       }, [])
     //
+  
     //LOOP IMAGES FUNCTION
       /*const loopImages = arrayOfImages => {
           let counterImgs = 0
@@ -443,7 +446,6 @@ function App() {
           loopImages(imagesForLaunches.portfolio)
       }
       */
-
       const defaultGif = () => {
         document.querySelector(".photoBox").style.background = `url(${imagesForLaunches.default[0]})`
         document.querySelector(".photoBox").style.backgroundPosition = "center"
@@ -455,26 +457,23 @@ function App() {
         document.querySelector(".photoBox").style.backgroundPosition = "center"
         document.querySelector(".photoBox").style.backgroundSize = "contain"
         document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
-      }
-
-      
+      } 
     //
+
   //
 
   //NAV SCROLL HANDLER
-  useEffect(() => {
-    ScrollTrigger.create({
-      trigger: "#launches",
-      start: "top-=60px top",
-      end: "bottom top",
-      markers: true,
-
-    })
-  }, [])
-//
-
-  
-
+    useEffect(() => {
+      ScrollTrigger.create({
+        background: "red",
+        duration: 0.4,
+        trigger: "#launches",
+        start: "top-=60px top",
+        end: "bottom top",
+        markers: true,
+      })
+    }, [])
+  //
 
   return (
     <>
