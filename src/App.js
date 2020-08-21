@@ -90,13 +90,14 @@ const FirstAnimContainer = styled.div`
   right: 0;
   width: 100vw;
   height: 100vh;
-  background: red;
   z-index: 100;
+
   .firstAnimBox{
     display: inline-block;
     width: 25%;
     height: 100%;
-    background: blue;
+    background: ${apolloColors.dark};
+
   }
 `
 
@@ -292,7 +293,6 @@ const PhotoContainer = styled.div`
     width: 300px;
     height: 300px;
     background: url(${apolloPortfolio});
-    /* background: red; */
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -376,7 +376,13 @@ function App() {
   //INTRO TOP FOLD ANIMATION
     const introTl = gsap.timeline()
     useEffect( () => {
-      introTl.from(".welcomeHeadingInner", effectText01.current).delay(0.8)
+      introTl
+      .to(".firstAnimBox01", { scaleX: 0, transformOrigin:"right", duration: 0.8}, "start").delay(0.4)
+      .to(".firstAnimBox02", { scaleX: 0, transformOrigin:"right", duration: 0.8}, "start")
+      .to(".firstAnimBox03", { scaleX: 0, transformOrigin:"right", duration: 0.8}, "start")
+      .to(".firstAnimBox04", { scaleX: 0, transformOrigin:"right", duration: 0.8}, "start")
+      .to(".firstAnimContainer", {duration: 0, display: "none"})
+      .from(".welcomeHeadingInner", effectText01.current)
       .to(".sidenavBottomText", {
         duration: 0.8,
         y: -12,
@@ -397,8 +403,8 @@ function App() {
     }, [ctaButtonTl])
   //
 
-
   //IMAGE SCROLL FOLLOWER
+    
     //SCROLL FOLLOW
       if (typeof window !== "undefined") {
         gsap.registerPlugin(ScrollTrigger)
@@ -406,11 +412,11 @@ function App() {
       let photoBoxRef = useRef()
       useEffect(() => {
         ScrollTrigger.create({
-          trigger: photoBoxRef,
           pin: photoBoxRef,
-          start: "center center",
+          trigger: photoBoxRef,
+          start: "top center",
           endTrigger: ".list2019",
-          end: "center top+=230px",
+          end: `bottom-=300px center`,
         })
       }, [])
     //
@@ -454,17 +460,31 @@ function App() {
       
     //
   //
+
+  //NAV SCROLL HANDLER
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#launches",
+      start: "top-=60px top",
+      end: "bottom top",
+      markers: true,
+
+    })
+  }, [])
+//
+
   
+
 
   return (
     <>
       <GlobalStyle/>
 
-      <FirstAnimContainer>
-        <div className="firstAnimBox"/>
-        <div className="firstAnimBox"/>
-        <div className="firstAnimBox"/>
-        <div className="firstAnimBox"/>
+      <FirstAnimContainer className="firstAnimContainer">
+        <div className="firstAnimBox firstAnimBox01"/>
+        <div className="firstAnimBox firstAnimBox02"/>
+        <div className="firstAnimBox firstAnimBox03"/>
+        <div className="firstAnimBox firstAnimBox04"/>
       </FirstAnimContainer>
 
       <SideNav/>
@@ -477,7 +497,7 @@ function App() {
 
           
 
-          <div className="heroTop">
+          <div className="heroTop" >
             <BackgroundLogo />
             <div className="welcomeHeadingComposition">
               <div className="welcomeIntro">Hi Humans,</div>

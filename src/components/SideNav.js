@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Images
 import arrowImg from '../assets/images/apoolloArrow.svg'
+import asterixImg from '../assets/images/apolloAsterix.svg'
 
 
 //STYLES
@@ -66,10 +67,9 @@ const Wrapper = styled.div`
         .active::before{
           display: inline-block;
           content: '';
+          background: url(${asterixImg});
           width: 10px;
           height: 10px;
-          border-radius: 50%;
-          background: ${apolloColors.dark};
           margin-right: 10px;
           transform: translateY(-1px);
         }
@@ -106,6 +106,8 @@ const Wrapper = styled.div`
 
 //MAIN COMPONENT
 function SideNav() {
+
+
   return (
     <>
       <Wrapper>
@@ -113,7 +115,7 @@ function SideNav() {
           <div className="fullMenuContainer">
             <div className="menuHeading">Menu</div>
             <ul className="menuOptions">
-              <li className="active">
+              <li className="">
                 <a href="#launches">Launches</a>
               </li>
               <li>
