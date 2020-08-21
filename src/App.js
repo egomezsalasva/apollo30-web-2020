@@ -22,13 +22,14 @@ import muchoMuchachoImg01 from './assets/images/muchoMuchacho/muchoMuchacho01.gi
 import sitaImg01 from './assets/images/sitaAbellan/sitaAbellan01.jpg'
 import newIconsImg01 from './assets/images/newIcons/newIcons01.gif'
 import laProaImg01 from './assets/images/laProa/laProa01.jpg'
+import chipBakerImg01 from './assets/images/chipBaker/chipBaker01.gif'
 //-Components
 import SideNav from './components/SideNav'
 
 
 //STYLES
 //-Vars
-const leftSideWidth = "360px"
+const leftSideWidth = "25vw"
 
 //-Components
 const GlobalStyle = createGlobalStyle`
@@ -82,6 +83,23 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const FirstAnimContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: red;
+  z-index: 100;
+  .firstAnimBox{
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    background: blue;
+  }
+`
+
 const ContentContainer = styled.div`
   position: absolute;
   right: 0;
@@ -118,11 +136,16 @@ const TopFold = styled.section`
         color: ${apolloColors.light};
         ${apolloFonts.subheading03};
       }
-      .welcomeHeading{
+      .welcomeHeadingContainer{
         margin-top: 20px;
-        color: ${apolloColors.light};
-        ${apolloFonts.heading01};
+        .welcomeHeading{
+          height: 66px;
+          color: ${apolloColors.light};
+          ${apolloFonts.heading01};
+          overflow: hidden;
+        }
       }
+      
     }
   }
   .heroBottom{
@@ -133,7 +156,7 @@ const TopFold = styled.section`
     background: ${apolloColors.dark};
     display: flex;
     .ctaButton{
-      width: 300px;
+      width: 20.8333333vw; /* 300px */
       height: 100%;
       background: ${apolloColors.light};
       cursor: pointer;
@@ -173,7 +196,7 @@ const Section = styled.section`
   }
   .sectionDescription{
     margin-top: 30px;
-    max-width: 560px;
+    max-width: 500px;
     color: ${apolloColors.dark};
     ${apolloFonts.textLarge};
   }
@@ -333,16 +356,44 @@ const imagesForLaunches = {
   laProa: [
     laProaImg01
   ],
+
+  chipBaker: [
+    chipBakerImg01
+  ]
 }
 
 //MAIN COMPONENT
 function App() {
 
+  let effectText01 = useRef({
+    duration: 0.8,
+    y: 66,
+    rotate: 2,
+    stagger: 0.4,
+    ease: "power2.inOut",
+  })
+
+  //INTRO TOP FOLD ANIMATION
+    const introTl = gsap.timeline()
+    useEffect( () => {
+      introTl.from(".welcomeHeadingInner", effectText01.current).delay(0.8)
+      .to(".sidenavBottomText", {
+        duration: 0.8,
+        y: -12,
+        ease: "power2.inOut",
+      })
+    }, [introTl])
+  //
+
   //CTA BUTTON ANIMATION
     let ctaButtonRef = useRef()
     const ctaButtonTl = gsap.timeline({paused: true, reversed: true})
     useEffect( () => {
-      ctaButtonTl.to(ctaButtonRef, { duration: 0.6, width: 360 })
+      ctaButtonTl.to(ctaButtonRef, { 
+        duration: 0.8, 
+        width: 360,
+        ease: "power2.inOut",
+      })
     }, [ctaButtonTl])
   //
 
@@ -359,7 +410,7 @@ function App() {
           pin: photoBoxRef,
           start: "center center",
           endTrigger: ".list2019",
-          end: "center top+=350px",
+          end: "center top+=230px",
         })
       }, [])
     //
@@ -409,6 +460,13 @@ function App() {
     <>
       <GlobalStyle/>
 
+      <FirstAnimContainer>
+        <div className="firstAnimBox"/>
+        <div className="firstAnimBox"/>
+        <div className="firstAnimBox"/>
+        <div className="firstAnimBox"/>
+      </FirstAnimContainer>
+
       <SideNav/>
 
       <ContentContainer>
@@ -423,7 +481,14 @@ function App() {
             <BackgroundLogo />
             <div className="welcomeHeadingComposition">
               <div className="welcomeIntro">Hi Humans,</div>
-              <div className="welcomeHeading">WE ARE <br/> APOLLO30</div>
+              <div className="welcomeHeadingContainer">
+                <div className="welcomeHeading">
+                  <div className="welcomeHeadingInner">We Are</div>
+                </div>
+                <div className="welcomeHeading">
+                  <div className="welcomeHeadingInner">Apollo30</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -438,8 +503,8 @@ function App() {
             </button>
             <div className="descriptionBox">
                 <p>
-                  We are a creative studio based in Barcelona.<br/>
-                  We develop creative communication strategies.
+                  <div>We are a creative studio based in Barcelona.</div>
+                  <div>We develop creative communication strategies.</div>
                 </p>
             </div>
           </div>
@@ -458,51 +523,60 @@ function App() {
             <div className="divisionLine topLine"></div>
             <div className="tab">
               <h3 className="tabTitle">Vogue</h3>
-              <div className="tabRole">?</div>
+              {/* Art Direction */}
+              <div className="tabRole">Creativity</div>
             </div>
             <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.nike)} onMouseLeave={() => defaultGif()}>
-              <h3 className="tabTitle">Nike Shox</h3>
-              <div className="tabRole">Branded Content Campaign</div>
+              <h3 className="tabTitle">Nike</h3>
+              {/* Branded Content Campaign */}
+              <div className="tabRole">Creativity</div>
             </div>
             <div className="tab">
               <h3 className="tabTitle">Can Pizza</h3>
-              <div className="tabRole">?</div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">Xemei</h3>
-              <div className="tabRole">?</div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">La Zorra </h3>
-              <div className="tabRole">?</div>
+              <div className="tabRole">All Services</div>
             </div>
             <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)} onMouseLeave={() => defaultGif()}>
               <h3 className="tabTitle">Mucho Muchacho</h3>
-              <div className="tabRole">Vinyl Cover & Website</div>  
+              {/* Branded Content Campaign */}
+              <div className="tabRole">Creativity / Development</div>  
             </div>
             <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.sita)} onMouseLeave={() => defaultGif()}>
               <h3 className="tabTitle">Sita Abellán</h3>
-              <div className="tabRole">Branding</div>
+              <div className="tabRole">Creativity / Branding</div>
             </div>
             <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.threeMarks)} onMouseLeave={() => defaultGif()}>
               <h3 className="tabTitle">Three Marks Coffee</h3>
-              <div className="tabRole">E-commerce Development</div>
+              {/* E-commerce Development */}
+              <div className="tabRole">Development</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">Xemei</h3>
+              <div className="tabRole">All Services</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">La Zebra Slow Food</h3>
+              <div className="tabRole">All Services</div>
+            </div>
+            <div className="tab">
+              <h3 className="tabTitle">La Zorra </h3>
+              <div className="tabRole">All Services</div>
             </div>
             <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
               <h3 className="tabTitle">Trick.Wtf</h3>
-              <div className="tabRole">Branding & Development</div>
+              {/* E-commerce Development */}
+              <div className="tabRole">Branding / Development</div>
             </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
-                <h3 className="tabTitle">New Icons</h3>
-                <div className="tabRole">Branding</div>
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+              <h3 className="tabTitle">Nial</h3>
+              <div className="tabRole">Branding / Development</div>
             </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
-                <h3 className="tabTitle">La Proa 04</h3>
-                <div className="tabRole">Branding & Website</div>
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+              <h3 className="tabTitle">Cambridge Press</h3>
+              <div className="tabRole">Creativity / Development</div>
             </div>
-            <div className="tab">
-                <h3 className="tabTitle">Chip Baker Films</h3>
-                <div className="tabRole">Branding & Website</div>
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+              <h3 className="tabTitle">Finally Press</h3>
+              <div className="tabRole">Creativity / Development</div>
             </div>
           </div>
 
@@ -510,29 +584,43 @@ function App() {
             <h5 className="listTitle">2019</h5>
 
             <div className="divisionLine topLine"></div>
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
+                <h3 className="tabTitle">New Icons</h3>
+                <div className="tabRole">Branding</div>
+            </div>
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
+                <h3 className="tabTitle">La Proa 04</h3>
+                <div className="tabRole">Branding / Development</div>
+            </div>
+            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.chipBaker)} onMouseLeave={() => defaultGif()}>
+                <h3 className="tabTitle">Chip Baker Films</h3>
+                <div className="tabRole">Branding / Development</div>
+            </div>
             <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.uniko)} onMouseLeave={() => defaultGif()}>
                 <h3 className="tabTitle">Uniko. "Model Agency"</h3>
-                <div className="tabRole">Rebranding</div>
-            </div>
-            <div className="tab">
-                <h3 className="tabTitle">Scranny's House</h3>
                 <div className="tabRole">Branding</div>
             </div>
             <div className="tab">
+                <h3 className="tabTitle">Scranny's House</h3>
+                <div className="tabRole">All Services</div>
+            </div>
+            <div className="tab">
                 <h3 className="tabTitle">The New Storytellers</h3>
-                <div className="tabRole">Website</div>
+                <div className="tabRole">Development</div>
             </div>
             <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
                 <h3 className="tabTitle">Premis Butaca</h3>
-                <div className="tabRole">Campaign, Web, Video & Photography</div>
+                {/* Campaign, Web, Video & Photography */}
+                <div className="tabRole">Creativity / Branding / Development</div>
             </div>
             <div className="tab">
                 <h3 className="tabTitle">Owl Institute</h3>
-                <div className="tabRole">Branding & Website</div>
+                <div className="tabRole">Branding / Development</div>
             </div>
             <div className="tab">
                 <h3 className="tabTitle">Cafes Bou</h3>
-                <div className="tabRole">Packaging Design</div>
+                {/* Packaging Design */}
+                <div className="tabRole">Creativity</div>
             </div>
           </div>
         </Section>

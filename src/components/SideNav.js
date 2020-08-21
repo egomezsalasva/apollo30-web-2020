@@ -10,7 +10,7 @@ import arrowImg from '../assets/images/apoolloArrow.svg'
 
 //STYLES
 //-Vars
-const leftSideWidth = "360px"
+const leftSideWidth = "25vw" /* 360px */
 const topFoldStripHeight = "150px"
 
 //-Components
@@ -26,7 +26,6 @@ const Wrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
     width: 100%;
     height: calc(100% - ${topFoldStripHeight});
     background: ${apolloColors.light};
@@ -34,7 +33,7 @@ const Wrapper = styled.div`
     .fullMenuContainer{
       position: absolute;
       top: 50%;
-      left: 120px;
+      left: 8.33333333vw; /* 120px */
       transform: translateY(-50%);
 
       .menuHeading{
@@ -86,13 +85,21 @@ const Wrapper = styled.div`
     height: ${topFoldStripHeight};
     background: ${apolloColors.dark};
 
-    .sidenavBottomText{
+    .sidenavBottomTextContainer{
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: ${apolloColors.light};
-      ${apolloFonts.textSmall}
+      height: 12px;
+      overflow: hidden;
+
+      .sidenavBottomText{
+
+        .sidenavBottomTextInner{
+          color: ${apolloColors.light};
+          ${apolloFonts.textSmall}
+        }
+      }
     }
   }
 `
@@ -123,7 +130,14 @@ function SideNav() {
 
         </div>
         <div className="sidenavBottom">
-          <div className="sidenavBottomText">Scroll Down</div>
+          <div className="sidenavBottomTextContainer">
+            <div className="sidenavBottomText">
+              <div className="sidenavBottomTextInner">Scroll Down</div>
+              <div className="sidenavBottomTextInner">Scroll Down</div>
+              <div className="sidenavBottomTextInner">Call Houston</div>
+            </div>
+          </div>
+          
         </div>
       </Wrapper>
     </>

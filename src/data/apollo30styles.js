@@ -28,9 +28,9 @@ const apolloFonts = {
         font-family: Graphik;
         font-style: normal;
         font-weight: 900;
-        font-size: 18px;
+        font-size: 20px; 
         line-height: 20px;
-        text-transform: uppercase;
+        text-transform: capitalize;
     `,
     subheading02:  props => `
         /* SubHeading 2 Graphik */
