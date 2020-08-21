@@ -96,7 +96,7 @@ const FirstAnimContainer = styled.div`
     display: inline-block;
     width: 25%;
     height: 100%;
-    background: ${apolloColors.dark};
+    background: ${apolloColors.light};
 
   }
 `
@@ -414,9 +414,9 @@ function App() {
         ScrollTrigger.create({
           pin: photoBoxRef,
           trigger: photoBoxRef,
-          start: "top center",
+          start: "center center",
           endTrigger: ".list2019",
-          end: `bottom-=300px center`,
+          end: `bottom-=130px center`,
         })
       }, [])
     //
