@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, {useRef, useEffect, useState } from 'react'
+import React, {useRef, useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -368,11 +368,12 @@ function App() {
 
   //GLOBAL ANIM EFFECTS
     let effectText01 = useRef({
-      duration: 0.8,
+      duration: 1.6,
       y: 66,
+      opacity: 0,
       rotate: 2,
-      stagger: 0.4,
-      ease: "power2.inOut",
+      stagger: 0.2,
+      ease: "power4.inOut",
     })
   //
 
@@ -464,7 +465,6 @@ function App() {
   //
 
   //NAV SCROLL HANDLER
-
     useEffect( () => { 
 
       const checkSection = (sectionId, sectionRef) => {
