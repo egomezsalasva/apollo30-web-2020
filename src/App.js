@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, {useRef, useEffect } from 'react'
+import React, {useRef, useEffect, useState } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -381,7 +381,7 @@ function App() {
     useEffect( () => {
       introTl
       //Division 4 Anim
-      .to(".firstAnimBox01", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start").delay(0.8)
+      .to(".firstAnimBox01", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
       .to(".firstAnimBox02", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
       .to(".firstAnimBox03", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
       .to(".firstAnimBox04", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
@@ -389,7 +389,8 @@ function App() {
       //We are Apollo30 Anim
       .from(".welcomeHeadingInner", effectText01.current)
       //Scroll Me Anim
-      .to(".sidenavBottomText", {duration: 0.8, y: -12,ease: "power2.inOut"}).delay(0.8)
+      .to(".sidenavBottomText", {duration: 1.2, y: -12,ease: "power2.inOut"}, "+=1.2")
+      .delay(1.2)
     }, [introTl])
   //
 
@@ -399,7 +400,7 @@ function App() {
     useEffect( () => {
       ctaButtonTl.to(ctaButtonRef, { 
         duration: 0.8, 
-        width: "33vw",
+        width: "37.5vw",
         ease: "power2.inOut",
       })
     }, [ctaButtonTl])
@@ -463,14 +464,24 @@ function App() {
   //
 
   //NAV SCROLL HANDLER
-    useEffect(() => {
-      ScrollTrigger.create({
-        background: "red",
-        duration: 0.4,
-        trigger: "#launches",
-        start: "top-=60px top",
-        end: "bottom top",
-        markers: true,
+
+    useEffect( () => { 
+
+      const checkSection = (sectionId, sectionRef) => {
+        const lauchesSectionTop = document.querySelector(sectionId).getBoundingClientRect().top - 60 - (window.innerHeight * 0.5)
+        const lauchesSectionBottom = document.querySelector(sectionId).getBoundingClientRect().bottom - 60 - (window.innerHeight * 0.5)
+        if( lauchesSectionTop < 0 && lauchesSectionBottom > 0){
+          document.querySelector(sectionRef).classList.add("active")
+        } else {
+          document.querySelector(sectionRef).classList.remove("active")
+        }
+      }
+
+      window.addEventListener('scroll', e => {
+        checkSection( "#launches", "#launchesNavRef")
+        checkSection( "#services", "#servicesNavRef")
+        checkSection( "#tripulation", "#tripulationNavRef")
+        checkSection( "#base", "#baseNavRef")
       })
     }, [])
   //

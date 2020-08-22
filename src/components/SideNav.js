@@ -116,16 +116,16 @@ function SideNav() {
           <div className="fullMenuContainer">
             <div className="menuHeading">Menu</div>
             <ul className="menuOptions">
-              <li className="lauchesRef">
+              <li id="launchesNavRef">
                 <a href="#launches">Launches</a>
               </li>
-              <li>
+              <li id="servicesNavRef">
                 <a href="#services">Services</a>
               </li>
-              <li>
+              <li id="tripulationNavRef">
                 <a href="#tripulation">Tripulation</a>
               </li>
-              <li>
+              <li id="baseNavRef">
                 <a href="#base">Base</a>
               </li>
             </ul>
