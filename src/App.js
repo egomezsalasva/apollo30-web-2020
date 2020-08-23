@@ -7,7 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 //-Styles
 import {apolloColors, apolloFonts} from './data/apollo30styles'
 //-Images
-// import logoImg from './assets/images/apollo30Logo.png'
+import logoImg from './assets/images/apollo30Logo.png'
+import spaceTextureHero from './assets/images/spaceTextureHero.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
 // import bigLogo from './assets/images/apollo30BigLogo.svg'
 import nikeImg01 from './assets/images/nike/nike01.jpg'
@@ -109,20 +110,23 @@ const TopFold = styled.section`
   position: relative;
   width: 100%;
   height: 100vh;
+  background: url(${spaceTextureHero});
+  background-size: cover;
+  background-position: center;
 
   .logo{
     position: absolute;
     right: 60px;
     top: 60px;
     height: 60px;
-    z-index: 100;
+    z-index: 50;
   }
   .heroTop{
     position: absolute;
     top: 0;
     width: 100%;
     height: calc(100% - 150px);
-    background: ${apolloColors.dark};
+    /* background: ${apolloColors.dark}; */
 
     .welcomeHeadingComposition{
       position: absolute;
@@ -152,7 +156,7 @@ const TopFold = styled.section`
     bottom: 0;
     width: 100%;
     height: 150px;
-    background: ${apolloColors.dark};
+    /* background: ${apolloColors.dark}; */
     display: flex;
     .ctaButton{
       /*width: 20.8333333vw;  300px */
@@ -373,7 +377,7 @@ function App() {
       scaleX: 0, 
       transformOrigin:"right", 
     })
-    const effectText01 = useRef({
+    const effectMoveUpText01 = useRef({
       duration: 1.6,
       y: 66,
       opacity: 0,
@@ -406,8 +410,9 @@ function App() {
       .from(".sidenavBottomText", effectFadeInText01.current, "stage02")
       .from(".ctaText", effectFadeInText01.current, "stage02")
       .from(".descriptionTextContainer", effectFadeInText01.current, "stage02")
+      .from(".logo", {duration: 1.2, opacity: 0, scale: 0.75, ease: "power4.inOut"}, "stage02")
       //We are Apollo30 Anim
-      .from(".welcomeHeadingInner", effectText01.current, "stage03")
+      .from(".welcomeHeadingInner", effectMoveUpText01.current, "stage03-=0.4")
       //Scroll Me Anim
       .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.2")
       .delay(1.2)
@@ -524,7 +529,7 @@ function App() {
 
         <TopFold>
 
-          {/* <img className="logo" src={logoImg} alt="Apollo30 Logo" /> */}
+          <img className="logo" src={logoImg} alt="Apollo30 Logo" />
 
           <div className="heroTop" >
             {/* <BackgroundLogo /> */}

@@ -7,6 +7,7 @@ import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Images
 import arrowImg from '../assets/images/apoolloArrow.svg'
 import asterixImg from '../assets/images/apolloAsterix.svg'
+import spaceTextureNav from '../assets/images/spaceTextureNav.png'
 
 
 //STYLES
@@ -83,7 +84,9 @@ const Wrapper = styled.div`
     right: 0;
     width: 100%;
     height: ${topFoldStripHeight};
-    background: ${apolloColors.dark};
+    background: url(${spaceTextureNav});
+    background-size: cover;
+    background-position: center;
 
     .sidenavBottomTextContainer{
       position: absolute;
