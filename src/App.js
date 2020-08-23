@@ -9,7 +9,7 @@ import {apolloColors, apolloFonts} from './data/apollo30styles'
 //-Images
 // import logoImg from './assets/images/apollo30Logo.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
-import bigLogo from './assets/images/apollo30BigLogo.svg'
+// import bigLogo from './assets/images/apollo30BigLogo.svg'
 import nikeImg01 from './assets/images/nike/nike01.jpg'
 import nikeImg02 from './assets/images/nike/nike02.jpg'
 import nikeImg03 from './assets/images/nike/nike03.jpg'
@@ -297,10 +297,10 @@ const PhotoContainer = styled.div`
     background-repeat: no-repeat;
   }
 `
-const BackgroundLogo = styled.div`
+/*const BackgroundLogo = styled.div`
   height: 100%;
   width: 100%;
-  /*background: url(https://media.giphy.com/media/l0K4lUxBzIOeJd1EA/giphy.gif);*/
+  //background: url(https://media.giphy.com/media/l0K4lUxBzIOeJd1EA/giphy.gif);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 75%;
@@ -309,7 +309,7 @@ const BackgroundLogo = styled.div`
   mask-size: 75%;
   mask-position: center;
   opacity: 0;
-`
+`*/
 
 
 //DATA
@@ -384,7 +384,7 @@ function App() {
     const effectFadeInText01 = useRef({
       duration: 1.2,
       opacity: 0,
-      y: 3,
+      y: 1,
       ease: "power4.inOut",
     })
   //
@@ -501,7 +501,7 @@ function App() {
           checkSection( "#launches", "#launchesNavRef")
           checkSection( "#services", "#servicesNavRef")
           checkSection( "#crew", "#crewNavRef")
-          checkSection( "#base", "#baseNavRef")
+          checkSection( "#groundControl", "#groundControlNavRef")
         })
       }, [])
     //
@@ -526,10 +526,8 @@ function App() {
 
           {/* <img className="logo" src={logoImg} alt="Apollo30 Logo" /> */}
 
-          
-
           <div className="heroTop" >
-            <BackgroundLogo />
+            {/* <BackgroundLogo /> */}
             <div className="welcomeHeadingComposition">
               <div className="welcomeIntro">Hi Humans,</div>
               <div className="welcomeHeadingContainer">
@@ -554,7 +552,7 @@ function App() {
             </button>
             <div className="descriptionBox">
                 <div className="descriptionTextContainer">
-                  <div>We are a creative studio based in Barcelona.</div>
+                  <div>We are a creative studio groundControld in Barcelona.</div>
                   <div>We develop creative communication strategies.</div>
                 </div>
             </div>
@@ -752,7 +750,7 @@ function App() {
 
         </Section>
 
-        <Section id="base">
+        <Section id="groundControl">
 
           <h2 className="sectionTitle">Ground Control</h2>
 

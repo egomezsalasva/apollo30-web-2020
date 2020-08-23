@@ -125,8 +125,8 @@ function SideNav() {
               <li id="crewNavRef">
                 <a href="#crew">Crew</a>
               </li>
-              <li id="baseNavRef">
-                <a href="#base">Ground Control</a>
+              <li id="groundControlNavRef">
+                <a href="#groundControl">Ground Control</a>
               </li>
             </ul>
           </div>
