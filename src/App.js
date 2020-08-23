@@ -368,12 +368,23 @@ const imagesForLaunches = {
 function App() {
 
   //GLOBAL ANIM EFFECTS
-    let effectText01 = useRef({
+    const effectStartBoxes01 = useRef({ 
+      duration: 1.2,
+      scaleX: 0, 
+      transformOrigin:"right", 
+    })
+    const effectText01 = useRef({
       duration: 1.6,
       y: 66,
       opacity: 0,
       rotate: 2,
       stagger: 0.2,
+      ease: "power4.inOut",
+    })
+    const effectFadeInText01 = useRef({
+      duration: 1.2,
+      opacity: 0,
+      y: 3,
       ease: "power4.inOut",
     })
   //
@@ -383,15 +394,22 @@ function App() {
     useEffect( () => {
       introTl
       //Division 4 Anim
-      .to(".firstAnimBox01", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
-      .to(".firstAnimBox02", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
-      .to(".firstAnimBox03", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
-      .to(".firstAnimBox04", { scaleX: 0, transformOrigin:"right", duration: 1.2}, "start")
-      .to(".firstAnimContainer", {duration: 0, display: "none"})
+      .to(".firstAnimBox01", effectStartBoxes01.current, "start")
+      .to(".firstAnimBox02", effectStartBoxes01.current, "start")
+      .to(".firstAnimBox03", effectStartBoxes01.current, "start")
+      .to(".firstAnimBox04", effectStartBoxes01.current, "start")
+      .to(".firstAnimContainer", { duration: 0, display: "none" })
+      //Fade In texts
+      .from(".welcomeIntro", effectFadeInText01.current, "stage02")
+      .from(".menuHeading", effectFadeInText01.current, "stage02")
+      .from(".menuOptions", effectFadeInText01.current, "stage02")
+      .from(".sidenavBottomText", effectFadeInText01.current, "stage02")
+      .from(".ctaText", effectFadeInText01.current, "stage02")
+      .from(".descriptionTextContainer", effectFadeInText01.current, "stage02")
       //We are Apollo30 Anim
-      .from(".welcomeHeadingInner", effectText01.current)
+      .from(".welcomeHeadingInner", effectText01.current, "stage03")
       //Scroll Me Anim
-      .to(".sidenavBottomText", {duration: 1.2, y: -12,ease: "power2.inOut"}, "+=1.2")
+      .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.2")
       .delay(1.2)
     }, [introTl])
   //
