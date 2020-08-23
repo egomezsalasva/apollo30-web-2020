@@ -60,7 +60,7 @@ const Wrapper = styled.div`
             width: 12px;
             height: 8px;
             margin-right: 10px;
-            transform: translate(-1px -2px);
+            transform: translate(-1px, -2px);
           }
         }
 
@@ -122,11 +122,11 @@ function SideNav() {
               <li id="servicesNavRef">
                 <a href="#services">Services</a>
               </li>
-              <li id="tripulationNavRef">
-                <a href="#tripulation">Tripulation</a>
+              <li id="crewNavRef">
+                <a href="#crew">Crew</a>
               </li>
               <li id="baseNavRef">
-                <a href="#base">Base</a>
+                <a href="#base">Ground Control</a>
               </li>
             </ul>
           </div>

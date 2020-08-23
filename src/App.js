@@ -71,6 +71,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
   }
   body {
     font-family: 'Graphik', 'Helvetica', Arial, sans-serif;
@@ -169,7 +170,7 @@ const TopFold = styled.section`
       align-self: center;
       text-align: center;
 
-      p{
+      .descriptionTextContainer{
         display: inline-block;
         padding: 40px;
         text-align: left;
@@ -299,7 +300,7 @@ const PhotoContainer = styled.div`
 const BackgroundLogo = styled.div`
   height: 100%;
   width: 100%;
-  background: url(https://media.giphy.com/media/l0K4lUxBzIOeJd1EA/giphy.gif);
+  /*background: url(https://media.giphy.com/media/l0K4lUxBzIOeJd1EA/giphy.gif);*/
   background-position: center;
   background-repeat: no-repeat;
   background-size: 75%;
@@ -465,25 +466,27 @@ function App() {
   //
 
   //NAV SCROLL HANDLER
-    useEffect( () => { 
+    //Check Scroll Section
+      useEffect( () => { 
 
-      const checkSection = (sectionId, sectionRef) => {
-        const lauchesSectionTop = document.querySelector(sectionId).getBoundingClientRect().top - 60 - (window.innerHeight * 0.5)
-        const lauchesSectionBottom = document.querySelector(sectionId).getBoundingClientRect().bottom - 60 - (window.innerHeight * 0.5)
-        if( lauchesSectionTop < 0 && lauchesSectionBottom > 0){
-          document.querySelector(sectionRef).classList.add("active")
-        } else {
-          document.querySelector(sectionRef).classList.remove("active")
+        const checkSection = (sectionId, sectionRef) => {
+          const lauchesSectionTop = document.querySelector(sectionId).getBoundingClientRect().top - 60 - (window.innerHeight * 0.5)
+          const lauchesSectionBottom = document.querySelector(sectionId).getBoundingClientRect().bottom - 60 - (window.innerHeight * 0.5)
+          if( lauchesSectionTop < 0 && lauchesSectionBottom > 0){
+            document.querySelector(sectionRef).classList.add("active")
+          } else {
+            document.querySelector(sectionRef).classList.remove("active")
+          }
         }
-      }
 
-      window.addEventListener('scroll', e => {
-        checkSection( "#launches", "#launchesNavRef")
-        checkSection( "#services", "#servicesNavRef")
-        checkSection( "#tripulation", "#tripulationNavRef")
-        checkSection( "#base", "#baseNavRef")
-      })
-    }, [])
+        window.addEventListener('scroll', e => {
+          checkSection( "#launches", "#launchesNavRef")
+          checkSection( "#services", "#servicesNavRef")
+          checkSection( "#crew", "#crewNavRef")
+          checkSection( "#base", "#baseNavRef")
+        })
+      }, [])
+    //
   //
 
   return (
@@ -532,10 +535,10 @@ function App() {
               <div className="ctaText">Call Houston</div>
             </button>
             <div className="descriptionBox">
-                <p>
+                <div className="descriptionTextContainer">
                   <div>We are a creative studio based in Barcelona.</div>
                   <div>We develop creative communication strategies.</div>
-                </p>
+                </div>
             </div>
           </div>
 
@@ -685,9 +688,9 @@ function App() {
 
         </Section>
 
-        <Section id="tripulation">
+        <Section id="crew">
 
-          <h2 className="sectionTitle">Tripulation</h2>
+          <h2 className="sectionTitle">Crew</h2>
 
           <div className="apolloList">
             <h5 className="listTitle">Operations</h5>
@@ -733,7 +736,7 @@ function App() {
 
         <Section id="base">
 
-          <h2 className="sectionTitle">Base</h2>
+          <h2 className="sectionTitle">Ground Control</h2>
 
           <div className="apolloList">
             <h5 className="listTitle">Apollo30 Headquarters</h5>
