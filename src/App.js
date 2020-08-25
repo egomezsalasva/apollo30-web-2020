@@ -191,103 +191,156 @@ const FirstSectionSpace = styled.div`
 `
 const Section = styled.section`
   width: 100%;
-  padding: 70px 130px 130px;
   background: ${apolloColors.light};
 
-  .sectionTitle{
-    color: ${apolloColors.dark};
-    ${apolloFonts.heading02};
-  }
-  .sectionDescription{
-    margin-top: 30px;
-    max-width: 500px;
-    color: ${apolloColors.dark};
-    ${apolloFonts.textLarge};
-  }
-
-  .apolloList{
-    margin-top: 50px;
-    width: 500px;
-
-    .listTitle{
-      padding-left: 10px;
-      ${apolloFonts.subheading03};
+  .sectionCenter{
+    width: 910px;
+    margin: 70px auto calc(130px + 70px);
+    padding-left: 45px;
+    &:last-of-type{
+      margin-bottom: 130px;
     }
-    .divisionLine{
-      width: 100%;
-      height: 2px;
-      background: ${apolloColors.dark};
-    }
-    .topLine{
-      margin-top: 20px;
+    @media (max-width: 1230px) {
+      width: 100%; 
     }
 
-    .tab{
+    .sectionTitle{
+      color: ${apolloColors.dark};
+      ${apolloFonts.heading02};
+    }
+    .sectionDescription{
+      margin-top: 30px;
+      max-width: 500px;
+      color: ${apolloColors.dark};
+      ${apolloFonts.textLarge};
+    }
+
+    .listContainer{
       position: relative;
-      border-bottom: 2px solid ${apolloColors.dark};
-      width: 100%;
-      padding: 20px 10px;
-      cursor: pointer;
 
-      .tabTitle{
-        display: inline-block;
-        color: ${apolloColors.dark};
-        ${apolloFonts.subheading01};
+      .apolloList{
+        display:inline-block;
+        margin-top: 50px;
+        width: 500px;
+        @media (max-width: 1230px) {
+          width: 54.9450549% ;
+          /* min-width: 300px; */  
+        }
+
+        .listTitle{
+          padding-left: 10px;
+          ${apolloFonts.subheading03};
+        }
+        .divisionLine{
+          width: 100%;
+          height: 2px;
+          background: ${apolloColors.dark};
+        }
+        .topLine{
+          margin-top: 20px;
+        }
+
+        .tab{
+          position: relative;
+          border-bottom: 2px solid ${apolloColors.dark};
+          width: 100%;
+          padding: 20px 10px;
+          cursor: pointer;
+
+          .tabTitle{
+            display: inline-block;
+            color: ${apolloColors.dark};
+            ${apolloFonts.subheading01};
+          }
+          .tabTitleServices{
+            display: inline-block;
+            color: ${apolloColors.dark};
+            ${apolloFonts.subheading03};
+          }
+          .tabRole{
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            ${apolloFonts.textSmall};
+            opacity: 0.33;
+          }
+        }
+
+        .coordinates{
+          margin: 20px 0 0 10px;
+          color: ${apolloColors.dark};
+          ${apolloFonts.subheading03};
+        }
+
+        .address{
+          margin: 20px 0 0 10px;
+          color: ${apolloColors.dark};
+          ${apolloFonts.textLarge};
+        }
+
+        .contactText{
+          margin: 10px 0 0 10px;
+          color: ${apolloColors.dark};
+          ${apolloFonts.textLarge};
+          a{
+            text-decoration: none;
+            color: ${apolloColors.dark};
+          }
+        }
+
+        .phoneText{
+          margin-top: 20px;
+        }
+
+        .linkedinText{
+          margin-bottom: 0px;
+        }
+
       }
-      .tabTitleServices{
-        display: inline-block;
-        color: ${apolloColors.dark};
-        ${apolloFonts.subheading03};
-      }
-      .tabRole{
+        
+      .photoContainer{
         position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        ${apolloFonts.textSmall};
-        opacity: 0.33;
+        top: calc(50px + 20px + 20px + 2px);
+        left: 500px;
+        height: 300px;
+        /* width: calc(410px + 40px); */
+        width: calc(31.25vw);
+        @media (max-width: 1230px) {
+          /* width: calc(100% - 54.9450549%); */
+          width: 29.6747967vw; /* BUG Not Working */
+          min-width: 380px;
+          left: 54.9450549%;
+        }
+
+        .photoBox{
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 300px;
+          height: 300px;
+          background: url(${apolloPortfolio});
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
       }
-    }
+      
 
-    .coordinates{
-      margin: 20px 0 0 10px;
-      color: ${apolloColors.dark};
-      ${apolloFonts.subheading03};
-    }
 
-    .address{
-      margin: 20px 0 0 10px;
-      color: ${apolloColors.dark};
-      ${apolloFonts.textLarge};
     }
+    
 
-    .contactText{
-      margin: 10px 0 0 10px;
-      color: ${apolloColors.dark};
-      ${apolloFonts.textLarge};
-      a{
-        text-decoration: none;
-        color: ${apolloColors.dark};
-      }
-    }
-
-    .phoneText{
-      margin-top: 20px;
-    }
-
-    .linkedinText{
-      margin-bottom: 0px;
-    }
-
-  }
+  } 
 `
-const PhotoContainer = styled.div`
+/*const PhotoContainer = styled.div`
   position: absolute;
   top: calc( 100vh + 130px + 90px + 144px);
   right: 0;
   width: calc(100vw - 990px);
   min-width: calc(300px + 40px);
   height: 300px;
+
 
   .photoBox{
     position: absolute;
@@ -300,7 +353,7 @@ const PhotoContainer = styled.div`
     background-position: center;
     background-repeat: no-repeat;
   }
-`
+`*/
 /*const BackgroundLogo = styled.div`
   height: 100%;
   width: 100%;
@@ -414,7 +467,7 @@ function App() {
       //We are Apollo30 Anim
       .from(".welcomeHeadingInner", effectMoveUpText01.current, "stage03-=0.4")
       //Scroll Me Anim
-      .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.2")
+      .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.6")
       .delay(1.2)
     }, [introTl])
   //
@@ -506,7 +559,7 @@ function App() {
           checkSection( "#launches", "#launchesNavRef")
           checkSection( "#services", "#servicesNavRef")
           checkSection( "#crew", "#crewNavRef")
-          checkSection( "#groundControl", "#groundControlNavRef")
+          checkSection( "#base", "#baseNavRef")
         })
       }, [])
     //
@@ -557,7 +610,7 @@ function App() {
             </button>
             <div className="descriptionBox">
                 <div className="descriptionTextContainer">
-                  <div>We are a creative studio groundControld in Barcelona.</div>
+                  <div>We are a creative studio based in Barcelona.</div>
                   <div>We develop creative communication strategies.</div>
                 </div>
             </div>
@@ -568,222 +621,242 @@ function App() {
         <FirstSectionSpace/>
 
         <Section id="launches">
-          <h2 className="sectionTitle">Launches</h2>
-          <p className="sectionDescription">Here are some non-confidential launches we have picked from our archives</p>
+          <div className="sectionCenter">
 
-          <div className="apolloList list2020">
-            <h5 className="listTitle">2020</h5>
+            <h2 className="sectionTitle">Launches</h2>
+            <p className="sectionDescription">Here are some non-confidential launches we have picked from our archives</p>
 
-            <div className="divisionLine topLine"></div>
-            <div className="tab">
-              <h3 className="tabTitle">Vogue</h3>
-              {/* Art Direction */}
-              <div className="tabRole">Creativity</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.nike)} onMouseLeave={() => defaultGif()}>
-              <h3 className="tabTitle">Nike</h3>
-              {/* Branded Content Campaign */}
-              <div className="tabRole">Creativity</div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">Can Pizza</h3>
-              <div className="tabRole">All Services</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)} onMouseLeave={() => defaultGif()}>
-              <h3 className="tabTitle">Mucho Muchacho</h3>
-              {/* Branded Content Campaign */}
-              <div className="tabRole">Creativity / Development</div>  
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.sita)} onMouseLeave={() => defaultGif()}>
-              <h3 className="tabTitle">Sita Abellán</h3>
-              <div className="tabRole">Creativity / Branding</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.threeMarks)} onMouseLeave={() => defaultGif()}>
-              <h3 className="tabTitle">Three Marks Coffee</h3>
-              {/* E-commerce Development */}
-              <div className="tabRole">Development</div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">Xemei</h3>
-              <div className="tabRole">All Services</div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">La Zebra Slow Food</h3>
-              <div className="tabRole">All Services</div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">La Zorra </h3>
-              <div className="tabRole">All Services</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-              <h3 className="tabTitle">Trick.Wtf</h3>
-              {/* E-commerce Development */}
-              <div className="tabRole">Branding / Development</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-              <h3 className="tabTitle">Nial</h3>
-              <div className="tabRole">Branding / Development</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-              <h3 className="tabTitle">Cambridge Press</h3>
-              <div className="tabRole">Creativity / Development</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-              <h3 className="tabTitle">Finally Press</h3>
-              <div className="tabRole">Creativity / Development</div>
-            </div>
-          </div>
+            <div className="listContainer">
 
-          <div className="apolloList list2019">
-            <h5 className="listTitle">2019</h5>
+              <div className="apolloList list2020">
+                <h5 className="listTitle">2020</h5>
 
-            <div className="divisionLine topLine"></div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
-                <h3 className="tabTitle">New Icons</h3>
-                <div className="tabRole">Branding</div>
+                <div className="divisionLine topLine"></div>
+                <div className="tab">
+                  <h3 className="tabTitle">Vogue</h3>
+                  {/* Art Direction */}
+                  <div className="tabRole">Creativity</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.nike)} onMouseLeave={() => defaultGif()}>
+                  <h3 className="tabTitle">Nike</h3>
+                  {/* Branded Content Campaign */}
+                  <div className="tabRole">Creativity</div>
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitle">Can Pizza</h3>
+                  <div className="tabRole">All Services</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)} onMouseLeave={() => defaultGif()}>
+                  <h3 className="tabTitle">Mucho Muchacho</h3>
+                  {/* Branded Content Campaign */}
+                  <div className="tabRole">Creativity / Development</div>  
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.sita)} onMouseLeave={() => defaultGif()}>
+                  <h3 className="tabTitle">Sita Abellán</h3>
+                  <div className="tabRole">Creativity / Branding</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.threeMarks)} onMouseLeave={() => defaultGif()}>
+                  <h3 className="tabTitle">Three Marks Coffee</h3>
+                  {/* E-commerce Development */}
+                  <div className="tabRole">Development</div>
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitle">Xemei</h3>
+                  <div className="tabRole">All Services</div>
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitle">La Zebra Slow Food</h3>
+                  <div className="tabRole">All Services</div>
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitle">La Zorra </h3>
+                  <div className="tabRole">All Services</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+                  <h3 className="tabTitle">Trick.Wtf</h3>
+                  {/* E-commerce Development */}
+                  <div className="tabRole">Branding / Development</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+                  <h3 className="tabTitle">Nial</h3>
+                  <div className="tabRole">Branding / Development</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+                  <h3 className="tabTitle">Cambridge Press</h3>
+                  <div className="tabRole">Creativity / Development</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+                  <h3 className="tabTitle">Finally Press</h3>
+                  <div className="tabRole">Creativity / Development</div>
+                </div>
+              </div>
+              <div className="apolloList list2019">
+                <h5 className="listTitle">2019</h5>
+
+                <div className="divisionLine topLine"></div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">New Icons</h3>
+                    <div className="tabRole">Branding</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">La Proa 04</h3>
+                    <div className="tabRole">Branding / Development</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.chipBaker)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">Chip Baker Films</h3>
+                    <div className="tabRole">Branding / Development</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.uniko)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">Uniko. "Model Agency"</h3>
+                    <div className="tabRole">Branding</div>
+                </div>
+                <div className="tab">
+                    <h3 className="tabTitle">Scranny's House</h3>
+                    <div className="tabRole">All Services</div>
+                </div>
+                <div className="tab">
+                    <h3 className="tabTitle">The New Storytellers</h3>
+                    <div className="tabRole">Development</div>
+                </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">Premis Butaca</h3>
+                    {/* Campaign, Web, Video & Photography */}
+                    <div className="tabRole">Creativity / Branding / Development</div>
+                </div>
+                <div className="tab">
+                    <h3 className="tabTitle">Owl Institute</h3>
+                    <div className="tabRole">Branding / Development</div>
+                </div>
+                <div className="tab">
+                    <h3 className="tabTitle">Cafes Bou</h3>
+                    {/* Packaging Design */}
+                    <div className="tabRole">Creativity</div>
+                </div>
+              </div>
+        
+              <div className="photoContainer" ref={el => photoBoxRef = el}>
+                <div className="photoBox"></div>
+              </div>
+
+
             </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
-                <h3 className="tabTitle">La Proa 04</h3>
-                <div className="tabRole">Branding / Development</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.chipBaker)} onMouseLeave={() => defaultGif()}>
-                <h3 className="tabTitle">Chip Baker Films</h3>
-                <div className="tabRole">Branding / Development</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.uniko)} onMouseLeave={() => defaultGif()}>
-                <h3 className="tabTitle">Uniko. "Model Agency"</h3>
-                <div className="tabRole">Branding</div>
-            </div>
-            <div className="tab">
-                <h3 className="tabTitle">Scranny's House</h3>
-                <div className="tabRole">All Services</div>
-            </div>
-            <div className="tab">
-                <h3 className="tabTitle">The New Storytellers</h3>
-                <div className="tabRole">Development</div>
-            </div>
-            <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
-                <h3 className="tabTitle">Premis Butaca</h3>
-                {/* Campaign, Web, Video & Photography */}
-                <div className="tabRole">Creativity / Branding / Development</div>
-            </div>
-            <div className="tab">
-                <h3 className="tabTitle">Owl Institute</h3>
-                <div className="tabRole">Branding / Development</div>
-            </div>
-            <div className="tab">
-                <h3 className="tabTitle">Cafes Bou</h3>
-                {/* Packaging Design */}
-                <div className="tabRole">Creativity</div>
-            </div>
+
           </div>
         </Section>
-        <PhotoContainer ref={el => photoBoxRef = el}>
+        {/* <PhotoContainer ref={el => photoBoxRef = el}>
           <div className="photoBox"></div>
-        </PhotoContainer>
+        </PhotoContainer> */}
 
         <Section id="services">
+          <div className="sectionCenter">
 
-          <h2 className="sectionTitle">Services</h2>
-          <p className="sectionDescription">We believe that in our current era, there’s a saturation of stimuli. This requires differentiation through tailored content.</p>
+            <h2 className="sectionTitle">Services</h2>
+            <p className="sectionDescription">We believe that in our current era, there’s a saturation of stimuli. This requires differentiation through tailored content.</p>
 
-          <div className="apolloList">
-            <div className="divisionLine topLine"></div>
-            <div className="tab">
-              <h3 className="tabTitleServices">Creativity</h3>
-              <div className="tabRole">Read More</div>
+            <div className="listContainer">
+              <div className="apolloList">
+                <div className="divisionLine topLine"></div>
+                <div className="tab">
+                  <h3 className="tabTitleServices">Creativity</h3>
+                  <div className="tabRole">Read More</div>
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitleServices">Brand Innovation</h3>
+                  <div className="tabRole">Read More</div>  
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitleServices">Media Activation</h3>
+                  <div className="tabRole">Read More</div>
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitleServices">Development</h3>
+                  <div className="tabRole">Read More</div>
+                </div>
+              </div>
             </div>
-            <div className="tab">
-              <h3 className="tabTitleServices">Brand Innovation</h3>
-              <div className="tabRole">Read More</div>  
-            </div>
-            <div className="tab">
-              <h3 className="tabTitleServices">Media Activation</h3>
-              <div className="tabRole">Read More</div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitleServices">Development</h3>
-              <div className="tabRole">Read More</div>
-            </div>
+
           </div>
-
         </Section>
 
         <Section id="crew">
+          <div className="sectionCenter">
+            <h2 className="sectionTitle">Crew</h2>
 
-          <h2 className="sectionTitle">Crew</h2>
+            <div className="listContainer">
+              <div className="apolloList">
+                <h5 className="listTitle">Operations</h5>
 
-          <div className="apolloList">
-            <h5 className="listTitle">Operations</h5>
+                <div className="divisionLine topLine"></div>
+                <div className="tab">
+                  <h3 className="tabTitle">Anto</h3>
+                  <div className="tabRole">Creative Director</div>
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitle">Sandra</h3>
+                  <div className="tabRole">General Manager</div>  
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitle">Cesar</h3>
+                  <div className="tabRole">Videographer / Motion Designer </div>
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitle">Paula</h3>
+                  <div className="tabRole">Community Manager / Junior Designer</div>
+                </div>
+              </div>
 
-            <div className="divisionLine topLine"></div>
-            <div className="tab">
-              <h3 className="tabTitle">Anto</h3>
-              <div className="tabRole">Creative Director</div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">Sandra</h3>
-              <div className="tabRole">General Manager</div>  
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">Cesar</h3>
-              <div className="tabRole">Videographer / Motion Designer </div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">Paula</h3>
-              <div className="tabRole">Community Manager / Junior Designer</div>
+              <div className="apolloList">
+                <h5 className="listTitle">Technicians</h5>
+
+                <div className="divisionLine topLine"></div>
+                <div className="tab">
+                  <h3 className="tabTitle">Kike</h3>
+                  <div className="tabRole">UX & UI Designer / Front-End Developer</div>
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitle">Pablo</h3>
+                  <div className="tabRole">Full-Stack Developer</div>  
+                </div>
+                <div className="tab">
+                  <h3 className="tabTitle">Nathan</h3>
+                  <div className="tabRole">Photographer</div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="apolloList">
-            <h5 className="listTitle">Technicians</h5>
-
-            <div className="divisionLine topLine"></div>
-            <div className="tab">
-              <h3 className="tabTitle">Kike</h3>
-              <div className="tabRole">UX & UI Designer / Front-End Developer</div>
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">Pablo</h3>
-              <div className="tabRole">Full-Stack Developer</div>  
-            </div>
-            <div className="tab">
-              <h3 className="tabTitle">Nathan</h3>
-              <div className="tabRole">Photographer</div>
-            </div>
-          </div>
-
         </Section>
 
-        <Section id="groundControl">
+        <Section id="base">
+          <div className="sectionCenter">
+            <h2 className="sectionTitle">Base</h2>
 
-          <h2 className="sectionTitle">Ground Control</h2>
+            <div className="listContainer">
+              <div className="apolloList">
+                <h5 className="listTitle">Apollo30 Headquarters</h5>
 
-          <div className="apolloList">
-            <h5 className="listTitle">Apollo30 Headquarters</h5>
+                <div className="divisionLine topLine"></div>
 
-            <div className="divisionLine topLine"></div>
+                <h5 className="coordinates">41.2145º N, 2.0739º E</h5>
+                
+                <div className="address">
+                  C/ d’Enric Morera 5-7, <br/>
+                  08902, l’Hospitalet de Llobregat, BCN, ES 
+                </div>
+              </div>
 
-            <h5 className="coordinates">41.2145º N, 2.0739º E</h5>
+              <div className="apolloList">
+                <h5 className="listTitle">Establish Communication</h5>
+
+                <div className="divisionLine topLine"></div>
             
-            <div className="address">
-              C/ d’Enric Morera 5-7, <br/>
-              08902, l’Hospitalet de Llobregat, BCN, ES 
+                <div className="contactText phoneText">+34 693 037 682</div>
+                <div className="contactText">contact@apollo30.com</div>
+                <div className="contactText"><a href="https://www.instagram.com/apollo30com/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+                <div className="contactText linkedinText"><a href="https://www.linkedin.com/company/apollo-30/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+
+              </div>
             </div>
           </div>
-
-          <div className="apolloList">
-            <h5 className="listTitle">Establish Communication</h5>
-
-            <div className="divisionLine topLine"></div>
-        
-            <div className="contactText phoneText">+34 693 037 682</div>
-            <div className="contactText">contact@apollo30.com</div>
-            <div className="contactText"><a href="https://www.instagram.com/apollo30com/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
-            <div className="contactText linkedinText"><a href="https://www.linkedin.com/company/apollo-30/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
-
-          </div>
-
         </Section>
 
       </ContentContainer>
