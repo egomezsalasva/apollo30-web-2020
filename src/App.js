@@ -245,6 +245,10 @@ const Section = styled.section`
           width: 100%;
           padding: 20px 10px;
           cursor: default;
+          &:hover .tabReadMore{
+            opacity: 0.33;
+            transition: opacity 0.8s ease-in-out;
+          } 
 
           .tabTitle{
             display: inline-block;
@@ -303,7 +307,8 @@ const Section = styled.section`
             transform: translateY(-50%);
             right: calc(18px + 20px);
             ${apolloFonts.textSmall};
-            opacity: 0.33;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
           }
           .arrowContainer{
             position: absolute;
@@ -836,28 +841,28 @@ const App = () => {
                 <div className="divisionLine topLine"></div>
                 <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Creativity</h3>
-                  <div className="tabReadMore">Read More</div>
+                  <div className="tabReadMore">Click To Read More</div>
                   <div className="arrowContainer">
                     <div className="arrowServices" />
                   </div> 
                 </div>
                 <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Brand Innovation</h3>
-                  <div className="tabReadMore">Read More</div>
+                  <div className="tabReadMore">Click To Read More</div>
                   <div className="arrowContainer">
                     <div className="arrowServices" />
                   </div>
                 </div>
                 <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Media Activation</h3>
-                  <div className="tabReadMore">Read More</div>
+                  <div className="tabReadMore">Click To Read More</div>
                   <div className="arrowContainer">
                     <div className="arrowServices" />
                   </div>
                 </div>
                 <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Development</h3>
-                  <div className="tabReadMore">Read More</div>
+                  <div className="tabReadMore">Click To Read More</div>
                   <div className="arrowContainer">
                     <div className="arrowServices" />
                   </div>
