@@ -1,13 +1,13 @@
 //IMPORTS
 //-Modules
-import React, {useRef, useEffect, useState } from 'react'
+import React, {useRef, useEffect} from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 //-Styles
 import {apolloColors, apolloFonts} from './data/apollo30styles'
 //-Images
-import logoImg from './assets/images/apollo30Logo.png'
+// import logoImg from './assets/images/apollo30Logo.png'
 import spaceTextureHero from './assets/images/spaceTextureHero.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
 import arrowServices from './assets/images/apolloServicesArrow02.svg'
@@ -808,7 +808,7 @@ const App = () => {
                 <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Premis Butaca</h3>
                     {/* Campaign, Web, Video & Photography */}
-                    <div className="tabRole">Creativity / Branding / Development</div>
+                    <div className="tabRole">Branding / Development</div>
                 </div>
                 <div className="tab">
                     <h3 className="tabTitle">Owl Institute</h3>
