@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, {useRef, useEffect } from 'react'
+import React, {useRef, useEffect, useState } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -195,11 +195,9 @@ const Section = styled.section`
 
   .sectionCenter{
     width: 910px;
-    margin: 70px auto calc(130px + 70px);
+    margin: 0 auto;
+    padding: 70px 0 130px;
     padding-left: 45px;
-    &:last-of-type{
-      margin-bottom: 130px;
-    }
     @media (max-width: 1230px) {
       width: 100%; 
     }
@@ -220,7 +218,7 @@ const Section = styled.section`
 
       .apolloList{
         display:inline-block;
-        margin-top: 50px;
+        padding-top: 50px;
         width: 500px;
         @media (max-width: 1230px) {
           width: 54.9450549% ;
@@ -245,7 +243,7 @@ const Section = styled.section`
           border-bottom: 2px solid ${apolloColors.dark};
           width: 100%;
           padding: 20px 10px;
-          cursor: pointer;
+          cursor: default;
 
           .tabTitle{
             display: inline-block;
@@ -265,6 +263,42 @@ const Section = styled.section`
             ${apolloFonts.textSmall};
             opacity: 0.33;
           }
+          .tabMailPlus{
+            right: calc(10px + 15px + 20px);
+            opacity: 0;
+          }
+          .tabRolePlus{
+            right: calc(10px + 15px + 20px);
+          }
+          .plusCrew{
+            position: absolute;
+            right: 10px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            transform: translateY(1px);
+            .line01Plus{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 2px;
+              height: 12px;
+              background: ${apolloColors.dark};
+            }
+            .line02Plus{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              height: 2px;
+              width: 12px;
+              background: ${apolloColors.dark};
+            }
+          }
+        }
+        .pointerTab{
+          cursor: pointer;
         }
 
         .coordinates{
@@ -325,35 +359,12 @@ const Section = styled.section`
           background-repeat: no-repeat;
         }
       }
-      
-
 
     }
     
 
   } 
 `
-/*const PhotoContainer = styled.div`
-  position: absolute;
-  top: calc( 100vh + 130px + 90px + 144px);
-  right: 0;
-  width: calc(100vw - 990px);
-  min-width: calc(300px + 40px);
-  height: 300px;
-
-
-  .photoBox{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: 300px;
-    background: url(${apolloPortfolio});
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-`*/
 /*const BackgroundLogo = styled.div`
   height: 100%;
   width: 100%;
@@ -420,9 +431,8 @@ const imagesForLaunches = {
   ]
 }
 
-
 //MAIN COMPONENT
-function App() {
+const App = () => {
 
   //GLOBAL ANIM EFFECTS
     const effectStartBoxes01 = useRef({ 
@@ -561,8 +571,67 @@ function App() {
           checkSection( "#crew", "#crewNavRef")
           checkSection( "#base", "#baseNavRef")
         })
+
+
+        
+
       }, [])
     //
+  //
+
+  //CREW ANIMATIONS
+      
+      const [plusStateAntoActive, setPlusStateAntoActive] = useState(false)
+      let plusAnto = useRef()
+      let plusAntoLine = useRef()
+      let plusAntoRole = useRef()
+      let plusAntoMail = useRef()
+      let crewHoverAntoTl = gsap.timeline({ paused: true, reversed: true })
+      let crewClickAntoTl = gsap.timeline({ paused: true, reversed: false })
+      useEffect( () => { 
+        if(plusStateAntoActive === false) {
+          crewHoverAntoTl.to( plusAnto, { duration: 0.8, rotate: 90, ease: "power1.inOut"} )
+        }
+      }, [plusStateAntoActive, crewHoverAntoTl])
+      useEffect( () => { 
+        crewClickAntoTl.to( plusAnto, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
+                   .to( plusAntoLine, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start" )
+                   .to( plusAntoRole, { duration: 0.8, x: `${-95.03 - 20}`, ease: "power2.inOut" }, "start" )
+                   .to( plusAntoMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02" )
+      }, [crewClickAntoTl])
+      // const clickHandelrAntoPlus = () => {
+      //   if(plusStateAntoActive === false){
+      //     crewClickAntoTl.play()
+      //     setPlusStateAntoActive(!plusStateAntoActive)
+      //   }else if(plusStateAntoActive === true){
+      //     crewClickAntoTl.reverse()
+      //   }
+      // }
+
+      const [plusStateSandraActive, setPlusStateSandraActive] = useState(false)
+      let plusSandra = useRef()
+      let plusSandraLine = useRef()
+      let plusSandraRole = useRef()
+      let plusSandraMail = useRef()
+      let crewHoverSandraTl = gsap.timeline({ paused: true, reversed: true })
+      let crewClickSandraTl = gsap.timeline({ paused: true, reversed: true })
+      useEffect( () => { 
+        if(plusStateSandraActive === false) {
+        crewHoverSandraTl.to( plusSandra, { duration: 0.8, rotate: 90, ease: "power1.inOut"} )
+        }
+      }, [plusStateSandraActive, crewHoverSandraTl])
+      useEffect( () => { 
+        crewClickSandraTl.to( plusSandra, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
+                   .to( plusSandraLine, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start" )
+                   .to( plusSandraRole, { duration: 0.8, x: `${-94.3 - 20}`, ease: "power2.inOut" }, "start" )
+                   .to( plusSandraMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02" )
+      }, [crewClickSandraTl])
+      const clickHandelrSandraPlus = () => {
+        if(plusStateSandraActive === false){
+          crewClickSandraTl.play()
+          setPlusStateSandraActive(!plusStateSandraActive)
+        }
+      }
   //
 
   return (
@@ -582,7 +651,7 @@ function App() {
 
         <TopFold>
 
-          <img className="logo" src={logoImg} alt="Apollo30 Logo" />
+          {/* <img className="logo" src={logoImg} alt="Apollo30 Logo" /> */}
 
           <div className="heroTop" >
             {/* <BackgroundLogo /> */}
@@ -733,7 +802,6 @@ function App() {
                     <div className="tabRole">Creativity</div>
                 </div>
               </div>
-        
               <div className="photoContainer" ref={el => photoBoxRef = el}>
                 <div className="photoBox"></div>
               </div>
@@ -787,13 +855,31 @@ function App() {
                 <h5 className="listTitle">Operations</h5>
 
                 <div className="divisionLine topLine"></div>
-                <div className="tab">
+                <div className="tab pointerTab"
+                 onMouseEnter={ () => crewHoverAntoTl.play() }
+                 onMouseLeave={ () => crewHoverAntoTl.reverse() }
+                 onClick={() => crewClickAntoTl.play()}
+                >
                   <h3 className="tabTitle">Anto</h3>
-                  <div className="tabRole">Creative Director</div>
+                  <div className="tabRole tabRolePlus" ref={el => plusAntoRole = el}>Creative Director</div>
+                  <div className="tabRole tabMailPlus" ref={el => plusAntoMail = el} id="plusAntoMail">a@apollo30.com</div>
+                  <div className="plusCrew" ref={el => plusAnto = el}>
+                    <div className="line01Plus"></div>
+                    <div className="line02Plus" ref={el => plusAntoLine = el}></div>
+                  </div>
                 </div>
-                <div className="tab">
-                  <h3 className="tabTitle">Sandra</h3>
-                  <div className="tabRole">General Manager</div>  
+                <div className="tab pointerTab"
+                  onMouseEnter={ () => crewHoverSandraTl.play() }
+                  onMouseLeave={ () => crewHoverSandraTl.reverse() }
+                  onClick={clickHandelrSandraPlus}
+                >
+                  <h3 className="tabTitle tabRolePlus">Sandra</h3>
+                  <div className="tabRole tabRolePlus" ref={el => plusSandraRole = el}>General Manager</div>
+                  <div className="tabRole tabMailPlus" ref={el => plusSandraMail = el} id="plusSandraMail">s@apollo30.com</div>
+                  <div className="plusCrew" ref={el => plusSandra = el}>
+                    <div className="line01Plus"></div>
+                    <div className="line02Plus" ref={el => plusSandraLine = el}></div>
+                  </div>
                 </div>
                 <div className="tab">
                   <h3 className="tabTitle">Cesar</h3>
