@@ -581,57 +581,31 @@ const App = () => {
 
   //CREW ANIMATIONS
       
-      const [plusStateAntoActive, setPlusStateAntoActive] = useState(false)
-      let plusAnto = useRef()
-      let plusAntoLine = useRef()
+      let plusAntoLine01 = useRef()
+      let plusAntoLine02 = useRef()
       let plusAntoRole = useRef()
       let plusAntoMail = useRef()
       let crewHoverAntoTl = gsap.timeline({ paused: true, reversed: true })
-      let crewClickAntoTl = gsap.timeline({ paused: true, reversed: false })
       useEffect( () => { 
-        if(plusStateAntoActive === false) {
-          crewHoverAntoTl.to( plusAnto, { duration: 0.8, rotate: 90, ease: "power1.inOut"} )
-        }
-      }, [plusStateAntoActive, crewHoverAntoTl])
-      useEffect( () => { 
-        crewClickAntoTl.to( plusAnto, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
-                   .to( plusAntoLine, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start" )
-                   .to( plusAntoRole, { duration: 0.8, x: `${-95.03 - 20}`, ease: "power2.inOut" }, "start" )
-                   .to( plusAntoMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02" )
-      }, [crewClickAntoTl])
-      // const clickHandelrAntoPlus = () => {
-      //   if(plusStateAntoActive === false){
-      //     crewClickAntoTl.play()
-      //     setPlusStateAntoActive(!plusStateAntoActive)
-      //   }else if(plusStateAntoActive === true){
-      //     crewClickAntoTl.reverse()
-      //   }
-      // }
+          crewHoverAntoTl.to( plusAntoLine01, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
+                         .to( plusAntoLine02, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
+                         .to( plusAntoRole, { duration: 0.8, x: `${-95.03 - 19}`, ease: "power2.inOut" }, "start" )
+                         .to( plusAntoMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
+      }, [crewHoverAntoTl])
 
-      const [plusStateSandraActive, setPlusStateSandraActive] = useState(false)
-      let plusSandra = useRef()
-      let plusSandraLine = useRef()
+
+      let plusSandraLine01 = useRef()
+      let plusSandraLine02 = useRef()
       let plusSandraRole = useRef()
       let plusSandraMail = useRef()
       let crewHoverSandraTl = gsap.timeline({ paused: true, reversed: true })
-      let crewClickSandraTl = gsap.timeline({ paused: true, reversed: true })
       useEffect( () => { 
-        if(plusStateSandraActive === false) {
-        crewHoverSandraTl.to( plusSandra, { duration: 0.8, rotate: 90, ease: "power1.inOut"} )
-        }
-      }, [plusStateSandraActive, crewHoverSandraTl])
-      useEffect( () => { 
-        crewClickSandraTl.to( plusSandra, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
-                   .to( plusSandraLine, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start" )
-                   .to( plusSandraRole, { duration: 0.8, x: `${-94.3 - 20}`, ease: "power2.inOut" }, "start" )
-                   .to( plusSandraMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02" )
-      }, [crewClickSandraTl])
-      const clickHandelrSandraPlus = () => {
-        if(plusStateSandraActive === false){
-          crewClickSandraTl.play()
-          setPlusStateSandraActive(!plusStateSandraActive)
-        }
-      }
+          crewHoverSandraTl.to( plusSandraLine01, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
+                         .to( plusSandraLine02, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
+                         .to( plusSandraRole, { duration: 0.8, x: `${-95.03 - 19}`, ease: "power2.inOut" }, "start" )
+                         .to( plusSandraMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
+      }, [crewHoverSandraTl])
+
   //
 
   return (
@@ -858,27 +832,25 @@ const App = () => {
                 <div className="tab pointerTab"
                  onMouseEnter={ () => crewHoverAntoTl.play() }
                  onMouseLeave={ () => crewHoverAntoTl.reverse() }
-                 onClick={() => crewClickAntoTl.play()}
                 >
                   <h3 className="tabTitle">Anto</h3>
                   <div className="tabRole tabRolePlus" ref={el => plusAntoRole = el}>Creative Director</div>
-                  <div className="tabRole tabMailPlus" ref={el => plusAntoMail = el} id="plusAntoMail">a@apollo30.com</div>
-                  <div className="plusCrew" ref={el => plusAnto = el}>
-                    <div className="line01Plus"></div>
-                    <div className="line02Plus" ref={el => plusAntoLine = el}></div>
+                  <div className="tabRole tabMailPlus" ref={el => plusAntoMail = el}>a@apollo30.com</div>
+                  <div className="plusCrew">
+                    <div className="line01Plus" ref={el => plusAntoLine01 = el}></div>
+                    <div className="line02Plus" ref={el => plusAntoLine02 = el}></div>
                   </div>
                 </div>
                 <div className="tab pointerTab"
                   onMouseEnter={ () => crewHoverSandraTl.play() }
                   onMouseLeave={ () => crewHoverSandraTl.reverse() }
-                  onClick={clickHandelrSandraPlus}
                 >
-                  <h3 className="tabTitle tabRolePlus">Sandra</h3>
+                  <h3 className="tabTitle tabRolePlus" >Sandra</h3>
                   <div className="tabRole tabRolePlus" ref={el => plusSandraRole = el}>General Manager</div>
-                  <div className="tabRole tabMailPlus" ref={el => plusSandraMail = el} id="plusSandraMail">s@apollo30.com</div>
-                  <div className="plusCrew" ref={el => plusSandra = el}>
-                    <div className="line01Plus"></div>
-                    <div className="line02Plus" ref={el => plusSandraLine = el}></div>
+                  <div className="tabRole tabMailPlus" ref={el => plusSandraMail = el}>s@apollo30.com</div>
+                  <div className="plusCrew">
+                    <div className="line01Plus" ref={el => plusSandraLine01 = el}></div>
+                    <div className="line02Plus" ref={el => plusSandraLine02 = el}></div>
                   </div>
                 </div>
                 <div className="tab">
