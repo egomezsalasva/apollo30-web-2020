@@ -10,6 +10,7 @@ import {apolloColors, apolloFonts} from './data/apollo30styles'
 import logoImg from './assets/images/apollo30Logo.png'
 import spaceTextureHero from './assets/images/spaceTextureHero.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
+import arrowServices from './assets/images/apolloServicesArrow02.svg'
 // import bigLogo from './assets/images/apollo30BigLogo.svg'
 import nikeImg01 from './assets/images/nike/nike01.jpg'
 import nikeImg02 from './assets/images/nike/nike02.jpg'
@@ -296,7 +297,39 @@ const Section = styled.section`
               background: ${apolloColors.dark};
             }
           }
+          .tabReadMore{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: calc(18px + 20px);
+            ${apolloFonts.textSmall};
+            opacity: 0.33;
+          }
+          .arrowContainer{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            /* background: red; */
+            
+            .arrowServices{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 18px;
+              height: 14px;
+              background: url(${arrowServices});
+              background-repeat: no-repeat;
+              background-size: contain;
+              transform: rotate(45deg);
+              transform-origin: 65% -25%;
+            }
+          }
         }
+
         .pointerTab{
           cursor: pointer;
         }
@@ -608,6 +641,7 @@ const App = () => {
 
   //
 
+  
   return (
     <>
       <GlobalStyle/>
@@ -649,7 +683,7 @@ const App = () => {
               onMouseEnter={() => ctaButtonTl.play()}
               onMouseLeave={() => ctaButtonTl.reverse()}
             >
-              <div className="ctaText">Call Houston</div>
+              <div className="ctaText">Message Us</div>
             </button>
             <div className="descriptionBox">
                 <div className="descriptionTextContainer">
@@ -671,8 +705,8 @@ const App = () => {
 
             <div className="listContainer">
 
-              <div className="apolloList list2020">
-                <h5 className="listTitle">2020</h5>
+              <div className="apolloList listFeatured">
+                <h5 className="listTitle">Featured</h5>
 
                 <div className="divisionLine topLine"></div>
                 <div className="tab">
@@ -685,6 +719,15 @@ const App = () => {
                   {/* Branded Content Campaign */}
                   <div className="tabRole">Creativity</div>
                 </div>
+                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+                  <h3 className="tabTitle">Cambridge Press</h3>
+                  <div className="tabRole">Creativity / Development</div>
+                </div>
+              </div>
+              <div className="apolloList list2020">
+                <h5 className="listTitle">2020</h5>
+
+                <div className="divisionLine topLine"></div>
                 <div className="tab">
                   <h3 className="tabTitle">Can Pizza</h3>
                   <div className="tabRole">All Services</div>
@@ -723,10 +766,6 @@ const App = () => {
                 <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
                   <h3 className="tabTitle">Nial</h3>
                   <div className="tabRole">Branding / Development</div>
-                </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                  <h3 className="tabTitle">Cambridge Press</h3>
-                  <div className="tabRole">Creativity / Development</div>
                 </div>
                 <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
                   <h3 className="tabTitle">Finally Press</h3>
@@ -785,9 +824,6 @@ const App = () => {
 
           </div>
         </Section>
-        {/* <PhotoContainer ref={el => photoBoxRef = el}>
-          <div className="photoBox"></div>
-        </PhotoContainer> */}
 
         <Section id="services">
           <div className="sectionCenter">
@@ -798,21 +834,33 @@ const App = () => {
             <div className="listContainer">
               <div className="apolloList">
                 <div className="divisionLine topLine"></div>
-                <div className="tab">
+                <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Creativity</h3>
-                  <div className="tabRole">Read More</div>
+                  <div className="tabReadMore">Read More</div>
+                  <div className="arrowContainer">
+                    <div className="arrowServices" />
+                  </div> 
                 </div>
-                <div className="tab">
+                <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Brand Innovation</h3>
-                  <div className="tabRole">Read More</div>  
+                  <div className="tabReadMore">Read More</div>
+                  <div className="arrowContainer">
+                    <div className="arrowServices" />
+                  </div>
                 </div>
-                <div className="tab">
+                <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Media Activation</h3>
-                  <div className="tabRole">Read More</div>
+                  <div className="tabReadMore">Read More</div>
+                  <div className="arrowContainer">
+                    <div className="arrowServices" />
+                  </div>
                 </div>
-                <div className="tab">
+                <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Development</h3>
-                  <div className="tabRole">Read More</div>
+                  <div className="tabReadMore">Read More</div>
+                  <div className="arrowContainer">
+                    <div className="arrowServices" />
+                  </div>
                 </div>
               </div>
             </div>
