@@ -10,7 +10,7 @@ import {apolloColors, apolloFonts} from './data/apollo30styles'
 // import logoImg from './assets/images/apollo30Logo.png'
 import spaceTextureHero from './assets/images/spaceTextureHero.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
-import arrowServices from './assets/images/apolloServicesArrow02.svg'
+import arrowServices from './assets/images/apolloServicesArrow.svg'
 // import bigLogo from './assets/images/apollo30BigLogo.svg'
 import nikeImg01 from './assets/images/nike/nike01.jpg'
 import nikeImg02 from './assets/images/nike/nike02.jpg'
@@ -305,7 +305,7 @@ const Section = styled.section`
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            right: calc(18px + 20px);
+            right: calc(20px + 20px + 10px);
             ${apolloFonts.textSmall};
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
@@ -318,20 +318,27 @@ const Section = styled.section`
             width: 20px;
             height: 20px;
             /* background: red; */
-            
-            .arrowServices{
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              width: 18px;
-              height: 14px;
-              background: url(${arrowServices});
-              background-repeat: no-repeat;
-              background-size: contain;
+
+            .arrowWrapper{
+              width: 100%;
+              height: 100%;
+              /* background: blue; */
               transform: rotate(45deg);
-              transform-origin: 65% -25%;
+
+              .arrowServices{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 18px;
+                height: 14px;
+                background: url(${arrowServices});
+                background-repeat: no-repeat;
+                background-size: contain;
+              }
             }
+            
+            
           }
         }
 
@@ -370,6 +377,23 @@ const Section = styled.section`
         }
 
       }
+
+      /* .listFeatured{
+        .topLine{
+          opacity: 0;
+        }
+        .tab{
+          background: ${apolloColors.dark};
+          border-bottom: 2px solid ${apolloColors.light};
+          .tabTitle{
+            color: ${apolloColors.light};
+          }
+          .tabRole{
+            color: ${apolloColors.light};
+            opacity: 0.33;
+          }
+        }
+      } */
         
       .photoContainer{
         position: absolute;
@@ -646,6 +670,10 @@ const App = () => {
 
   //
 
+  //SERVICES ACCORDEON
+      
+  //
+
   
   return (
     <>
@@ -843,28 +871,36 @@ const App = () => {
                   <h3 className="tabTitleServices">Creativity</h3>
                   <div className="tabReadMore">Click To Read More</div>
                   <div className="arrowContainer">
-                    <div className="arrowServices" />
+                    <div className="arrowWrapper">
+                      <div className="arrowServices" />
+                    </div>  
                   </div> 
                 </div>
                 <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Brand Innovation</h3>
                   <div className="tabReadMore">Click To Read More</div>
                   <div className="arrowContainer">
-                    <div className="arrowServices" />
-                  </div>
+                    <div className="arrowWrapper">
+                      <div className="arrowServices" />
+                    </div>  
+                  </div> 
                 </div>
                 <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Media Activation</h3>
                   <div className="tabReadMore">Click To Read More</div>
                   <div className="arrowContainer">
-                    <div className="arrowServices" />
+                    <div className="arrowWrapper">
+                      <div className="arrowServices" />
+                    </div>  
                   </div>
                 </div>
                 <div className="tab pointerTab">
                   <h3 className="tabTitleServices">Development</h3>
                   <div className="tabReadMore">Click To Read More</div>
                   <div className="arrowContainer">
-                    <div className="arrowServices" />
+                    <div className="arrowWrapper">
+                      <div className="arrowServices" />
+                    </div>  
                   </div>
                 </div>
               </div>
