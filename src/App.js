@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, {useRef, useEffect} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -243,28 +243,21 @@ const Section = styled.section`
           position: relative;
           border-bottom: 2px solid ${apolloColors.dark};
           width: 100%;
-          padding: 20px 10px;
+          height: calc(60px + 2px);
           cursor: default;
-          &:hover .tabReadMore{
-            opacity: 0.33;
-            transition: opacity 0.8s ease-in-out;
-          } 
 
           .tabTitle{
+            position: absolute;
+            top: 20px;
+            left: 10px;
             display: inline-block;
             color: ${apolloColors.dark};
             ${apolloFonts.subheading01};
           }
-          .tabTitleServices{
-            display: inline-block;
-            color: ${apolloColors.dark};
-            ${apolloFonts.subheading03};
-          }
           .tabRole{
             position: absolute;
-            top: 50%;
+            top: 25px;
             right: 10px;
-            transform: translateY(-50%);
             ${apolloFonts.textSmall};
             opacity: 0.33;
           }
@@ -277,11 +270,11 @@ const Section = styled.section`
           }
           .plusCrew{
             position: absolute;
+            top: 21px;
             right: 10px;
             display: inline-block;
             width: 20px;
             height: 20px;
-            transform: translateY(1px);
             .line01Plus{
               position: absolute;
               top: 50%;
@@ -301,45 +294,7 @@ const Section = styled.section`
               background: ${apolloColors.dark};
             }
           }
-          .tabReadMore{
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: calc(20px + 20px + 10px);
-            ${apolloFonts.textSmall};
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-          }
-          .arrowContainer{
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 10px;
-            width: 20px;
-            height: 20px;
-            /* background: red; */
-
-            .arrowWrapper{
-              width: 100%;
-              height: 100%;
-              /* background: blue; */
-              transform: rotate(45deg);
-
-              .arrowServices{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 18px;
-                height: 14px;
-                background: url(${arrowServices});
-                background-repeat: no-repeat;
-                background-size: contain;
-              }
-            }
-            
-            
-          }
+          
         }
 
         .pointerTab{
@@ -394,6 +349,75 @@ const Section = styled.section`
           }
         }
       } */
+
+      .servicesList{
+        .topLine{
+          width: 500px;
+        }
+        .tab{
+          width: 500px;
+          height: 60px;
+          /* height: 104px; */
+          &:hover .tabReadMore{
+            opacity: 0.33;
+            transition: opacity 0.8s ease-in-out;
+          } 
+
+          .tabTitle{
+            position: absolute;
+            top: 19px;
+            left: 10px;
+            display: inline-block;
+            color: ${apolloColors.dark};
+            ${apolloFonts.subheading03};
+          }
+          .tabReadMore{
+            position: absolute;
+            top: 24px;
+            right: calc(20px + 20px + 10px);
+            ${apolloFonts.textSmall};
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+          }
+          .tabServiceText{
+            display: none;
+            width: 360px;
+            position: absolute;
+            top: 20px;
+            right: calc(20px + 20px + 10px);
+            ${apolloFonts.textSmall};
+            line-height: 18px;
+            opacity: 0;
+          }
+        }
+        .arrowContainer{
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            /* background: red; */
+
+            .arrowWrapper{
+              width: 100%;
+              height: 100%;
+              /* background: blue; */
+              transform: rotate(45deg);
+
+              .arrowServices{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 18px;
+                height: 14px;
+                background: url(${arrowServices});
+                background-repeat: no-repeat;
+                background-size: contain;
+              }
+            }  
+          }
+      }
         
       .photoContainer{
         position: absolute;
@@ -519,29 +543,29 @@ const App = () => {
   //
 
   //INTRO TOP FOLD ANIMATION
-    const introTl = gsap.timeline()
     useEffect( () => {
+      const introTl = gsap.timeline()
       introTl
-      //Division 4 Anim
-      .to(".firstAnimBox01", effectStartBoxes01.current, "start")
-      .to(".firstAnimBox02", effectStartBoxes01.current, "start")
-      .to(".firstAnimBox03", effectStartBoxes01.current, "start")
-      .to(".firstAnimBox04", effectStartBoxes01.current, "start")
-      .to(".firstAnimContainer", { duration: 0, display: "none" })
-      //Fade In texts
-      .from(".welcomeIntro", effectFadeInText01.current, "stage02")
-      .from(".menuHeading", effectFadeInText01.current, "stage02")
-      .from(".menuOptions", effectFadeInText01.current, "stage02")
-      .from(".sidenavBottomText", effectFadeInText01.current, "stage02")
-      .from(".ctaText", effectFadeInText01.current, "stage02")
-      .from(".descriptionTextContainer", effectFadeInText01.current, "stage02")
-      .from(".logo", {duration: 1.2, opacity: 0, scale: 0.75, ease: "power4.inOut"}, "stage02")
-      //We are Apollo30 Anim
-      .from(".welcomeHeadingInner", effectMoveUpText01.current, "stage03-=0.4")
-      //Scroll Me Anim
-      .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.6")
-      .delay(1.2)
-    }, [introTl])
+        //Division 4 Anim
+        .to(".firstAnimBox01", effectStartBoxes01.current, "start")
+        .to(".firstAnimBox02", effectStartBoxes01.current, "start")
+        .to(".firstAnimBox03", effectStartBoxes01.current, "start")
+        .to(".firstAnimBox04", effectStartBoxes01.current, "start")
+        .to(".firstAnimContainer", { duration: 0, display: "none" })
+        //Fade In texts
+        .from(".welcomeIntro", effectFadeInText01.current, "stage02")
+        .from(".menuHeading", effectFadeInText01.current, "stage02")
+        .from(".menuOptions", effectFadeInText01.current, "stage02")
+        .from(".sidenavBottomText", effectFadeInText01.current, "stage02")
+        .from(".ctaText", effectFadeInText01.current, "stage02")
+        .from(".descriptionTextContainer", effectFadeInText01.current, "stage02")
+        .from(".logo", {duration: 1.2, opacity: 0, scale: 0.75, ease: "power4.inOut"}, "stage02")
+        //We are Apollo30 Anim
+        .from(".welcomeHeadingInner", effectMoveUpText01.current, "stage03-=0.4")
+        //Scroll Me Anim
+        .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.6")
+        .delay(1.2)
+    }, [])
   //
 
   //CTA BUTTON ANIMATION
@@ -671,7 +695,113 @@ const App = () => {
   //
 
   //SERVICES ACCORDEON
-      
+      const [servicesWide, setServicesWide] = useState(false)
+      const [creativityTabActive, setCreativityTabActive] = useState(false)
+      const [brandTabActive, setBrandTabActive] = useState(false)
+      const [mediaTabActive, setMediaTabActive] = useState(false)
+      const [developmentTabActive, setDevelopmentTabActive] = useState(false)
+
+      const creativityTl = gsap.timeline({ paused: true, reversed: false })
+      const brandTl = gsap.timeline({ paused: true, reversed: false })
+      const mediaTl = gsap.timeline({ paused: true, reversed: false })
+      let topLineServicesRef = useRef()
+      let creativityTabRef = useRef()
+      let arrowCreativityRef = useRef()
+      let arrowBrandRef = useRef()
+      let arrowMediaRef = useRef()
+      let arrowDevelopmentRef = useRef()
+      let brandInnovationTabRef = useRef()
+      let mediaActivationTabRef = useRef()
+      let developmentTabRef = useRef()
+      let creativityReadMoreRef = useRef()
+      let brandReadMoreRef = useRef()
+      let mediaReadMoreRef = useRef()
+      let creativityTextRef = useRef()
+      let brandTextRef = useRef()
+      let mediaTextRef = useRef()
+      const creativityClickHandler = () => {
+        if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
+          creativityTl
+                  .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+                  .to(creativityReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+                  .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+                  .to(arrowCreativityRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
+                  .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+                  .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
+                  .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+                  .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
+                  .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+                  .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+                  .to(creativityReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+                  .to(creativityTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+                  .to(creativityTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+                  // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
+                  .play()
+          setServicesWide(!servicesWide)
+          setCreativityTabActive(!creativityTabActive)
+        } else if (servicesWide === true  && creativityTabActive === true && brandTabActive === false && mediaTabActive === false && developmentTabActive === false) {
+          creativityTl.reverse()
+          setServicesWide(!servicesWide)
+          setCreativityTabActive(!creativityTabActive)
+        }
+
+      }
+      const brandClickHandler = () => {
+        if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
+          brandTl
+                  .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+                  .to(brandReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+                  .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+                  .to(arrowCreativityRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
+                  .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+                  .to(arrowBrandRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.4")
+                  .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+                  .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
+                  .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+                  .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+                  .to(brandReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+                  .to(brandInnovationTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+                  .to(brandTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+                  // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
+                  .play()
+          setServicesWide(!servicesWide)
+          setBrandTabActive(!brandTabActive)
+        } else if (servicesWide === true  && creativityTabActive === false && brandTabActive === true && mediaTabActive === false && developmentTabActive === false) {
+          brandTl.reverse()
+          setServicesWide(!servicesWide)
+          setBrandTabActive(!brandTabActive)
+        }
+
+      }
+      const mediaClickHandler = () => {
+        if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
+          mediaTl
+                  .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+                  .to(mediaReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+                  .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+                  .to(arrowCreativityRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
+                  .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+                  .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
+                  .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+                  .to(arrowMediaRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.6")
+                  .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+                  .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+                  .to(mediaReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+                  .to(mediaActivationTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+                  .to(mediaTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+                  // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
+                  .play()
+          setServicesWide(!servicesWide)
+          setMediaTabActive(!mediaTabActive)
+        } else if (servicesWide === true  && creativityTabActive === false && brandTabActive === false && mediaTabActive === true && developmentTabActive === false) {
+          mediaTl.reverse()
+          setServicesWide(!servicesWide)
+          setMediaTabActive(!mediaTabActive)
+        }
+
+      }
+
+
   //
 
   
@@ -865,40 +995,43 @@ const App = () => {
             <p className="sectionDescription">We believe that in our current era, there’s a saturation of stimuli. This requires differentiation through tailored content.</p>
 
             <div className="listContainer">
-              <div className="apolloList">
-                <div className="divisionLine topLine"></div>
-                <div className="tab pointerTab">
-                  <h3 className="tabTitleServices">Creativity</h3>
-                  <div className="tabReadMore">Click To Read More</div>
+              <div className="apolloList servicesList">
+                <div className="divisionLine topLine" ref={el => topLineServicesRef = el}></div>
+                <div className="tab pointerTab" ref={el => creativityTabRef = el} onClick={() => creativityClickHandler()}>
+                  <h3 className="tabTitle">Creativity</h3>
+                  <div className="tabReadMore" ref={el => creativityReadMoreRef = el}>Click To Read More</div>
+                  <div className="tabServiceText" ref={el => creativityTextRef = el}>Creamos contenido (publicitario, cinematográfico, social, digital y móvil) que trasciende los medios tradicionales y difumina las líneas entre productos, experiencias, contenido y marketing.</div>
                   <div className="arrowContainer">
-                    <div className="arrowWrapper">
+                    <div className="arrowWrapper" ref={el => arrowCreativityRef = el}>
                       <div className="arrowServices" />
                     </div>  
                   </div> 
                 </div>
-                <div className="tab pointerTab">
-                  <h3 className="tabTitleServices">Brand Innovation</h3>
-                  <div className="tabReadMore">Click To Read More</div>
+                <div className="tab pointerTab" ref={el => brandInnovationTabRef = el} onClick={() => brandClickHandler()}>
+                  <h3 className="tabTitle">Brand Innovation</h3>
+                  <div className="tabReadMore" ref={el => brandReadMoreRef = el}>Click To Read More</div>
+                  <div className="tabServiceText" ref={el => brandTextRef = el}>Los consumidores de hoy no compran una marca, se han de sentir partícipes de ella. Ayudamos a las marcas a simplificar y aclarar quiénes son para transmitir mejor y llegar a conectar verdaderamente con su público objetivo.</div>
                   <div className="arrowContainer">
-                    <div className="arrowWrapper">
+                    <div className="arrowWrapper" ref={el => arrowBrandRef = el}>
                       <div className="arrowServices" />
                     </div>  
                   </div> 
                 </div>
-                <div className="tab pointerTab">
-                  <h3 className="tabTitleServices">Media Activation</h3>
-                  <div className="tabReadMore">Click To Read More</div>
+                <div className="tab pointerTab" ref={el => mediaActivationTabRef = el} onClick={() => mediaClickHandler()}>
+                  <h3 className="tabTitle">Media Activation</h3>
+                  <div className="tabReadMore" ref={el => mediaReadMoreRef = el}>Click To Read More</div>
+                  <div className="tabServiceText" ref={el => mediaTextRef = el}>La abundancia de competencia en el mercado actual exige una dosis extra de creatividad y estrategia. Una estrategia ocurrente garantiza ubicaciones de medios más ingeniosas y, por tanto, mas efectivas.</div>
                   <div className="arrowContainer">
-                    <div className="arrowWrapper">
+                    <div className="arrowWrapper" ref={el => arrowMediaRef = el}>
                       <div className="arrowServices" />
                     </div>  
                   </div>
                 </div>
-                <div className="tab pointerTab">
-                  <h3 className="tabTitleServices">Development</h3>
+                <div className="tab pointerTab" ref={el => developmentTabRef = el}>
+                  <h3 className="tabTitle" >Development</h3>
                   <div className="tabReadMore">Click To Read More</div>
                   <div className="arrowContainer">
-                    <div className="arrowWrapper">
+                    <div className="arrowWrapper" ref={el => arrowDevelopmentRef = el}>
                       <div className="arrowServices" />
                     </div>  
                   </div>
@@ -935,7 +1068,7 @@ const App = () => {
                   onMouseLeave={ () => crewHoverSandraTl.reverse() }
                 >
                   <h3 className="tabTitle tabRolePlus" >Sandra</h3>
-                  <div className="tabRole tabRolePlus" ref={el => plusSandraRole = el}>General Manager</div>
+                  <div className="tabRole tabRolePlus" ref={el => plusSandraRole = el}>Accounting</div>
                   <div className="tabRole tabMailPlus" ref={el => plusSandraMail = el}>s@apollo30.com</div>
                   <div className="plusCrew">
                     <div className="line01Plus" ref={el => plusSandraLine01 = el}></div>
