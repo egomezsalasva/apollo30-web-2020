@@ -11,6 +11,8 @@ import {apolloColors, apolloFonts} from './data/apollo30styles'
 import spaceTextureHero from './assets/images/spaceTextureHero.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
 import arrowServices from './assets/images/apolloServicesArrow.svg'
+import internalLinkIcon from './assets/images/internalLink.svg'
+import externalLinkIcon from './assets/images/externalLink.svg'
 // import bigLogo from './assets/images/apollo30BigLogo.svg'
 import nikeImg01 from './assets/images/nike/nike01.jpg'
 import nikeImg02 from './assets/images/nike/nike02.jpg'
@@ -260,6 +262,35 @@ const Section = styled.section`
             right: 10px;
             ${apolloFonts.textSmall};
             opacity: 0.33;
+            color: ${apolloColors.dark};
+          }
+          .tabRoleIcon{
+            position: absolute;
+            top: 25px;
+            right: calc(10px + 15px + 20px);
+          }
+          .iconContainer{
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            .internalLinkIcon{
+              position: absolute;
+              top: 1px;
+              left: 1px;
+              width: 20px;
+              height: 20px;
+              background: url(${internalLinkIcon});
+            }
+            .externalLinkIcon{
+              position: absolute;
+              top: 0;
+              left: -1px;
+              width: 20px;
+              height: 20px;
+              background: url(${externalLinkIcon});
+            }
           }
           .tabMailPlus{
             right: calc(10px + 15px + 20px);
@@ -374,7 +405,7 @@ const Section = styled.section`
           .tabReadMore{
             position: absolute;
             top: 24px;
-            right: calc(20px + 20px + 10px);
+            right: calc(20px + 15px + 10px);
             ${apolloFonts.textSmall};
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
@@ -384,7 +415,7 @@ const Section = styled.section`
             width: 360px;
             position: absolute;
             top: 20px;
-            right: calc(20px + 20px + 10px);
+            right: calc(20px + 15px + 10px);
             ${apolloFonts.textSmall};
             line-height: 18px;
             opacity: 0;
@@ -703,9 +734,10 @@ const App = () => {
         const [developmentTabActive, setDevelopmentTabActive] = useState(false)
       //
       //-Timelines
-        const creativityTl = gsap.timeline({ paused: true, reversed: false })
-        const brandTl = gsap.timeline({ paused: true, reversed: false })
-        const mediaTl = gsap.timeline({ paused: true, reversed: false })
+        const creativityTl = gsap.timeline({ paused: true })
+        const brandTl = gsap.timeline({ paused: true })
+        const mediaTl = gsap.timeline({ paused: true })
+        const developmentTl = gsap.timeline({ paused: true })
       //
       //-Refs
         let topLineServicesRef = useRef()
@@ -720,41 +752,68 @@ const App = () => {
         let creativityReadMoreRef = useRef()
         let brandReadMoreRef = useRef()
         let mediaReadMoreRef = useRef()
+        let developmentReadMoreRef = useRef()
         let creativityTextRef = useRef()
         let brandTextRef = useRef()
         let mediaTextRef = useRef()
+        let developmentTextRef = useRef()
       //
       //-Handlers
         const creativityClickHandler = () => {
-          if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
-            creativityTl
-                    .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-                    .to(creativityReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-                    .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-                    .to(arrowCreativityRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
-                    .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-                    .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-                    .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-                    .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-                    .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-                    .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-                    .to(creativityReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-                    .to(creativityTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-                    .to(creativityTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-                    // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
-                    .play()
-            setServicesWide(!servicesWide)
-            setCreativityTabActive(!creativityTabActive)
-          } else if (servicesWide === true  && creativityTabActive === true && brandTabActive === false && mediaTabActive === false && developmentTabActive === false) {
-            creativityTl.reverse()
-            setServicesWide(!servicesWide)
-            setCreativityTabActive(!creativityTabActive)
-          }
+          //Tabs Closed to Open Creativity Tab 
+            if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
+              creativityTl
+                      .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+                      .to(creativityReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+                      .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+                      .to(arrowCreativityRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
+                      .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+                      .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
+                      .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+                      .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
+                      .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+                      .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+                      .to(creativityReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+                      .to(creativityTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+                      .to(creativityTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+                      // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
+                      .play()
+              setServicesWide(!servicesWide)
+              setCreativityTabActive(!creativityTabActive)
+            }
+          //
+          //Tabs Open to Switch to Creativity Tab
+            if(servicesWide === true && creativityTabActive === false){
+              if( brandTabActive === true || mediaTabActive === true ||  developmentTabActive === true){
+                creativityTl
+                      .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+                      .to(creativityReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+                      .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+                      .to(arrowCreativityRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
+                      .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+                      .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
+                      .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+                      .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
+                      .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+                      .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+                      .to(creativityReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+                      .to(creativityTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+                      .to(brandReadMoreRef, { duration: 0, display: "block", ease: "power2.inOut"} , "stage02")
+                      .to(brandTextRef, { duration: 0.8, opacity: 0, display: "none", ease: "power2.inOut"} , "stage02")
+                      .to(brandInnovationTabRef, { duration: 0.8, height: "62px", ease: "power2.inOut" }, "stage03")
+                      .to(creativityTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+                      .play()
+                setCreativityTabActive(!creativityTabActive)
+              }
+            }
+          //
+          //Tabs Open to Close All Tabs
 
         }
         const brandClickHandler = () => {
-          if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
-            brandTl
+          //Tabs Closed to Open Brand Tab 
+            if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
+              brandTl
                     .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
                     .to(brandReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
                     .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
@@ -768,16 +827,36 @@ const App = () => {
                     .to(brandReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
                     .to(brandInnovationTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
                     .to(brandTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-                    // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
                     .play()
-            setServicesWide(!servicesWide)
-            setBrandTabActive(!brandTabActive)
-          } else if (servicesWide === true  && creativityTabActive === false && brandTabActive === true && mediaTabActive === false && developmentTabActive === false) {
-            brandTl.reverse()
-            setServicesWide(!servicesWide)
-            setBrandTabActive(!brandTabActive)
-          }
-
+              setServicesWide(!servicesWide)
+              setBrandTabActive(!brandTabActive)
+            }
+          //
+          //Tabs Open to Switch to Creativity Tab
+            if(servicesWide === true &&  brandTabActive === false){
+              if( creativityTabActive === true || mediaTabActive === true ||  developmentTabActive === true){
+                brandTl
+                    .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+                    .to(brandReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+                    .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+                    .to(arrowCreativityRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
+                    .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+                    .to(arrowBrandRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.4")
+                    .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+                    .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
+                    .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+                    .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+                    .to(brandReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+                    .to(brandInnovationTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+                    .to(creativityReadMoreRef, { duration: 0, display: "block", ease: "power2.inOut"} , "stage02")
+                    .to(creativityTextRef, { duration: 0.8, opacity: 0, display: "none", ease: "power2.inOut"} , "stage02")
+                    .to(creativityTabRef, { duration: 0.8, height: "62px", ease: "power2.inOut" }, "stage03")
+                    .to(brandTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+                    .play()
+                    setBrandTabActive(!brandTabActive)
+              }
+            }
+          //
         }
         const mediaClickHandler = () => {
           if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
@@ -799,10 +878,37 @@ const App = () => {
                     .play()
             setServicesWide(!servicesWide)
             setMediaTabActive(!mediaTabActive)
-          } else if (servicesWide === true  && creativityTabActive === false && brandTabActive === false && mediaTabActive === true && developmentTabActive === false) {
+          } else if (servicesWide === true && creativityTabActive === false && brandTabActive === false && mediaTabActive === true && developmentTabActive === false) {
             mediaTl.reverse()
             setServicesWide(!servicesWide)
             setMediaTabActive(!mediaTabActive)
+          }
+
+        }
+        const developmentClickHandler = () => {
+          if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
+            developmentTl
+                    .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+                    .to(mediaReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+                    .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+                    .to(arrowCreativityRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
+                    .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+                    .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
+                    .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+                    .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
+                    .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+                    .to(arrowDevelopmentRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.8")
+                    .to(developmentReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+                    .to(developmentTabRef, { duration: 0.8, height: "78px", ease: "power2.inOut" }, "stage02")
+                    .to(developmentTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+                    // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
+                    .play()
+            setServicesWide(!servicesWide)
+            setMediaTabActive(!mediaTabActive)
+          } else if (servicesWide === true && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === true) {
+            developmentTl.reverse()
+            setServicesWide(!servicesWide)
+            setDevelopmentTabActive(!developmentTabActive)
           }
 
         }
@@ -879,107 +985,169 @@ const App = () => {
                 <h5 className="listTitle">Featured</h5>
 
                 <div className="divisionLine topLine"></div>
-                <div className="tab">
+                <div className="tab pointerTab">
                   <h3 className="tabTitle">Vogue</h3>
                   {/* Art Direction */}
-                  <div className="tabRole">Creativity</div>
+                  <div className="tabRole tabRoleIcon">Creativity</div>
+                  <div className="iconContainer">
+                    <div className="internalLinkIcon" />
+                  </div>
                 </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.nike)} onMouseLeave={() => defaultGif()}>
+                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.nike)} onMouseLeave={() => defaultGif()}>
                   <h3 className="tabTitle">Nike</h3>
                   {/* Branded Content Campaign */}
-                  <div className="tabRole">Creativity</div>
+                  <div className="tabRole tabRoleIcon">Creativity</div>
+                  <div className="iconContainer">
+                    <div className="internalLinkIcon" />
+                  </div>
                 </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
                   <h3 className="tabTitle">Cambridge Press</h3>
-                  <div className="tabRole">Creativity / Development</div>
+                  <div className="tabRole tabRoleIcon">Creativity / Development</div>
+                  <div className="iconContainer">
+                    <div className="internalLinkIcon" />
+                  </div>
                 </div>
               </div>
               <div className="apolloList list2020">
                 <h5 className="listTitle">2020</h5>
 
                 <div className="divisionLine topLine"></div>
-                <div className="tab">
-                  <h3 className="tabTitle">Can Pizza</h3>
-                  <div className="tabRole">All Services</div>
-                </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)} onMouseLeave={() => defaultGif()}>
-                  <h3 className="tabTitle">Mucho Muchacho</h3>
-                  {/* Branded Content Campaign */}
-                  <div className="tabRole">Creativity / Development</div>  
-                </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.sita)} onMouseLeave={() => defaultGif()}>
+                <a href="https://www.canpizza.eu/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab">
+                    <h3 className="tabTitle">Can Pizza</h3>
+                    <div className="tabRole tabRoleIcon">All Services</div>
+                    <div className="iconContainer">
+                      <div className="externalLinkIcon" />
+                    </div>
+                  </div>
+                </a>
+                <a href="https://muchomuchacho.com/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">Mucho Muchacho</h3>
+                    <div className="tabRole tabRoleIcon">Creativity / Development</div>
+                    <div className="iconContainer">
+                      <div className="externalLinkIcon" />
+                    </div> 
+                  </div>
+                </a>
+                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.sita)} onMouseLeave={() => defaultGif()}>
                   <h3 className="tabTitle">Sita Abellán</h3>
                   <div className="tabRole">Creativity / Branding</div>
                 </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.threeMarks)} onMouseLeave={() => defaultGif()}>
-                  <h3 className="tabTitle">Three Marks Coffee</h3>
-                  {/* E-commerce Development */}
-                  <div className="tabRole">Development</div>
-                </div>
-                <div className="tab">
+                <a href="https://www.threemarkscoffee.com/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.threeMarks)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">Three Marks Coffee</h3>
+                    {/* E-commerce Development */}
+                    <div className="tabRole tabRoleIcon">Development</div>
+                    <div className="iconContainer">
+                      <div className="externalLinkIcon" />
+                    </div> 
+                  </div>
+                </a>
+                <div className="tab pointerTab">
                   <h3 className="tabTitle">Xemei</h3>
                   <div className="tabRole">All Services</div>
                 </div>
-                <div className="tab">
-                  <h3 className="tabTitle">La Zebra Slow Food</h3>
-                  <div className="tabRole">All Services</div>
-                </div>
-                <div className="tab">
+                <a href="https://www.lazebraslowfood.com/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab">
+                    <h3 className="tabTitle">La Zebra Slow Food</h3>
+                    <div className="tabRole tabRoleIcon">All Services</div>
+                    <div className="iconContainer">
+                      <div className="externalLinkIcon" />
+                    </div> 
+                  </div>
+                </a>
+                <div className="tab pointerTab">
                   <h3 className="tabTitle">La Zorra </h3>
                   <div className="tabRole">All Services</div>
                 </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                  <h3 className="tabTitle">Trick.Wtf</h3>
-                  {/* E-commerce Development */}
-                  <div className="tabRole">Branding / Development</div>
-                </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                  <h3 className="tabTitle">Nial</h3>
-                  <div className="tabRole">Branding / Development</div>
-                </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                  <h3 className="tabTitle">Finally Press</h3>
-                  <div className="tabRole">Creativity / Development</div>
-                </div>
+                <a href="https://www.trick.wtf/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">Trick.Wtf</h3>
+                    <div className="tabRole tabRoleIcon">Branding / Development</div>
+                    <div className="iconContainer">
+                      <div className="externalLinkIcon" />
+                    </div>
+                  </div>
+                </a>
+                <a href="https://nial.es/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">Nial</h3>
+                    <div className="tabRole tabRoleIcon">Branding / Development</div>
+                    <div className="iconContainer">
+                      <div className="externalLinkIcon" />
+                    </div>
+                  </div>
+                </a>
+                <a href="http://finallypress.com/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
+                    <h3 className="tabTitle">Finally Press</h3>
+                    <div className="tabRole tabRoleIcon">Creativity / Development</div>
+                    <div className="iconContainer">
+                      <div className="externalLinkIcon" />
+                    </div>
+                  </div>
+                </a>
               </div>
+              
               <div className="apolloList list2019">
                 <h5 className="listTitle">2019</h5>
 
                 <div className="divisionLine topLine"></div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
+                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">New Icons</h3>
                     <div className="tabRole">Branding</div>
                 </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">La Proa 04</h3>
-                    <div className="tabRole">Branding / Development</div>
-                </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.chipBaker)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Chip Baker Films</h3>
-                    <div className="tabRole">Branding / Development</div>
-                </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.uniko)} onMouseLeave={() => defaultGif()}>
+                <a href="https://www.laproa04.com/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
+                      <h3 className="tabTitle">La Proa 04</h3>
+                      <div className="tabRole tabRoleIcon">Branding / Development</div>
+                      <div className="iconContainer">
+                        <div className="externalLinkIcon" />
+                      </div>
+                  </div>
+                </a>
+                <a href="https://www.chipbakerfilms.com/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.chipBaker)} onMouseLeave={() => defaultGif()}>
+                      <h3 className="tabTitle">Chip Baker Films</h3>
+                      <div className="tabRole tabRoleIcon">Branding / Development</div>
+                      <div className="iconContainer">
+                        <div className="externalLinkIcon" />
+                      </div>
+                  </div>
+                </a>
+                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.uniko)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Uniko. "Model Agency"</h3>
                     <div className="tabRole">Branding</div>
                 </div>
-                <div className="tab">
+                <div className="tab pointerTab">
                     <h3 className="tabTitle">Scranny's House</h3>
-                    <div className="tabRole">All Services</div>
+                    <div className="tabRole">Branding</div>
                 </div>
-                <div className="tab">
-                    <h3 className="tabTitle">The New Storytellers</h3>
-                    <div className="tabRole">Development</div>
-                </div>
-                <div className="tab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
+                <a href="https://www.thenewstorytellers.es/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab">
+                      <h3 className="tabTitle">The New Storytellers</h3>
+                      <div className="tabRole tabRoleIcon">Development</div>
+                      <div className="iconContainer">
+                        <div className="externalLinkIcon" />
+                      </div>
+                  </div>
+                </a>
+                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Premis Butaca</h3>
-                    {/* Campaign, Web, Video & Photography */}
                     <div className="tabRole">Branding / Development</div>
                 </div>
-                <div className="tab">
-                    <h3 className="tabTitle">Owl Institute</h3>
-                    <div className="tabRole">Branding / Development</div>
-                </div>
-                <div className="tab">
+                <a href="https://owlpsicologia.com/" target="_blank" rel="noopener noreferrer">
+                  <div className="tab pointerTab">
+                      <h3 className="tabTitle">Owl Institute</h3>
+                      <div className="tabRole tabRoleIcon">Branding / Development</div>
+                      <div className="iconContainer">
+                        <div className="externalLinkIcon" />
+                      </div>
+                  </div>
+                </a>
+                <div className="tab pointerTab">
                     <h3 className="tabTitle">Cafes Bou</h3>
                     {/* Packaging Design */}
                     <div className="tabRole">Creativity</div>
@@ -1004,7 +1172,7 @@ const App = () => {
             <div className="listContainer">
               <div className="apolloList servicesList">
                 <div className="divisionLine topLine" ref={el => topLineServicesRef = el}></div>
-                <div className="tab pointerTab" ref={el => creativityTabRef = el} onClick={() => creativityClickHandler()}>
+                <div className="tab pointerTab" ref={el => creativityTabRef = el} onClick={creativityClickHandler}>
                   <h3 className="tabTitle">Creativity</h3>
                   <div className="tabReadMore" ref={el => creativityReadMoreRef = el}>Click To Read More</div>
                   <div className="tabServiceText" ref={el => creativityTextRef = el}>Creamos contenido (publicitario, cinematográfico, social, digital y móvil) que trasciende los medios tradicionales y difumina las líneas entre productos, experiencias, contenido y marketing.</div>
@@ -1014,7 +1182,7 @@ const App = () => {
                     </div>  
                   </div> 
                 </div>
-                <div className="tab pointerTab" ref={el => brandInnovationTabRef = el} onClick={() => brandClickHandler()}>
+                <div className="tab pointerTab" ref={el => brandInnovationTabRef = el} onClick={brandClickHandler}>
                   <h3 className="tabTitle">Brand Innovation</h3>
                   <div className="tabReadMore" ref={el => brandReadMoreRef = el}>Click To Read More</div>
                   <div className="tabServiceText" ref={el => brandTextRef = el}>Los consumidores de hoy no compran una marca, se han de sentir partícipes de ella. Ayudamos a las marcas a simplificar y aclarar quiénes son para transmitir mejor y llegar a conectar verdaderamente con su público objetivo.</div>
@@ -1034,9 +1202,10 @@ const App = () => {
                     </div>  
                   </div>
                 </div>
-                <div className="tab pointerTab" ref={el => developmentTabRef = el}>
+                <div className="tab pointerTab" ref={el => developmentTabRef = el} onClick={() => developmentClickHandler()}>
                   <h3 className="tabTitle" >Development</h3>
-                  <div className="tabReadMore">Click To Read More</div>
+                  <div className="tabReadMore" ref={el => developmentReadMoreRef = el}>Click To Read More</div>
+                  <div className="tabServiceText" ref={el => developmentTextRef = el}>Ofrecemos servicios de diseño y desarrollo web, creamos apps y gestionamos proyectos de desarrollo personalizados.</div>
                   <div className="arrowContainer">
                     <div className="arrowWrapper" ref={el => arrowDevelopmentRef = el}>
                       <div className="arrowServices" />
