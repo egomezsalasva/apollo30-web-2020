@@ -80,6 +80,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Graphik', 'Helvetica', Arial, sans-serif;
     background: ${apolloColors.light};
+    overflow-x: hidden;
   }
   button{
     border: none;
@@ -153,7 +154,7 @@ const TopFold = styled.section`
       }      
     }
 
-    .circTxt{
+    .circleTextLogo{
       position: absolute;
       top: calc(50% - 138px);
       left: 50%;
@@ -270,6 +271,9 @@ const Section = styled.section`
             color: ${apolloColors.dark};
             ${apolloFonts.subheading01};
           }
+          .hideIconOuter{
+            
+          }
           .tabRole{
             position: absolute;
             top: 25px;
@@ -278,7 +282,7 @@ const Section = styled.section`
             opacity: 0.33;
             color: ${apolloColors.dark};
           }
-          .tabRoleIcon{
+          .tabRoleInternalIcon{
             position: absolute;
             top: 25px;
             right: calc(10px + 15px + 20px);
@@ -304,6 +308,7 @@ const Section = styled.section`
               width: 20px;
               height: 20px;
               background: url(${externalLinkIcon});
+              opacity: 0;
             }
           }
           .tabMailPlus{
@@ -492,9 +497,38 @@ const Section = styled.section`
       }
 
     }
-    
-
   } 
+`
+const InnerPage = styled.div`
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 100vh;
+  background: ${apolloColors.dark};
+  z-index: 100;
+  overflow: scroll;
+
+  .leftSection{
+    position: absolute;
+    width: 12.5%;
+    height: 100%;
+    top: 0; 
+    left: 0;
+    background: ${apolloColors.light};
+    cursor: pointer;
+
+    .backButton{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scaleX(-1);
+      width: 20px;
+      height: 20px;
+      background: url(${internalLinkIcon});
+    }
+  }
+
 `
 /*const BackgroundLogo = styled.div`
   height: 100%;
@@ -604,6 +638,7 @@ const App = () => {
         .from(".sidenavBottomText", effectFadeInText01.current, "stage02")
         .from(".ctaText", effectFadeInText01.current, "stage02")
         .from(".descriptionTextContainer", effectFadeInText01.current, "stage02")
+        .from(".circleTextLogo", { duration: 1.2, opacity: 0, scale:0.9, y: 1, ease: "power4.inOut"}, "stage02")
         .from(".logo", {duration: 1.2, opacity: 0, scale: 0.75, ease: "power4.inOut"}, "stage02")
         //We are Apollo30 Anim
         .from(".welcomeHeadingInner", effectMoveUpText01.current, "stage03-=0.4")
@@ -937,10 +972,10 @@ const App = () => {
 
         function circularText(txt, radius, classIndex) {
           txt = txt.split("")
-          classIndex = document.getElementsByClassName("circTxt")[classIndex];
+          classIndex = document.getElementsByClassName("circleTextLogo")[classIndex];
 
           let deg = 360 / txt.length
-          let origin = -47;
+          let origin = -5;
 
           txt.forEach((ea) => {
             ea = `<p style=' height:${radius}px; position:absolute; transform:rotate(${origin}deg); transform-origin:0 100%'>${ea}</p>`;
@@ -954,14 +989,40 @@ const App = () => {
       })
     //
     //Rotate Circle
-    useEffect( () => {
-      const rotateTextTl = gsap.timeline({})
 
-      rotateTextTl.to(".circTxt", { duration: 28, rotation:"360_ccw" , transformOrigin:"0px 138px",  repeat: -1, ease: "power1.inOut" })
+    useEffect( () => {
+      let dur = 28
+      const rotateTextTl = gsap.timeline({})
+      rotateTextTl.to(".circleTextLogo", { duration: dur, rotation:"360_ccw" , transformOrigin:"0px 138px",  repeat: -1, ease: "linear" })  
     })
     //
     
   //
+
+  //EXTERNAL ICON HOVER ANIM
+    let externalIconHoverTl = gsap.timeline({paused: true})
+    let roleCanPizzaRef = useRef()
+    let roleIconCanPizzaRef = useRef()
+    useEffect( () => {
+      externalIconHoverTl.to(roleCanPizzaRef, { duration: 0.8, x: -35, ease: "power2.inOut"})
+      externalIconHoverTl.to(roleIconCanPizzaRef, { duration: 0.8, alpha: 1, ease: "power2.inOut"}, "-=0.4")
+    }, [externalIconHoverTl])
+    
+    
+    
+  //
+
+  //INNER CLICK HANDLER
+    let innerNikeTransition = gsap.timeline({paused: true})
+    useEffect( () => {
+      innerNikeTransition.to("#nikeInner", { duration: 1.2, x: "100vw", ease: "power2.inOut"})
+    }, [innerNikeTransition])
+  //
+
+  let innerBackButtonHoverTl = gsap.timeline({paused: true})
+  useEffect( () => {
+    innerBackButtonHoverTl.to("#leftBackSection", { duration: 0.8, width: "18.75%", ease: "power2.inOut"})
+  })
 
   
   return (
@@ -975,6 +1036,13 @@ const App = () => {
         <div className="firstAnimBox firstAnimBox04"/>
       </FirstAnimContainer>
 
+      <InnerPage id="nikeInner">
+        <div className="leftSection" id="leftBackSection" onClick={() => innerNikeTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
+          <div className="backButton"></div>
+        </div>
+        
+      </InnerPage>
+
       <SideNav/>
 
       <ContentContainer>
@@ -983,7 +1051,7 @@ const App = () => {
 
           <div className="heroTop" >
             {/* <BackgroundLogo /> */}
-            <div className="circTxt"></div>
+            <div className="circleTextLogo" />
             {/* <div className="welcomeHeadingComposition">
               <div className="welcomeIntro">Hi Humans,</div>
               <div className="welcomeHeadingContainer">
@@ -1030,10 +1098,10 @@ const App = () => {
                 <h5 className="listTitle">Featured</h5>
 
                 <div className="divisionLine topLine"></div>
-                <div className="tab pointerTab">
+                <div className="tab pointerTab" onClick={ () => innerNikeTransition.play() }>
                   <h3 className="tabTitle">Vogue</h3>
                   {/* Art Direction */}
-                  <div className="tabRole tabRoleIcon">Creativity</div>
+                  <div className="tabRole tabRoleInternalIcon">Creativity</div>
                   <div className="iconContainer">
                     <div className="internalLinkIcon" />
                   </div>
@@ -1041,14 +1109,14 @@ const App = () => {
                 <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.nike)} onMouseLeave={() => defaultGif()}>
                   <h3 className="tabTitle">Nike</h3>
                   {/* Branded Content Campaign */}
-                  <div className="tabRole tabRoleIcon">Creativity</div>
+                  <div className="tabRole tabRoleInternalIcon">Creativity</div>
                   <div className="iconContainer">
                     <div className="internalLinkIcon" />
                   </div>
                 </div>
                 <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
                   <h3 className="tabTitle">Cambridge Press</h3>
-                  <div className="tabRole tabRoleIcon">Creativity / Development</div>
+                  <div className="tabRole tabRoleInternalIcon">Creativity / Development</div>
                   <div className="iconContainer">
                     <div className="internalLinkIcon" />
                   </div>
@@ -1059,11 +1127,11 @@ const App = () => {
 
                 <div className="divisionLine topLine"></div>
                 <a href="https://www.canpizza.eu/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab">
+                  <div className="tab pointerTab" onMouseEnter={() => externalIconHoverTl.play()} onMouseLeave={() => externalIconHoverTl.reverse()}>
                     <h3 className="tabTitle">Can Pizza</h3>
-                    <div className="tabRole tabRoleIcon">All Services</div>
+                    <div className="tabRole tabRoleIcon" ref={el => roleCanPizzaRef = el} >All Services</div>
                     <div className="iconContainer">
-                      <div className="externalLinkIcon" />
+                      <div className="externalLinkIcon" ref={el => roleIconCanPizzaRef = el}/>
                     </div>
                   </div>
                 </a>
