@@ -150,9 +150,23 @@ const TopFold = styled.section`
           ${apolloFonts.heading01};
           overflow: hidden;
         }
-      }
-      
+      }      
     }
+
+    .circTxt{
+      position: absolute;
+      top: calc(50% - 138px);
+      left: 50%;
+      display: inline-block;
+      color: ${apolloColors.light};
+      font-family: ${apolloFonts.textSpecial};
+      font-family: 'VCR OSD Mono';
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0;
+
+    }
+
   }
   .heroBottom{
     position: absolute;
@@ -917,6 +931,38 @@ const App = () => {
 
   //
 
+  //CIRCLE TOP FOLD
+    //Make Circle
+      useEffect( () => {
+
+        function circularText(txt, radius, classIndex) {
+          txt = txt.split("")
+          classIndex = document.getElementsByClassName("circTxt")[classIndex];
+
+          let deg = 360 / txt.length
+          let origin = -47;
+
+          txt.forEach((ea) => {
+            ea = `<p style=' height:${radius}px; position:absolute; transform:rotate(${origin}deg); transform-origin:0 100%'>${ea}</p>`;
+            classIndex.innerHTML += ea;
+            origin += deg;
+          })
+        }
+      
+        circularText("HI HUMANS, WE ARE APOLLO30 · WE ARE CELEBRATING OUR FIRST REVOLUTION MOVEMENT AROUND THE SUN · ", 138, 0)
+
+      })
+    //
+    //Rotate Circle
+    useEffect( () => {
+      const rotateTextTl = gsap.timeline({})
+
+      rotateTextTl.to(".circTxt", { duration: 28, rotation:"360_ccw" , transformOrigin:"0px 138px",  repeat: -1, ease: "power1.inOut" })
+    })
+    //
+    
+  //
+
   
   return (
     <>
@@ -935,11 +981,10 @@ const App = () => {
 
         <TopFold>
 
-          {/* <img className="logo" src={logoImg} alt="Apollo30 Logo" /> */}
-
           <div className="heroTop" >
             {/* <BackgroundLogo /> */}
-            <div className="welcomeHeadingComposition">
+            <div className="circTxt"></div>
+            {/* <div className="welcomeHeadingComposition">
               <div className="welcomeIntro">Hi Humans,</div>
               <div className="welcomeHeadingContainer">
                 <div className="welcomeHeading">
@@ -949,7 +994,7 @@ const App = () => {
                   <div className="welcomeHeadingInner">Apollo30</div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="heroBottom">
@@ -1090,7 +1135,6 @@ const App = () => {
                   </div>
                 </a>
               </div>
-              
               <div className="apolloList list2019">
                 <h5 className="listTitle">2019</h5>
 
@@ -1156,7 +1200,6 @@ const App = () => {
               <div className="photoContainer" ref={el => photoBoxRef = el}>
                 <div className="photoBox"></div>
               </div>
-
 
             </div>
 
