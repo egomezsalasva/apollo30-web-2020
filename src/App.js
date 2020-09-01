@@ -29,6 +29,7 @@ import laProaImg01 from './assets/images/laProa/laProa01.jpg'
 import chipBakerImg01 from './assets/images/chipBaker/chipBaker01.gif'
 //-Components
 import SideNav from './components/SideNav'
+import TopFold from './sections/TopFold'
 
 
 //STYLES
@@ -109,98 +110,6 @@ const ContentContainer = styled.div`
   right: 0;
   top: 0;
   width: calc(100vw - ${leftSideWidth});
-`
-const TopFold = styled.section`
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url(${spaceTextureHero});
-  background-size: cover;
-  background-position: center;
-
-  .logo{
-    position: absolute;
-    right: 60px;
-    top: 60px;
-    height: 60px;
-    z-index: 50;
-  }
-  .heroTop{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: calc(100% - 150px);
-    /* background: ${apolloColors.dark}; */
-
-    .welcomeHeadingComposition{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: inline-block;
-
-      .welcomeIntro{
-        color: ${apolloColors.light};
-        ${apolloFonts.subheading03};
-      }
-      .welcomeHeadingContainer{
-        margin-top: 20px;
-        .welcomeHeading{
-          height: 66px;
-          color: ${apolloColors.light};
-          ${apolloFonts.heading01};
-          overflow: hidden;
-        }
-      }      
-    }
-
-    .circleTextLogo{
-      position: absolute;
-      top: calc(50% - 138px);
-      left: 50%;
-      display: inline-block;
-      color: ${apolloColors.light};
-      font-family: ${apolloFonts.textSpecial};
-      font-family: 'VCR OSD Mono';
-      font-size: 12px;
-      text-align: center;
-      letter-spacing: 0;
-
-    }
-
-  }
-  .heroBottom{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 150px;
-    /* background: ${apolloColors.dark}; */
-    display: flex;
-    .ctaButton{
-      /*width: 20.8333333vw;  300px */
-      width: 25vw;
-      height: 100%;
-      background: ${apolloColors.light};
-      cursor: pointer;
-      .ctaText{
-        color: ${apolloColors.dark};
-        ${apolloFonts.textSpecial};
-      }
-    }
-    .descriptionBox{
-      width: calc(100% - 25vw);
-      align-self: center;
-      text-align: center;
-
-      .descriptionTextContainer{
-        display: inline-block;
-        padding: 40px;
-        text-align: left;
-        color: ${apolloColors.light};
-        ${apolloFonts.textLarge};
-      }
-    }  
-  }
 `
 const FirstSectionSpace = styled.div`
   width: 100%;
@@ -530,19 +439,6 @@ const InnerPage = styled.div`
   }
 
 `
-/*const BackgroundLogo = styled.div`
-  height: 100%;
-  width: 100%;
-  //background: url(https://media.giphy.com/media/l0K4lUxBzIOeJd1EA/giphy.gif);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 75%;
-  mask: url(${bigLogo});
-  mask-repeat: no-repeat;
-  mask-size: 75%;
-  mask-position: center;
-  opacity: 0;
-`*/
 
 
 //DATA
@@ -646,18 +542,6 @@ const App = () => {
         .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.6")
         .delay(1.2)
     }, [])
-  //
-
-  //CTA BUTTON ANIMATION
-    let ctaButtonRef = useRef()
-    const ctaButtonTl = gsap.timeline({paused: true, reversed: true})
-    useEffect( () => {
-      ctaButtonTl.to(ctaButtonRef, { 
-        duration: 0.8, 
-        width: "37.5vw",
-        ease: "power2.inOut",
-      })
-    }, [ctaButtonTl])
   //
 
   //IMAGE SCROLL FOLLOWER
@@ -966,39 +850,6 @@ const App = () => {
 
   //
 
-  //CIRCLE TOP FOLD
-    //Make Circle
-      useEffect( () => {
-
-        function circularText(txt, radius, classIndex) {
-          txt = txt.split("")
-          classIndex = document.getElementsByClassName("circleTextLogo")[classIndex];
-
-          let deg = 360 / txt.length
-          let origin = -5;
-
-          txt.forEach((ea) => {
-            ea = `<p style=' height:${radius}px; position:absolute; transform:rotate(${origin}deg); transform-origin:0 100%'>${ea}</p>`;
-            classIndex.innerHTML += ea;
-            origin += deg;
-          })
-        }
-      
-        circularText("HI HUMANS, WE ARE APOLLO30 · WE ARE CELEBRATING OUR FIRST REVOLUTION MOVEMENT AROUND THE SUN · ", 138, 0)
-
-      })
-    //
-    //Rotate Circle
-
-    useEffect( () => {
-      let dur = 28
-      const rotateTextTl = gsap.timeline({})
-      rotateTextTl.to(".circleTextLogo", { duration: dur, rotation:"360_ccw" , transformOrigin:"0px 138px",  repeat: -1, ease: "linear" })  
-    })
-    //
-    
-  //
-
   //EXTERNAL ICON HOVER ANIM
     let externalIconHoverTl = gsap.timeline({paused: true})
     let roleCanPizzaRef = useRef()
@@ -1047,42 +898,7 @@ const App = () => {
 
       <ContentContainer>
 
-        <TopFold>
-
-          <div className="heroTop" >
-            {/* <BackgroundLogo /> */}
-            <div className="circleTextLogo" />
-            {/* <div className="welcomeHeadingComposition">
-              <div className="welcomeIntro">Hi Humans,</div>
-              <div className="welcomeHeadingContainer">
-                <div className="welcomeHeading">
-                  <div className="welcomeHeadingInner">We Are</div>
-                </div>
-                <div className="welcomeHeading">
-                  <div className="welcomeHeadingInner">Apollo30</div>
-                </div>
-              </div>
-            </div> */}
-          </div>
-
-          <div className="heroBottom">
-            <button 
-              className="ctaButton" 
-              ref={el => ctaButtonRef = el} 
-              onMouseEnter={() => ctaButtonTl.play()}
-              onMouseLeave={() => ctaButtonTl.reverse()}
-            >
-              <div className="ctaText">Message Us</div>
-            </button>
-            <div className="descriptionBox">
-                <div className="descriptionTextContainer">
-                  <div>We are a creative studio based in Barcelona.</div>
-                  <div>We develop creative communication strategies.</div>
-                </div>
-            </div>
-          </div>
-
-        </TopFold>
+        <TopFold />
 
         <FirstSectionSpace/>
 

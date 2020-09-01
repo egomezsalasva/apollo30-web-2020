@@ -4,9 +4,9 @@ import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import gsap from 'gsap'
 //-Styles
-import {apolloColors, apolloFonts} from './data/apollo30styles'
+import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Images
-import spaceTextureHero from './assets/images/spaceTextureHero.png'
+import spaceTextureHero from '../assets/images/spaceTextureHero.png'
 //-Components
 // import SideNav from './components/SideNav'
 
@@ -104,7 +104,6 @@ const TopFoldContainer = styled.section`
     }  
   }
 `
-
 
 
 //MAIN COMPONENT
