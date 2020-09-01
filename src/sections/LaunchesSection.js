@@ -25,6 +25,7 @@ import laProaImg01 from '../assets/images/laProa/laProa01.jpg'
 import chipBakerImg01 from '../assets/images/chipBaker/chipBaker01.gif'
 //-Components
 import Section from '../components/Section'
+import TabList from '../components/TabList'
 
 //STYLES
 //-Components
@@ -425,29 +426,33 @@ const LaunchesSection = () => {
                 <h5 className="listTitle">Featured</h5>
 
                 <div className="divisionLine topLine"></div>
-                <div className="tab pointerTab" onClick={ () => innerNikeTransition.play() }>
-                    <h3 className="tabTitle">Vogue</h3>
-                    {/* Art Direction */}
-                    <div className="tabRole tabRoleInternalIcon">Creativity</div>
-                    <div className="iconContainer">
-                    <div className="internalLinkIcon" />
-                    </div>
-                </div>
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.nike)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Nike</h3>
-                    {/* Branded Content Campaign */}
-                    <div className="tabRole tabRoleInternalIcon">Creativity</div>
-                    <div className="iconContainer">
-                    <div className="internalLinkIcon" />
-                    </div>
-                </div>
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Cambridge Press</h3>
-                    <div className="tabRole tabRoleInternalIcon">Creativity / Development</div>
-                    <div className="iconContainer">
-                    <div className="internalLinkIcon" />
-                    </div>
-                </div>
+
+                <TabList 
+                    propPointer
+                    propTitle = "Vogue"
+                    propRole = "Creativity"
+                    propInternalIcon
+                    // Event Handlers
+                />
+
+                <TabList 
+                    propPointer
+                    propTitle = "Nike"
+                    propRole = "Creativity"
+                    propInternalIcon
+                    // Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.nike)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+
+                <TabList 
+                    propPointer
+                    propTitle = "Cambridge Press"
+                    propRole = "Creativity / Development"
+                    propInternalIcon
+                    // Event Handlers
+                />
+
             </div>
             
             <div className="apolloList list2020">
@@ -463,6 +468,7 @@ const LaunchesSection = () => {
                     </div>
                     </div>
                 </a>
+
                 <a href="https://muchomuchacho.com/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Mucho Muchacho</h3>
@@ -472,10 +478,12 @@ const LaunchesSection = () => {
                     </div> 
                     </div>
                 </a>
+
                 <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.sita)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Sita Abellán</h3>
                     <div className="tabRole">Creativity / Branding</div>
                 </div>
+
                 <a href="https://www.threemarkscoffee.com/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.threeMarks)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Three Marks Coffee</h3>
@@ -486,10 +494,12 @@ const LaunchesSection = () => {
                     </div> 
                     </div>
                 </a>
+
                 <div className="tab pointerTab">
                     <h3 className="tabTitle">Xemei</h3>
                     <div className="tabRole">All Services</div>
                 </div>
+
                 <a href="https://www.lazebraslowfood.com/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab">
                     <h3 className="tabTitle">La Zebra Slow Food</h3>
@@ -499,10 +509,12 @@ const LaunchesSection = () => {
                     </div> 
                     </div>
                 </a>
+
                 <div className="tab pointerTab">
                     <h3 className="tabTitle">La Zorra </h3>
                     <div className="tabRole">All Services</div>
                 </div>
+
                 <a href="https://www.trick.wtf/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Trick.Wtf</h3>
@@ -512,6 +524,7 @@ const LaunchesSection = () => {
                     </div>
                     </div>
                 </a>
+
                 <a href="https://nial.es/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Nial</h3>
@@ -521,6 +534,7 @@ const LaunchesSection = () => {
                     </div>
                     </div>
                 </a>
+
                 <a href="http://finallypress.com/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Finally Press</h3>
@@ -530,16 +544,19 @@ const LaunchesSection = () => {
                     </div>
                     </div>
                 </a>
+
             </div>
 
             <div className="apolloList list2019">
                 <h5 className="listTitle">2019</h5>
 
                 <div className="divisionLine topLine"></div>
+
                 <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">New Icons</h3>
                     <div className="tabRole">Branding</div>
                 </div>
+
                 <a href="https://www.laproa04.com/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
                         <h3 className="tabTitle">La Proa 04</h3>
@@ -549,6 +566,7 @@ const LaunchesSection = () => {
                         </div>
                     </div>
                 </a>
+
                 <a href="https://www.chipbakerfilms.com/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.chipBaker)} onMouseLeave={() => defaultGif()}>
                         <h3 className="tabTitle">Chip Baker Films</h3>
@@ -558,14 +576,17 @@ const LaunchesSection = () => {
                         </div>
                     </div>
                 </a>
+
                 <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.uniko)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Uniko. "Model Agency"</h3>
                     <div className="tabRole">Branding</div>
                 </div>
+
                 <div className="tab pointerTab">
                     <h3 className="tabTitle">Scranny's House</h3>
                     <div className="tabRole">Branding</div>
                 </div>
+
                 <a href="https://www.thenewstorytellers.es/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab">
                         <h3 className="tabTitle">The New Storytellers</h3>
@@ -575,10 +596,12 @@ const LaunchesSection = () => {
                         </div>
                     </div>
                 </a>
+
                 <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
                     <h3 className="tabTitle">Premis Butaca</h3>
                     <div className="tabRole">Branding / Development</div>
                 </div>
+
                 <a href="https://owlpsicologia.com/" target="_blank" rel="noopener noreferrer">
                     <div className="tab pointerTab">
                         <h3 className="tabTitle">Owl Institute</h3>
@@ -588,11 +611,13 @@ const LaunchesSection = () => {
                         </div>
                     </div>
                 </a>
+
                 <div className="tab pointerTab">
                     <h3 className="tabTitle">Cafes Bou</h3>
                     {/* Packaging Design */}
                     <div className="tabRole">Creativity</div>
                 </div>
+
             </div>
 
             <div className="photoContainer" ref={el => photoBoxRef = el}>

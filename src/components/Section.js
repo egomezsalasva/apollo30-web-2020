@@ -1,6 +1,6 @@
 //IMPORTS
 //-Modules
-import React, { Children } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 //-Styles
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
@@ -39,16 +39,12 @@ const SectionContainer = styled.section`
 
 //MAIN COMPONENT
 const Section = ({sectionIdProp, sectionTitleProp, sectionDescriptionProp, children}) => {
-  
   return (
     <SectionContainer id={sectionIdProp}>
         <div className="sectionCenter">
-
             <h2 className="sectionTitle">{sectionTitleProp}</h2>
             <p className="sectionDescription">{sectionDescriptionProp}</p>
-
             {children}
-
         </div>
     </SectionContainer>
   )

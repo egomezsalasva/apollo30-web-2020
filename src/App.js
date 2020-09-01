@@ -3,7 +3,6 @@
 import React, {useRef, useEffect, useState} from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 //-Styles
 import {apolloColors, apolloFonts} from './data/apollo30styles'
 //-Images
@@ -12,20 +11,6 @@ import apolloPortfolio from './assets/images/apolloPortfolio.gif'
 import arrowServices from './assets/images/apolloServicesArrow.svg'
 import internalLinkIcon from './assets/images/internalLink.svg'
 import externalLinkIcon from './assets/images/externalLink.svg'
-// import bigLogo from './assets/images/apollo30BigLogo.svg'
-import nikeImg01 from './assets/images/nike/nike01.jpg'
-import nikeImg02 from './assets/images/nike/nike02.jpg'
-import nikeImg03 from './assets/images/nike/nike03.jpg'
-import nikeImg04 from './assets/images/nike/nike04.jpg'
-import unikoImg01 from './assets/images/uniko/uniko01.jpg'
-import trickImg01 from './assets/images/trick/trick01.gif'
-import threeMarksImg01 from './assets/images/threeMarks/threeMarksImg01.gif'
-import premisButacaImg01 from './assets/images/premisButaca/premisButaca01.gif'
-import muchoMuchachoImg01 from './assets/images/muchoMuchacho/muchoMuchacho01.gif'
-import sitaImg01 from './assets/images/sitaAbellan/sitaAbellan01.jpg'
-import newIconsImg01 from './assets/images/newIcons/newIcons01.gif'
-import laProaImg01 from './assets/images/laProa/laProa01.jpg'
-import chipBakerImg01 from './assets/images/chipBaker/chipBaker01.gif'
 //-Components
 import SideNav from './components/SideNav'
 import TopFold from './sections/TopFold'
@@ -391,89 +376,38 @@ const Section = styled.section`
     }
   } 
 `
-const InnerPage = styled.div`
-  position: fixed;
-  top: 0;
-  left: -100vw;
-  width: 100vw;
-  height: 100vh;
-  background: ${apolloColors.dark};
-  z-index: 100;
-  overflow: scroll;
+// const InnerPage = styled.div`
+  //   position: fixed;
+  //   top: 0;
+  //   left: -100vw;
+  //   width: 100vw;
+  //   height: 100vh;
+  //   background: ${apolloColors.dark};
+  //   z-index: 100;
+  //   overflow: scroll;
 
-  .leftSection{
-    position: absolute;
-    width: 12.5%;
-    height: 100%;
-    top: 0; 
-    left: 0;
-    background: ${apolloColors.light};
-    cursor: pointer;
+  //   .leftSection{
+  //     position: absolute;
+  //     width: 12.5%;
+  //     height: 100%;
+  //     top: 0; 
+  //     left: 0;
+  //     background: ${apolloColors.light};
+  //     cursor: pointer;
 
-    .backButton{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scaleX(-1);
-      width: 20px;
-      height: 20px;
-      background: url(${internalLinkIcon});
-    }
-  }
+  //     .backButton{
+  //       position: absolute;
+  //       top: 50%;
+  //       left: 50%;
+  //       transform: translate(-50%, -50%) scaleX(-1);
+  //       width: 20px;
+  //       height: 20px;
+  //       background: url(${internalLinkIcon});
+  //     }
+  //   }
 
-`
+// `
 
-
-//DATA
-const imagesForLaunches = {
-
-  default: [
-      apolloPortfolio
-  ],
-
-  nike: [
-    nikeImg01,
-    nikeImg02,
-    nikeImg03,
-    nikeImg04,
-  ],
-
-  uniko: [
-    unikoImg01
-  ], 
-
-  trick: [
-    trickImg01
-  ],
-
-  threeMarks: [
-    threeMarksImg01
-  ],
-
-  premisButaca: [
-    premisButacaImg01
-  ],
-  
-  muchoMuchacho: [
-    muchoMuchachoImg01
-  ],
-
-  sita: [
-    sitaImg01
-  ],
-
-  newIcons: [
-    newIconsImg01
-  ],
-
-  laProa: [
-    laProaImg01
-  ],
-
-  chipBaker: [
-    chipBakerImg01
-  ]
-}
 
 //MAIN COMPONENT
 const App = () => {
@@ -741,7 +675,6 @@ const App = () => {
   //
 
 
-  
   return (
     <>
       <GlobalStyle/>
@@ -761,7 +694,6 @@ const App = () => {
         <TopFold />
 
         <FirstSectionSpace/>
-
         <LaunchesSection />
 
         <Section id="services">
