@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import {apolloColors, apolloFonts} from './data/apollo30styles'
 //-Images
 // import logoImg from './assets/images/apollo30Logo.png'
-import spaceTextureHero from './assets/images/spaceTextureHero.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
 import arrowServices from './assets/images/apolloServicesArrow.svg'
 import internalLinkIcon from './assets/images/internalLink.svg'
@@ -30,7 +29,7 @@ import chipBakerImg01 from './assets/images/chipBaker/chipBaker01.gif'
 //-Components
 import SideNav from './components/SideNav'
 import TopFold from './sections/TopFold'
-import IntroAnimation from './components/topFold/introAnimation/IntroAnimation'
+import LaunchesSection from './sections/LaunchesSection'
 
 
 //STYLES
@@ -479,114 +478,6 @@ const imagesForLaunches = {
 //MAIN COMPONENT
 const App = () => {
 
-  //TOP FOLD CONTEXT
-    //GLOBAL ANIM EFFECTS
-      const effectStartBoxes01 = useRef({ 
-        duration: 1.2,
-        scaleX: 0, 
-        transformOrigin:"right", 
-      })
-      const effectMoveUpText01 = useRef({
-        duration: 1.6,
-        y: 66,
-        opacity: 0,
-        rotate: 2,
-        stagger: 0.2,
-        ease: "power4.inOut",
-      })
-      const effectFadeInText01 = useRef({
-        duration: 1.2,
-        opacity: 0,
-        y: 1,
-        ease: "power4.inOut",
-      })
-    //
-
-    //INTRO TOP FOLD ANIMATION
-      useEffect( () => {
-        const introTl = gsap.timeline()
-        introTl
-          //Division 4 Anim
-          .to("#introAnimBox01", effectStartBoxes01.current, "start")
-          .to("#introAnimBox02", effectStartBoxes01.current, "start")
-          .to("#introAnimBox03", effectStartBoxes01.current, "start")
-          .to("#introAnimBox04", effectStartBoxes01.current, "start")
-          .to("#introAnimContainer", { duration: 0, display: "none" })
-          //Fade In texts
-          .from(".welcomeIntro", effectFadeInText01.current, "stage02")
-          .from(".menuHeading", effectFadeInText01.current, "stage02")
-          .from(".menuOptions", effectFadeInText01.current, "stage02")
-          .from(".sidenavBottomText", effectFadeInText01.current, "stage02")
-          .from(".ctaText", effectFadeInText01.current, "stage02")
-          .from(".descriptionTextContainer", effectFadeInText01.current, "stage02")
-          .from(".circleTextLogo", { duration: 1.2, opacity: 0, scale:0.9, y: 1, ease: "power4.inOut"}, "stage02")
-          .from(".logo", {duration: 1.2, opacity: 0, scale: 0.75, ease: "power4.inOut"}, "stage02")
-          //We are Apollo30 Anim
-          .from(".welcomeHeadingInner", effectMoveUpText01.current, "stage03-=0.4")
-          //Scroll Me Anim
-          .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.6")
-          .delay(1.2)
-      }, [])
-    //
-  //
-
-
-  //IMAGE SCROLL FOLLOWER
-    
-    //SCROLL FOLLOW
-      if (typeof window !== "undefined") {
-        gsap.registerPlugin(ScrollTrigger)
-      }
-      let photoBoxRef = useRef()
-      useEffect(() => {
-        ScrollTrigger.create({
-          pin: photoBoxRef,
-          trigger: photoBoxRef,
-          start: "center center",
-          endTrigger: ".list2019",
-          end: `bottom-=130px center`,
-        })
-      }, [])
-    //
-  
-    //LOOP IMAGES FUNCTION
-      /*const loopImages = arrayOfImages => {
-          let counterImgs = 0
-          document.querySelector(".photoBox").style.background = `url(${arrayOfImages[counterImgs]})`
-          document.querySelector(".photoBox").style.backgroundPosition = "center"
-          document.querySelector(".photoBox").style.backgroundSize = "contain"
-          document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
-          let interval = setInterval( () => {
-            counterImgs++
-            if(counterImgs === arrayOfImages.length){
-              counterImgs = 0
-            }
-            document.querySelector(".photoBox").style.background = `url(${arrayOfImages[counterImgs]})`
-            document.querySelector(".photoBox").style.backgroundPosition = "center"
-            document.querySelector(".photoBox").style.backgroundSize = "contain"
-            document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
-          },2000)
-          return () => clearInterval(interval);
-      }
-      const resetToDefaultLoopImage = () => {
-          loopImages(imagesForLaunches.portfolio)
-      }
-      */
-      const defaultGif = () => {
-        document.querySelector(".photoBox").style.background = `url(${imagesForLaunches.default[0]})`
-        document.querySelector(".photoBox").style.backgroundPosition = "center"
-        document.querySelector(".photoBox").style.backgroundSize = "contain"
-        document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
-      }
-      const setImage = img => {
-        document.querySelector(".photoBox").style.background = `url(${img[0]})`
-        document.querySelector(".photoBox").style.backgroundPosition = "center"
-        document.querySelector(".photoBox").style.backgroundSize = "contain"
-        document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
-      } 
-    //
-
-  //
 
   //NAV SCROLL HANDLER
     //Check Scroll Section
@@ -837,46 +728,33 @@ const App = () => {
 
   //
 
-  //EXTERNAL ICON HOVER ANIM
-    let externalIconHoverTl = gsap.timeline({paused: true})
-    let roleCanPizzaRef = useRef()
-    let roleIconCanPizzaRef = useRef()
-    useEffect( () => {
-      externalIconHoverTl.to(roleCanPizzaRef, { duration: 0.8, x: -35, ease: "power2.inOut"})
-      externalIconHoverTl.to(roleIconCanPizzaRef, { duration: 0.8, alpha: 1, ease: "power2.inOut"}, "-=0.4")
-    }, [externalIconHoverTl])
-    
-    
-    
-  //
-
   //INNER CLICK HANDLER
-    let innerNikeTransition = gsap.timeline({paused: true})
-    useEffect( () => {
-      innerNikeTransition.to("#nikeInner", { duration: 1.2, x: "100vw", ease: "power2.inOut"})
-    }, [innerNikeTransition])
+    // let innerNikeTransition = gsap.timeline({paused: true})
+    // useEffect( () => {
+    //   innerNikeTransition.to("#nikeInner", { duration: 1.2, x: "100vw", ease: "power2.inOut"})
+    // }, [innerNikeTransition])
+
+    // let innerBackButtonHoverTl = gsap.timeline({paused: true})
+    // useEffect( () => {
+    //   innerBackButtonHoverTl.to("#leftBackSection", { duration: 0.8, width: "18.75%", ease: "power2.inOut"})
+    // })
   //
 
-  let innerBackButtonHoverTl = gsap.timeline({paused: true})
-  useEffect( () => {
-    innerBackButtonHoverTl.to("#leftBackSection", { duration: 0.8, width: "18.75%", ease: "power2.inOut"})
-  })
 
   
   return (
     <>
       <GlobalStyle/>
 
-      <IntroAnimation />
-
-      <InnerPage id="nikeInner">
+      {/* <InnerPage id="nikeInner">
         <div className="leftSection" id="leftBackSection" onClick={() => innerNikeTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
           <div className="backButton"></div>
         </div>
         
-      </InnerPage>
+      </InnerPage> */}
 
       <SideNav/>
+
 
       <ContentContainer>
 
@@ -884,193 +762,7 @@ const App = () => {
 
         <FirstSectionSpace/>
 
-        <Section id="launches">
-          <div className="sectionCenter">
-
-            <h2 className="sectionTitle">Launches</h2>
-            <p className="sectionDescription">Here are some non-confidential launches we have picked from our archives</p>
-
-            <div className="listContainer">
-
-              <div className="apolloList listFeatured">
-                <h5 className="listTitle">Featured</h5>
-
-                <div className="divisionLine topLine"></div>
-                <div className="tab pointerTab" onClick={ () => innerNikeTransition.play() }>
-                  <h3 className="tabTitle">Vogue</h3>
-                  {/* Art Direction */}
-                  <div className="tabRole tabRoleInternalIcon">Creativity</div>
-                  <div className="iconContainer">
-                    <div className="internalLinkIcon" />
-                  </div>
-                </div>
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.nike)} onMouseLeave={() => defaultGif()}>
-                  <h3 className="tabTitle">Nike</h3>
-                  {/* Branded Content Campaign */}
-                  <div className="tabRole tabRoleInternalIcon">Creativity</div>
-                  <div className="iconContainer">
-                    <div className="internalLinkIcon" />
-                  </div>
-                </div>
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                  <h3 className="tabTitle">Cambridge Press</h3>
-                  <div className="tabRole tabRoleInternalIcon">Creativity / Development</div>
-                  <div className="iconContainer">
-                    <div className="internalLinkIcon" />
-                  </div>
-                </div>
-              </div>
-              <div className="apolloList list2020">
-                <h5 className="listTitle">2020</h5>
-
-                <div className="divisionLine topLine"></div>
-                <a href="https://www.canpizza.eu/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab" onMouseEnter={() => externalIconHoverTl.play()} onMouseLeave={() => externalIconHoverTl.reverse()}>
-                    <h3 className="tabTitle">Can Pizza</h3>
-                    <div className="tabRole tabRoleIcon" ref={el => roleCanPizzaRef = el} >All Services</div>
-                    <div className="iconContainer">
-                      <div className="externalLinkIcon" ref={el => roleIconCanPizzaRef = el}/>
-                    </div>
-                  </div>
-                </a>
-                <a href="https://muchomuchacho.com/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Mucho Muchacho</h3>
-                    <div className="tabRole tabRoleIcon">Creativity / Development</div>
-                    <div className="iconContainer">
-                      <div className="externalLinkIcon" />
-                    </div> 
-                  </div>
-                </a>
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.sita)} onMouseLeave={() => defaultGif()}>
-                  <h3 className="tabTitle">Sita Abellán</h3>
-                  <div className="tabRole">Creativity / Branding</div>
-                </div>
-                <a href="https://www.threemarkscoffee.com/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.threeMarks)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Three Marks Coffee</h3>
-                    {/* E-commerce Development */}
-                    <div className="tabRole tabRoleIcon">Development</div>
-                    <div className="iconContainer">
-                      <div className="externalLinkIcon" />
-                    </div> 
-                  </div>
-                </a>
-                <div className="tab pointerTab">
-                  <h3 className="tabTitle">Xemei</h3>
-                  <div className="tabRole">All Services</div>
-                </div>
-                <a href="https://www.lazebraslowfood.com/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab">
-                    <h3 className="tabTitle">La Zebra Slow Food</h3>
-                    <div className="tabRole tabRoleIcon">All Services</div>
-                    <div className="iconContainer">
-                      <div className="externalLinkIcon" />
-                    </div> 
-                  </div>
-                </a>
-                <div className="tab pointerTab">
-                  <h3 className="tabTitle">La Zorra </h3>
-                  <div className="tabRole">All Services</div>
-                </div>
-                <a href="https://www.trick.wtf/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Trick.Wtf</h3>
-                    <div className="tabRole tabRoleIcon">Branding / Development</div>
-                    <div className="iconContainer">
-                      <div className="externalLinkIcon" />
-                    </div>
-                  </div>
-                </a>
-                <a href="https://nial.es/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Nial</h3>
-                    <div className="tabRole tabRoleIcon">Branding / Development</div>
-                    <div className="iconContainer">
-                      <div className="externalLinkIcon" />
-                    </div>
-                  </div>
-                </a>
-                <a href="http://finallypress.com/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Finally Press</h3>
-                    <div className="tabRole tabRoleIcon">Creativity / Development</div>
-                    <div className="iconContainer">
-                      <div className="externalLinkIcon" />
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div className="apolloList list2019">
-                <h5 className="listTitle">2019</h5>
-
-                <div className="divisionLine topLine"></div>
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">New Icons</h3>
-                    <div className="tabRole">Branding</div>
-                </div>
-                <a href="https://www.laproa04.com/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
-                      <h3 className="tabTitle">La Proa 04</h3>
-                      <div className="tabRole tabRoleIcon">Branding / Development</div>
-                      <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                      </div>
-                  </div>
-                </a>
-                <a href="https://www.chipbakerfilms.com/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.chipBaker)} onMouseLeave={() => defaultGif()}>
-                      <h3 className="tabTitle">Chip Baker Films</h3>
-                      <div className="tabRole tabRoleIcon">Branding / Development</div>
-                      <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                      </div>
-                  </div>
-                </a>
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.uniko)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Uniko. "Model Agency"</h3>
-                    <div className="tabRole">Branding</div>
-                </div>
-                <div className="tab pointerTab">
-                    <h3 className="tabTitle">Scranny's House</h3>
-                    <div className="tabRole">Branding</div>
-                </div>
-                <a href="https://www.thenewstorytellers.es/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab">
-                      <h3 className="tabTitle">The New Storytellers</h3>
-                      <div className="tabRole tabRoleIcon">Development</div>
-                      <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                      </div>
-                  </div>
-                </a>
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Premis Butaca</h3>
-                    <div className="tabRole">Branding / Development</div>
-                </div>
-                <a href="https://owlpsicologia.com/" target="_blank" rel="noopener noreferrer">
-                  <div className="tab pointerTab">
-                      <h3 className="tabTitle">Owl Institute</h3>
-                      <div className="tabRole tabRoleIcon">Branding / Development</div>
-                      <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                      </div>
-                  </div>
-                </a>
-                <div className="tab pointerTab">
-                    <h3 className="tabTitle">Cafes Bou</h3>
-                    {/* Packaging Design */}
-                    <div className="tabRole">Creativity</div>
-                </div>
-              </div>
-              <div className="photoContainer" ref={el => photoBoxRef = el}>
-                <div className="photoBox"></div>
-              </div>
-
-            </div>
-
-          </div>
-        </Section>
+        <LaunchesSection />
 
         <Section id="services">
           <div className="sectionCenter">
