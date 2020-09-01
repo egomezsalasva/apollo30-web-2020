@@ -7,13 +7,10 @@ import gsap from 'gsap'
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Images
 import spaceTextureHero from '../assets/images/spaceTextureHero.png'
-//-Components
-// import SideNav from './components/SideNav'
+
 
 
 //STYLES
-//-Vars
-
 //-Components
 const TopFoldContainer = styled.section`
   position: relative;
@@ -109,28 +106,6 @@ const TopFoldContainer = styled.section`
 //MAIN COMPONENT
 const TopFold = () => {
 
-    //GLOBAL ANIM EFFECTS
-        const effectStartBoxes01 = useRef({ 
-        duration: 1.2,
-        scaleX: 0, 
-        transformOrigin:"right", 
-        })
-        const effectMoveUpText01 = useRef({
-        duration: 1.6,
-        y: 66,
-        opacity: 0,
-        rotate: 2,
-        stagger: 0.2,
-        ease: "power4.inOut",
-        })
-        const effectFadeInText01 = useRef({
-        duration: 1.2,
-        opacity: 0,
-        y: 1,
-        ease: "power4.inOut",
-        })
-    //
-
     //CIRCLE TOP FOLD
         //Make Circle
             useEffect( () => {
@@ -172,6 +147,9 @@ const TopFold = () => {
     //
     
     return (
+
+        // <IntroAnimation /> IS EXTERNAL AS A MODAL => FIND IN APP.JS
+
         <TopFoldContainer>
 
             <div className="heroTop" >

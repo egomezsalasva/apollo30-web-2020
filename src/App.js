@@ -30,6 +30,7 @@ import chipBakerImg01 from './assets/images/chipBaker/chipBaker01.gif'
 //-Components
 import SideNav from './components/SideNav'
 import TopFold from './sections/TopFold'
+import IntroAnimation from './components/topFold/introAnimation/IntroAnimation'
 
 
 //STYLES
@@ -86,23 +87,6 @@ const GlobalStyle = createGlobalStyle`
   button{
     border: none;
     outline: none;
-  }
-`
-const FirstAnimContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 100;
-
-  .firstAnimBox{
-    display: inline-block;
-    width: 25%;
-    height: 100%;
-    background: ${apolloColors.light};
-
   }
 `
 const ContentContainer = styled.div`
@@ -495,54 +479,57 @@ const imagesForLaunches = {
 //MAIN COMPONENT
 const App = () => {
 
-  //GLOBAL ANIM EFFECTS
-    const effectStartBoxes01 = useRef({ 
-      duration: 1.2,
-      scaleX: 0, 
-      transformOrigin:"right", 
-    })
-    const effectMoveUpText01 = useRef({
-      duration: 1.6,
-      y: 66,
-      opacity: 0,
-      rotate: 2,
-      stagger: 0.2,
-      ease: "power4.inOut",
-    })
-    const effectFadeInText01 = useRef({
-      duration: 1.2,
-      opacity: 0,
-      y: 1,
-      ease: "power4.inOut",
-    })
+  //TOP FOLD CONTEXT
+    //GLOBAL ANIM EFFECTS
+      const effectStartBoxes01 = useRef({ 
+        duration: 1.2,
+        scaleX: 0, 
+        transformOrigin:"right", 
+      })
+      const effectMoveUpText01 = useRef({
+        duration: 1.6,
+        y: 66,
+        opacity: 0,
+        rotate: 2,
+        stagger: 0.2,
+        ease: "power4.inOut",
+      })
+      const effectFadeInText01 = useRef({
+        duration: 1.2,
+        opacity: 0,
+        y: 1,
+        ease: "power4.inOut",
+      })
+    //
+
+    //INTRO TOP FOLD ANIMATION
+      useEffect( () => {
+        const introTl = gsap.timeline()
+        introTl
+          //Division 4 Anim
+          .to("#introAnimBox01", effectStartBoxes01.current, "start")
+          .to("#introAnimBox02", effectStartBoxes01.current, "start")
+          .to("#introAnimBox03", effectStartBoxes01.current, "start")
+          .to("#introAnimBox04", effectStartBoxes01.current, "start")
+          .to("#introAnimContainer", { duration: 0, display: "none" })
+          //Fade In texts
+          .from(".welcomeIntro", effectFadeInText01.current, "stage02")
+          .from(".menuHeading", effectFadeInText01.current, "stage02")
+          .from(".menuOptions", effectFadeInText01.current, "stage02")
+          .from(".sidenavBottomText", effectFadeInText01.current, "stage02")
+          .from(".ctaText", effectFadeInText01.current, "stage02")
+          .from(".descriptionTextContainer", effectFadeInText01.current, "stage02")
+          .from(".circleTextLogo", { duration: 1.2, opacity: 0, scale:0.9, y: 1, ease: "power4.inOut"}, "stage02")
+          .from(".logo", {duration: 1.2, opacity: 0, scale: 0.75, ease: "power4.inOut"}, "stage02")
+          //We are Apollo30 Anim
+          .from(".welcomeHeadingInner", effectMoveUpText01.current, "stage03-=0.4")
+          //Scroll Me Anim
+          .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.6")
+          .delay(1.2)
+      }, [])
+    //
   //
 
-  //INTRO TOP FOLD ANIMATION
-    useEffect( () => {
-      const introTl = gsap.timeline()
-      introTl
-        //Division 4 Anim
-        .to(".firstAnimBox01", effectStartBoxes01.current, "start")
-        .to(".firstAnimBox02", effectStartBoxes01.current, "start")
-        .to(".firstAnimBox03", effectStartBoxes01.current, "start")
-        .to(".firstAnimBox04", effectStartBoxes01.current, "start")
-        .to(".firstAnimContainer", { duration: 0, display: "none" })
-        //Fade In texts
-        .from(".welcomeIntro", effectFadeInText01.current, "stage02")
-        .from(".menuHeading", effectFadeInText01.current, "stage02")
-        .from(".menuOptions", effectFadeInText01.current, "stage02")
-        .from(".sidenavBottomText", effectFadeInText01.current, "stage02")
-        .from(".ctaText", effectFadeInText01.current, "stage02")
-        .from(".descriptionTextContainer", effectFadeInText01.current, "stage02")
-        .from(".circleTextLogo", { duration: 1.2, opacity: 0, scale:0.9, y: 1, ease: "power4.inOut"}, "stage02")
-        .from(".logo", {duration: 1.2, opacity: 0, scale: 0.75, ease: "power4.inOut"}, "stage02")
-        //We are Apollo30 Anim
-        .from(".welcomeHeadingInner", effectMoveUpText01.current, "stage03-=0.4")
-        //Scroll Me Anim
-        .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.6")
-        .delay(1.2)
-    }, [])
-  //
 
   //IMAGE SCROLL FOLLOWER
     
@@ -880,12 +867,7 @@ const App = () => {
     <>
       <GlobalStyle/>
 
-      <FirstAnimContainer className="firstAnimContainer">
-        <div className="firstAnimBox firstAnimBox01"/>
-        <div className="firstAnimBox firstAnimBox02"/>
-        <div className="firstAnimBox firstAnimBox03"/>
-        <div className="firstAnimBox firstAnimBox04"/>
-      </FirstAnimContainer>
+      <IntroAnimation />
 
       <InnerPage id="nikeInner">
         <div className="leftSection" id="leftBackSection" onClick={() => innerNikeTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
