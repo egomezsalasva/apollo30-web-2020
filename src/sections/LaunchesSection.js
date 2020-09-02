@@ -9,7 +9,6 @@ import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Images
 import apolloPortfolio from '../assets/images/apolloPortfolio.gif'
 import internalLinkIcon from '../assets/images/internalLink.svg'
-import externalLinkIcon from '../assets/images/externalLink.svg'
 import nikeImg01 from '../assets/images/nike/nike01.jpg'
 import nikeImg02 from '../assets/images/nike/nike02.jpg'
 import nikeImg03 from '../assets/images/nike/nike03.jpg'
@@ -25,11 +24,12 @@ import laProaImg01 from '../assets/images/laProa/laProa01.jpg'
 import chipBakerImg01 from '../assets/images/chipBaker/chipBaker01.gif'
 //-Components
 import Section from '../components/Section'
-import TabList from '../components/TabList'
+import FeaturedTab from '../components/launchesSection/FeaturedTab'
+import LaunchesTab from '../components/launchesSection/LaunchesTab'
 
 //STYLES
 //-Components
-const ListContainer = styled.section`
+const ListContainerStyledComp = styled.section`
     position: relative;
 
     .apolloList{
@@ -45,211 +45,19 @@ const ListContainer = styled.section`
             padding-left: 10px;
             ${apolloFonts.subheading03};
         }
+
         .divisionLine{
             width: 100%;
-            height: 2px;
+            height: 1px;
             background: ${apolloColors.dark};
         }
         .topLine{
             margin-top: 20px;
         }
 
-        .tab{
-            position: relative;
-            border-bottom: 2px solid ${apolloColors.dark};
-            width: 100%;
-            height: calc(60px + 2px);
-            cursor: default;
+    }
 
-            .tabTitle{
-            position: absolute;
-            top: 20px;
-            left: 10px;
-            display: inline-block;
-            color: ${apolloColors.dark};
-            ${apolloFonts.subheading01};
-            }
-            .hideIconOuter{
-            
-            }
-            .tabRole{
-            position: absolute;
-            top: 25px;
-            right: 10px;
-            ${apolloFonts.textSmall};
-            opacity: 0.33;
-            color: ${apolloColors.dark};
-            }
-            .tabRoleInternalIcon{
-            position: absolute;
-            top: 25px;
-            right: calc(10px + 15px + 20px);
-            }
-            .iconContainer{
-            position: absolute;
-            top: 20px;
-            right: 10px;
-            width: 20px;
-            height: 20px;
-            .internalLinkIcon{
-                position: absolute;
-                top: 1px;
-                left: 1px;
-                width: 20px;
-                height: 20px;
-                background: url(${internalLinkIcon});
-            }
-            .externalLinkIcon{
-                position: absolute;
-                top: 0;
-                left: -1px;
-                width: 20px;
-                height: 20px;
-                background: url(${externalLinkIcon});
-                opacity: 0;
-            }
-            }
-            .tabMailPlus{
-            right: calc(10px + 15px + 20px);
-            opacity: 0;
-            }
-            .tabRolePlus{
-            right: calc(10px + 15px + 20px);
-            }
-            .plusCrew{
-            position: absolute;
-            top: 21px;
-            right: 10px;
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            .line01Plus{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 2px;
-                height: 12px;
-                background: ${apolloColors.dark};
-            }
-            .line02Plus{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                height: 2px;
-                width: 12px;
-                background: ${apolloColors.dark};
-            }
-            }
-            
-        }
-
-        .pointerTab{
-            cursor: pointer;
-        }
-
-        .coordinates{
-            margin: 20px 0 0 10px;
-            color: ${apolloColors.dark};
-            ${apolloFonts.subheading03};
-        }
-
-        .address{
-            margin: 20px 0 0 10px;
-            color: ${apolloColors.dark};
-            ${apolloFonts.textLarge};
-        }
-
-        .contactText{
-            margin: 10px 0 0 10px;
-            color: ${apolloColors.dark};
-            ${apolloFonts.textLarge};
-            a{
-            text-decoration: none;
-            color: ${apolloColors.dark};
-            }
-        }
-
-        .phoneText{
-            margin-top: 20px;
-        }
-
-        .linkedinText{
-            margin-bottom: 0px;
-        }
-
-        }
-
-        .servicesList{
-        .topLine{
-            width: 500px;
-        }
-        .tab{
-            width: 500px;
-            height: 60px;
-            /* height: 104px; */
-            &:hover .tabReadMore{
-            opacity: 0.33;
-            transition: opacity 0.8s ease-in-out;
-            } 
-
-            .tabTitle{
-            position: absolute;
-            top: 19px;
-            left: 10px;
-            display: inline-block;
-            color: ${apolloColors.dark};
-            ${apolloFonts.subheading03};
-            }
-            .tabReadMore{
-            position: absolute;
-            top: 24px;
-            right: calc(20px + 15px + 10px);
-            ${apolloFonts.textSmall};
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            }
-            .tabServiceText{
-            display: none;
-            width: 360px;
-            position: absolute;
-            top: 20px;
-            right: calc(20px + 15px + 10px);
-            ${apolloFonts.textSmall};
-            line-height: 18px;
-            opacity: 0;
-            }
-        }
-        .arrowContainer{
-            position: absolute;
-            top: 20px;
-            right: 10px;
-            width: 20px;
-            height: 20px;
-            /* background: red; */
-
-            .arrowWrapper{
-                width: 100%;
-                height: 100%;
-                /* background: blue; */
-                transform: rotate(45deg);
-
-                .arrowServices{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 18px;
-                height: 14px;
-                background-repeat: no-repeat;
-                background-size: contain;
-                }
-            }  
-            }
-        }
-        
-        .photoContainer{
+    .photoContainer{
         position: absolute;
         top: calc(50px + 20px + 20px + 2px);
         left: 500px;
@@ -257,23 +65,54 @@ const ListContainer = styled.section`
         /* width: calc(410px + 40px); */
         width: calc(31.25vw);
         @media (max-width: 1230px) {
-            /* width: calc(100% - 54.9450549%); */
-            width: 29.6747967vw; /* BUG Not Working */
-            min-width: 380px;
-            left: 54.9450549%;
+          /* width: calc(100% - 54.9450549%); */
+          width: 29.6747967vw; /* BUG Not Working */
+          min-width: 380px;
+          left: 54.9450549%;
         }
 
         .photoBox{
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 300px;
-            background: url(${apolloPortfolio});
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 300px;
+          height: 300px;
+          background: url(${apolloPortfolio});
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
         }
+      }
+
+`
+const InnerPage = styled.div`
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background: ${apolloColors.dark};
+    z-index: 300;
+    overflow: scroll;
+
+    .leftSection{
+      position: absolute;
+      width: 12.5%;
+      height: 100%;
+      left: 0; 
+      right: 0;
+      background: ${apolloColors.light};
+      cursor: pointer;
+
+      .backButton{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scaleX(-1);
+        width: 20px;
+        height: 20px;
+        background: url(${internalLinkIcon});
+      }
     }
 `
 
@@ -414,41 +253,45 @@ const LaunchesSection = () => {
 
   
   return (
+
+    <>
+    <InnerPage id="nikeInner">
+        <div className="leftSection" id="leftBackSection" onClick={() => innerNikeTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
+        <div className="backButton"></div>
+        </div>
+    </InnerPage>
+
     <Section 
-        sectionIdProp="launches" 
-        sectionTitleProp="Launches" 
-        sectionDescriptionProp="Here are some non-confidential launches we have picked from our archives"
+        propSectionID="launches" 
+        propSectionTitle="Launches" 
+        propSectionDescription="Here are some non-confidential launches we have picked from our archives"
     >
 
-        <ListContainer className="listContainer">
+        <ListContainerStyledComp className="listContainer">
 
             <div className="apolloList listFeatured">
                 <h5 className="listTitle">Featured</h5>
 
                 <div className="divisionLine topLine"></div>
 
-                <TabList 
-                    propPointer
-                    propTitle = "Vogue"
-                    propRole = "Creativity"
+                <FeaturedTab propTitle="Vogue"
+                    //Main Props
+                    propRole="Creativity" 
                     propInternalIcon
                     // Event Handlers
+                    propOnClick={() => innerNikeTransition.play()}
                 />
-
-                <TabList 
-                    propPointer
-                    propTitle = "Nike"
-                    propRole = "Creativity"
+                <FeaturedTab propTitle="Nike" 
+                    //Main Props   
+                    propRole="Creativity" 
                     propInternalIcon
                     // Event Handlers
                     propOnMouseEnter={() => setImage(imagesForLaunches.nike)}
                     propOnMouseLeave={() => defaultGif()}
                 />
-
-                <TabList 
-                    propPointer
-                    propTitle = "Cambridge Press"
-                    propRole = "Creativity / Development"
+                <FeaturedTab propTitle="Cambridge Press" 
+                    //Main Props
+                    propRole="Creativity / Development" 
                     propInternalIcon
                     // Event Handlers
                 />
@@ -459,92 +302,107 @@ const LaunchesSection = () => {
                 <h5 className="listTitle">2020</h5>
 
                 <div className="divisionLine topLine"></div>
-                <a href="https://www.canpizza.eu/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab" onMouseEnter={() => externalIconHoverTl.play()} onMouseLeave={() => externalIconHoverTl.reverse()}>
-                    <h3 className="tabTitle">Can Pizza</h3>
-                    <div className="tabRole tabRoleIcon" ref={el => roleCanPizzaRef = el} >All Services</div>
-                    <div className="iconContainer">
-                        <div className="externalLinkIcon" ref={el => roleIconCanPizzaRef = el}/>
-                    </div>
-                    </div>
-                </a>
 
-                <a href="https://muchomuchacho.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Mucho Muchacho</h3>
-                    <div className="tabRole tabRoleIcon">Creativity / Development</div>
-                    <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                    </div> 
-                    </div>
-                </a>
-
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.sita)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Sita Abellán</h3>
-                    <div className="tabRole">Creativity / Branding</div>
-                </div>
-
-                <a href="https://www.threemarkscoffee.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.threeMarks)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Three Marks Coffee</h3>
-                    {/* E-commerce Development */}
-                    <div className="tabRole tabRoleIcon">Development</div>
-                    <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                    </div> 
-                    </div>
-                </a>
-
-                <div className="tab pointerTab">
-                    <h3 className="tabTitle">Xemei</h3>
-                    <div className="tabRole">All Services</div>
-                </div>
-
-                <a href="https://www.lazebraslowfood.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab">
-                    <h3 className="tabTitle">La Zebra Slow Food</h3>
-                    <div className="tabRole tabRoleIcon">All Services</div>
-                    <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                    </div> 
-                    </div>
-                </a>
-
-                <div className="tab pointerTab">
-                    <h3 className="tabTitle">La Zorra </h3>
-                    <div className="tabRole">All Services</div>
-                </div>
-
-                <a href="https://www.trick.wtf/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Trick.Wtf</h3>
-                    <div className="tabRole tabRoleIcon">Branding / Development</div>
-                    <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                    </div>
-                    </div>
-                </a>
-
-                <a href="https://nial.es/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Nial</h3>
-                    <div className="tabRole tabRoleIcon">Branding / Development</div>
-                    <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                    </div>
-                    </div>
-                </a>
-
-                <a href="http://finallypress.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.trick)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Finally Press</h3>
-                    <div className="tabRole tabRoleIcon">Creativity / Development</div>
-                    <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                    </div>
-                    </div>
-                </a>
-
+                <LaunchesTab propTitle="Can Pizza"
+                    //Main Props
+                    propRole="All Services"
+                    //Links and Refs
+                    propHrefTab="https://www.canpizza.eu/"
+                    propRoleRef={el => roleCanPizzaRef = el}
+                    propRoleIconRef={el => roleIconCanPizzaRef = el}
+                    //Event Handlers
+                    propOnMouseEnter={() => externalIconHoverTl.play()}
+                    propOnMouseLeave={() => externalIconHoverTl.reverse()}
+                />
+                <LaunchesTab propTitle="Mucho Muchacho"
+                    //Main Props
+                    propRole="Creativity / Development"
+                    //Links and Refs
+                    propHrefTab="https://muchomuchacho.com/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <LaunchesTab propTitle="Sita Abellán"
+                    //Main Props
+                    propRole="Creativity / Development"
+                    //Links and Refs
+                    propHrefTab={null}
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.sita)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <LaunchesTab propTitle="Three Marks Coffee"
+                    //Main Props
+                    propRole="Development"
+                    //Links and Refs
+                    propHrefTab="https://www.threemarkscoffee.com/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.threeMarks)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <LaunchesTab propTitle="Xemei"
+                    //Main Props
+                    propRole="All Services"
+                    //Links and Refs
+                    propHrefTab="https://xemei.es/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={null}
+                    propOnMouseLeave={null}
+                />
+                <LaunchesTab propTitle="La Zebra Slow Food"
+                    //Main Props
+                    propRole="All Services"
+                    //Links and Refs
+                    propHrefTab="https://www.lazebraslowfood.com/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={null}
+                    propOnMouseLeave={null}
+                />
+                <LaunchesTab propTitle="Trick.Wtf"
+                    //Main Props
+                    propRole="Branding / Development"
+                    //Links and Refs
+                    propHrefTab="https://www.trick.wtf/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.trick)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <LaunchesTab propTitle="Nial"
+                    //Main Props
+                    propRole="Branding / Development"
+                    //Links and Refs
+                    propHrefTab="https://www.trick.wtf/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={null}
+                    propOnMouseLeave={null}
+                />
+                <LaunchesTab propTitle="Finally Press"
+                    //Main Props
+                    propRole="Creativity / Development"
+                    //Links and Refs
+                    propHrefTab="http://finallypress.com/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={null}
+                    propOnMouseLeave={null}
+                />
+                
             </div>
 
             <div className="apolloList list2019">
@@ -624,9 +482,10 @@ const LaunchesSection = () => {
                 <div className="photoBox"></div>
             </div>
 
-        </ListContainer>
+        </ListContainerStyledComp>
 
     </Section>
+    </>
   )
 }
 export default LaunchesSection

@@ -9,8 +9,6 @@ import {apolloColors, apolloFonts} from './data/apollo30styles'
 // import logoImg from './assets/images/apollo30Logo.png'
 import apolloPortfolio from './assets/images/apolloPortfolio.gif'
 import arrowServices from './assets/images/apolloServicesArrow.svg'
-import internalLinkIcon from './assets/images/internalLink.svg'
-import externalLinkIcon from './assets/images/externalLink.svg'
 //-Components
 import SideNav from './components/SideNav'
 import TopFold from './sections/TopFold'
@@ -124,70 +122,9 @@ const Section = styled.section`
           padding-left: 10px;
           ${apolloFonts.subheading03};
         }
-        .divisionLine{
-          width: 100%;
-          height: 2px;
-          background: ${apolloColors.dark};
-        }
-        .topLine{
-          margin-top: 20px;
-        }
 
         .tab{
-          position: relative;
-          border-bottom: 2px solid ${apolloColors.dark};
-          width: 100%;
-          height: calc(60px + 2px);
-          cursor: default;
 
-          .tabTitle{
-            position: absolute;
-            top: 20px;
-            left: 10px;
-            display: inline-block;
-            color: ${apolloColors.dark};
-            ${apolloFonts.subheading01};
-          }
-          .hideIconOuter{
-            
-          }
-          .tabRole{
-            position: absolute;
-            top: 25px;
-            right: 10px;
-            ${apolloFonts.textSmall};
-            opacity: 0.33;
-            color: ${apolloColors.dark};
-          }
-          .tabRoleInternalIcon{
-            position: absolute;
-            top: 25px;
-            right: calc(10px + 15px + 20px);
-          }
-          .iconContainer{
-            position: absolute;
-            top: 20px;
-            right: 10px;
-            width: 20px;
-            height: 20px;
-            .internalLinkIcon{
-              position: absolute;
-              top: 1px;
-              left: 1px;
-              width: 20px;
-              height: 20px;
-              background: url(${internalLinkIcon});
-            }
-            .externalLinkIcon{
-              position: absolute;
-              top: 0;
-              left: -1px;
-              width: 20px;
-              height: 20px;
-              background: url(${externalLinkIcon});
-              opacity: 0;
-            }
-          }
           .tabMailPlus{
             right: calc(10px + 15px + 20px);
             opacity: 0;
@@ -224,10 +161,6 @@ const Section = styled.section`
           
         }
 
-        .pointerTab{
-          cursor: pointer;
-        }
-
         .coordinates{
           margin: 20px 0 0 10px;
           color: ${apolloColors.dark};
@@ -260,22 +193,6 @@ const Section = styled.section`
 
       }
 
-      /* .listFeatured{
-        .topLine{
-          opacity: 0;
-        }
-        .tab{
-          background: ${apolloColors.dark};
-          border-bottom: 2px solid ${apolloColors.light};
-          .tabTitle{
-            color: ${apolloColors.light};
-          }
-          .tabRole{
-            color: ${apolloColors.light};
-            opacity: 0.33;
-          }
-        }
-      } */
 
       .servicesList{
         .topLine{
@@ -376,37 +293,6 @@ const Section = styled.section`
     }
   } 
 `
-// const InnerPage = styled.div`
-  //   position: fixed;
-  //   top: 0;
-  //   left: -100vw;
-  //   width: 100vw;
-  //   height: 100vh;
-  //   background: ${apolloColors.dark};
-  //   z-index: 100;
-  //   overflow: scroll;
-
-  //   .leftSection{
-  //     position: absolute;
-  //     width: 12.5%;
-  //     height: 100%;
-  //     top: 0; 
-  //     left: 0;
-  //     background: ${apolloColors.light};
-  //     cursor: pointer;
-
-  //     .backButton{
-  //       position: absolute;
-  //       top: 50%;
-  //       left: 50%;
-  //       transform: translate(-50%, -50%) scaleX(-1);
-  //       width: 20px;
-  //       height: 20px;
-  //       background: url(${internalLinkIcon});
-  //     }
-  //   }
-
-// `
 
 
 //MAIN COMPONENT
@@ -662,32 +548,13 @@ const App = () => {
 
   //
 
-  //INNER CLICK HANDLER
-    // let innerNikeTransition = gsap.timeline({paused: true})
-    // useEffect( () => {
-    //   innerNikeTransition.to("#nikeInner", { duration: 1.2, x: "100vw", ease: "power2.inOut"})
-    // }, [innerNikeTransition])
-
-    // let innerBackButtonHoverTl = gsap.timeline({paused: true})
-    // useEffect( () => {
-    //   innerBackButtonHoverTl.to("#leftBackSection", { duration: 0.8, width: "18.75%", ease: "power2.inOut"})
-    // })
-  //
-
 
   return (
     <>
       <GlobalStyle/>
 
-      {/* <InnerPage id="nikeInner">
-        <div className="leftSection" id="leftBackSection" onClick={() => innerNikeTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
-          <div className="backButton"></div>
-        </div>
-        
-      </InnerPage> */}
 
       <SideNav/>
-
 
       <ContentContainer>
 

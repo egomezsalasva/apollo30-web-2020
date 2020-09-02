@@ -38,13 +38,15 @@ const SectionContainer = styled.section`
 
 
 //MAIN COMPONENT
-const Section = ({sectionIdProp, sectionTitleProp, sectionDescriptionProp, children}) => {
+const Section = ({propSectionID, propSectionTitle, propSectionDescription, children}) => {
   return (
-    <SectionContainer id={sectionIdProp}>
+    <SectionContainer id={propSectionID}>
         <div className="sectionCenter">
-            <h2 className="sectionTitle">{sectionTitleProp}</h2>
-            <p className="sectionDescription">{sectionDescriptionProp}</p>
+            <h2 className="sectionTitle">{propSectionTitle}</h2>
+            <p className="sectionDescription">{propSectionDescription}</p>
+
             {children}
+            
         </div>
     </SectionContainer>
   )
