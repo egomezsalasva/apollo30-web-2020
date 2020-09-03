@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import internalLinkIcon from '../../assets/images/internalLink.svg'
 import externalLinkIcon from '../../assets/images/externalLink.svg'
 //-Components
-import ListTab from '../ListTab'
+import GlobalTab from '../GlobalTab'
 
 
 //STYLES
@@ -43,7 +43,7 @@ const LaunchesTab = ({propNoPointer, propTitle, propRole, propInternalIcon, prop
 
     return (
         <a href={propHrefTab} target="_blank" rel="noopener noreferrer">
-            <ListTab 
+            <GlobalTab 
                 propNoPointer={propNoPointer} 
                 propTitle={propTitle} 
                 propRole={propRole} 
@@ -58,7 +58,7 @@ const LaunchesTab = ({propNoPointer, propTitle, propRole, propInternalIcon, prop
                 <IconContainer className="iconContainer">
                     <div className="externalLinkIcon" ref={propRoleIconRef}/>
                 </IconContainer>
-            </ListTab>
+            </GlobalTab>
         </a>
     )
 }

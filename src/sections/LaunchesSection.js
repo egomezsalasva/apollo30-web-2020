@@ -304,7 +304,6 @@ const LaunchesSection = () => {
                 <div className="divisionLine topLine"></div>
 
                 <LaunchesTab propTitle="Can Pizza"
-                    //Main Props
                     propRole="All Services"
                     //Links and Refs
                     propHrefTab="https://www.canpizza.eu/"
@@ -402,80 +401,113 @@ const LaunchesSection = () => {
                     propOnMouseEnter={null}
                     propOnMouseLeave={null}
                 />
-                
+
             </div>
 
             <div className="apolloList list2019">
                 <h5 className="listTitle">2019</h5>
 
                 <div className="divisionLine topLine"></div>
-
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.newIcons)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">New Icons</h3>
-                    <div className="tabRole">Branding</div>
-                </div>
-
-                <a href="https://www.laproa04.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.laProa)} onMouseLeave={() => defaultGif()}>
-                        <h3 className="tabTitle">La Proa 04</h3>
-                        <div className="tabRole tabRoleIcon">Branding / Development</div>
-                        <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                        </div>
-                    </div>
-                </a>
-
-                <a href="https://www.chipbakerfilms.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.chipBaker)} onMouseLeave={() => defaultGif()}>
-                        <h3 className="tabTitle">Chip Baker Films</h3>
-                        <div className="tabRole tabRoleIcon">Branding / Development</div>
-                        <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                        </div>
-                    </div>
-                </a>
-
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.uniko)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Uniko. "Model Agency"</h3>
-                    <div className="tabRole">Branding</div>
-                </div>
-
-                <div className="tab pointerTab">
-                    <h3 className="tabTitle">Scranny's House</h3>
-                    <div className="tabRole">Branding</div>
-                </div>
-
-                <a href="https://www.thenewstorytellers.es/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab">
-                        <h3 className="tabTitle">The New Storytellers</h3>
-                        <div className="tabRole tabRoleIcon">Development</div>
-                        <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                        </div>
-                    </div>
-                </a>
-
-                <div className="tab pointerTab" onMouseEnter={() => setImage(imagesForLaunches.premisButaca)} onMouseLeave={() => defaultGif()}>
-                    <h3 className="tabTitle">Premis Butaca</h3>
-                    <div className="tabRole">Branding / Development</div>
-                </div>
-
-                <a href="https://owlpsicologia.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="tab pointerTab">
-                        <h3 className="tabTitle">Owl Institute</h3>
-                        <div className="tabRole tabRoleIcon">Branding / Development</div>
-                        <div className="iconContainer">
-                        <div className="externalLinkIcon" />
-                        </div>
-                    </div>
-                </a>
-
-                <div className="tab pointerTab">
-                    <h3 className="tabTitle">Cafes Bou</h3>
-                    {/* Packaging Design */}
-                    <div className="tabRole">Creativity</div>
-                </div>
-
+                
+                <LaunchesTab propTitle="New Icons"
+                    //Main Props
+                    propRole="Branding"
+                    //Links and Refs
+                    propHrefTab={null}
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.newIcons)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <LaunchesTab propTitle="La Proa 04"
+                    //Main Props
+                    propRole="Branding / Development"
+                    //Links and Refs
+                    propHrefTab="https://www.laproa04.com/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.laProa)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <LaunchesTab propTitle="Chip Baker Films"
+                    //Main Props
+                    propRole="Branding / Development"
+                    //Links and Refs
+                    propHrefTab="https://www.chipbakerfilms.com/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.chipBaker)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <LaunchesTab propTitle='Uniko. "Model Agency"'
+                    //Main Props
+                    propRole="Branding"
+                    //Links and Refs
+                    propHrefTab="https://www.chipbakerfilms.com/"
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.uniko)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <LaunchesTab propTitle="Scranny's House"
+                    //Main Props
+                    propRole="Branding"
+                    //Links and Refs
+                    propHrefTab={null}
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={null}
+                    propOnMouseLeave={null}
+                />
+                <LaunchesTab propTitle="The New Storytellers"
+                    //Main Props
+                    propRole="Development"
+                    //Links and Refs
+                    propHrefTab="https://www.thenewstorytellers.es/" 
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={null}
+                    propOnMouseLeave={null}
+                />
+                <LaunchesTab propTitle="Premis Butaca"
+                    //Main Props
+                    propRole="Branding / Development"
+                    //Links and Refs
+                    propHrefTab="https://www.thenewstorytellers.es/" 
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={() => setImage(imagesForLaunches.premisButaca)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <LaunchesTab propTitle="Owl Institute"
+                    //Main Props
+                    propRole="Branding / Development"
+                    //Links and Refs
+                    propHrefTab="https://owlpsicologia.com/" 
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={null}
+                    propOnMouseLeave={null}
+                />
+                <LaunchesTab propTitle="Cafes Bou"
+                    //Main Props
+                    propRole="Creativity"
+                    //Links and Refs
+                    propHrefTab={null} 
+                    propRoleRef={null}
+                    propRoleIconRef={null}
+                    //Event Handlers
+                    propOnMouseEnter={null}
+                    propOnMouseLeave={null}
+                />
             </div>
 
             <div className="photoContainer" ref={el => photoBoxRef = el}>

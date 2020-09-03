@@ -48,7 +48,7 @@ const TabContainer = styled.div`
 
 
 //MAIN COMPONENT
-const ListTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propOnMouseEnter, propOnMouseLeave, propOnClick, children, propRoleRef}) => {
+const GlobalTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propOnMouseEnter, propOnMouseLeave, propOnClick, children, propRoleRef}) => {
     return (
         <TabContainer 
             className={`tab ${propNoPointer ? 'noPointerTab' : ''}`}
@@ -71,4 +71,4 @@ const ListTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propOnMo
         </TabContainer>
     )
 }
-export default ListTab
+export default GlobalTab

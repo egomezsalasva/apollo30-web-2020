@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import internalLinkIcon from '../../assets/images/internalLink.svg'
 import externalLinkIcon from '../../assets/images/externalLink.svg'
 //-Components
-import ListTab from '../ListTab'
+import GlobalTab from '../GlobalTab'
 
 
 //STYLES
@@ -42,7 +42,7 @@ const IconContainer = styled.div`
 const FeaturedTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propExternalIcon, propOnMouseEnter, propOnMouseLeave, propOnClick}) => {
 
     return (
-        <ListTab 
+        <GlobalTab 
             propNoPointer={propNoPointer} 
             propTitle={propTitle} 
             propRole={propRole} 
@@ -56,7 +56,7 @@ const FeaturedTab = ({propNoPointer, propTitle, propRole, propInternalIcon, prop
             <IconContainer className="iconContainer">
                 <div className="internalLinkIcon" />
             </IconContainer>
-        </ListTab>
+        </GlobalTab>
     )
 }
 export default FeaturedTab
