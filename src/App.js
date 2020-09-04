@@ -1,18 +1,15 @@
 //IMPORTS
 //-Modules
-import React, {useRef, useEffect, useState} from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import gsap from 'gsap'
 //-Styles
 import {apolloColors, apolloFonts} from './data/apollo30styles'
-//-Images
-// import logoImg from './assets/images/apollo30Logo.png'
-import apolloPortfolio from './assets/images/apolloPortfolio.gif'
-import arrowServices from './assets/images/apolloServicesArrow.svg'
 //-Components
 import SideNav from './components/SideNav'
 import TopFold from './sections/TopFold'
 import LaunchesSection from './sections/LaunchesSection'
+import ServicesSection from './sections/ServicesSection'
 
 
 //STYLES
@@ -87,24 +84,7 @@ const Section = styled.section`
   background: ${apolloColors.light};
 
   .sectionCenter{
-    width: 910px;
-    margin: 0 auto;
-    padding: 70px 0 130px;
-    padding-left: 45px;
-    @media (max-width: 1230px) {
-      width: 100%; 
-    }
 
-    .sectionTitle{
-      color: ${apolloColors.dark};
-      ${apolloFonts.heading02};
-    }
-    .sectionDescription{
-      margin-top: 30px;
-      max-width: 500px;
-      color: ${apolloColors.dark};
-      ${apolloFonts.textLarge};
-    }
 
     .listContainer{
       position: relative;
@@ -192,104 +172,7 @@ const Section = styled.section`
         }
 
       }
-
-
-      .servicesList{
-        .topLine{
-          width: 500px;
-        }
-        .tab{
-          width: 500px;
-          height: 60px;
-          /* height: 104px; */
-          &:hover .tabReadMore{
-            opacity: 0.33;
-            transition: opacity 0.8s ease-in-out;
-          } 
-
-          .tabTitle{
-            position: absolute;
-            top: 19px;
-            left: 10px;
-            display: inline-block;
-            color: ${apolloColors.dark};
-            ${apolloFonts.subheading03};
-          }
-          .tabReadMore{
-            position: absolute;
-            top: 24px;
-            right: calc(20px + 15px + 10px);
-            ${apolloFonts.textSmall};
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-          }
-          .tabServiceText{
-            display: none;
-            width: 360px;
-            position: absolute;
-            top: 20px;
-            right: calc(20px + 15px + 10px);
-            ${apolloFonts.textSmall};
-            line-height: 18px;
-            opacity: 0;
-          }
-        }
-        .arrowContainer{
-            position: absolute;
-            top: 20px;
-            right: 10px;
-            width: 20px;
-            height: 20px;
-            /* background: red; */
-
-            .arrowWrapper{
-              width: 100%;
-              height: 100%;
-              /* background: blue; */
-              transform: rotate(45deg);
-
-              .arrowServices{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 18px;
-                height: 14px;
-                background: url(${arrowServices});
-                background-repeat: no-repeat;
-                background-size: contain;
-              }
-            }  
-          }
-      }
         
-      .photoContainer{
-        position: absolute;
-        top: calc(50px + 20px + 20px + 2px);
-        left: 500px;
-        height: 300px;
-        /* width: calc(410px + 40px); */
-        width: calc(31.25vw);
-        @media (max-width: 1230px) {
-          /* width: calc(100% - 54.9450549%); */
-          width: 29.6747967vw; /* BUG Not Working */
-          min-width: 380px;
-          left: 54.9450549%;
-        }
-
-        .photoBox{
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 300px;
-          height: 300px;
-          background: url(${apolloPortfolio});
-          background-size: contain;
-          background-position: center;
-          background-repeat: no-repeat;
-        }
-      }
-
     }
   } 
 `
@@ -356,198 +239,6 @@ const App = () => {
 
   //
 
-  //SERVICES ACCORDEON
-      //-States
-        const [servicesWide, setServicesWide] = useState(false)
-        const [creativityTabActive, setCreativityTabActive] = useState(false)
-        const [brandTabActive, setBrandTabActive] = useState(false)
-        const [mediaTabActive, setMediaTabActive] = useState(false)
-        const [developmentTabActive, setDevelopmentTabActive] = useState(false)
-      //
-      //-Timelines
-        const creativityTl = gsap.timeline({ paused: true })
-        const brandTl = gsap.timeline({ paused: true })
-        const mediaTl = gsap.timeline({ paused: true })
-        const developmentTl = gsap.timeline({ paused: true })
-      //
-      //-Refs
-        let topLineServicesRef = useRef()
-        let creativityTabRef = useRef()
-        let arrowCreativityRef = useRef()
-        let arrowBrandRef = useRef()
-        let arrowMediaRef = useRef()
-        let arrowDevelopmentRef = useRef()
-        let brandInnovationTabRef = useRef()
-        let mediaActivationTabRef = useRef()
-        let developmentTabRef = useRef()
-        let creativityReadMoreRef = useRef()
-        let brandReadMoreRef = useRef()
-        let mediaReadMoreRef = useRef()
-        let developmentReadMoreRef = useRef()
-        let creativityTextRef = useRef()
-        let brandTextRef = useRef()
-        let mediaTextRef = useRef()
-        let developmentTextRef = useRef()
-      //
-      //-Handlers
-        const creativityClickHandler = () => {
-          //Tabs Closed to Open Creativity Tab 
-            if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
-              creativityTl
-                      .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-                      .to(creativityReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-                      .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-                      .to(arrowCreativityRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
-                      .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-                      .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-                      .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-                      .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-                      .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-                      .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-                      .to(creativityReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-                      .to(creativityTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-                      .to(creativityTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-                      // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
-                      .play()
-              setServicesWide(!servicesWide)
-              setCreativityTabActive(!creativityTabActive)
-            }
-          //
-          //Tabs Open to Switch to Creativity Tab
-            if(servicesWide === true && creativityTabActive === false){
-              if( brandTabActive === true || mediaTabActive === true ||  developmentTabActive === true){
-                creativityTl
-                      .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-                      .to(creativityReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-                      .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-                      .to(arrowCreativityRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
-                      .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-                      .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-                      .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-                      .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-                      .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-                      .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-                      .to(creativityReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-                      .to(creativityTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-                      .to(brandReadMoreRef, { duration: 0, display: "block", ease: "power2.inOut"} , "stage02")
-                      .to(brandTextRef, { duration: 0.8, opacity: 0, display: "none", ease: "power2.inOut"} , "stage02")
-                      .to(brandInnovationTabRef, { duration: 0.8, height: "62px", ease: "power2.inOut" }, "stage03")
-                      .to(creativityTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-                      .play()
-                setCreativityTabActive(!creativityTabActive)
-              }
-            }
-          //
-          //Tabs Open to Close All Tabs
-
-        }
-        const brandClickHandler = () => {
-          //Tabs Closed to Open Brand Tab 
-            if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
-              brandTl
-                    .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-                    .to(brandReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-                    .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-                    .to(arrowCreativityRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
-                    .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-                    .to(arrowBrandRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.4")
-                    .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-                    .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-                    .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-                    .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-                    .to(brandReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-                    .to(brandInnovationTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-                    .to(brandTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-                    .play()
-              setServicesWide(!servicesWide)
-              setBrandTabActive(!brandTabActive)
-            }
-          //
-          //Tabs Open to Switch to Creativity Tab
-            if(servicesWide === true &&  brandTabActive === false){
-              if( creativityTabActive === true || mediaTabActive === true ||  developmentTabActive === true){
-                brandTl
-                    .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-                    .to(brandReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-                    .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-                    .to(arrowCreativityRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
-                    .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-                    .to(arrowBrandRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.4")
-                    .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-                    .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-                    .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-                    .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-                    .to(brandReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-                    .to(brandInnovationTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-                    .to(creativityReadMoreRef, { duration: 0, display: "block", ease: "power2.inOut"} , "stage02")
-                    .to(creativityTextRef, { duration: 0.8, opacity: 0, display: "none", ease: "power2.inOut"} , "stage02")
-                    .to(creativityTabRef, { duration: 0.8, height: "62px", ease: "power2.inOut" }, "stage03")
-                    .to(brandTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-                    .play()
-                    setBrandTabActive(!brandTabActive)
-              }
-            }
-          //
-        }
-        const mediaClickHandler = () => {
-          if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
-            mediaTl
-                    .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-                    .to(mediaReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-                    .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-                    .to(arrowCreativityRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
-                    .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-                    .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-                    .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-                    .to(arrowMediaRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.6")
-                    .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-                    .to(arrowDevelopmentRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-                    .to(mediaReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-                    .to(mediaActivationTabRef, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-                    .to(mediaTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-                    // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
-                    .play()
-            setServicesWide(!servicesWide)
-            setMediaTabActive(!mediaTabActive)
-          } else if (servicesWide === true && creativityTabActive === false && brandTabActive === false && mediaTabActive === true && developmentTabActive === false) {
-            mediaTl.reverse()
-            setServicesWide(!servicesWide)
-            setMediaTabActive(!mediaTabActive)
-          }
-
-        }
-        const developmentClickHandler = () => {
-          if(servicesWide === false && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === false){
-            developmentTl
-                    .to(topLineServicesRef, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-                    .to(mediaReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-                    .to(creativityTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-                    .to(arrowCreativityRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
-                    .to(brandInnovationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-                    .to(arrowBrandRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-                    .to(mediaActivationTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-                    .to(arrowMediaRef, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-                    .to(developmentTabRef, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-                    .to(arrowDevelopmentRef, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.8")
-                    .to(developmentReadMoreRef, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-                    .to(developmentTabRef, { duration: 0.8, height: "78px", ease: "power2.inOut" }, "stage02")
-                    .to(developmentTextRef, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-                    // .from(creativityTextRef, { duration: 0.8, y: 1, ease: "power2.inOut" }, "stage03")
-                    .play()
-            setServicesWide(!servicesWide)
-            setMediaTabActive(!mediaTabActive)
-          } else if (servicesWide === true && creativityTabActive === false && brandTabActive === false && mediaTabActive === false && developmentTabActive === true) {
-            developmentTl.reverse()
-            setServicesWide(!servicesWide)
-            setDevelopmentTabActive(!developmentTabActive)
-          }
-
-        }
-      //
-
-
-  //
-
 
   return (
     <>
@@ -562,61 +253,7 @@ const App = () => {
 
         <FirstSectionSpace/>
         <LaunchesSection />
-
-        <Section id="services">
-          <div className="sectionCenter">
-
-            <h2 className="sectionTitle">Services</h2>
-            <p className="sectionDescription">We believe that in our current era, there’s a saturation of stimuli. This requires differentiation through tailored content.</p>
-
-            <div className="listContainer">
-              <div className="apolloList servicesList">
-                <div className="divisionLine topLine" ref={el => topLineServicesRef = el}></div>
-                <div className="tab pointerTab" ref={el => creativityTabRef = el} onClick={creativityClickHandler}>
-                  <h3 className="tabTitle">Creativity</h3>
-                  <div className="tabReadMore" ref={el => creativityReadMoreRef = el}>Click To Read More</div>
-                  <div className="tabServiceText" ref={el => creativityTextRef = el}>Creamos contenido (publicitario, cinematográfico, social, digital y móvil) que trasciende los medios tradicionales y difumina las líneas entre productos, experiencias, contenido y marketing.</div>
-                  <div className="arrowContainer">
-                    <div className="arrowWrapper" ref={el => arrowCreativityRef = el}>
-                      <div className="arrowServices" />
-                    </div>  
-                  </div> 
-                </div>
-                <div className="tab pointerTab" ref={el => brandInnovationTabRef = el} onClick={brandClickHandler}>
-                  <h3 className="tabTitle">Brand Innovation</h3>
-                  <div className="tabReadMore" ref={el => brandReadMoreRef = el}>Click To Read More</div>
-                  <div className="tabServiceText" ref={el => brandTextRef = el}>Los consumidores de hoy no compran una marca, se han de sentir partícipes de ella. Ayudamos a las marcas a simplificar y aclarar quiénes son para transmitir mejor y llegar a conectar verdaderamente con su público objetivo.</div>
-                  <div className="arrowContainer">
-                    <div className="arrowWrapper" ref={el => arrowBrandRef = el}>
-                      <div className="arrowServices" />
-                    </div>  
-                  </div> 
-                </div>
-                <div className="tab pointerTab" ref={el => mediaActivationTabRef = el} onClick={() => mediaClickHandler()}>
-                  <h3 className="tabTitle">Media Activation</h3>
-                  <div className="tabReadMore" ref={el => mediaReadMoreRef = el}>Click To Read More</div>
-                  <div className="tabServiceText" ref={el => mediaTextRef = el}>La abundancia de competencia en el mercado actual exige una dosis extra de creatividad y estrategia. Una estrategia ocurrente garantiza ubicaciones de medios más ingeniosas y, por tanto, mas efectivas.</div>
-                  <div className="arrowContainer">
-                    <div className="arrowWrapper" ref={el => arrowMediaRef = el}>
-                      <div className="arrowServices" />
-                    </div>  
-                  </div>
-                </div>
-                <div className="tab pointerTab" ref={el => developmentTabRef = el} onClick={() => developmentClickHandler()}>
-                  <h3 className="tabTitle" >Development</h3>
-                  <div className="tabReadMore" ref={el => developmentReadMoreRef = el}>Click To Read More</div>
-                  <div className="tabServiceText" ref={el => developmentTextRef = el}>Ofrecemos servicios de diseño y desarrollo web, creamos apps y gestionamos proyectos de desarrollo personalizados.</div>
-                  <div className="arrowContainer">
-                    <div className="arrowWrapper" ref={el => arrowDevelopmentRef = el}>
-                      <div className="arrowServices" />
-                    </div>  
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </Section>
+        <ServicesSection />
 
         <Section id="crew">
           <div className="sectionCenter">
