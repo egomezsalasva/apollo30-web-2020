@@ -10,6 +10,7 @@ const apolloFonts = {
         font-family: 'Graphik';
         font-style: normal;
         font-weight: 900;
+        font-weight: 700;
         font-size: 60px;
         line-height: 66px;
         text-transform: uppercase;
@@ -19,6 +20,7 @@ const apolloFonts = {
         font-family: 'Graphik';
         font-style: normal;
         font-weight: 900;
+        font-weight: 700;
         font-size: 60px;
         line-height: 60px;
     `,
@@ -28,6 +30,7 @@ const apolloFonts = {
         font-family: 'Graphik';
         font-style: normal;
         font-weight: 900;
+        font-weight: 700;
         font-size: 20px; 
         line-height: 20px;
         text-transform: capitalize;
@@ -37,7 +40,8 @@ const apolloFonts = {
         font-family: 'Graphik';
         font-style: normal;
         font-weight: 900;
-        font-size: 18px;
+        font-weight: 700;
+        font-size: 20px;
         line-height: 20px;
     `,
     subheading03:  props => `
@@ -45,7 +49,7 @@ const apolloFonts = {
         font-family: 'VCR OSD Mono';
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 20px;
         text-transform: uppercase;
     `,
@@ -55,8 +59,9 @@ const apolloFonts = {
         font-family: 'Graphik';
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 26px;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.5px;
     `,
     textSpecial:  props => `
         /* Text Special - VCR OSD Mono - ALLCAPS */
@@ -74,6 +79,7 @@ const apolloFonts = {
         font-weight: normal;
         font-size: 12px;
         line-height: 12px;
+        letter-spacing: 0.5px;
     `
 }
 

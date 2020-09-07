@@ -244,7 +244,6 @@ const App = () => {
     <>
       <GlobalStyle/>
 
-
       <SideNav/>
 
       <ContentContainer>
@@ -253,6 +252,7 @@ const App = () => {
 
         <FirstSectionSpace/>
         <LaunchesSection />
+
         <ServicesSection />
 
         <Section id="crew">
