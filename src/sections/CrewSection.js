@@ -4,41 +4,16 @@ import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import gsap from 'gsap'
 //-Styles
-import {apolloColors, apolloFonts} from '../data/apollo30styles'
+import {apolloColors} from '../data/apollo30styles'
 //-Components
 import GlobalSection from '../components/GlobalSection'
+import GlobalList from '../components/GlobalList'
 import GlobalTab from '../components/GlobalTab'
 
 //STYLES
 //-Components
 const ListContainerStyledComp = styled.section`
     position: relative;
-
-    .apolloList{
-        display:inline-block;
-        padding-top: 50px;
-        width: 500px;
-        @media (max-width: 1230px) {
-            width: 54.9450549% ;
-            /* min-width: 300px; */  
-        }
-
-        .listTitle{
-            padding-left: 10px;
-            ${apolloFonts.subheading03};
-        }
-
-        .divisionLine{
-            width: 100%;
-            height: 1px;
-            background: ${apolloColors.dark};
-        }
-        .topLine{
-            margin-top: 20px;
-        }
-
-
-    }
 
     .tabMailPlus{
         right: calc(10px + 15px + 20px);
@@ -125,11 +100,7 @@ const CrewSection = () => {
 
             <ListContainerStyledComp className="listContainer">
 
-                <div className="apolloList">
-                    
-                    <h5 className="listTitle">Ground Control</h5>
-
-                    <div className="divisionLine topLine"></div>
+                <GlobalList propListTitle="Ground Control" >
 
                     <GlobalTab propTitle="Anto"
                         propRole="Creative Director"
@@ -160,17 +131,19 @@ const CrewSection = () => {
                     <GlobalTab propTitle="Ramón" propRole="Administrator" propNoPointer />
                     <GlobalTab propTitle="Cesar" propRole="Videographer / Motion Designer" propNoPointer />
                     <GlobalTab propTitle="Paula" propRole="Junior Designer" propNoPointer />
-                </div>
+                    
+                </GlobalList>
 
-                <div className="apolloList">
-                    <h5 className="listTitle">Technicians</h5>
+    
+                <GlobalList propListTitle="Technicians">
 
-                    <div className="divisionLine topLine"></div>
                     <GlobalTab propTitle="Kike" propRole="UX & UI Designer / Front-End Developer" propNoPointer />
                     <GlobalTab propTitle="Pablo" propRole="Full-Stack Developer" propNoPointer />
                     <GlobalTab propTitle="Esther" propRole="Photographer" propNoPointer />
                     <GlobalTab propTitle="Nathan" propRole="Photographer" propNoPointer />
-                </div>
+
+                </GlobalList>
+
             </ListContainerStyledComp>
 
         </GlobalSection>

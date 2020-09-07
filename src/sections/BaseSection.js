@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Components
 import GlobalSection from '../components/GlobalSection'
+import GlobalList from '../components/GlobalList'
 
 //STYLES
 //-Components
@@ -84,10 +85,7 @@ const BaseSection = () => {
 
         <ListContainerStyledComp className="listContainer">
 
-            <div className="apolloList">
-                <h5 className="listTitle">Apollo30 Headquarters</h5>
-
-                <div className="divisionLine topLine"></div>
+            <GlobalList propListTitle="Apollo30 Headquarters">
 
                 <h5 className="coordinates">41.2145º N, 2.0739º E</h5>
                 
@@ -95,18 +93,18 @@ const BaseSection = () => {
                     C/ d’Enric Morera 5-7, <br/>
                     08902, l’Hospitalet de Llobregat, BCN, ES 
                 </div>
-            </div>
 
-            <div className="apolloList">
-                <h5 className="listTitle">Establish Communication</h5>
+            </GlobalList>
 
-                <div className="divisionLine topLine"></div>
-            
+
+            <GlobalList propListTitle="Establish Communication">
+        
                 <div className="contactText phoneText">+34 693 037 682</div>
                 <div className="contactText">contact@apollo30.com</div>
                 <div className="contactText"><a href="https://www.instagram.com/apollo30com/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
                 <div className="contactText linkedinText"><a href="https://www.linkedin.com/company/apollo-30/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
-            </div>
+
+            </GlobalList>
 
         </ListContainerStyledComp>
 

@@ -245,55 +245,55 @@ const LaunchesSection = () => {
         propSectionDescription="We believe that in our current era, there’s a saturation of stimuli. This requires differentiation through tailored content."
     >
         
-        <ListContainerStyledComp className="listContainer">
+      <ListContainerStyledComp className="listContainer">
 
-            <div className="apolloList servicesList">
+        <div className="apolloList servicesList">
 
-                <div className="divisionLine topLine" style={{marginTop: "0px"}} ref={el => topLineServicesRef = el}></div>
+          <div className="divisionLine topLine" style={{marginTop: "0px"}} ref={el => topLineServicesRef = el}></div>
 
-                <ServicesTab propTitle="Creativity"
-                    propRole="Click To Read More"
-                    propRoleRef={el => creativityReadMoreRef = el}
-                    propServicesText="Creamos contenido (publicitario, cinematográfico, social, digital y móvil) que trasciende los medios tradicionales y difumina las líneas entre productos, experiencias, contenido y marketing."
-                    propServicesTextRef={el => creativityTextRef = el}
-                    propServicesArrowRef={el => arrowCreativityRef = el}
-                    propOnClick={creativityClickHandler}
-                    propInternalIcon
-                />
-                <ServicesTab propTitle="Brand Innovation"
-                    propTabRef={el => brandInnovationTabRef = el}
-                    propRole="Click To Read More"
-                    propRoleRef={el => brandReadMoreRef = el}
-                    propServicesText="Los consumidores de hoy no compran una marca, se han de sentir partícipes de ella. Ayudamos a las marcas a simplificar y aclarar quiénes son para transmitir mejor y llegar a conectar verdaderamente con su público objetivo."
-                    propServicesTextRef={el => brandTextRef = el}
-                    propServicesArrowRef={el => arrowBrandRef = el}
-                    propOnClick={brandClickHandler}
-                    propInternalIcon
-                />
-                <ServicesTab propTitle="Media Activation"
-                    propTabRef={el => mediaActivationTabRef = el}
-                    propRole="Click To Read More"
-                    propRoleRef={el => mediaReadMoreRef = el}
-                    propServicesText="La abundancia de competencia en el mercado actual exige una dosis extra de creatividad y estrategia. Una estrategia ocurrente garantiza ubicaciones de medios más ingeniosas y, por tanto, mas efectivas."
-                    propServicesTextRef={el => mediaTextRef = el}
-                    propServicesArrowRef={el => arrowMediaRef = el}
-                    propOnClick={() => mediaClickHandler()}
-                    propInternalIcon
-                />
-                <ServicesTab propTitle="Development"
-                    propTabRef={el => developmentTabRef = el}
-                    propRole="Click To Read More"
-                    propRoleRef={el => developmentReadMoreRef = el}
-                    propServicesText="Ofrecemos servicios de diseño y desarrollo web, creamos apps y gestionamos proyectos de desarrollo personalizados."
-                    propServicesTextRef={el => developmentTextRef = el}
-                    propServicesArrowRef={el => arrowDevelopmentRef = el}
-                    propOnClick={() => developmentClickHandler()}
-                    propInternalIcon
-                />
+          <ServicesTab propTitle="Creativity"
+              propRole="Click To Read More"
+              propRoleRef={el => creativityReadMoreRef = el}
+              propServicesText="Creamos contenido (publicitario, cinematográfico, social, digital y móvil) que trasciende los medios tradicionales y difumina las líneas entre productos, experiencias, contenido y marketing."
+              propServicesTextRef={el => creativityTextRef = el}
+              propServicesArrowRef={el => arrowCreativityRef = el}
+              propOnClick={creativityClickHandler}
+              propInternalIcon
+          />
+          <ServicesTab propTitle="Brand Innovation"
+              propTabRef={el => brandInnovationTabRef = el}
+              propRole="Click To Read More"
+              propRoleRef={el => brandReadMoreRef = el}
+              propServicesText="Los consumidores de hoy no compran una marca, se han de sentir partícipes de ella. Ayudamos a las marcas a simplificar y aclarar quiénes son para transmitir mejor y llegar a conectar verdaderamente con su público objetivo."
+              propServicesTextRef={el => brandTextRef = el}
+              propServicesArrowRef={el => arrowBrandRef = el}
+              propOnClick={brandClickHandler}
+              propInternalIcon
+          />
+          <ServicesTab propTitle="Media Activation"
+              propTabRef={el => mediaActivationTabRef = el}
+              propRole="Click To Read More"
+              propRoleRef={el => mediaReadMoreRef = el}
+              propServicesText="La abundancia de competencia en el mercado actual exige una dosis extra de creatividad y estrategia. Una estrategia ocurrente garantiza ubicaciones de medios más ingeniosas y, por tanto, mas efectivas."
+              propServicesTextRef={el => mediaTextRef = el}
+              propServicesArrowRef={el => arrowMediaRef = el}
+              propOnClick={() => mediaClickHandler()}
+              propInternalIcon
+          />
+          <ServicesTab propTitle="Development"
+              propTabRef={el => developmentTabRef = el}
+              propRole="Click To Read More"
+              propRoleRef={el => developmentReadMoreRef = el}
+              propServicesText="Ofrecemos servicios de diseño y desarrollo web, creamos apps y gestionamos proyectos de desarrollo personalizados."
+              propServicesTextRef={el => developmentTextRef = el}
+              propServicesArrowRef={el => arrowDevelopmentRef = el}
+              propOnClick={() => developmentClickHandler()}
+              propInternalIcon
+          />
 
-            </div>
+        </div>
 
-        </ListContainerStyledComp>
+      </ListContainerStyledComp>
 
     </GlobalSection>
 

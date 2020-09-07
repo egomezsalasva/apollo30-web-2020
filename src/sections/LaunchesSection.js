@@ -24,6 +24,7 @@ import laProaImg01 from '../assets/images/laProa/laProa01.jpg'
 import chipBakerImg01 from '../assets/images/chipBaker/chipBaker01.gif'
 //-Components
 import GlobalSection from '../components/GlobalSection'
+import GlobalList from '../components/GlobalList'
 import FeaturedTab from '../components/launchesSection/FeaturedTab'
 import LaunchesTab from '../components/launchesSection/LaunchesTab'
 
@@ -31,31 +32,6 @@ import LaunchesTab from '../components/launchesSection/LaunchesTab'
 //-Components
 const ListContainerStyledComp = styled.section`
     position: relative;
-
-    .apolloList{
-        display:inline-block;
-        padding-top: 50px;
-        width: 500px;
-        @media (max-width: 1230px) {
-            width: 54.9450549% ;
-            /* min-width: 300px; */  
-        }
-
-        .listTitle{
-            padding-left: 10px;
-            ${apolloFonts.subheading03};
-        }
-
-        .divisionLine{
-            width: 100%;
-            height: 1px;
-            background: ${apolloColors.dark};
-        }
-        .topLine{
-            margin-top: 20px;
-        }
-
-    }
 
     .photoContainer{
         position: absolute;
@@ -269,10 +245,8 @@ const LaunchesSection = () => {
 
         <ListContainerStyledComp className="listContainer">
 
-            <div className="apolloList listFeatured">
-                <h5 className="listTitle">Featured</h5>
 
-                <div className="divisionLine topLine"></div>
+            <GlobalList propListTitle="Featured" propExtraListClass="listFeatured" >
 
                 <FeaturedTab propTitle="Vogue"
                     //Main Props
@@ -296,13 +270,11 @@ const LaunchesSection = () => {
                     // Event Handlers
                 />
 
-            </div>
+            </GlobalList>
             
-            <div className="apolloList list2020">
-                <h5 className="listTitle">2020</h5>
 
-                <div className="divisionLine topLine"></div>
-
+            <GlobalList propListTitle="2020" propExtraListClass="list2020" >
+    
                 <LaunchesTab propTitle="Can Pizza"
                     propRole="All Services"
                     //Links and Refs
@@ -402,12 +374,10 @@ const LaunchesSection = () => {
                     propOnMouseLeave={null}
                 />
 
-            </div>
+            </GlobalList>
 
-            <div className="apolloList list2019">
-                <h5 className="listTitle">2019</h5>
 
-                <div className="divisionLine topLine"></div>
+            <GlobalList propListTitle="2019" propExtraListClass="list2019" >
                 
                 <LaunchesTab propTitle="New Icons"
                     //Main Props
@@ -508,7 +478,9 @@ const LaunchesSection = () => {
                     propOnMouseEnter={null}
                     propOnMouseLeave={null}
                 />
-            </div>
+
+            </GlobalList>
+
 
             <div className="photoContainer" ref={el => photoBoxRef = el}>
                 <div className="photoBox"></div>
