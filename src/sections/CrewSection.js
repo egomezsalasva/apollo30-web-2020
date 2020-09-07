@@ -6,7 +6,7 @@ import gsap from 'gsap'
 //-Styles
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Components
-import Section from '../components/Section'
+import GlobalSection from '../components/GlobalSection'
 import GlobalTab from '../components/GlobalTab'
 
 //STYLES
@@ -116,63 +116,65 @@ const CrewSection = () => {
 
     //
 
-  return (
-    <Section
-        propSectionID="crew" 
-        propSectionTitle="Crew" 
-        propSectionDescription=""
-    >
+    return (
+        <GlobalSection
+            propSectionID="crew" 
+            propSectionTitle="Crew" 
+            propSectionDescription="We believe autonomy is a powerful motivator. That's why we operate in a decentralized system, with a base work station in Barcelona."
+        >
 
-        <ListContainerStyledComp className="listContainer">
+            <ListContainerStyledComp className="listContainer">
 
-            <div className="apolloList">
-                
-                <h5 className="listTitle">Operations</h5>
+                <div className="apolloList">
+                    
+                    <h5 className="listTitle">Ground Control</h5>
 
-                <div className="divisionLine topLine"></div>
+                    <div className="divisionLine topLine"></div>
 
-                <GlobalTab propTitle="Anto"
-                    propRole="Creative Director"
-                    propRoleRef={el => plusAntoRole = el}
-                    propOnMouseEnter={ () => crewHoverAntoTl.play() }
-                    propOnMouseLeave={ () => crewHoverAntoTl.reverse() }
-                    propWithPlus
-                >
-                    <div className="tabRole tabMailPlus" ref={el => plusAntoMail = el}>a@apollo30.com</div>
-                    <div className="plusCrew">
-                        <div className="line01Plus" ref={el => plusAntoLine01 = el}></div>
-                        <div className="line02Plus" ref={el => plusAntoLine02 = el}></div>
-                    </div>
-                </GlobalTab>
-                <GlobalTab propTitle="Sandra"
-                    propRole="Accounting"
-                    propRoleRef={el => plusSandraRole = el}
-                    propOnMouseEnter={ () => crewHoverSandraTl.play() }
-                    propOnMouseLeave={ () => crewHoverSandraTl.reverse() }
-                    propWithPlus
-                >
-                    <div className="tabRole tabMailPlus" ref={el => plusSandraMail = el}>s@apollo30.com</div>
-                    <div className="plusCrew">
-                        <div className="line01Plus" ref={el => plusSandraLine01 = el}></div>
-                        <div className="line02Plus" ref={el => plusSandraLine02 = el}></div>
-                    </div>
-                </GlobalTab>
-                <GlobalTab propTitle="Cesar" propRole="Videographer / Motion Designer" propNoPointer />
-                <GlobalTab propTitle="Paula" propRole="Community Manager / Junior Designer" propNoPointer />
-            </div>
+                    <GlobalTab propTitle="Anto"
+                        propRole="Creative Director"
+                        propRoleRef={el => plusAntoRole = el}
+                        propOnMouseEnter={ () => crewHoverAntoTl.play() }
+                        propOnMouseLeave={ () => crewHoverAntoTl.reverse() }
+                        propWithPlus
+                    >
+                        <div className="tabRole tabMailPlus" ref={el => plusAntoMail = el}>a@apollo30.com</div>
+                        <div className="plusCrew">
+                            <div className="line01Plus" ref={el => plusAntoLine01 = el}></div>
+                            <div className="line02Plus" ref={el => plusAntoLine02 = el}></div>
+                        </div>
+                    </GlobalTab>
+                    <GlobalTab propTitle="Sandra"
+                        propRole="Accounting"
+                        propRoleRef={el => plusSandraRole = el}
+                        propOnMouseEnter={ () => crewHoverSandraTl.play() }
+                        propOnMouseLeave={ () => crewHoverSandraTl.reverse() }
+                        propWithPlus
+                    >
+                        <div className="tabRole tabMailPlus" ref={el => plusSandraMail = el}>s@apollo30.com</div>
+                        <div className="plusCrew">
+                            <div className="line01Plus" ref={el => plusSandraLine01 = el}></div>
+                            <div className="line02Plus" ref={el => plusSandraLine02 = el}></div>
+                        </div>
+                    </GlobalTab>
+                    <GlobalTab propTitle="Ramón" propRole="Administrator" propNoPointer />
+                    <GlobalTab propTitle="Cesar" propRole="Videographer / Motion Designer" propNoPointer />
+                    <GlobalTab propTitle="Paula" propRole="Junior Designer" propNoPointer />
+                </div>
 
-            <div className="apolloList">
-                <h5 className="listTitle">Technicians</h5>
+                <div className="apolloList">
+                    <h5 className="listTitle">Technicians</h5>
 
-                <div className="divisionLine topLine"></div>
-                <GlobalTab propTitle="Kike" propRole="UX & UI Designer / Front-End Developer" propNoPointer />
-                <GlobalTab propTitle="Pablo" propRole="Full-Stack Developer" propNoPointer />
-                <GlobalTab propTitle="Nathan" propRole="Photographer" propNoPointer />
-            </div>
-        </ListContainerStyledComp>
+                    <div className="divisionLine topLine"></div>
+                    <GlobalTab propTitle="Kike" propRole="UX & UI Designer / Front-End Developer" propNoPointer />
+                    <GlobalTab propTitle="Pablo" propRole="Full-Stack Developer" propNoPointer />
+                    <GlobalTab propTitle="Esther" propRole="Photographer" propNoPointer />
+                    <GlobalTab propTitle="Nathan" propRole="Photographer" propNoPointer />
+                </div>
+            </ListContainerStyledComp>
 
-    </Section>
+        </GlobalSection>
 
-  )
+    )
 }
 export default CrewSection

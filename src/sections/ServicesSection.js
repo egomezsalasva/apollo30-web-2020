@@ -6,7 +6,7 @@ import gsap from 'gsap'
 //-Styles
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Components
-import Section from '../components/Section'
+import GlobalSection from '../components/GlobalSection'
 import ServicesTab from '../components/servicesSection/ServicesTab'
 
 //STYLES
@@ -239,7 +239,7 @@ const LaunchesSection = () => {
   //
 
   return (
-    <Section 
+    <GlobalSection 
         propSectionID="services" 
         propSectionTitle="Services" 
         propSectionDescription="We believe that in our current era, there’s a saturation of stimuli. This requires differentiation through tailored content."
@@ -295,7 +295,7 @@ const LaunchesSection = () => {
 
         </ListContainerStyledComp>
 
-    </Section>
+    </GlobalSection>
 
   )
 }

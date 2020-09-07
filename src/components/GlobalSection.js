@@ -38,7 +38,7 @@ const SectionContainer = styled.section`
 
 
 //MAIN COMPONENT
-const Section = ({propSectionID, propSectionTitle, propSectionDescription, children}) => {
+const GlobalSection = ({propSectionID, propSectionTitle, propSectionDescription, children}) => {
   return (
     <SectionContainer id={propSectionID}>
         <div className="sectionCenter">
@@ -51,5 +51,5 @@ const Section = ({propSectionID, propSectionTitle, propSectionDescription, child
     </SectionContainer>
   )
 }
-export default Section
+export default GlobalSection
 

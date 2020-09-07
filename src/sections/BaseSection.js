@@ -5,7 +5,7 @@ import styled from 'styled-components'
 //-Styles
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Components
-import Section from '../components/Section'
+import GlobalSection from '../components/GlobalSection'
 
 //STYLES
 //-Components
@@ -76,7 +76,7 @@ const ListContainerStyledComp = styled.div`
 const BaseSection = () => {
 
   return (
-    <Section
+    <GlobalSection
         propSectionID="base" 
         propSectionTitle="Base" 
         propSectionDescription={null}
@@ -110,7 +110,7 @@ const BaseSection = () => {
 
         </ListContainerStyledComp>
 
-    </Section>
+    </GlobalSection>
 
   )
 }

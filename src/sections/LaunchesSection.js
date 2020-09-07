@@ -23,7 +23,7 @@ import newIconsImg01 from '../assets/images/newIcons/newIcons01.gif'
 import laProaImg01 from '../assets/images/laProa/laProa01.jpg'
 import chipBakerImg01 from '../assets/images/chipBaker/chipBaker01.gif'
 //-Components
-import Section from '../components/Section'
+import GlobalSection from '../components/GlobalSection'
 import FeaturedTab from '../components/launchesSection/FeaturedTab'
 import LaunchesTab from '../components/launchesSection/LaunchesTab'
 
@@ -261,7 +261,7 @@ const LaunchesSection = () => {
         </div>
     </InnerPage>
 
-    <Section 
+    <GlobalSection 
         propSectionID="launches" 
         propSectionTitle="Launches" 
         propSectionDescription="Here are some non-confidential launches we have picked from our archives"
@@ -516,7 +516,7 @@ const LaunchesSection = () => {
 
         </ListContainerStyledComp>
 
-    </Section>
+    </GlobalSection>
     </>
   )
 }

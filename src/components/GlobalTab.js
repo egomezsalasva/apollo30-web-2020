@@ -15,10 +15,12 @@ const TabContainer = styled.div`
     border-bottom: ${borderHeight} solid ${apolloColors.dark};
     width: 100%;
     height: calc(60px + ${borderHeight});
-    cursor: pointer;
+    cursor: ${props => props.propNoPointer ? "default" : "pointer"};
+
 
     .noPointerTab{
         cursor: default;
+        background: red;
     }
 
     .tabTitle{
@@ -50,8 +52,8 @@ const TabContainer = styled.div`
 //MAIN COMPONENT
 const GlobalTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propOnMouseEnter, propOnMouseLeave, propOnClick, children, propRoleRef, propTabRef, propServicesReadMore, propWithPlus}) => {
     return (
-        <TabContainer 
-            className={`tab ${propNoPointer ? 'noPointerTab' : ''}`}
+        <TabContainer
+            // propNoPointer
             ref={propTabRef}
             onMouseEnter={propOnMouseEnter}
             onMouseLeave={propOnMouseLeave}
