@@ -91,11 +91,13 @@ const CrewSection = () => {
         let plusAntoRole = useRef()
         let plusAntoMail = useRef()
         let crewHoverAntoTl = gsap.timeline({ paused: true, reversed: true })
+
         useEffect( () => { 
-            crewHoverAntoTl.to( plusAntoLine01.current, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
-                        .to( plusAntoLine02.current, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
-                        .to( plusAntoRole.current, { duration: 0.8, x: `${-95.03 - 19}`, ease: "power2.inOut" }, "start" )
-                        .to( plusAntoMail.current, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
+            crewHoverAntoTl
+                        .to( plusAntoLine01, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
+                        .to( plusAntoLine02, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
+                        .to( plusAntoRole, { duration: 0.8, x: `${-95.03 - 19}`, ease: "power2.inOut" }, "start" )
+                        .to( plusAntoMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
         }, [crewHoverAntoTl])
 
 
@@ -105,10 +107,11 @@ const CrewSection = () => {
         let plusSandraMail = useRef()
         let crewHoverSandraTl = gsap.timeline({ paused: true, reversed: true })
         useEffect( () => { 
-            crewHoverSandraTl.to( plusSandraLine01.current, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
-                        .to( plusSandraLine02.current, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
-                        .to( plusSandraRole.current, { duration: 0.8, x: `${-95.03 - 19}`, ease: "power2.inOut" }, "start" )
-                        .to( plusSandraMail.current, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
+            crewHoverSandraTl
+                        .to( plusSandraLine01, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
+                        .to( plusSandraLine02, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
+                        .to( plusSandraRole, { duration: 0.8, x: `${-95.03 - 19}`, ease: "power2.inOut" }, "start" )
+                        .to( plusSandraMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
         }, [crewHoverSandraTl])
 
     //
@@ -130,8 +133,9 @@ const CrewSection = () => {
 
                 <GlobalTab propTitle="Anto"
                     propRole="Creative Director"
-                    onMouseEnter={ () => crewHoverAntoTl.play() }
-                    onMouseLeave={ () => crewHoverAntoTl.reverse() }
+                    propRoleRef={el => plusAntoRole = el}
+                    propOnMouseEnter={ () => crewHoverAntoTl.play() }
+                    propOnMouseLeave={ () => crewHoverAntoTl.reverse() }
                     propWithPlus
                 >
                     <div className="tabRole tabMailPlus" ref={el => plusAntoMail = el}>a@apollo30.com</div>
@@ -142,8 +146,9 @@ const CrewSection = () => {
                 </GlobalTab>
                 <GlobalTab propTitle="Sandra"
                     propRole="Accounting"
-                    onMouseEnter={ () => crewHoverSandraTl.play() }
-                    onMouseLeave={ () => crewHoverSandraTl.reverse() }
+                    propRoleRef={el => plusSandraRole = el}
+                    propOnMouseEnter={ () => crewHoverSandraTl.play() }
+                    propOnMouseLeave={ () => crewHoverSandraTl.reverse() }
                     propWithPlus
                 >
                     <div className="tabRole tabMailPlus" ref={el => plusSandraMail = el}>s@apollo30.com</div>
@@ -152,17 +157,17 @@ const CrewSection = () => {
                         <div className="line02Plus" ref={el => plusSandraLine02 = el}></div>
                     </div>
                 </GlobalTab>
-                <GlobalTab propTitle="Cesar" propRole="Videographer / Motion Designer" />
-                <GlobalTab propTitle="Paula" propRole="Community Manager / Junior Designer" />
+                <GlobalTab propTitle="Cesar" propRole="Videographer / Motion Designer" propNoPointer />
+                <GlobalTab propTitle="Paula" propRole="Community Manager / Junior Designer" propNoPointer />
             </div>
 
             <div className="apolloList">
                 <h5 className="listTitle">Technicians</h5>
 
                 <div className="divisionLine topLine"></div>
-                <GlobalTab propTitle="Kike" propRole="UX & UI Designer / Front-End Developer" />
-                <GlobalTab propTitle="Pablo" propRole="Full-Stack Developer" />
-                <GlobalTab propTitle="Nathan" propRole="Photographer" />
+                <GlobalTab propTitle="Kike" propRole="UX & UI Designer / Front-End Developer" propNoPointer />
+                <GlobalTab propTitle="Pablo" propRole="Full-Stack Developer" propNoPointer />
+                <GlobalTab propTitle="Nathan" propRole="Photographer" propNoPointer />
             </div>
         </ListContainerStyledComp>
 

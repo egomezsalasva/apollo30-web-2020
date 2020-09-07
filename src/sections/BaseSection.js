@@ -2,7 +2,6 @@
 //-Modules
 import React from 'react'
 import styled from 'styled-components'
-import gsap from 'gsap'
 //-Styles
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Components

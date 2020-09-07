@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 //-Styles
-import {apolloColors, apolloFonts} from './data/apollo30styles'
+import {apolloColors} from './data/apollo30styles'
 //-Components
 import SideNav from './components/SideNav'
 import TopFold from './sections/TopFold'
@@ -80,37 +80,6 @@ const FirstSectionSpace = styled.div`
   height: 60px;
   background: ${apolloColors.light};
 `
-const Section = styled.section`
-  width: 100%;
-  background: ${apolloColors.light};
-
-  .sectionCenter{
-
-
-    .listContainer{
-      position: relative;
-
-      .apolloList{
-        display:inline-block;
-        padding-top: 50px;
-        width: 500px;
-        @media (max-width: 1230px) {
-          width: 54.9450549% ;
-          /* min-width: 300px; */  
-        }
-
-        .listTitle{
-          padding-left: 10px;
-          ${apolloFonts.subheading03};
-        }
-
-        
-
-      }
-        
-    }
-  } 
-`
 
 
 //MAIN COMPONENT
@@ -157,11 +126,8 @@ const App = () => {
 
         <FirstSectionSpace/>
         <LaunchesSection />
-
         <ServicesSection />
-
         <CrewSection />
-
         <BaseSection />
 
       </ContentContainer>
