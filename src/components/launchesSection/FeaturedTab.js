@@ -39,15 +39,13 @@ const IconContainer = styled.div`
 
 
 //MAIN COMPONENT
-const FeaturedTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propExternalIcon, propOnMouseEnter, propOnMouseLeave, propOnClick}) => {
+const FeaturedTab = ({propNoPointer, propTitle, propRole, propRoleWithIcon, propOnMouseEnter, propOnMouseLeave, propOnClick}) => {
 
     return (
         <GlobalTab 
-            propNoPointer={propNoPointer} 
             propTitle={propTitle} 
             propRole={propRole} 
-            propInternalIcon={propInternalIcon} 
-            propExternalIcon={propExternalIcon}
+            propRoleWithIcon
             //Event Handlers
             propOnMouseEnter={propOnMouseEnter}
             propOnMouseLeave={propOnMouseLeave}

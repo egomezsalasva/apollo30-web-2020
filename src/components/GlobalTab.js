@@ -50,9 +50,10 @@ const TabContainer = styled.div`
 
 
 //MAIN COMPONENT
-const GlobalTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propOnMouseEnter, propOnMouseLeave, propOnClick, children, propRoleRef, propTabRef, propServicesReadMore, propWithPlus}) => {
+const GlobalTab = ({ propTabRef, propOnMouseEnter, propOnMouseLeave, propOnClick, propTitle, propRole, propRoleExtraClasses, propRoleWithIcon, propRoleRef, children}) => {
     return (
         <TabContainer
+            className="tab"
             // propNoPointer
             ref={propTabRef}
             onMouseEnter={propOnMouseEnter}
@@ -63,7 +64,7 @@ const GlobalTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propOn
             <h3 className="tabTitle">{propTitle}</h3>
 
             <div 
-                className={`tabRole ${ propInternalIcon ? 'tabRoleWithIcon' : ''} ${ propServicesReadMore ? 'tabReadMore' : ''} ${ propWithPlus ? 'tabRolePlus' : ''}`}
+                className={`tabRole ${ propRoleExtraClasses } ${ propRoleWithIcon ? 'tabRoleWithIcon' : ''}`}
                 ref={propRoleRef}
             >
                 {propRole}

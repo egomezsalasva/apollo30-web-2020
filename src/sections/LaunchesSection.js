@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 //-Styles
-import {apolloColors, apolloFonts} from '../data/apollo30styles'
+import { apolloColors } from '../data/apollo30styles'
 //-Images
 import apolloPortfolio from '../assets/images/apolloPortfolio.gif'
 import internalLinkIcon from '../assets/images/internalLink.svg'

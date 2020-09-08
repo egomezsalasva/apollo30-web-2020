@@ -107,7 +107,7 @@ const CrewSection = () => {
                         propRoleRef={el => plusAntoRole = el}
                         propOnMouseEnter={ () => crewHoverAntoTl.play() }
                         propOnMouseLeave={ () => crewHoverAntoTl.reverse() }
-                        propWithPlus
+                        propRoleWithIcon
                     >
                         <div className="tabRole tabMailPlus" ref={el => plusAntoMail = el}>a@apollo30.com</div>
                         <div className="plusCrew">
@@ -120,7 +120,7 @@ const CrewSection = () => {
                         propRoleRef={el => plusSandraRole = el}
                         propOnMouseEnter={ () => crewHoverSandraTl.play() }
                         propOnMouseLeave={ () => crewHoverSandraTl.reverse() }
-                        propWithPlus
+                        propRoleWithIcon
                     >
                         <div className="tabRole tabMailPlus" ref={el => plusSandraMail = el}>s@apollo30.com</div>
                         <div className="plusCrew">

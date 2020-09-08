@@ -23,8 +23,8 @@ const ServicesTabContainer = styled.div`
         height: 60px;
         /* height: 104px; */
         &:hover .tabReadMore{
-        opacity: 0.33;
-        transition: opacity 0.8s ease-in-out;
+            opacity: 0.33;
+            transition: opacity 0.8s ease-in-out;
         }
 
         .tabTitle{
@@ -83,19 +83,24 @@ const ArrowContainer = styled.div`
 
 
 //MAIN COMPONENT
-const ServicesTab = ({propNoPointer, propTitle, propRole, propRoleRef, propInternalIcon, propExternalIcon, propOnMouseEnter, propOnMouseLeave, propOnClick, propServicesTextRef, propServicesText, propServicesArrowRef, propTabRef }) => {
+const ServicesTab = ({propNoPointer, propTitle, propRoleRef, propOnMouseEnter, propOnMouseLeave, propOnClick, propServicesTextRef, propServicesText, propServicesArrowRef, propTabRef }) => {
 
     return (
         <ServicesTabContainer>
             <GlobalTab 
-                propNoPointer={propNoPointer}
-                propTabRef={propTabRef}
+                //Texts          
                 propTitle={propTitle}
-                propRole={propRole} 
-                propRoleRef={propRoleRef}
-                propInternalIcon={propInternalIcon} 
-                propExternalIcon={propExternalIcon}
+                propRole="Click To Read More"
+                //Icons
+                propRoleWithIcon 
+                //Conditional Styles
+                propNoPointer={propNoPointer}
                 propServicesReadMore
+                //Extra Classes
+                propRoleExtraClasses="tabReadMore"
+                //Refs
+                propTabRef={propTabRef}
+                propRoleRef={propRoleRef}
                 //Event Handlers
                 propOnMouseEnter={propOnMouseEnter}
                 propOnMouseLeave={propOnMouseLeave}

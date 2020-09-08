@@ -47,13 +47,13 @@ const ListContainerStyledComp = styled.section`
 const LaunchesSection = () => {
 
   //SERVICES ACCORDEON
-        //-States
-            const [servicesWide, setServicesWide] = useState(false)
-            const [creativityTabActive, setCreativityTabActive] = useState(false)
-            const [brandTabActive, setBrandTabActive] = useState(false)
-            const [mediaTabActive, setMediaTabActive] = useState(false)
-            const [developmentTabActive, setDevelopmentTabActive] = useState(false)
-        //
+    //-States
+        const [servicesWide, setServicesWide] = useState(false)
+        const [creativityTabActive, setCreativityTabActive] = useState(false)
+        const [brandTabActive, setBrandTabActive] = useState(false)
+        const [mediaTabActive, setMediaTabActive] = useState(false)
+        const [developmentTabActive, setDevelopmentTabActive] = useState(false)
+    //
     //-Timelines
       const creativityTl = gsap.timeline({ paused: true })
       const brandTl = gsap.timeline({ paused: true })
@@ -252,43 +252,49 @@ const LaunchesSection = () => {
           <div className="divisionLine topLine" style={{marginTop: "0px"}} ref={el => topLineServicesRef = el}></div>
 
           <ServicesTab propTitle="Creativity"
-              propRole="Click To Read More"
-              propRoleRef={el => creativityReadMoreRef = el}
+              //Text
               propServicesText="Creamos contenido (publicitario, cinematográfico, social, digital y móvil) que trasciende los medios tradicionales y difumina las líneas entre productos, experiencias, contenido y marketing."
+              //Refs
+              propTabRef={el => creativityTabRef = el}
+              propRoleRef={el => creativityReadMoreRef = el}
               propServicesTextRef={el => creativityTextRef = el}
               propServicesArrowRef={el => arrowCreativityRef = el}
+              //Handlers
               propOnClick={creativityClickHandler}
-              propInternalIcon
+              
           />
           <ServicesTab propTitle="Brand Innovation"
-              propTabRef={el => brandInnovationTabRef = el}
-              propRole="Click To Read More"
-              propRoleRef={el => brandReadMoreRef = el}
+              //Text
               propServicesText="Los consumidores de hoy no compran una marca, se han de sentir partícipes de ella. Ayudamos a las marcas a simplificar y aclarar quiénes son para transmitir mejor y llegar a conectar verdaderamente con su público objetivo."
+              //Refs
+              propTabRef={el => brandInnovationTabRef = el}
+              propRoleRef={el => brandReadMoreRef = el}
               propServicesTextRef={el => brandTextRef = el}
               propServicesArrowRef={el => arrowBrandRef = el}
-              propOnClick={brandClickHandler}
-              propInternalIcon
+              //Handlers
+              propOnClick={brandClickHandler}     
           />
           <ServicesTab propTitle="Media Activation"
-              propTabRef={el => mediaActivationTabRef = el}
-              propRole="Click To Read More"
-              propRoleRef={el => mediaReadMoreRef = el}
+              //Text
               propServicesText="La abundancia de competencia en el mercado actual exige una dosis extra de creatividad y estrategia. Una estrategia ocurrente garantiza ubicaciones de medios más ingeniosas y, por tanto, mas efectivas."
+              //Refs
+              propTabRef={el => mediaActivationTabRef = el}
+              propRoleRef={el => mediaReadMoreRef = el}
               propServicesTextRef={el => mediaTextRef = el}
               propServicesArrowRef={el => arrowMediaRef = el}
-              propOnClick={() => mediaClickHandler()}
-              propInternalIcon
+              //Handlers
+              propOnClick={() => mediaClickHandler()}       
           />
           <ServicesTab propTitle="Development"
-              propTabRef={el => developmentTabRef = el}
-              propRole="Click To Read More"
-              propRoleRef={el => developmentReadMoreRef = el}
+              //Text
               propServicesText="Ofrecemos servicios de diseño y desarrollo web, creamos apps y gestionamos proyectos de desarrollo personalizados."
+              //Refs
+              propTabRef={el => developmentTabRef = el}
+              propRoleRef={el => developmentReadMoreRef = el}
               propServicesTextRef={el => developmentTextRef = el}
               propServicesArrowRef={el => arrowDevelopmentRef = el}
+              //Handlers
               propOnClick={() => developmentClickHandler()}
-              propInternalIcon
           />
 
         </div>
