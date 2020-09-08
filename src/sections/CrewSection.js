@@ -3,54 +3,16 @@
 import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import gsap from 'gsap'
-//-Styles
-import {apolloColors} from '../data/apollo30styles'
 //-Components
 import GlobalSection from '../components/GlobalSection'
 import GlobalList from '../components/GlobalList'
 import GlobalTab from '../components/GlobalTab'
+import CrewTab from '../components/crewSection/CrewTab'
 
 //STYLES
 //-Components
-const ListContainerStyledComp = styled.section`
+const ListContainerStyledComp = styled.div`
     position: relative;
-
-    .tabMailPlus{
-        right: calc(10px + 15px + 20px);
-        opacity: 0;
-    }
-
-    .tabRolePlus{
-        right: calc(10px + 15px + 20px);
-    }
-
-    .plusCrew{
-        position: absolute;
-        top: 21px;
-        right: 10px;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-
-        .line01Plus{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 2px;
-            height: 12px;
-            background: ${apolloColors.dark};
-        }
-        .line02Plus{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 2px;
-            width: 12px;
-            background: ${apolloColors.dark};
-        }
-    }
 
 `
 
@@ -102,32 +64,32 @@ const CrewSection = () => {
 
                 <GlobalList propListTitle="Ground Control" >
 
-                    <GlobalTab propTitle="Anto"
+                    <CrewTab propTitle="Anto"
+                        //Text
                         propRole="Creative Director"
+                        propEmail="a@apollo30.com"
+                        //Refs
                         propRoleRef={el => plusAntoRole = el}
+                        propEmailRef={el => plusAntoMail = el}
+                        propPlusLine01Ref={el => plusAntoLine01 = el}
+                        propPlusLine02Ref={el => plusAntoLine02 = el}
+                        //Handlers
                         propOnMouseEnter={ () => crewHoverAntoTl.play() }
-                        propOnMouseLeave={ () => crewHoverAntoTl.reverse() }
-                        propRoleWithIcon
-                    >
-                        <div className="tabRole tabMailPlus" ref={el => plusAntoMail = el}>a@apollo30.com</div>
-                        <div className="plusCrew">
-                            <div className="line01Plus" ref={el => plusAntoLine01 = el}></div>
-                            <div className="line02Plus" ref={el => plusAntoLine02 = el}></div>
-                        </div>
-                    </GlobalTab>
-                    <GlobalTab propTitle="Sandra"
+                        propOnMouseLeave={ () => crewHoverAntoTl.reverse() }   
+                    />
+                    <CrewTab propTitle="Sandra"
+                        //Text
                         propRole="Accounting"
+                        propEmail="s@apollo30.com"
+                        //Refs
                         propRoleRef={el => plusSandraRole = el}
+                        propEmailRef={el => plusSandraMail = el}
+                        propPlusLine01Ref={el => plusSandraLine01 = el}
+                        propPlusLine02Ref={el => plusSandraLine02 = el}
+                        //Handlers
                         propOnMouseEnter={ () => crewHoverSandraTl.play() }
                         propOnMouseLeave={ () => crewHoverSandraTl.reverse() }
-                        propRoleWithIcon
-                    >
-                        <div className="tabRole tabMailPlus" ref={el => plusSandraMail = el}>s@apollo30.com</div>
-                        <div className="plusCrew">
-                            <div className="line01Plus" ref={el => plusSandraLine01 = el}></div>
-                            <div className="line02Plus" ref={el => plusSandraLine02 = el}></div>
-                        </div>
-                    </GlobalTab>
+                    />
                     <GlobalTab propTitle="Ramón" propRole="Administrator" propNoPointer />
                     <GlobalTab propTitle="Cesar" propRole="Videographer / Motion Designer" propNoPointer />
                     <GlobalTab propTitle="Paula" propRole="Junior Designer" propNoPointer />

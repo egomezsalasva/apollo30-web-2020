@@ -54,8 +54,9 @@ const GlobalTab = ({ propTabRef, propOnMouseEnter, propOnMouseLeave, propOnClick
     return (
         <TabContainer
             className="tab"
-            // propNoPointer
+            //Refs
             ref={propTabRef}
+            //Handlers
             onMouseEnter={propOnMouseEnter}
             onMouseLeave={propOnMouseLeave}
             onClick={propOnClick}
