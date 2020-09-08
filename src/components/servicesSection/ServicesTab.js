@@ -13,14 +13,14 @@ import GlobalTab from '../GlobalTab'
 //STYLES
 //-Components
 const ServicesTabContainer = styled.div`
+    width: 100%;
 
     .topLine{
         width: 500px;
     }
 
     .tab{
-        width: 500px;
-        height: 60px;
+        width: 100%;
         /* height: 104px; */
         &:hover .tabReadMore{
             opacity: 0.33;
@@ -86,7 +86,7 @@ const ArrowContainer = styled.div`
 const ServicesTab = ({propNoPointer, propTitle, propRoleRef, propOnMouseEnter, propOnMouseLeave, propOnClick, propServicesTextRef, propServicesText, propServicesArrowRef, propTabRef }) => {
 
     return (
-        <ServicesTabContainer>
+        <ServicesTabContainer >
             <GlobalTab 
                 //Texts          
                 propTitle={propTitle}
@@ -97,7 +97,7 @@ const ServicesTab = ({propNoPointer, propTitle, propRoleRef, propOnMouseEnter, p
                 propNoPointer={propNoPointer}
                 propServicesReadMore
                 //Extra Classes
-                propRoleExtraClasses="tabReadMore"
+                propRoleExtraClasses="tabReadMore servicesRole"
                 //Refs
                 propTabRef={propTabRef}
                 propRoleRef={propRoleRef}

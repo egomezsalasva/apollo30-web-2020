@@ -101,8 +101,9 @@ const LaunchesSection = () => {
                     .play()
             setServicesWide(!servicesWide)
             setCreativityTabActive(!creativityTabActive)
-          }
+            }
         //
+
         //Tabs Open to Switch to Creativity Tab
           if(servicesWide === true && creativityTabActive === false){
             if( brandTabActive === true || mediaTabActive === true ||  developmentTabActive === true){
@@ -260,8 +261,7 @@ const LaunchesSection = () => {
               propServicesTextRef={el => creativityTextRef = el}
               propServicesArrowRef={el => arrowCreativityRef = el}
               //Handlers
-              propOnClick={creativityClickHandler}
-              
+              propOnClick={creativityClickHandler}   
           />
           <ServicesTab propTitle="Brand Innovation"
               //Text
