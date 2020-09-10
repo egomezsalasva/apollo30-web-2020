@@ -33,7 +33,7 @@ const CrewSection = () => {
             crewHoverAntoTl
                         .to( plusAntoLine01, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
                         .to( plusAntoLine02, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
-                        .to( plusAntoRole, { duration: 0.8, x: `${-95.03 - 19}`, ease: "power2.inOut" }, "start" )
+                        .to( plusAntoRole, { duration: 0.8, x: `${-97.03 - 20}`, ease: "power2.inOut" }, "start" )
                         .to( plusAntoMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
         }, [crewHoverAntoTl])
 
@@ -47,7 +47,7 @@ const CrewSection = () => {
             crewHoverSandraTl
                         .to( plusSandraLine01, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
                         .to( plusSandraLine02, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
-                        .to( plusSandraRole, { duration: 0.8, x: `${-95.03 - 19}`, ease: "power2.inOut" }, "start" )
+                        .to( plusSandraRole, { duration: 0.8, x: `${-96.3 - 20}`, ease: "power2.inOut" }, "start" )
                         .to( plusSandraMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
         }, [crewHoverSandraTl])
 
@@ -57,7 +57,7 @@ const CrewSection = () => {
         <GlobalSection
             propSectionID="crew" 
             propSectionTitle="Crew" 
-            propSectionDescription="We believe autonomy is a powerful motivator. That's why we operate in a decentralized system, with a base work station in Barcelona."
+            propSectionDescription="We believe autonomy is a powerful motivator. That's why we operate in a decentralized manner, although we have a base work station in Barcelona."
         >
 
             <ListContainerStyledComp className="listContainer">
