@@ -46,169 +46,230 @@ const ListContainerStyledComp = styled.section`
 //MAIN COMPONENT
 const ServicesSection = () => {
 
-  const [openWidth, setOpenWidth] = useState(false)
-  const [creativityOpen, setCreativityOpen] = useState(false)
-  const [brandOpen, setBrandOpen] = useState(false)
-  const [mediaOpen, setMediaOpen] = useState(false)
 
-  const [creativityTl] = useState(gsap.timeline({ paused: true }))
-  const [brandTl] = useState(gsap.timeline({ paused: true }))
-  const [mediaTl] = useState(gsap.timeline({ paused: true }))
+  //CLICK HANDLER ACCORDEON
 
-  let topLineServicesRef = useRef()
-  let creativityTabRef = useRef()
-  let arrowCreativityRef = useRef()
-  let arrowBrandRef = useRef()
-  let arrowMediaRef = useRef()
-  let arrowDevelopmentRef = useRef()
-  let brandInnovationTabRef = useRef()
-  let mediaActivationTabRef = useRef()
-  let developmentTabRef = useRef()
-  let creativityReadMoreRef = useRef()
-  let brandReadMoreRef = useRef()
-  let mediaReadMoreRef = useRef()
-  let developmentReadMoreRef = useRef()
-  let creativityTextRef = useRef()
-  let brandTextRef = useRef()
-  let mediaTextRef = useRef()
-  let developmentTextRef = useRef()
+    const [openWidth, setOpenWidth] = useState(false)
+    const [creativityOpen, setCreativityOpen] = useState(false)
+    const [brandOpen, setBrandOpen] = useState(false)
+    const [mediaOpen, setMediaOpen] = useState(false)
+    const [developmentOpen, setDevelopmentOpen] = useState(false)
 
-  //Creativity Tab 
+    const [creativityTl] = useState(gsap.timeline({ paused: true }))
+    const [creativityOpenTl] = useState(gsap.timeline({ paused: true }))
+    const [brandTl] = useState(gsap.timeline({ paused: true }))
+    const [mediaTl] = useState(gsap.timeline({ paused: true }))
+    const [developmentTl] = useState(gsap.timeline({ paused: true }))
+
+    let topLineServicesRef = useRef()
+    let creativityTabRef = useRef()
+    let arrowCreativityRef = useRef()
+    let arrowBrandRef = useRef()
+    let arrowMediaRef = useRef()
+    let arrowDevelopmentRef = useRef()
+    let brandInnovationTabRef = useRef()
+    let mediaActivationTabRef = useRef()
+    let developmentTabRef = useRef()
+    let creativityReadMoreRef = useRef()
+    let brandReadMoreRef = useRef()
+    let mediaReadMoreRef = useRef()
+    let developmentReadMoreRef = useRef()
+    let creativityTextRef = useRef()
+    let brandTextRef = useRef()
+    let mediaTextRef = useRef()
+    let developmentTextRef = useRef()
+
+    //Creativity Tab 
+        //Animations
+          useEffect(() => {
+            creativityTl
+              .to(topLineServicesRef.current, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+              .to(creativityReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+              .to(creativityTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+              .to(arrowCreativityRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
+              .to(brandInnovationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+              .to(arrowBrandRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
+              .to(mediaActivationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+              .to(arrowMediaRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
+              .to(developmentTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+              .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+              .to(creativityReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+              .to(creativityTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+              .to(creativityTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+          }, [creativityTl])
+          useEffect(() => {
+            creativityOpenTl
+              .to(topLineServicesRef.current, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+              .to(creativityReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+              .to(creativityTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+              .to(arrowCreativityRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
+              .to(brandInnovationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+              .to(arrowBrandRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
+              .to(mediaActivationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+              .to(arrowMediaRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
+              .to(developmentTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+              .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+              .to(creativityReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+              .to(creativityTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+              .to(brandReadMoreRef.current, { duration: 0, display: "block", ease: "power2.inOut"} , "stage02")
+              .to(brandTextRef.current, { duration: 0.8, opacity: 0, display: "none", ease: "power2.inOut"} , "stage02")
+              .to(brandInnovationTabRef.current, { duration: 0.8, height: "62px", ease: "power2.inOut" }, "stage03")
+              .to(creativityTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+              .reverse()
+          }, [creativityOpenTl])
+        //
+
+        //Logic
+          const toggleCreativityTl = () => {
+
+            if(openWidth === false && creativityOpen === false){
+              creativityTl.play()
+              setOpenWidth(true)
+              setCreativityOpen(true)
+              setBrandOpen(false)
+              setMediaOpen(false)
+              setDevelopmentOpen(false)
+            }
+
+            if(openWidth === true && creativityOpen === true){
+              creativityTl.reverse()
+              setOpenWidth(false)
+              setCreativityOpen(false)
+              setBrandOpen(false)
+              setMediaOpen(false)
+              setDevelopmentOpen(false)
+            }
+
+            if(openWidth === true && creativityOpen === false && (brandOpen === true || mediaOpen === true || developmentTl === true)){
+              creativityOpenTl.play()
+              setOpenWidth(true)
+              setCreativityOpen(true)
+              setBrandOpen(false)
+              setMediaOpen(false)
+              setDevelopmentOpen(false)
+            }
+
+          }
+        //
+    //
+
+    //Brand Tab
+        //Animations
+          useEffect(() => {
+            brandTl
+              .to(topLineServicesRef.current, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+              .to(brandReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+              .to(creativityTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+              .to(arrowCreativityRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
+              .to(brandInnovationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+              .to(arrowBrandRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.4")
+              .to(mediaActivationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+              .to(arrowMediaRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
+              .to(developmentTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+              .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+              .to(brandReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+              .to(brandInnovationTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+              .to(brandTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+              .reverse()
+          }, [brandTl])
+        //
+        //Logic
+          const toggleBrandTl = () => {
+
+            if(openWidth === false && brandOpen === false ){
+              brandTl.reversed(!brandTl.reversed())
+              setOpenWidth(true)
+              setBrandOpen(true)
+            }
+
+            if(openWidth === true && brandOpen === true){
+              brandTl.reversed(!brandTl.reversed())
+              setOpenWidth(false)
+              setBrandOpen(false)
+            }
+
+          }
+        //
+    //
+
+    //Media Tab
       //Animations
         useEffect(() => {
-          creativityTl
+          mediaTl
             .to(topLineServicesRef.current, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-            .to(creativityReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+            .to(mediaReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
             .to(creativityTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-            .to(arrowCreativityRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
+            .to(arrowCreativityRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
+            .to(brandInnovationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
+            .to(arrowBrandRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
+            .to(mediaActivationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
+            .to(arrowMediaRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.6")
+            .to(developmentTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
+            .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
+            .to(mediaReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+            .to(mediaActivationTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
+            .to(mediaTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+            .reverse()
+        }, [mediaTl])
+      //
+      //Logic
+        const toggleMediaTl = () => {
+
+          if(openWidth === false && mediaOpen === false){
+            mediaTl.reversed(!mediaTl.reversed())
+            setOpenWidth(true)
+            setMediaOpen(true)
+          }
+
+          if(openWidth === true && mediaOpen === true){
+            mediaTl.reversed(!mediaTl.reversed())
+            setOpenWidth(false)
+            setMediaOpen(false)
+          }
+
+        }
+      //
+    //
+
+    //Development Tab
+      //Animations
+        useEffect(() => {
+          developmentTl
+            .to(topLineServicesRef.current, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
+            .to(mediaReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
+            .to(creativityTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
+            .to(arrowCreativityRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
             .to(brandInnovationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
             .to(arrowBrandRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
             .to(mediaActivationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
             .to(arrowMediaRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
             .to(developmentTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-            .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-            .to(creativityReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-            .to(creativityTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-            .to(creativityTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+            .to(arrowDevelopmentRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.8")
+            .to(developmentReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
+            .to(developmentTabRef.current, { duration: 0.8, height: "78px", ease: "power2.inOut" }, "stage02")
+            .to(developmentTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
             .reverse()
-        }, [creativityTl])
-      //
-
-      //Logic
-        const toggleCreativityTl = () => {
-
-          if(openWidth === false 
-            && creativityOpen === false
-            && brandOpen === false
-          ){
-            creativityTl.reversed(!creativityTl.reversed())
-            setOpenWidth(true)
-            setCreativityOpen(true)
-          }
-
-          if(openWidth === true 
-            && creativityOpen === true
-            && brandOpen === false
-          ){
-            creativityTl.reversed(!creativityTl.reversed())
-            setOpenWidth(false)
-            setCreativityOpen(false)
-          }
-
-        }
-      //
-  //
-
-  //Brand Tab
-      //Animations
-        useEffect(() => {
-          brandTl
-            .to(topLineServicesRef.current, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-            .to(brandReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-            .to(creativityTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-            .to(arrowCreativityRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
-            .to(brandInnovationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-            .to(arrowBrandRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.4")
-            .to(mediaActivationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-            .to(arrowMediaRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-            .to(developmentTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-            .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-            .to(brandReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-            .to(brandInnovationTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-            .to(brandTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-            .reverse()
-        }, [brandTl])
+        }, [developmentTl])
       //
       //Logic
-        const toggleBrandTl = () => {
+        const toggleDevelopmentTl = () => {
 
-          if(openWidth === false 
-            && brandOpen === false 
-            && creativityOpen === false
-          ){
-            brandTl.reversed(!brandTl.reversed())
+          if(openWidth === false  && developmentOpen === false){
+            developmentTl.reversed(!developmentTl.reversed())
             setOpenWidth(true)
-            setBrandOpen(true)
+            setDevelopmentOpen(true)
           }
 
-          if(openWidth === true 
-            && brandOpen === true
-            && creativityOpen === false
-          ){
-            brandTl.reversed(!brandTl.reversed())
+          if(openWidth === true && developmentOpen === true){
+            developmentTl.reversed(!developmentTl.reversed())
             setOpenWidth(false)
-            setBrandOpen(false)
+            setDevelopmentOpen(false)
           }
 
         }
       //
-  //
-
-  //Media Tab
-    //Animations
-      useEffect(() => {
-        mediaTl
-          .to(topLineServicesRef.current, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-          .to(mediaReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-          .to(creativityTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-          .to(arrowCreativityRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
-          .to(brandInnovationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-          .to(arrowBrandRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-          .to(mediaActivationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-          .to(arrowMediaRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.6")
-          .to(developmentTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-          .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-          .to(mediaReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-          .to(mediaActivationTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-          .to(mediaTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-          .reverse()
-      }, [mediaTl])
     //
-    //Logic
-      const toggleMediaTl = () => {
 
-        if(openWidth === false 
-          && brandOpen === false 
-          && creativityOpen === false
-          && mediaOpen === false
-        ){
-          mediaTl.reversed(!mediaTl.reversed())
-          setOpenWidth(true)
-          setMediaOpen(true)
-        }
-
-        if(openWidth === true
-          && creativityOpen === false
-          && brandOpen === false
-          && mediaOpen === true
-        ){
-          mediaTl.reversed(!mediaTl.reversed())
-          setOpenWidth(false)
-          setMediaOpen(false)
-        }
-
-      }
-    //
   //
 
   return (
@@ -266,7 +327,7 @@ const ServicesSection = () => {
               propServicesTextRef={developmentTextRef}
               propServicesArrowRef={arrowDevelopmentRef}
               //Handlers
-              // propOnClick={() => developmentClickHandler()}
+              propOnClick={toggleDevelopmentTl}
           />
 
         </div>
