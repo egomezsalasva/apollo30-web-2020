@@ -96,6 +96,7 @@ const ServicesSection = () => {
               .to(creativityReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
               .to(creativityTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
               .to(creativityTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+              .reverse()
           }, [creativityTl])
           useEffect(() => {
             creativityOpenTl
@@ -123,31 +124,25 @@ const ServicesSection = () => {
           const toggleCreativityTl = () => {
 
             if(openWidth === false && creativityOpen === false){
-              creativityTl.play()
+              creativityTl.reversed(!creativityTl.reversed())
               setOpenWidth(true)
               setCreativityOpen(true)
-              setBrandOpen(false)
-              setMediaOpen(false)
-              setDevelopmentOpen(false)
             }
 
             if(openWidth === true && creativityOpen === true){
-              creativityTl.reverse()
+              creativityTl.reversed(!creativityTl.reversed())
               setOpenWidth(false)
               setCreativityOpen(false)
-              setBrandOpen(false)
-              setMediaOpen(false)
-              setDevelopmentOpen(false)
             }
 
-            if(openWidth === true && creativityOpen === false && (brandOpen === true || mediaOpen === true || developmentTl === true)){
-              creativityOpenTl.play()
-              setOpenWidth(true)
-              setCreativityOpen(true)
-              setBrandOpen(false)
-              setMediaOpen(false)
-              setDevelopmentOpen(false)
-            }
+            // if(openWidth === true && creativityOpen === false && (brandOpen === true || mediaOpen === true || developmentTl === true)){
+            //   creativityOpenTl.play()
+            //   setOpenWidth(true)
+            //   setCreativityOpen(true)
+            //   setBrandOpen(false)
+            //   setMediaOpen(false)
+            //   setDevelopmentOpen(false)
+            // }
 
           }
         //
