@@ -246,7 +246,7 @@ const LaunchesSection = () => {
         <ListContainerStyledComp className="listContainer">
 
 
-            <GlobalList propListTitle="Featured" propExtraListClass="listFeatured" >
+            <GlobalList propListTitle="Special Missions" propExtraListClass="listFeatured" >
 
                 <FeaturedTab propTitle="Vogue"
                     //Main Props

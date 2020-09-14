@@ -156,7 +156,7 @@ const HeroTopFold = () => {
                     onMouseEnter={() => ctaButtonTl.play()}
                     onMouseLeave={() => ctaButtonTl.reverse()}
                 >
-                    <div className="ctaText">Message Us</div>
+                    <div className="ctaText">Establish Connection</div>
                 </button>
 
                 <div className="descriptionBox">
