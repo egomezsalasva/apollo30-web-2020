@@ -50,16 +50,32 @@ const HeroTopFoldContainer = styled.section`
 
     .circleTextLogo{
       position: absolute;
-      top: calc(50% - 138px);
-      left: 50%;
-      display: inline-block;
+      top: 0;
+      left: 138px;
       color: ${apolloColors.light};
       font-family: ${apolloFonts.textSpecial};
       font-family: 'VCR OSD Mono';
       font-size: 12px;
       text-align: center;
       letter-spacing: 0;
+    }
 
+    .circleTextLogoScrollWrapper{
+      display: inline-block;
+      position: absolute;
+      top: calc(50% - 138px);
+      left: calc(50% - 138px);
+      width: calc(138px * 2);
+      height: calc(138px * 2);
+    }
+
+    .circleTextLogoWrapper{
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(138px * 2);
+      height: calc(138px * 2);
     }
 
   }
@@ -123,7 +139,13 @@ const HeroTopFold = () => {
             useEffect( () => {
                 let dur = 28
                 const rotateTextTl = gsap.timeline({})
-                rotateTextTl.to(".circleTextLogo", { duration: dur, rotation:"360_ccw" , transformOrigin:"0px 138px",  repeat: -1, ease: "linear" })  
+                rotateTextTl.to(".circleTextLogoWrapper", { duration: dur, rotation:"360_ccw" , transformOrigin:"138px 138px",  repeat: -1, ease: "linear" })  
+            })
+            useEffect( () => {  
+              document.body.addEventListener('wheel', (e) => {
+                const rotateScrollWrapperTl = gsap.timeline({})
+                rotateScrollWrapperTl.to(".circleTextLogoScrollWrapper", { duration: 1.2, rotation: -(window.pageYOffset * 0.25) , transformOrigin:"138px 138px", ease: "linear" })
+              })   
             })
         //
     //
@@ -144,7 +166,11 @@ const HeroTopFold = () => {
         <HeroTopFoldContainer>
 
             <div className="heroTop" >
-                <div className="circleTextLogo" />
+                <div className="circleTextLogoScrollWrapper">
+                  <div className="circleTextLogoWrapper">
+                    <div className="circleTextLogo" />
+                  </div>
+                </div>
             </div>
 
 
