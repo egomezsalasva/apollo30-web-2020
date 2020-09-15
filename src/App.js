@@ -4,6 +4,22 @@ import React, { useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 //-Styles
 import {apolloColors} from './data/apollo30styles'
+//-Fonts
+import GraphikRegEOT from './assets/fonts/Graphik-Regular.eot'
+import GraphikRegWOFF from './assets/fonts/Graphik-Regular.woff'
+import GraphikRegWOFF2 from './assets/fonts/Graphik-Regular.woff2'
+import GraphikRegTTF from './assets/fonts/Graphik-Regular.ttf'
+import GraphikRegSVG from './assets/fonts/Graphik-Regular.svg'
+import GraphikBlkEOT from './assets/fonts/Graphik-Black.eot'
+import GraphikBlkWOFF from './assets/fonts/Graphik-Black.woff'
+import GraphikBlkWOFF2 from './assets/fonts/Graphik-Black.woff2'
+import GraphikBlkTTF from './assets/fonts/Graphik-Black.ttf'
+import GraphikBlkSVG from './assets/fonts/Graphik-Black.svg'
+import VCROSDMonoEOT from './assets/fonts/VCROSDMono.eot'
+import VCROSDMonoWOFF from './assets/fonts/VCROSDMono.woff'
+import VCROSDMonoWOFF2 from './assets/fonts/VCROSDMono.woff2'
+import VCROSDMonoTTF from './assets/fonts/VCROSDMono.ttf'
+import VCROSDMonoSVG from './assets/fonts/VCROSDMono.svg'
 //-Components
 import SideNav from './components/SideNav'
 import TopFold from './sections/TopFold'
@@ -11,6 +27,7 @@ import LaunchesSection from './sections/LaunchesSection'
 import ServicesSection from './sections/ServicesSection'
 import CrewSection from './sections/CrewSection'
 import BaseSection from './sections/BaseSection'
+
 
 
 //STYLES
@@ -22,36 +39,36 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Graphik';
     font-style: normal;
     font-weight: normal;  
-    src: url('./assets/fonts/Graphik-Regular.eot');
-    src: url('./assets/fonts/Graphik-Regular.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Graphik-Regular.woff2') format('woff2'),
-        url('./assets/fonts/Graphik-Regular.woff') format('woff'),
-        url('./assets/fonts/Graphik-Regular.ttf') format('truetype'),
-        url('./assets/fonts/Graphik-Regular.svg#Graphik-Regular') format('svg');
+    src: url(${GraphikRegEOT});
+    src: url('${GraphikRegEOT}?#iefi') format('embedded-opentype'),
+         url(${GraphikRegWOFF}) format('woff'),
+         url(${GraphikRegWOFF2}) format('woff2'),
+         url(${GraphikRegTTF}) format('truetype'),
+         url('${GraphikRegSVG}#Graphik-Regular') format('svg');
     /* font-display: swap; */
   }
   @font-face {
     font-family: 'Graphik';
     font-style: normal;
     font-weight: 900;
-    src: url('./assets/fonts/Graphik-Black.eot');
-    src: url('./assets/fonts/Graphik-Black.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Graphik-Black.woff2') format('woff2'),
-        url('./assets/fonts/Graphik-Black.woff') format('woff'),
-        url('./assets/fonts/Graphik-Black.ttf') format('truetype'),
-        url('./assets/fonts/Graphik-Black.svg#Graphik-Black') format('svg');
+    src: url(${GraphikBlkEOT});
+    src: url('${GraphikBlkEOT}?#iefix') format('embedded-opentype'),
+         url(${GraphikBlkWOFF}) format('woff'),
+         url(${GraphikBlkWOFF2}) format('woff2'),  
+         url(${GraphikBlkTTF}) format('truetype'),
+         url('${GraphikBlkSVG}#Graphik-Black') format('svg');
     /* font-display: swap; */
   }
   @font-face {
     font-family: 'VCR OSD Mono';
     font-style: normal;
     font-weight: normal;
-    src: url('./assets/fonts/VCROSDMono.eot');
-    src: url('./assets/fonts/VCROSDMono.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/VCROSDMono.woff2') format('woff2'),
-        url('./assets/fonts/VCROSDMono.woff') format('woff'),
-        url('./assets/fonts/VCROSDMono.ttf') format('truetype'),
-        url('./assets/fonts/VCROSDMono.svg#VCROSDMono') format('svg');
+    src: url(${VCROSDMonoEOT});
+    src: url('${VCROSDMonoEOT}?#iefix') format('embedded-opentype'),
+         url(${VCROSDMonoWOFF}) format('woff'),
+         url(${VCROSDMonoWOFF2}) format('woff2'),
+         url(${VCROSDMonoTTF}) format('truetype'),
+         url('${VCROSDMonoSVG}#VCROSDMono') format('svg');
   }
   *{
     margin: 0;
