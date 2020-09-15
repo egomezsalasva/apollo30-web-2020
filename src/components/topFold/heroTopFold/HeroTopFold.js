@@ -144,7 +144,7 @@ const HeroTopFold = () => {
             useEffect( () => {  
               document.body.addEventListener('wheel', (e) => {
                 const rotateScrollWrapperTl = gsap.timeline({})
-                rotateScrollWrapperTl.to(".circleTextLogoScrollWrapper", { duration: 1.2, rotation: -(window.pageYOffset * 0.25) , transformOrigin:"138px 138px", ease: "linear" })
+                rotateScrollWrapperTl.to(".circleTextLogoScrollWrapper", { duration: 0.4, rotation: -(window.pageYOffset * 0.125) , transformOrigin:"138px 138px", ease: "linear" })
               })   
             })
         //
