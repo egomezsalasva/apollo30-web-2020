@@ -22,10 +22,6 @@ const ServicesTabContainer = styled.div`
     .tab{
         width: 100%;
         /* height: 104px; */
-        &:hover .tabReadMore{
-            opacity: 0.33;
-            transition: opacity 0.8s ease-in-out;
-        }
 
         .tabTitle{
             position: absolute;
@@ -41,7 +37,6 @@ const ServicesTabContainer = styled.div`
             right: calc(20px + 15px + 10px);
             ${apolloFonts.textSmall};
             opacity: 0;
-            transition: opacity 0.8s ease-in-out;
         }
     }
 `
@@ -84,6 +79,7 @@ const ArrowContainer = styled.div`
 
 //MAIN COMPONENT
 const ServicesTab = ({propNoPointer, propTitle, propRoleRef, propOnMouseEnter, propOnMouseLeave, propOnClick, propServicesTextRef, propServicesText, propServicesArrowRef, propTabRef }) => {
+
 
     return (
         <ServicesTabContainer >

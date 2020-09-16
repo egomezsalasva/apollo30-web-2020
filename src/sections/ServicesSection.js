@@ -47,6 +47,13 @@ const ListContainerStyledComp = styled.section`
 const ServicesSection = () => {
 
 
+  //HOVER HANDLER ACCORDEON TAB
+    const hoverServiceTl = gsap.timeline({paused: true})
+    useEffect( () => {
+      hoverServiceTl.to(creativityReadMoreRef.current, { duration: 0.8, opacity: 0.33, ease:"power2.inOut" })
+    }, [hoverServiceTl])
+  //
+
   //CLICK HANDLER ACCORDEON
 
     const [openWidth, setOpenWidth] = useState(false)
@@ -289,6 +296,8 @@ const ServicesSection = () => {
               propServicesTextRef={creativityTextRef}
               propServicesArrowRef={arrowCreativityRef}
               //Handlers
+              propOnMouseEnter={() => hoverServiceTl.play()}
+              propOnMouseLeave={() => hoverServiceTl.reverse()}
               propOnClick={toggleCreativityTl}   
           />
           <ServicesTab propTitle="Brand Innovation"
@@ -300,6 +309,8 @@ const ServicesSection = () => {
               propServicesTextRef={brandTextRef}
               propServicesArrowRef={arrowBrandRef}
               //Handlers
+              propOnMouseEnter={() => hoverServiceTl.play()}
+              propOnMouseLeave={() => hoverServiceTl.reverse()}
               propOnClick={toggleBrandTl}     
           />
           <ServicesTab propTitle="Media Activation"
@@ -311,6 +322,8 @@ const ServicesSection = () => {
               propServicesTextRef={mediaTextRef}
               propServicesArrowRef={arrowMediaRef}
               //Handlers
+              propOnMouseEnter={() => hoverServiceTl.play()}
+              propOnMouseLeave={() => hoverServiceTl.reverse()}
               propOnClick={toggleMediaTl}       
           />
           <ServicesTab propTitle="Development"
@@ -322,6 +335,8 @@ const ServicesSection = () => {
               propServicesTextRef={developmentTextRef}
               propServicesArrowRef={arrowDevelopmentRef}
               //Handlers
+              propOnMouseEnter={() => hoverServiceTl.play()}
+              propOnMouseLeave={() => hoverServiceTl.reverse()}
               propOnClick={toggleDevelopmentTl}
           />
 
