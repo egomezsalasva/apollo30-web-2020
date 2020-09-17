@@ -21,7 +21,7 @@ import VCROSDMonoWOFF2 from './assets/fonts/VCROSDMono.woff2'
 import VCROSDMonoTTF from './assets/fonts/VCROSDMono.ttf'
 import VCROSDMonoSVG from './assets/fonts/VCROSDMono.svg'
 //-Components
-import SideNav from './components/SideNav'
+import SideNav from './sections/SideNav'
 import TopFold from './sections/TopFold'
 import LaunchesSection from './sections/LaunchesSection'
 import ServicesSection from './sections/ServicesSection'
