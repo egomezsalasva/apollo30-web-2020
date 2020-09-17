@@ -39,14 +39,17 @@ const IconContainer = styled.div`
 
 
 //MAIN COMPONENT
-const LaunchesTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propExternalIcon, propOnMouseEnter, propOnMouseLeave, propOnClick, propRoleIconRef, propRoleRef, propHrefTab}) => {
+const LaunchesTab = ({propNoPointer, propTitle, propRole, propInternalIcon, propExternalIcon, propOnMouseEnter, propOnMouseLeave, propOnClick, propRoleIconRef, propRoleRef, propHrefTab, propTitleRef}) => {
+
+
 
     return (
         <a href={propHrefTab} target="_blank" rel="noopener noreferrer">
             <GlobalTab 
                 propNoPointer={propNoPointer} 
                 propTitle={propTitle} 
-                propRole={propRole} 
+                propTitleRef={propTitleRef}
+                propRole={propRole}
                 propRoleRef={propRoleRef}
                 propInternalIcon={propInternalIcon} 
                 propExternalIcon={propExternalIcon}

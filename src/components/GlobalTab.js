@@ -44,13 +44,13 @@ const TabContainer = styled.div`
     .tabRoleWithIcon{
         position: absolute;
         top: 25px;
-        right: calc(10px + 15px + 20px);
+        right: calc(10px + 10px + 20px);
     }            
 `
 
 
 //MAIN COMPONENT
-const GlobalTab = ({ propTabRef, propOnMouseEnter, propOnMouseLeave, propOnClick, propTitle, propRole, propRoleExtraClasses, propRoleWithIcon, propRoleRef, children}) => {
+const GlobalTab = ({ propTabRef, propOnMouseEnter, propOnMouseLeave, propOnClick, propTitle, propTitleRef, propRole, propRoleExtraClasses, propRoleWithIcon, propRoleRef, children}) => {
     return (
         <TabContainer
             className="tab"
@@ -62,12 +62,9 @@ const GlobalTab = ({ propTabRef, propOnMouseEnter, propOnMouseLeave, propOnClick
             onClick={propOnClick}
         >
 
-            <h3 className="tabTitle">{propTitle}</h3>
+            <h3 className="tabTitle" ref={propTitleRef}>{propTitle}</h3>
 
-            <div 
-                className={`tabRole ${ propRoleExtraClasses } ${ propRoleWithIcon ? 'tabRoleWithIcon' : ''}`}
-                ref={propRoleRef}
-            >
+            <div className={`tabRole ${ propRoleExtraClasses } ${ propRoleWithIcon ? 'tabRoleWithIcon' : ''}`} ref={propRoleRef}>
                 {propRole}
             </div>
 

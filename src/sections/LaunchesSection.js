@@ -166,7 +166,19 @@ const LaunchesSection = () => {
       }, [])
     //
   
-    //LOOP IMAGES FUNCTION
+    //SET IMAGES FUNCTION
+      const defaultGif = () => {
+        document.querySelector(".photoBox").style.background = `url(${imagesForLaunches.default[0]})`
+        document.querySelector(".photoBox").style.backgroundPosition = "center"
+        document.querySelector(".photoBox").style.backgroundSize = "contain"
+        document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
+      }
+      const setImage = img => {
+        document.querySelector(".photoBox").style.background = `url(${img[0]})`
+        document.querySelector(".photoBox").style.backgroundPosition = "center"
+        document.querySelector(".photoBox").style.backgroundSize = "contain"
+        document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
+      } 
       /*const loopImages = arrayOfImages => {
           let counterImgs = 0
           document.querySelector(".photoBox").style.background = `url(${arrayOfImages[counterImgs]})`
@@ -189,50 +201,206 @@ const LaunchesSection = () => {
           loopImages(imagesForLaunches.portfolio)
       }
       */
-      const defaultGif = () => {
-        document.querySelector(".photoBox").style.background = `url(${imagesForLaunches.default[0]})`
-        document.querySelector(".photoBox").style.backgroundPosition = "center"
-        document.querySelector(".photoBox").style.backgroundSize = "contain"
-        document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
-      }
-      const setImage = img => {
-        document.querySelector(".photoBox").style.background = `url(${img[0]})`
-        document.querySelector(".photoBox").style.backgroundPosition = "center"
-        document.querySelector(".photoBox").style.backgroundSize = "contain"
-        document.querySelector(".photoBox").style.backgroundRepeat = "no-repeat"
-      } 
     //
 
   //
 
-  //EXTERNAL ICON HOVER ANIM
-    let externalIconHoverTl = gsap.timeline({paused: true})
-    let roleCanPizzaRef = useRef()
-    let roleIconCanPizzaRef = useRef()
-    useEffect( () => {
-      externalIconHoverTl.to(roleCanPizzaRef, { duration: 0.8, x: -35, ease: "power2.inOut"})
-      externalIconHoverTl.to(roleIconCanPizzaRef, { duration: 0.8, alpha: 1, ease: "power2.inOut"}, "-=0.4")
-    }, [externalIconHoverTl])  
+  //INNER PAGE CLICK HANDLER
+
+    //Timelines
+      const innerVogueTransition = gsap.timeline({paused: true})
+      const innerNikeTransition = gsap.timeline({paused: true})
+      const innerCambridgePressTransition = gsap.timeline({paused: true})
+    //
+
+    //Animations
+      const innerPageTransitionAnim = { duration: 1.2, x: "100vw", ease: "power2.inOut"}
+      useEffect( () => {
+        innerVogueTransition.to("#vogueInner", innerPageTransitionAnim)
+      }, [innerVogueTransition, innerPageTransitionAnim])
+      useEffect( () => {
+        innerNikeTransition.to("#nikeInner", innerPageTransitionAnim)
+      }, [innerNikeTransition, innerPageTransitionAnim])
+      useEffect( () => {
+        innerCambridgePressTransition.to("#cambridgePressInner", innerPageTransitionAnim)
+      }, [innerCambridgePressTransition, innerPageTransitionAnim])
+
+      let innerBackButtonHoverTl = gsap.timeline({paused: true})
+      useEffect( () => {
+          innerBackButtonHoverTl.to("#leftBackSection", { duration: 0.8, width: "18.75%", ease: "power2.inOut"})
+      })
+    //
+
   //
 
-  //INNER PAGE CLICK HANDLER
-    let innerNikeTransition = gsap.timeline({paused: true})
-    useEffect( () => {
-      innerNikeTransition.to("#nikeInner", { duration: 1.2, x: "100vw", ease: "power2.inOut"})
-    }, [innerNikeTransition])
+  //HOVER EXTERNAL ICON & CHANGE PHOTOS HANDLER
 
-    let innerBackButtonHoverTl = gsap.timeline({paused: true})
-    useEffect( () => {
-        innerBackButtonHoverTl.to("#leftBackSection", { duration: 0.8, width: "18.75%", ease: "power2.inOut"})
-    })
+    //Timelines
+      const canPizzaHoverTl = gsap.timeline({paused: true})
+      const muchoMuchachoHoverTl = gsap.timeline({paused: true})
+      const threeMarksCoffeeHoverTl = gsap.timeline({paused: true})
+      const laZorraHoverTl = gsap.timeline({paused: true})
+      const xemeiHoverTl = gsap.timeline({paused: true})
+      const laZebraHoverTl = gsap.timeline({paused: true})
+      const trickWtfHoverTl = gsap.timeline({paused: true})
+      const nialHoverTl = gsap.timeline({paused: true})
+      const finallyPressHoverTl = gsap.timeline({paused: true})
+      const laProaHoverTl = gsap.timeline({paused: true})
+      const chipBakerHoverTl = gsap.timeline({paused: true})
+      const theNewStorytellersHoverTl = gsap.timeline({paused: true})
+      const owlInstituteHoverTl = gsap.timeline({paused: true})
+    //
+
+    //Refs
+      // let canPizzaTitleRef = useRef(null)
+      let canPizzaRoleRef = useRef(null)
+      let canPizzaIconRef = useRef(null)
+      // let muchoMuchachoTitleRef = useRef(null)
+      let muchoMuchachoRoleRef = useRef(null)
+      let muchoMuchachoIconRef = useRef(null)
+      let threeMarksCoffeeRoleRef = useRef(null)
+      let threeMarksCoffeeIconRef = useRef(null)
+      let laZorraRoleRef = useRef(null)
+      let laZorraIconRef = useRef(null)
+      let xemeiRoleRef = useRef(null)
+      let xemeiIconRef = useRef(null)
+      let laZebraRoleRef = useRef(null)
+      let laZebraIconRef = useRef(null)
+      let trickWtfRoleRef = useRef(null)
+      let trickWtfIconRef = useRef(null)
+      let nialRoleRef = useRef(null)
+      let nialIconRef = useRef(null)
+      let finallyPressRoleRef = useRef(null)
+      let finallyPressIconRef = useRef(null)
+      let laProaRoleRef = useRef(null)
+      let laProaIconRef = useRef(null)
+      let chipBakerRoleRef = useRef(null)
+      let chipBakerIconRef = useRef(null)
+      let theNewStorytellersRoleRef = useRef(null)
+      let theNewStorytellersIconRef = useRef(null)
+      let owlInstituteRoleRef = useRef(null)
+      let owlInstituteIconRef = useRef(null)
+    //
+
+    //Anim
+      const titleAnim = { duration: 0.6, x: 10, ease: "power2.inOut"}
+      const roleAnim = { duration: 0.6, x: -30, ease: "power2.inOut"}
+      const iconAnim = { duration: 0.6, alpha: 1, ease: "power2.inOut"}
+      useEffect( () => {
+        canPizzaHoverTl
+                    // .to(canPizzaTitleRef, titleAnim)
+                    .to(canPizzaRoleRef, roleAnim)
+                    .to(canPizzaIconRef, iconAnim, "-=0.3")
+      }, [canPizzaHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        muchoMuchachoHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(muchoMuchachoRoleRef, roleAnim)
+                    .to(muchoMuchachoIconRef, iconAnim, "-=0.3")
+      }, [muchoMuchachoHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        threeMarksCoffeeHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(threeMarksCoffeeRoleRef, roleAnim)
+                    .to(threeMarksCoffeeIconRef, iconAnim, "-=0.3")
+      }, [threeMarksCoffeeHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        laZorraHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(laZorraRoleRef, roleAnim)
+                    .to(laZorraIconRef, iconAnim, "-=0.3")
+      }, [laZorraHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        xemeiHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(xemeiRoleRef, roleAnim)
+                    .to(xemeiIconRef, iconAnim, "-=0.3")
+      }, [xemeiHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        laZebraHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(laZebraRoleRef, roleAnim)
+                    .to(laZebraIconRef, iconAnim, "-=0.3")
+      }, [laZebraHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        trickWtfHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(trickWtfRoleRef, roleAnim)
+                    .to(trickWtfIconRef, iconAnim, "-=0.3")
+      }, [trickWtfHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        nialHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(nialRoleRef, roleAnim)
+                    .to(nialIconRef, iconAnim, "-=0.3")
+      }, [nialHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        finallyPressHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(finallyPressRoleRef, roleAnim)
+                    .to(finallyPressIconRef, iconAnim, "-=0.3")
+      }, [finallyPressHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        laProaHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(laProaRoleRef, roleAnim)
+                    .to(laProaIconRef, iconAnim, "-=0.3")
+      }, [laProaHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        chipBakerHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(chipBakerRoleRef, roleAnim)
+                    .to(chipBakerIconRef, iconAnim, "-=0.3")
+      }, [chipBakerHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        theNewStorytellersHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(theNewStorytellersRoleRef, roleAnim)
+                    .to(theNewStorytellersIconRef, iconAnim, "-=0.3")
+      }, [theNewStorytellersHoverTl, titleAnim, roleAnim, iconAnim])
+      useEffect( () => {
+        owlInstituteHoverTl
+                    // .to(muchoMuchachoTitleRef, titleAnim)
+                    .to(owlInstituteRoleRef, roleAnim)
+                    .to(owlInstituteIconRef, iconAnim, "-=0.3")
+      }, [owlInstituteHoverTl, titleAnim, roleAnim, iconAnim])
+    //
+      
+    //Handlers
+      const onEnterHandler = (tl, imgH) => {
+        if(tl !== null){
+          tl.play()
+        }
+        if(imgH !== null){
+          setImage(imgH)
+        }
+      }
+      const onLeaveHandler = (tl) => {
+        if(tl !== null){
+          tl.reverse()
+        }
+        defaultGif()
+      }
+    //
+    
   //
 
   
   return (
 
     <>
+    <InnerPage id="vogueInner">
+        <div className="leftSection" id="leftBackSection" onClick={() => innerVogueTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
+        <div className="backButton"></div>
+        </div>
+    </InnerPage>
     <InnerPage id="nikeInner">
         <div className="leftSection" id="leftBackSection" onClick={() => innerNikeTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
+        <div className="backButton"></div>
+        </div>
+    </InnerPage>
+    <InnerPage id="cambridgePressInner">
+        <div className="leftSection" id="leftBackSection" onClick={() => innerCambridgePressTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
         <div className="backButton"></div>
         </div>
     </InnerPage>
@@ -245,7 +413,6 @@ const LaunchesSection = () => {
 
         <ListContainerStyledComp className="listContainer">
 
-
             <GlobalList propListTitle="Special Missions" propExtraListClass="listFeatured" >
 
                 <FeaturedTab propTitle="Vogue"
@@ -253,13 +420,14 @@ const LaunchesSection = () => {
                     propRole="Creativity" 
                     propInternalIcon
                     // Event Handlers
-                    propOnClick={() => innerNikeTransition.play()}
+                    propOnClick={() => innerVogueTransition.play()}
                 />
                 <FeaturedTab propTitle="Nike" 
                     //Main Props   
                     propRole="Creativity" 
                     propInternalIcon
                     // Event Handlers
+                    propOnClick={() => innerNikeTransition.play()}
                     propOnMouseEnter={() => setImage(imagesForLaunches.nike)}
                     propOnMouseLeave={() => defaultGif()}
                 />
@@ -272,110 +440,119 @@ const LaunchesSection = () => {
 
             </GlobalList>
             
-
             <GlobalList propListTitle="2020" propExtraListClass="list2020" >
     
                 <LaunchesTab propTitle="Can Pizza"
                     propRole="All Services"
                     //Links and Refs
                     propHrefTab="https://www.canpizza.eu/"
-                    propRoleRef={el => roleCanPizzaRef = el}
-                    propRoleIconRef={el => roleIconCanPizzaRef = el}
+                    // propTitleRef={el => {canPizzaTitleRef = el}}
+                    propRoleRef={el => {canPizzaRoleRef = el}}
+                    propRoleIconRef={el => {canPizzaIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={() => externalIconHoverTl.play()}
-                    propOnMouseLeave={() => externalIconHoverTl.reverse()}
+                    propOnMouseEnter={ () => onEnterHandler(canPizzaHoverTl, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(canPizzaHoverTl) }
                 />
                 <LaunchesTab propTitle="Mucho Muchacho"
                     //Main Props
                     propRole="Creativity / Development"
                     //Links and Refs
                     propHrefTab="https://muchomuchacho.com/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    // propTitleRef={el => {muchoMuchachoTitleRef = el}}
+                    propRoleRef={el => {muchoMuchachoRoleRef = el}}
+                    propRoleIconRef={el => {muchoMuchachoIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={() => setImage(imagesForLaunches.muchoMuchacho)}
-                    propOnMouseLeave={() => defaultGif()}
+                    propOnMouseEnter={ () => onEnterHandler(muchoMuchachoHoverTl, imagesForLaunches.muchoMuchacho) }
+                    propOnMouseLeave={ () => onLeaveHandler(muchoMuchachoHoverTl)}
                 />
                 <LaunchesTab propTitle="Sita Abellán"
                     //Main Props
                     propRole="Creativity / Development"
-                    //Links and Refs
-                    propHrefTab={null}
-                    propRoleRef={null}
-                    propRoleIconRef={null}
                     //Event Handlers
-                    propOnMouseEnter={() => setImage(imagesForLaunches.sita)}
-                    propOnMouseLeave={() => defaultGif()}
+                    propOnMouseEnter={ () => onEnterHandler(null, imagesForLaunches.sita) }
+                    propOnMouseLeave={ () => onLeaveHandler(null) }
                 />
                 <LaunchesTab propTitle="Three Marks Coffee"
                     //Main Props
                     propRole="Development"
                     //Links and Refs
                     propHrefTab="https://www.threemarkscoffee.com/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propRoleRef={el => {threeMarksCoffeeRoleRef = el}}
+                    propRoleIconRef={el => {threeMarksCoffeeIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={() => setImage(imagesForLaunches.threeMarks)}
-                    propOnMouseLeave={() => defaultGif()}
+                    propOnMouseEnter={ () => onEnterHandler(threeMarksCoffeeHoverTl, imagesForLaunches.threeMarks) }
+                    propOnMouseLeave={ () => onLeaveHandler(threeMarksCoffeeHoverTl)}
+                />
+                <LaunchesTab propTitle="La Zorra"
+                    //Main Props
+                    propRole="All Services"
+                    //Links and Refs
+                    propWithExternalLink
+                    propHrefTab="http://restaurantelazorra.com/"
+                    propRoleRef={el => {laZorraRoleRef = el}}
+                    propRoleIconRef={el => {laZorraIconRef = el}}
+                    //Event Handlers
+                    propOnMouseEnter={ () => onEnterHandler(laZorraHoverTl, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(laZorraHoverTl)}
                 />
                 <LaunchesTab propTitle="Xemei"
                     //Main Props
                     propRole="All Services"
                     //Links and Refs
+                    propWithExternalLink
                     propHrefTab="https://xemei.es/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propRoleRef={el => {xemeiRoleRef = el}}
+                    propRoleIconRef={el => {xemeiIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={null}
-                    propOnMouseLeave={null}
+                    propOnMouseEnter={ () => onEnterHandler(xemeiHoverTl, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(xemeiHoverTl)}
                 />
                 <LaunchesTab propTitle="La Zebra Slow Food"
                     //Main Props
                     propRole="All Services"
                     //Links and Refs
                     propHrefTab="https://www.lazebraslowfood.com/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propRoleRef={el => {laZebraRoleRef = el}}
+                    propRoleIconRef={el => {laZebraIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={null}
-                    propOnMouseLeave={null}
+                    propOnMouseEnter={ () => onEnterHandler(laZebraHoverTl, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(laZebraHoverTl)}
                 />
                 <LaunchesTab propTitle="Trick.Wtf"
                     //Main Props
                     propRole="Branding / Development"
                     //Links and Refs
                     propHrefTab="https://www.trick.wtf/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propRoleRef={el => {trickWtfRoleRef = el}}
+                    propRoleIconRef={el => {trickWtfIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={() => setImage(imagesForLaunches.trick)}
-                    propOnMouseLeave={() => defaultGif()}
+                    propOnMouseEnter={ () => onEnterHandler(trickWtfHoverTl, imagesForLaunches.trick) }
+                    propOnMouseLeave={ () => onLeaveHandler(trickWtfHoverTl)}
                 />
                 <LaunchesTab propTitle="Nial"
                     //Main Props
                     propRole="Branding / Development"
                     //Links and Refs
-                    propHrefTab="https://www.trick.wtf/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propHrefTab="http://www.nial-artlaw.com/"
+                    propRoleRef={el => {nialRoleRef = el}}
+                    propRoleIconRef={el => {nialIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={null}
-                    propOnMouseLeave={null}
+                    propOnMouseEnter={ () => onEnterHandler(nialHoverTl, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(nialHoverTl)}
                 />
                 <LaunchesTab propTitle="Finally Press"
                     //Main Props
                     propRole="Creativity / Development"
                     //Links and Refs
                     propHrefTab="http://finallypress.com/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propRoleRef={el => {finallyPressRoleRef = el}}
+                    propRoleIconRef={el => {finallyPressIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={null}
-                    propOnMouseLeave={null}
+                    propOnMouseEnter={ () => onEnterHandler(finallyPressHoverTl, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(finallyPressHoverTl)}
                 />
 
             </GlobalList>
-
 
             <GlobalList propListTitle="2019" propExtraListClass="list2019" >
                 
@@ -383,53 +560,44 @@ const LaunchesSection = () => {
                     //Main Props
                     propRole="Branding"
                     //Links and Refs
-                    propHrefTab={null}
-                    propRoleRef={null}
-                    propRoleIconRef={null}
                     //Event Handlers
-                    propOnMouseEnter={() => setImage(imagesForLaunches.newIcons)}
-                    propOnMouseLeave={() => defaultGif()}
+                    propOnMouseEnter={ () => onEnterHandler(null, imagesForLaunches.newIcons) }
+                    propOnMouseLeave={ () => onLeaveHandler(null)}
                 />
                 <LaunchesTab propTitle="La Proa 04"
                     //Main Props
                     propRole="Branding / Development"
                     //Links and Refs
                     propHrefTab="https://www.laproa04.com/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propRoleRef={el => {laProaRoleRef = el}}
+                    propRoleIconRef={el => {laProaIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={() => setImage(imagesForLaunches.laProa)}
-                    propOnMouseLeave={() => defaultGif()}
+                    propOnMouseEnter={ () => onEnterHandler(laProaHoverTl, imagesForLaunches.laProa) }
+                    propOnMouseLeave={ () => onLeaveHandler(laProaHoverTl)}
                 />
                 <LaunchesTab propTitle="Chip Baker Films"
                     //Main Props
                     propRole="Branding / Development"
                     //Links and Refs
                     propHrefTab="https://www.chipbakerfilms.com/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propRoleRef={el => {chipBakerRoleRef = el}}
+                    propRoleIconRef={el => {chipBakerIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={() => setImage(imagesForLaunches.chipBaker)}
-                    propOnMouseLeave={() => defaultGif()}
+                    propOnMouseEnter={ () => onEnterHandler(chipBakerHoverTl, imagesForLaunches.chipBaker) }
+                    propOnMouseLeave={ () => onLeaveHandler(chipBakerHoverTl)}
                 />
                 <LaunchesTab propTitle='Uniko. "Model Agency"'
                     //Main Props
                     propRole="Branding"
                     //Links and Refs
-                    propHrefTab="https://www.chipbakerfilms.com/"
-                    propRoleRef={null}
-                    propRoleIconRef={null}
                     //Event Handlers
-                    propOnMouseEnter={() => setImage(imagesForLaunches.uniko)}
-                    propOnMouseLeave={() => defaultGif()}
+                    propOnMouseEnter={ () => onEnterHandler(null, imagesForLaunches.uniko) }
+                    propOnMouseLeave={ () => onLeaveHandler(null)}
                 />
                 <LaunchesTab propTitle="Scranny's House"
                     //Main Props
                     propRole="Branding"
                     //Links and Refs
-                    propHrefTab={null}
-                    propRoleRef={null}
-                    propRoleIconRef={null}
                     //Event Handlers
                     propOnMouseEnter={null}
                     propOnMouseLeave={null}
@@ -439,48 +607,41 @@ const LaunchesSection = () => {
                     propRole="Development"
                     //Links and Refs
                     propHrefTab="https://www.thenewstorytellers.es/" 
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propRoleRef={el => {theNewStorytellersRoleRef = el}}
+                    propRoleIconRef={el => {theNewStorytellersIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={null}
-                    propOnMouseLeave={null}
+                    propOnMouseEnter={ () => onEnterHandler(theNewStorytellersHoverTl, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(theNewStorytellersHoverTl)}
                 />
                 <LaunchesTab propTitle="Premis Butaca"
                     //Main Props
                     propRole="Branding / Development"
                     //Links and Refs
-                    propHrefTab="https://www.thenewstorytellers.es/" 
-                    propRoleRef={null}
-                    propRoleIconRef={null}
                     //Event Handlers
-                    propOnMouseEnter={() => setImage(imagesForLaunches.premisButaca)}
-                    propOnMouseLeave={() => defaultGif()}
+                    propOnMouseEnter={ () => onEnterHandler(null, imagesForLaunches.premisButaca) }
+                    propOnMouseLeave={ () => onLeaveHandler(null)}
                 />
                 <LaunchesTab propTitle="Owl Institute"
                     //Main Props
                     propRole="Branding / Development"
                     //Links and Refs
                     propHrefTab="https://owlpsicologia.com/" 
-                    propRoleRef={null}
-                    propRoleIconRef={null}
+                    propRoleRef={el => {owlInstituteRoleRef = el}}
+                    propRoleIconRef={el => {owlInstituteIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={null}
-                    propOnMouseLeave={null}
+                    propOnMouseEnter={ () => onEnterHandler(owlInstituteHoverTl, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(owlInstituteHoverTl)}
                 />
                 <LaunchesTab propTitle="Cafes Bou"
                     //Main Props
                     propRole="Creativity"
                     //Links and Refs
-                    propHrefTab={null} 
-                    propRoleRef={null}
-                    propRoleIconRef={null}
                     //Event Handlers
-                    propOnMouseEnter={null}
-                    propOnMouseLeave={null}
+                    propOnMouseEnter={ () => onEnterHandler(null, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(null)}
                 />
 
             </GlobalList>
-
 
             <div className="photoContainer" ref={el => photoBoxRef = el}>
                 <div className="photoBox"></div>

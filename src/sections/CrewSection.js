@@ -33,7 +33,7 @@ const CrewSection = () => {
             crewHoverAntoTl
                         .to( plusAntoLine01, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
                         .to( plusAntoLine02, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
-                        .to( plusAntoRole, { duration: 0.8, x: `${-101.97 - 15}`, ease: "power2.inOut" }, "start" )
+                        .to( plusAntoRole, { duration: 0.8, x: `${-101.97 - 20}`, ease: "power2.inOut" }, "start" )
                         .to( plusAntoMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
         }, [crewHoverAntoTl])
 
@@ -47,7 +47,7 @@ const CrewSection = () => {
             crewHoverSandraTl
                         .to( plusSandraLine01, { duration: 0.8, rotate: 90, ease: "power2.inOut"}, "start" )
                         .to( plusSandraLine02, { duration: 0.8, rotate: 180, ease: "power2.inOut"}, "start" )
-                        .to( plusSandraRole, { duration: 0.8, x: `${-135.86 - 15}`, ease: "power2.inOut" }, "start" )
+                        .to( plusSandraRole, { duration: 0.8, x: `${-135.86 - 20}`, ease: "power2.inOut" }, "start" )
                         .to( plusSandraMail, { duration: 0.8, opacity: 1, ease: "power2.inOut" }, "stage02-=0.4" )
         }, [crewHoverSandraTl])
 

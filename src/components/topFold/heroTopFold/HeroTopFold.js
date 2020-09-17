@@ -124,7 +124,7 @@ const HeroTopFold = () => {
                     classIndex = document.getElementsByClassName("circleTextLogo")[classIndex];
 
                     let deg = 360 / txt.length
-                    let origin = -5;
+                    let origin = -25;
 
                     txt.forEach((ea) => {
                         ea = `<p style=' height:${radius}px; position:absolute; transform:rotate(${origin}deg); transform-origin:0 100%'>${ea}</p>`;
@@ -137,7 +137,7 @@ const HeroTopFold = () => {
         //
         //Rotate Circle Animation
             useEffect( () => {
-                let dur = 28
+                let dur = 56
                 const rotateTextTl = gsap.timeline({})
                 rotateTextTl.to(".circleTextLogoWrapper", { duration: dur, rotation:"360_ccw" , transformOrigin:"138px 138px",  repeat: -1, ease: "linear" })  
             })
