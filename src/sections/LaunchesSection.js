@@ -9,10 +9,13 @@ import { apolloColors } from '../data/apollo30styles'
 //-Images
 import apolloPortfolio from '../assets/images/apolloPortfolio.gif'
 import internalLinkIcon from '../assets/images/internalLink.svg'
-import nikeImg01 from '../assets/images/nike/nike01.jpg'
+import vogueImg01 from '../assets/images/vogue/vogue01.gif'
+import nikeImg01 from '../assets/images/nike/nike01.gif'
+// import nikeImg01 from '../assets/images/nike/nike01.jpg'
 import nikeImg02 from '../assets/images/nike/nike02.jpg'
 import nikeImg03 from '../assets/images/nike/nike03.jpg'
 import nikeImg04 from '../assets/images/nike/nike04.jpg'
+import canPizzaImg01 from '../assets/images/canPizza/canPizza01.gif'
 import unikoImg01 from '../assets/images/uniko/uniko01.jpg'
 import trickImg01 from '../assets/images/trick/trick01.gif'
 import threeMarksImg01 from '../assets/images/threeMarks/threeMarksImg01.gif'
@@ -70,7 +73,7 @@ const InnerPage = styled.div`
     left: -100vw;
     width: 100vw;
     height: 100vh;
-    background: ${apolloColors.dark};
+    background: ${props => props.inputColor || apolloColors.dark };
     z-index: 300;
     overflow: scroll;
 
@@ -103,21 +106,27 @@ const imagesForLaunches = {
       apolloPortfolio
   ],
 
+  //Featured
+  vogue: [
+    vogueImg01,
+  ],
   nike: [
     nikeImg01,
     nikeImg02,
     nikeImg03,
     nikeImg04,
   ],
+  canPizza: [
+    canPizzaImg01,
+  ],
+
 
   uniko: [
     unikoImg01
   ], 
-
   trick: [
     trickImg01
   ],
-
   threeMarks: [
     threeMarksImg01
   ],
@@ -214,6 +223,7 @@ const LaunchesSection = () => {
       const innerVogueTransition = gsap.timeline({paused: true})
       const innerNikeTransition = gsap.timeline({paused: true})
       const innerCanPizzaTransition = gsap.timeline({paused: true})
+      const innerSitaTransition = gsap.timeline({paused: true})
     //
 
     //Animations
@@ -227,6 +237,9 @@ const LaunchesSection = () => {
       useEffect( () => {
         innerCanPizzaTransition.to("#canPizzaInner", innerPageTransitionAnim)
       }, [innerCanPizzaTransition, innerPageTransitionAnim])
+      useEffect( () => {
+        innerSitaTransition.to("#sitaInner", innerPageTransitionAnim)
+      }, [innerSitaTransition, innerPageTransitionAnim])
 
       let innerBackButtonHoverTl = gsap.timeline({paused: true})
       useEffect( () => {
@@ -392,7 +405,7 @@ const LaunchesSection = () => {
   return (
 
     <>
-    <InnerPage id="vogueInner">
+    <InnerPage id="vogueInner" inputColor="grey">
         <div className="leftSection" id="leftBackSection" onClick={() => innerVogueTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
         <div className="backButton"></div>
         </div>
@@ -402,8 +415,13 @@ const LaunchesSection = () => {
         <div className="backButton"></div>
         </div>
     </InnerPage>
-    <InnerPage id="canPizzaInner">
+    <InnerPage id="canPizzaInner" inputColor="red">
         <div className="leftSection" id="leftBackSection" onClick={() => innerCanPizzaTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
+        <div className="backButton"></div>
+        </div>
+    </InnerPage>
+    <InnerPage id="sitaInner">
+        <div className="leftSection" id="leftBackSection" onClick={() => innerSitaTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
         <div className="backButton"></div>
         </div>
     </InnerPage>
@@ -424,6 +442,8 @@ const LaunchesSection = () => {
                     propInternalIcon
                     // Event Handlers
                     propOnClick={() => innerVogueTransition.play()}
+                    propOnMouseEnter={() => setImage(imagesForLaunches.vogue)}
+                    propOnMouseLeave={() => defaultGif()}
                 />
                 <FeaturedTab propTitle="Nike" 
                     //Main Props   
@@ -440,7 +460,16 @@ const LaunchesSection = () => {
                     propInternalIcon
                     // Event Handlers
                     propOnClick={() => innerCanPizzaTransition.play()}
-                    propOnMouseEnter={() => setImage(imagesForLaunches.nike)}
+                    propOnMouseEnter={() => setImage(imagesForLaunches.canPizza)}
+                    propOnMouseLeave={() => defaultGif()}
+                />
+                <FeaturedTab propTitle="Sita Abellán" 
+                    //Main Props
+                    propRole="Creativity / Development" 
+                    propInternalIcon
+                    // Event Handlers
+                    propOnClick={() => innerSitaTransition.play()}
+                    propOnMouseEnter={() => setImage(imagesForLaunches.sita)}
                     propOnMouseLeave={() => defaultGif()}
                 />
 
@@ -470,13 +499,6 @@ const LaunchesSection = () => {
                     //Event Handlers
                     propOnMouseEnter={ () => onEnterHandler(muchoMuchachoHoverTl, imagesForLaunches.muchoMuchacho) }
                     propOnMouseLeave={ () => onLeaveHandler(muchoMuchachoHoverTl)}
-                />
-                <LaunchesTab propTitle="Sita Abellán"
-                    //Main Props
-                    propRole="Creativity / Development"
-                    //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(null, imagesForLaunches.sita) }
-                    propOnMouseLeave={ () => onLeaveHandler(null) }
                 />
                 <LaunchesTab propTitle="Three Marks Coffee"
                     //Main Props
