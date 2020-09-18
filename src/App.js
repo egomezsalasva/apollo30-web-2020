@@ -91,6 +91,9 @@ const ContentContainer = styled.div`
   right: 0;
   top: 0;
   width: calc(100vw - ${leftSideWidth});
+  @media (max-width: 1100px) {
+    width: 100vw
+  }
 `
 const FirstSectionSpace = styled.div`
   width: 100%;

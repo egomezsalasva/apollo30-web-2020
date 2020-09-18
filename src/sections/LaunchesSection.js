@@ -46,6 +46,9 @@ const ListContainerStyledComp = styled.section`
           min-width: 380px;
           left: 54.9450549%;
         }
+        @media (max-width: 950px) {
+          display: none;
+        }
 
         .photoBox{
           position: absolute;
@@ -210,7 +213,7 @@ const LaunchesSection = () => {
     //Timelines
       const innerVogueTransition = gsap.timeline({paused: true})
       const innerNikeTransition = gsap.timeline({paused: true})
-      const innerCambridgePressTransition = gsap.timeline({paused: true})
+      const innerCanPizzaTransition = gsap.timeline({paused: true})
     //
 
     //Animations
@@ -222,8 +225,8 @@ const LaunchesSection = () => {
         innerNikeTransition.to("#nikeInner", innerPageTransitionAnim)
       }, [innerNikeTransition, innerPageTransitionAnim])
       useEffect( () => {
-        innerCambridgePressTransition.to("#cambridgePressInner", innerPageTransitionAnim)
-      }, [innerCambridgePressTransition, innerPageTransitionAnim])
+        innerCanPizzaTransition.to("#canPizzaInner", innerPageTransitionAnim)
+      }, [innerCanPizzaTransition, innerPageTransitionAnim])
 
       let innerBackButtonHoverTl = gsap.timeline({paused: true})
       useEffect( () => {
@@ -236,7 +239,7 @@ const LaunchesSection = () => {
   //HOVER EXTERNAL ICON & CHANGE PHOTOS HANDLER
 
     //Timelines
-      const canPizzaHoverTl = gsap.timeline({paused: true})
+      const cambridgeHoverTl = gsap.timeline({paused: true})
       const muchoMuchachoHoverTl = gsap.timeline({paused: true})
       const threeMarksCoffeeHoverTl = gsap.timeline({paused: true})
       const laZorraHoverTl = gsap.timeline({paused: true})
@@ -252,9 +255,9 @@ const LaunchesSection = () => {
     //
 
     //Refs
-      // let canPizzaTitleRef = useRef(null)
-      let canPizzaRoleRef = useRef(null)
-      let canPizzaIconRef = useRef(null)
+      // let cambridgeTitleRef = useRef(null)
+      let cambridgeRoleRef = useRef(null)
+      let cambridgeIconRef = useRef(null)
       // let muchoMuchachoTitleRef = useRef(null)
       let muchoMuchachoRoleRef = useRef(null)
       let muchoMuchachoIconRef = useRef(null)
@@ -287,11 +290,11 @@ const LaunchesSection = () => {
       const roleAnim = { duration: 0.6, x: -30, ease: "power2.inOut"}
       const iconAnim = { duration: 0.6, alpha: 1, ease: "power2.inOut"}
       useEffect( () => {
-        canPizzaHoverTl
-                    // .to(canPizzaTitleRef, titleAnim)
-                    .to(canPizzaRoleRef, roleAnim)
-                    .to(canPizzaIconRef, iconAnim, "-=0.3")
-      }, [canPizzaHoverTl, titleAnim, roleAnim, iconAnim])
+        cambridgeHoverTl
+                    // .to(cambridgeTitleRef, titleAnim)
+                    .to(cambridgeRoleRef, roleAnim)
+                    .to(cambridgeIconRef, iconAnim, "-=0.3")
+      }, [cambridgeHoverTl, titleAnim, roleAnim, iconAnim])
       useEffect( () => {
         muchoMuchachoHoverTl
                     // .to(muchoMuchachoTitleRef, titleAnim)
@@ -399,8 +402,8 @@ const LaunchesSection = () => {
         <div className="backButton"></div>
         </div>
     </InnerPage>
-    <InnerPage id="cambridgePressInner">
-        <div className="leftSection" id="leftBackSection" onClick={() => innerCambridgePressTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
+    <InnerPage id="canPizzaInner">
+        <div className="leftSection" id="leftBackSection" onClick={() => innerCanPizzaTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
         <div className="backButton"></div>
         </div>
     </InnerPage>
@@ -431,27 +434,30 @@ const LaunchesSection = () => {
                     propOnMouseEnter={() => setImage(imagesForLaunches.nike)}
                     propOnMouseLeave={() => defaultGif()}
                 />
-                <FeaturedTab propTitle="Cambridge Press" 
+                <FeaturedTab propTitle="Can Pizza" 
                     //Main Props
-                    propRole="Creativity / Development" 
+                    propRole="All Services" 
                     propInternalIcon
                     // Event Handlers
+                    propOnClick={() => innerCanPizzaTransition.play()}
+                    propOnMouseEnter={() => setImage(imagesForLaunches.nike)}
+                    propOnMouseLeave={() => defaultGif()}
                 />
 
             </GlobalList>
             
             <GlobalList propListTitle="2020" propExtraListClass="list2020" >
     
-                <LaunchesTab propTitle="Can Pizza"
-                    propRole="All Services"
+                <LaunchesTab propTitle="Cambridge"
+                    propRole="Creativity / Development"
                     //Links and Refs
-                    propHrefTab="https://www.canpizza.eu/"
+                    propHrefTab="https://www.cambridgewithyou.org/"
                     // propTitleRef={el => {canPizzaTitleRef = el}}
-                    propRoleRef={el => {canPizzaRoleRef = el}}
-                    propRoleIconRef={el => {canPizzaIconRef = el}}
+                    propRoleRef={el => {cambridgeRoleRef = el}}
+                    propRoleIconRef={el => {cambridgeIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(canPizzaHoverTl, null) }
-                    propOnMouseLeave={ () => onLeaveHandler(canPizzaHoverTl) }
+                    propOnMouseEnter={ () => onEnterHandler(cambridgeHoverTl, null) }
+                    propOnMouseLeave={ () => onLeaveHandler(cambridgeHoverTl) }
                 />
                 <LaunchesTab propTitle="Mucho Muchacho"
                     //Main Props

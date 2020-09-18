@@ -23,6 +23,9 @@ const Wrapper = styled.div`
   bottom: 0;
   width: ${leftSideWidth};
   height: 100vh;
+  @media (max-width: 1100px) {
+    display: none
+  }
 
   .sidenavTop{
     position: absolute;

@@ -20,6 +20,10 @@ const SectionContainer = styled.section`
     @media (max-width: 1230px) {
       width: 100%; 
     }
+    @media (max-width: 1100px) {
+      width: 80%;
+      padding-left: 0px;
+    }
 
     .sectionTitle{
       color: ${apolloColors.dark};

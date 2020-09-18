@@ -14,7 +14,9 @@ const GlobalListStyledComp = styled.div`
     width: 500px;
     @media (max-width: 1230px) {
         width: 54.9450549% ;
-        /* min-width: 300px; */  
+    }
+    @media (max-width: 1100px) {
+        width: 500px ;
     }
 
     .listTitle{
