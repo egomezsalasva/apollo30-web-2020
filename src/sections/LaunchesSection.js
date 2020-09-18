@@ -16,12 +16,13 @@ import nikeImg02 from '../assets/images/nike/nike02.jpg'
 import nikeImg03 from '../assets/images/nike/nike03.jpg'
 import nikeImg04 from '../assets/images/nike/nike04.jpg'
 import canPizzaImg01 from '../assets/images/canPizza/canPizza01.gif'
+import sitaImg01 from '../assets/images/sitaAbellan/sitaAbellan02.gif'
 import unikoImg01 from '../assets/images/uniko/uniko01.jpg'
 import trickImg01 from '../assets/images/trick/trick01.gif'
 import threeMarksImg01 from '../assets/images/threeMarks/threeMarksImg01.gif'
 import premisButacaImg01 from '../assets/images/premisButaca/premisButaca01.gif'
 import muchoMuchachoImg01 from '../assets/images/muchoMuchacho/muchoMuchacho01.gif'
-import sitaImg01 from '../assets/images/sitaAbellan/sitaAbellan01.jpg'
+
 import newIconsImg01 from '../assets/images/newIcons/newIcons01.gif'
 import laProaImg01 from '../assets/images/laProa/laProa01.jpg'
 import chipBakerImg01 from '../assets/images/chipBaker/chipBaker01.gif'
@@ -405,7 +406,7 @@ const LaunchesSection = () => {
   return (
 
     <>
-    <InnerPage id="vogueInner" inputColor="grey">
+    <InnerPage id="vogueInner" inputColor="#D7D7D7">
         <div className="leftSection" id="leftBackSection" onClick={() => innerVogueTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
         <div className="backButton"></div>
         </div>
@@ -415,7 +416,7 @@ const LaunchesSection = () => {
         <div className="backButton"></div>
         </div>
     </InnerPage>
-    <InnerPage id="canPizzaInner" inputColor="red">
+    <InnerPage id="canPizzaInner" inputColor="#CE0E2D">
         <div className="leftSection" id="leftBackSection" onClick={() => innerCanPizzaTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
         <div className="backButton"></div>
         </div>
