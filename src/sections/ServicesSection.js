@@ -50,7 +50,7 @@ const ServicesSection = () => {
   //HOVER HANDLER ACCORDEON TAB
     const hoverServiceTl = gsap.timeline({paused: true})
     useEffect( () => {
-      hoverServiceTl.to(creativityReadMoreRef.current, { duration: 0.8, opacity: 0.33, ease:"power2.inOut" })
+      hoverServiceTl.to(creativityReadMoreRef, { duration: 0.8, alpha: 0.33, ease:"power2.inOut" })
     }, [hoverServiceTl])
   //
 
@@ -62,63 +62,35 @@ const ServicesSection = () => {
     const [developmentOpen, setDevelopmentOpen] = useState(false)
 
     const [creativityTl] = useState(gsap.timeline({ paused: true }))
-    const [creativityOpenTl] = useState(gsap.timeline({ paused: true }))
     const [brandTl] = useState(gsap.timeline({ paused: true }))
     const [mediaTl] = useState(gsap.timeline({ paused: true }))
     const [developmentTl] = useState(gsap.timeline({ paused: true }))
 
-    let topLineServicesRef = useRef()
-    let creativityTabRef = useRef()
-    let arrowCreativityRef = useRef()
-    let arrowBrandRef = useRef()
-    let arrowMediaRef = useRef()
-    let arrowDevelopmentRef = useRef()
-    let brandInnovationTabRef = useRef()
-    let mediaActivationTabRef = useRef()
-    let developmentTabRef = useRef()
-    let creativityReadMoreRef = useRef()
-    let brandReadMoreRef = useRef()
-    let mediaReadMoreRef = useRef()
-    let developmentReadMoreRef = useRef()
-    let creativityTextRef = useRef()
-    let brandTextRef = useRef()
-    let mediaTextRef = useRef()
-    let developmentTextRef = useRef()
+    let topLineServicesRef = useRef(null)
+    let creativityTabRef = useRef(null)
+    let arrowCreativityRef = useRef(null)
+    let arrowBrandRef = useRef(null)
+    let arrowMediaRef = useRef(null)
+    let arrowDevelopmentRef = useRef(null)
+    let brandInnovationTabRef = useRef(null)
+    let mediaActivationTabRef = useRef(null)
+    let developmentTabRef = useRef(null)
+    let creativityReadMoreRef = useRef(null)
+    let brandReadMoreRef = useRef(null)
+    let mediaReadMoreRef = useRef(null)
+    let developmentReadMoreRef = useRef(null)
+    let creativityTextRef = useRef(null)
+    let brandTextRef = useRef(null)
+    let mediaTextRef = useRef(null)
+    let developmentTextRef = useRef(null)
 
     //Creativity Tab 
         //Animations
           useEffect(() => {
             creativityTl
-              .to(creativityReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-              .to(arrowCreativityRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
-              .to(arrowBrandRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-              .to(arrowMediaRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-              .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-              .to(creativityReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-              .to(creativityTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-              .to(creativityTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+              .to(creativityReadMoreRef, { duration: 0.8, alpha: 0, ease: "power2.inOut" }, "start")
               .reverse()
           }, [creativityTl])
-          // useEffect(() => {
-          //   creativityOpenTl
-          //     .to(topLineServicesRef.current, { duration: 0.8, width: 700, ease: "power2.inOut" }, "start")
-          //     .to(creativityReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-          //     .to(creativityTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.2")
-          //     .to(arrowCreativityRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.2")
-          //     .to(brandInnovationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.4")
-          //     .to(arrowBrandRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-          //     .to(mediaActivationTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.6")
-          //     .to(arrowMediaRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-          //     .to(developmentTabRef.current, { duration: 0.8, width: 700, ease: "power2.inOut"}, "start+=0.8")
-          //     .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-          //     .to(creativityReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-          //     .to(creativityTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-          //     .to(brandReadMoreRef.current, { duration: 0, display: "block", ease: "power2.inOut"} , "stage02")
-          //     .to(brandTextRef.current, { duration: 0.8, opacity: 0, display: "none", ease: "power2.inOut"} , "stage02")
-          //     .to(brandInnovationTabRef.current, { duration: 0.8, height: "62px", ease: "power2.inOut" }, "stage03")
-          //     .to(creativityTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
-          //     .reverse()
-          // }, [creativityOpenTl])
         //
 
         //Logic
@@ -134,15 +106,6 @@ const ServicesSection = () => {
               setCreativityOpen(false)
             }
 
-            // if(openWidth === true && creativityOpen === false && (brandOpen === true || mediaOpen === true || developmentTl === true)){
-            //   creativityOpenTl.play()
-            //   setOpenWidth(true)
-            //   setCreativityOpen(true)
-            //   setBrandOpen(false)
-            //   setMediaOpen(false)
-            //   setDevelopmentOpen(false)
-            // }
-
           }
         //
     //
@@ -151,14 +114,7 @@ const ServicesSection = () => {
         //Animations
           useEffect(() => {
             brandTl
-              .to(brandReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-              .to(arrowCreativityRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
-              .to(arrowBrandRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.4")
-              .to(arrowMediaRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-              .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-              .to(brandReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-              .to(brandInnovationTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-              .to(brandTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+              .to(brandReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
               .reverse()
           }, [brandTl])
         //
@@ -183,14 +139,7 @@ const ServicesSection = () => {
       //Animations
         useEffect(() => {
           mediaTl
-            .to(mediaReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-            .to(arrowCreativityRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
-            .to(arrowBrandRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-            .to(arrowMediaRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.6")
-            .to(arrowDevelopmentRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.8")
-            .to(mediaReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-            .to(mediaActivationTabRef.current, { duration: 0.8, height: "114px", ease: "power2.inOut" }, "stage02")
-            .to(mediaTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+            .to(mediaReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
             .reverse()
         }, [mediaTl])
       //
@@ -215,14 +164,7 @@ const ServicesSection = () => {
       //Animations
         useEffect(() => {
           developmentTl
-            .to(mediaReadMoreRef.current, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
-            .to(arrowCreativityRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.2")
-            .to(arrowBrandRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.4")
-            .to(arrowMediaRef.current, { duration: 0.8, rotate: 90, ease: "power2.inOut" }, "start+=0.6")
-            .to(arrowDevelopmentRef.current, { duration: 1.6, rotate: 135, ease: "power2.inOut" }, "start+=0.8")
-            .to(developmentReadMoreRef.current, { duration: 0, display: "none", ease: "power2.inOut"} , "stage02")
-            .to(developmentTabRef.current, { duration: 0.8, height: "78px", ease: "power2.inOut" }, "stage02")
-            .to(developmentTextRef.current, { duration: 0.8, opacity: 0.66, display:"inline-block", ease: "power2.inOut" }, "stage03")
+            .to(mediaReadMoreRef, { duration: 0.8, opacity: 0, ease: "power2.inOut" }, "start")
             .reverse()
         }, [developmentTl])
       //
@@ -262,10 +204,10 @@ const ServicesSection = () => {
               //Text
               propServicesText="Creamos contenido (publicitario, cinematográfico, social, digital y móvil) que trasciende los medios tradicionales y difumina las líneas entre productos, experiencias, contenido y marketing."
               //Refs
-              propTabRef={creativityTabRef}
-              propRoleRef={creativityReadMoreRef}
-              propServicesTextRef={creativityTextRef}
-              propServicesArrowRef={arrowCreativityRef}
+              propTabRef={el => {creativityTabRef = el}}
+              propRoleRef={el => {creativityReadMoreRef = el}}
+              propServicesTextRef={el => {creativityTextRef = el}}
+              propServicesArrowRef={el => {arrowCreativityRef = el}}
               //Handlers
               propOnMouseEnter={() => hoverServiceTl.play()}
               propOnMouseLeave={() => hoverServiceTl.reverse()}
@@ -275,10 +217,10 @@ const ServicesSection = () => {
               //Text
               propServicesText="Los consumidores de hoy no compran una marca, se han de sentir partícipes de ella. Ayudamos a las marcas a simplificar y aclarar quiénes son para transmitir mejor y llegar a conectar verdaderamente con su público objetivo."
               //Refs
-              propTabRef={brandInnovationTabRef}
-              propRoleRef={brandReadMoreRef}
-              propServicesTextRef={brandTextRef}
-              propServicesArrowRef={arrowBrandRef}
+              propTabRef={el => {brandInnovationTabRef = el}}
+              propRoleRef={el => {brandReadMoreRef = el}}
+              propServicesTextRef={el => {brandTextRef = el}}
+              propServicesArrowRef={el => {arrowBrandRef = el}}
               //Handlers
               propOnMouseEnter={() => hoverServiceTl.play()}
               propOnMouseLeave={() => hoverServiceTl.reverse()}
@@ -288,10 +230,10 @@ const ServicesSection = () => {
               //Text
               propServicesText="La abundancia de competencia en el mercado actual exige una dosis extra de creatividad y estrategia. Una estrategia ocurrente garantiza ubicaciones de medios más ingeniosas y, por tanto, mas efectivas."
               //Refs
-              propTabRef={mediaActivationTabRef}
-              propRoleRef={mediaReadMoreRef}
-              propServicesTextRef={mediaTextRef}
-              propServicesArrowRef={arrowMediaRef}
+              propTabRef={el => {mediaActivationTabRef = el}}
+              propRoleRef={el => {mediaReadMoreRef = el}}
+              propServicesTextRef={el => {mediaTextRef = el}}
+              propServicesArrowRef={el => {arrowMediaRef = el}}
               //Handlers
               propOnMouseEnter={() => hoverServiceTl.play()}
               propOnMouseLeave={() => hoverServiceTl.reverse()}
@@ -301,10 +243,10 @@ const ServicesSection = () => {
               //Text
               propServicesText="Ofrecemos servicios de diseño y desarrollo web, creamos apps y gestionamos proyectos de desarrollo personalizados."
               //Refs
-              propTabRef={developmentTabRef}
-              propRoleRef={developmentReadMoreRef}
-              propServicesTextRef={developmentTextRef}
-              propServicesArrowRef={arrowDevelopmentRef}
+              propTabRef={el => {developmentTabRef = el}}
+              propRoleRef={el => {developmentReadMoreRef = el}}
+              propServicesTextRef={el => {developmentTextRef = el}}
+              propServicesArrowRef={el => {arrowDevelopmentRef = el}}
               //Handlers
               propOnMouseEnter={() => hoverServiceTl.play()}
               propOnMouseLeave={() => hoverServiceTl.reverse()}
