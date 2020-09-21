@@ -67,22 +67,22 @@ const ServicesSection = () => {
     const [developmentTl] = useState(gsap.timeline({ paused: true }))
 
     let topLineServicesRef = useRef(null)
-    let creativityTabRef = useRef(null)
-    let arrowCreativityRef = useRef(null)
-    let arrowBrandRef = useRef(null)
-    let arrowMediaRef = useRef(null)
-    let arrowDevelopmentRef = useRef(null)
-    let brandInnovationTabRef = useRef(null)
-    let mediaActivationTabRef = useRef(null)
-    let developmentTabRef = useRef(null)
+    // let creativityTabRef = useRef(null)
+    // let arrowCreativityRef = useRef(null)
+    // let arrowBrandRef = useRef(null)
+    // let arrowMediaRef = useRef(null)
+    // let arrowDevelopmentRef = useRef(null)
+    // let brandInnovationTabRef = useRef(null)
+    // let mediaActivationTabRef = useRef(null)
+    // let developmentTabRef = useRef(null)
     let creativityReadMoreRef = useRef(null)
     let brandReadMoreRef = useRef(null)
     let mediaReadMoreRef = useRef(null)
-    let developmentReadMoreRef = useRef(null)
-    let creativityTextRef = useRef(null)
-    let brandTextRef = useRef(null)
-    let mediaTextRef = useRef(null)
-    let developmentTextRef = useRef(null)
+    // let developmentReadMoreRef = useRef(null)
+    // let creativityTextRef = useRef(null)
+    // let brandTextRef = useRef(null)
+    // let mediaTextRef = useRef(null)
+    // let developmentTextRef = useRef(null)
 
     //Creativity Tab 
         //Animations
@@ -204,10 +204,10 @@ const ServicesSection = () => {
               //Text
               propServicesText="Creamos contenido (publicitario, cinematográfico, social, digital y móvil) que trasciende los medios tradicionales y difumina las líneas entre productos, experiencias, contenido y marketing."
               //Refs
-              propTabRef={el => {creativityTabRef = el}}
+              // propTabRef={el => {creativityTabRef = el}}
               propRoleRef={el => {creativityReadMoreRef = el}}
-              propServicesTextRef={el => {creativityTextRef = el}}
-              propServicesArrowRef={el => {arrowCreativityRef = el}}
+              // propServicesTextRef={el => {creativityTextRef = el}}
+              // propServicesArrowRef={el => {arrowCreativityRef = el}}
               //Handlers
               propOnMouseEnter={() => hoverServiceTl.play()}
               propOnMouseLeave={() => hoverServiceTl.reverse()}
@@ -217,10 +217,10 @@ const ServicesSection = () => {
               //Text
               propServicesText="Los consumidores de hoy no compran una marca, se han de sentir partícipes de ella. Ayudamos a las marcas a simplificar y aclarar quiénes son para transmitir mejor y llegar a conectar verdaderamente con su público objetivo."
               //Refs
-              propTabRef={el => {brandInnovationTabRef = el}}
+              // propTabRef={el => {brandInnovationTabRef = el}}
               propRoleRef={el => {brandReadMoreRef = el}}
-              propServicesTextRef={el => {brandTextRef = el}}
-              propServicesArrowRef={el => {arrowBrandRef = el}}
+              // propServicesTextRef={el => {brandTextRef = el}}
+              // propServicesArrowRef={el => {arrowBrandRef = el}}
               //Handlers
               propOnMouseEnter={() => hoverServiceTl.play()}
               propOnMouseLeave={() => hoverServiceTl.reverse()}
@@ -230,10 +230,10 @@ const ServicesSection = () => {
               //Text
               propServicesText="La abundancia de competencia en el mercado actual exige una dosis extra de creatividad y estrategia. Una estrategia ocurrente garantiza ubicaciones de medios más ingeniosas y, por tanto, mas efectivas."
               //Refs
-              propTabRef={el => {mediaActivationTabRef = el}}
+              // propTabRef={el => {mediaActivationTabRef = el}}
               propRoleRef={el => {mediaReadMoreRef = el}}
-              propServicesTextRef={el => {mediaTextRef = el}}
-              propServicesArrowRef={el => {arrowMediaRef = el}}
+              // propServicesTextRef={el => {mediaTextRef = el}}
+              // propServicesArrowRef={el => {arrowMediaRef = el}}
               //Handlers
               propOnMouseEnter={() => hoverServiceTl.play()}
               propOnMouseLeave={() => hoverServiceTl.reverse()}
@@ -243,10 +243,10 @@ const ServicesSection = () => {
               //Text
               propServicesText="Ofrecemos servicios de diseño y desarrollo web, creamos apps y gestionamos proyectos de desarrollo personalizados."
               //Refs
-              propTabRef={el => {developmentTabRef = el}}
-              propRoleRef={el => {developmentReadMoreRef = el}}
-              propServicesTextRef={el => {developmentTextRef = el}}
-              propServicesArrowRef={el => {arrowDevelopmentRef = el}}
+              // propTabRef={el => {developmentTabRef = el}}
+              // propRoleRef={el => {developmentReadMoreRef = el}}
+              // propServicesTextRef={el => {developmentTextRef = el}}
+              // propServicesArrowRef={el => {arrowDevelopmentRef = el}}
               //Handlers
               propOnMouseEnter={() => hoverServiceTl.play()}
               propOnMouseLeave={() => hoverServiceTl.reverse()}
