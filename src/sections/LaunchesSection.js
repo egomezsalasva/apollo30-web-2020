@@ -27,12 +27,19 @@ import trickImg01 from '../assets/images/trick/trick01.gif'
 import nialImg01 from '../assets/images/nial/nial01.gif'
 import finallyPressImg01 from '../assets/images/finallyPress/finallyPress01.gif'
 
-import premisButacaImg01 from '../assets/images/premisButaca/premisButaca01.gif'
-import unikoImg01 from '../assets/images/uniko/uniko01.jpg'
-
 import newIconsImg01 from '../assets/images/newIcons/newIcons01.gif'
 import laProaImg01 from '../assets/images/laProa/laProa01.jpg'
 import chipBakerImg01 from '../assets/images/chipBaker/chipBaker01.gif'
+import unikoImg01 from '../assets/images/uniko/uniko01.png'
+import scrannysHouseImg01 from '../assets/images/scrannysHouse/scrannysHouse01.png'
+import theNewStorytellersImg01 from '../assets/images/theNewStorytellers/theNewStorytellers01.gif'
+import premisButacaImg01 from '../assets/images/premisButaca/premisButaca01.gif'
+import owlInstituteImg01 from '../assets/images/owlInstitute/owlInstitute01.png'
+import bouCafesImg01 from '../assets/images/bouCafe/bouCafe01.gif'
+
+
+
+
 //-Components
 import GlobalSection from '../components/GlobalSection'
 import GlobalList from '../components/GlobalList'
@@ -157,18 +164,31 @@ const imagesForLaunches = {
   newIcons: [
     newIconsImg01
   ],
-  uniko: [
-    unikoImg01
-  ], 
-  premisButaca: [
-    premisButacaImg01
-  ],
   laProa: [
     laProaImg01
   ],
   chipBaker: [
     chipBakerImg01
-  ]
+  ],
+  uniko: [
+    unikoImg01
+  ],
+  scrannysHouse: [
+    scrannysHouseImg01
+  ], 
+  premisButaca: [
+    premisButacaImg01
+  ],
+  theNewStorytellers: [
+    theNewStorytellersImg01
+  ],
+  owlInstitute: [
+    owlInstituteImg01
+  ],
+  bouCafes: [
+    bouCafesImg01
+  ],
+  
 }
 
 //MAIN COMPONENT
@@ -643,8 +663,8 @@ const LaunchesSection = () => {
                     propRole="Branding"
                     //Links and Refs
                     //Event Handlers
-                    propOnMouseEnter={null}
-                    propOnMouseLeave={null}
+                    propOnMouseEnter={() => onEnterHandler(null, imagesForLaunches.scrannysHouse) }
+                    propOnMouseLeave={() => onLeaveHandler(null) }
                 />
                 <LaunchesTab propTitle="The New Storytellers"
                     //Main Props
@@ -654,7 +674,7 @@ const LaunchesSection = () => {
                     propRoleRef={el => {theNewStorytellersRoleRef = el}}
                     propRoleIconRef={el => {theNewStorytellersIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(theNewStorytellersHoverTl, null) }
+                    propOnMouseEnter={ () => onEnterHandler(theNewStorytellersHoverTl, imagesForLaunches.theNewStorytellers) }
                     propOnMouseLeave={ () => onLeaveHandler(theNewStorytellersHoverTl)}
                 />
                 <LaunchesTab propTitle="Premis Butaca"
@@ -673,7 +693,7 @@ const LaunchesSection = () => {
                     propRoleRef={el => {owlInstituteRoleRef = el}}
                     propRoleIconRef={el => {owlInstituteIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(owlInstituteHoverTl, null) }
+                    propOnMouseEnter={ () => onEnterHandler(owlInstituteHoverTl, imagesForLaunches.owlInstitute) }
                     propOnMouseLeave={ () => onLeaveHandler(owlInstituteHoverTl)}
                 />
                 <LaunchesTab propTitle="Cafes Bou"
@@ -681,7 +701,7 @@ const LaunchesSection = () => {
                     propRole="Creativity"
                     //Links and Refs
                     //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(null, null) }
+                    propOnMouseEnter={ () => onEnterHandler(null, imagesForLaunches.bouCafes) }
                     propOnMouseLeave={ () => onLeaveHandler(null)}
                 />
 
