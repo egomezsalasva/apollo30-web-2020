@@ -17,6 +17,7 @@ import nikeImg03 from '../assets/images/nike/nike03.jpg'
 import nikeImg04 from '../assets/images/nike/nike04.jpg'
 import canPizzaImg01 from '../assets/images/canPizza/canPizza01.gif'
 import sitaImg01 from '../assets/images/sitaAbellan/sitaAbellan02.gif'
+import cambridgeImg01 from '../assets/images/cambridge/cambridge01.gif'
 import unikoImg01 from '../assets/images/uniko/uniko01.jpg'
 import trickImg01 from '../assets/images/trick/trick01.gif'
 import threeMarksImg01 from '../assets/images/threeMarks/threeMarksImg01.gif'
@@ -121,7 +122,9 @@ const imagesForLaunches = {
     canPizzaImg01,
   ],
 
-
+  cambridge: [
+    cambridgeImg01
+  ], 
   uniko: [
     unikoImg01
   ], 
@@ -402,6 +405,7 @@ const LaunchesSection = () => {
     
   //
 
+
   
   return (
 
@@ -486,7 +490,7 @@ const LaunchesSection = () => {
                     propRoleRef={el => {cambridgeRoleRef = el}}
                     propRoleIconRef={el => {cambridgeIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(cambridgeHoverTl, null) }
+                    propOnMouseEnter={ () => onEnterHandler(cambridgeHoverTl, imagesForLaunches.cambridge) }
                     propOnMouseLeave={ () => onLeaveHandler(cambridgeHoverTl) }
                 />
                 <LaunchesTab propTitle="Mucho Muchacho"
