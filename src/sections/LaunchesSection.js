@@ -7,22 +7,27 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 //-Styles
 import { apolloColors } from '../data/apollo30styles'
 //-Images
-import apolloPortfolio from '../assets/images/apolloPortfolio.gif'
+// import apolloPortfolio from '../assets/images/apolloPortfolio.gif'
+import apolloDefault from '../assets/images/apolloPortfolio.gif'
 import internalLinkIcon from '../assets/images/internalLink.svg'
 import vogueImg01 from '../assets/images/vogue/vogue01.gif'
 import nikeImg01 from '../assets/images/nike/nike01.gif'
 // import nikeImg01 from '../assets/images/nike/nike01.jpg'
-import nikeImg02 from '../assets/images/nike/nike02.jpg'
-import nikeImg03 from '../assets/images/nike/nike03.jpg'
-import nikeImg04 from '../assets/images/nike/nike04.jpg'
+// import nikeImg02 from '../assets/images/nike/nike02.jpg'
+// import nikeImg03 from '../assets/images/nike/nike03.jpg'
+// import nikeImg04 from '../assets/images/nike/nike04.jpg'
 import canPizzaImg01 from '../assets/images/canPizza/canPizza01.gif'
 import sitaImg01 from '../assets/images/sitaAbellan/sitaAbellan02.gif'
 import cambridgeImg01 from '../assets/images/cambridge/cambridge01.gif'
-import unikoImg01 from '../assets/images/uniko/uniko01.jpg'
-import trickImg01 from '../assets/images/trick/trick01.gif'
-import threeMarksImg01 from '../assets/images/threeMarks/threeMarksImg01.gif'
-import premisButacaImg01 from '../assets/images/premisButaca/premisButaca01.gif'
 import muchoMuchachoImg01 from '../assets/images/muchoMuchacho/muchoMuchacho01.gif'
+import threeMarksImg01 from '../assets/images/threeMarks/threeMarks01.gif'
+import xemeiImg01 from '../assets/images/xemei/xemei01.gif'
+import laZebraImg01 from '../assets/images/laZebra/laZebra01.png'
+import trickImg01 from '../assets/images/trick/trick01.gif'
+import nialImg01 from '../assets/images/nial/nial01.gif'
+
+import premisButacaImg01 from '../assets/images/premisButaca/premisButaca01.gif'
+import unikoImg01 from '../assets/images/uniko/uniko01.jpg'
 
 import newIconsImg01 from '../assets/images/newIcons/newIcons01.gif'
 import laProaImg01 from '../assets/images/laProa/laProa01.jpg'
@@ -61,7 +66,7 @@ const ListContainerStyledComp = styled.section`
           transform: translateX(-50%);
           width: 300px;
           height: 300px;
-          background: url(${apolloPortfolio});
+          background: url(${apolloDefault});
           background-size: contain;
           background-position: center;
           background-repeat: no-repeat;
@@ -105,7 +110,7 @@ const InnerPage = styled.div`
 const imagesForLaunches = {
 
   default: [
-      apolloPortfolio
+    apolloDefault
   ],
 
   //Featured
@@ -113,48 +118,50 @@ const imagesForLaunches = {
     vogueImg01,
   ],
   nike: [
-    nikeImg01,
-    nikeImg02,
-    nikeImg03,
-    nikeImg04,
+    nikeImg01
   ],
   canPizza: [
     canPizzaImg01,
   ],
-
+  sita: [
+    sitaImg01
+  ],
+  //2020
   cambridge: [
     cambridgeImg01
   ], 
-  uniko: [
-    unikoImg01
-  ], 
-  trick: [
-    trickImg01
+  muchoMuchacho: [
+    muchoMuchachoImg01
   ],
   threeMarks: [
     threeMarksImg01
   ],
-
-  premisButaca: [
-    premisButacaImg01
+  xemei: [
+    xemeiImg01
   ],
-  
-  muchoMuchacho: [
-    muchoMuchachoImg01
+  laZebra: [
+    laZebraImg01
+  ],
+  trick: [
+    trickImg01
+  ],
+  nial: [
+    nialImg01
   ],
 
-  sita: [
-    sitaImg01
-  ],
-
+  //2019
   newIcons: [
     newIconsImg01
   ],
-
+  uniko: [
+    unikoImg01
+  ], 
+  premisButaca: [
+    premisButacaImg01
+  ],
   laProa: [
     laProaImg01
   ],
-
   chipBaker: [
     chipBakerImg01
   ]
@@ -259,7 +266,7 @@ const LaunchesSection = () => {
       const cambridgeHoverTl = gsap.timeline({paused: true})
       const muchoMuchachoHoverTl = gsap.timeline({paused: true})
       const threeMarksCoffeeHoverTl = gsap.timeline({paused: true})
-      const laZorraHoverTl = gsap.timeline({paused: true})
+      // const laZorraHoverTl = gsap.timeline({paused: true})
       const xemeiHoverTl = gsap.timeline({paused: true})
       const laZebraHoverTl = gsap.timeline({paused: true})
       const trickWtfHoverTl = gsap.timeline({paused: true})
@@ -280,8 +287,8 @@ const LaunchesSection = () => {
       let muchoMuchachoIconRef = useRef(null)
       let threeMarksCoffeeRoleRef = useRef(null)
       let threeMarksCoffeeIconRef = useRef(null)
-      let laZorraRoleRef = useRef(null)
-      let laZorraIconRef = useRef(null)
+      // let laZorraRoleRef = useRef(null)
+      // let laZorraIconRef = useRef(null)
       let xemeiRoleRef = useRef(null)
       let xemeiIconRef = useRef(null)
       let laZebraRoleRef = useRef(null)
@@ -324,12 +331,12 @@ const LaunchesSection = () => {
                     .to(threeMarksCoffeeRoleRef, roleAnim)
                     .to(threeMarksCoffeeIconRef, iconAnim, "-=0.3")
       }, [threeMarksCoffeeHoverTl, titleAnim, roleAnim, iconAnim])
-      useEffect( () => {
-        laZorraHoverTl
-                    // .to(muchoMuchachoTitleRef, titleAnim)
-                    .to(laZorraRoleRef, roleAnim)
-                    .to(laZorraIconRef, iconAnim, "-=0.3")
-      }, [laZorraHoverTl, titleAnim, roleAnim, iconAnim])
+      // useEffect( () => {
+      //   laZorraHoverTl
+      //               // .to(muchoMuchachoTitleRef, titleAnim)
+      //               .to(laZorraRoleRef, roleAnim)
+      //               .to(laZorraIconRef, iconAnim, "-=0.3")
+      // }, [laZorraHoverTl, titleAnim, roleAnim, iconAnim])
       useEffect( () => {
         xemeiHoverTl
                     // .to(muchoMuchachoTitleRef, titleAnim)
@@ -516,7 +523,7 @@ const LaunchesSection = () => {
                     propOnMouseEnter={ () => onEnterHandler(threeMarksCoffeeHoverTl, imagesForLaunches.threeMarks) }
                     propOnMouseLeave={ () => onLeaveHandler(threeMarksCoffeeHoverTl)}
                 />
-                <LaunchesTab propTitle="La Zorra"
+                {/* <LaunchesTab propTitle="La Zorra"
                     //Main Props
                     propRole="All Services"
                     //Links and Refs
@@ -527,7 +534,7 @@ const LaunchesSection = () => {
                     //Event Handlers
                     propOnMouseEnter={ () => onEnterHandler(laZorraHoverTl, null) }
                     propOnMouseLeave={ () => onLeaveHandler(laZorraHoverTl)}
-                />
+                /> */}
                 <LaunchesTab propTitle="Xemei"
                     //Main Props
                     propRole="All Services"
@@ -537,7 +544,7 @@ const LaunchesSection = () => {
                     propRoleRef={el => {xemeiRoleRef = el}}
                     propRoleIconRef={el => {xemeiIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(xemeiHoverTl, null) }
+                    propOnMouseEnter={ () => onEnterHandler(xemeiHoverTl, imagesForLaunches.xemei) }
                     propOnMouseLeave={ () => onLeaveHandler(xemeiHoverTl)}
                 />
                 <LaunchesTab propTitle="La Zebra Slow Food"
@@ -548,7 +555,7 @@ const LaunchesSection = () => {
                     propRoleRef={el => {laZebraRoleRef = el}}
                     propRoleIconRef={el => {laZebraIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(laZebraHoverTl, null) }
+                    propOnMouseEnter={ () => onEnterHandler(laZebraHoverTl, imagesForLaunches.laZebra) }
                     propOnMouseLeave={ () => onLeaveHandler(laZebraHoverTl)}
                 />
                 <LaunchesTab propTitle="Trick.Wtf"
@@ -570,7 +577,7 @@ const LaunchesSection = () => {
                     propRoleRef={el => {nialRoleRef = el}}
                     propRoleIconRef={el => {nialIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(nialHoverTl, null) }
+                    propOnMouseEnter={ () => onEnterHandler(nialHoverTl, imagesForLaunches.nial) }
                     propOnMouseLeave={ () => onLeaveHandler(nialHoverTl)}
                 />
                 <LaunchesTab propTitle="Finally Press"
