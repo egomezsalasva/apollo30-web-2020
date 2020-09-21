@@ -25,6 +25,7 @@ import xemeiImg01 from '../assets/images/xemei/xemei01.gif'
 import laZebraImg01 from '../assets/images/laZebra/laZebra01.png'
 import trickImg01 from '../assets/images/trick/trick01.gif'
 import nialImg01 from '../assets/images/nial/nial01.gif'
+import finallyPressImg01 from '../assets/images/finallyPress/finallyPress01.gif'
 
 import premisButacaImg01 from '../assets/images/premisButaca/premisButaca01.gif'
 import unikoImg01 from '../assets/images/uniko/uniko01.jpg'
@@ -147,6 +148,9 @@ const imagesForLaunches = {
   ],
   nial: [
     nialImg01
+  ],
+  finallyPress: [
+    finallyPressImg01
   ],
 
   //2019
@@ -588,7 +592,7 @@ const LaunchesSection = () => {
                     propRoleRef={el => {finallyPressRoleRef = el}}
                     propRoleIconRef={el => {finallyPressIconRef = el}}
                     //Event Handlers
-                    propOnMouseEnter={ () => onEnterHandler(finallyPressHoverTl, null) }
+                    propOnMouseEnter={ () => onEnterHandler(finallyPressHoverTl, imagesForLaunches.finallyPress) }
                     propOnMouseLeave={ () => onLeaveHandler(finallyPressHoverTl)}
                 />
 
