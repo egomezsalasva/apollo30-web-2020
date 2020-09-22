@@ -12,10 +12,6 @@ import apolloDefault from '../assets/images/apolloPortfolio.gif'
 import internalLinkIcon from '../assets/images/internalLink.svg'
 import vogueImg01 from '../assets/images/vogue/vogue01.gif'
 import nikeImg01 from '../assets/images/nike/nike01.gif'
-// import nikeImg01 from '../assets/images/nike/nike01.jpg'
-// import nikeImg02 from '../assets/images/nike/nike02.jpg'
-// import nikeImg03 from '../assets/images/nike/nike03.jpg'
-// import nikeImg04 from '../assets/images/nike/nike04.jpg'
 import canPizzaImg01 from '../assets/images/canPizza/canPizza01.gif'
 import sitaImg01 from '../assets/images/sitaAbellan/sitaAbellan02.gif'
 import cambridgeImg01 from '../assets/images/cambridge/cambridge01.gif'
@@ -26,7 +22,6 @@ import laZebraImg01 from '../assets/images/laZebra/laZebra01.png'
 import trickImg01 from '../assets/images/trick/trick01.gif'
 import nialImg01 from '../assets/images/nial/nial01.gif'
 import finallyPressImg01 from '../assets/images/finallyPress/finallyPress01.gif'
-
 import newIconsImg01 from '../assets/images/newIcons/newIcons01.gif'
 import laProaImg01 from '../assets/images/laProa/laProa01.jpg'
 import chipBakerImg01 from '../assets/images/chipBaker/chipBaker01.gif'
@@ -36,8 +31,6 @@ import theNewStorytellersImg01 from '../assets/images/theNewStorytellers/theNewS
 import premisButacaImg01 from '../assets/images/premisButaca/premisButaca01.gif'
 import owlInstituteImg01 from '../assets/images/owlInstitute/owlInstitute01.png'
 import bouCafesImg01 from '../assets/images/bouCafe/bouCafe01.gif'
-
-
 
 
 //-Components
