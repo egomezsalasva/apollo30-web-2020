@@ -42,10 +42,11 @@ const ServicesTabContainer = styled.div`
 `
 const ServiceTextStyledComp = styled.div`
     display: none;
-    width: 360px;
+    width: 300px;
     position: absolute;
-    top: 20px;
-    right: calc(20px + 15px + 10px);
+    top: calc(20px + 20px + 10px);
+    /* right: calc(20px + 15px + 10px); */
+    right: calc(20px + 15px);
     ${apolloFonts.textSmall};
     line-height: 18px;
     opacity: 0;    
