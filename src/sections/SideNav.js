@@ -1,7 +1,9 @@
 //IMPORTS
 //-Modules
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import styled from 'styled-components'
+import gsap from 'gsap'
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 //-Styles
 import {apolloColors, apolloFonts} from '../data/apollo30styles'
 //-Images
@@ -102,8 +104,14 @@ const Wrapper = styled.div`
       .sidenavBottomText{
 
         .sidenavBottomTextInner{
+          text-align: center;
           color: ${apolloColors.light};
           ${apolloFonts.textSmall}
+        }
+        .sidenavBottomTextInnerDial{
+          text-align: center;
+          color: ${apolloColors.light};
+          ${apolloFonts.textSpecial}
         }
       }
     }
@@ -114,6 +122,36 @@ const Wrapper = styled.div`
 //MAIN COMPONENT
 function SideNav() {
 
+  //SCROLL FOLLOW
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger)
+    }
+    let sidenavBottomTextRef = useRef(null)
+    // useEffect(() => {
+    //   const scrollButtonTl = gsap.timeline({
+    //     scrollTrigger: {
+    //       trigger: "#base",
+    //       start: "bottom-=140px bottom",
+    //       end: "bottom bottom",
+    //       scrub: true,
+    //       markers: true
+    //     }
+    //   })
+    //   scrollButtonTl.to(sidenavBottomTextRef, {duration: 100, y: "-12px", ease: "power4.inOut"})
+      
+    // }, [])
+    useEffect(() => {
+      const scrollButtonTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#base",
+          start: "bottom-=20px bottom",
+          end: "bottom bottom",
+          // markers: true
+        }
+      })
+      scrollButtonTl.to(sidenavBottomTextRef, {duration: 1.2, y: -12, ease: "power4.inOut"})
+    }, [])
+  //
 
   return (
     <>
@@ -140,10 +178,9 @@ function SideNav() {
 
         <div className="sidenavBottom">
           <div className="sidenavBottomTextContainer">
-            <div className="sidenavBottomText">
+            <div className="sidenavBottomText" ref={el => {sidenavBottomTextRef = el}}>
               <div className="sidenavBottomTextInner">Scroll Down</div>
-              <div className="sidenavBottomTextInner">Scroll Down</div>
-              <div className="sidenavBottomTextInner">Call Houston</div>
+              <div className="sidenavBottomTextInnerDial">Dial: 93 653 93 43</div>
             </div>
           </div>  
         </div>

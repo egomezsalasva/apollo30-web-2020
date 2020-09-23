@@ -99,7 +99,7 @@ const BaseSection = () => {
 
             <GlobalList propListTitle="Establish Communication">
         
-                <div className="contactText phoneText">+34 693 037 682</div>
+                <div className="contactText phoneText">+34 93 653 93 43</div>
                 <div className="contactText">contact@apollo30.com</div>
                 <div className="contactText"><a href="https://www.instagram.com/apollo30com/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
                 <div className="contactText linkedinText"><a href="https://www.linkedin.com/company/apollo-30/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>

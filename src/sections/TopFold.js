@@ -44,7 +44,7 @@ const TopFold = () => {
           .from(".descriptionTextContainer", effectFadeInText01.current, "stage02")
           .from(".circleTextLogo", { duration: 1.2, opacity: 0, scale:0.9, y: 1, ease: "power4.inOut"}, "stage02")
           //Scroll Me Anim
-          .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.6")
+          // .to(".sidenavBottomText", {duration: 1.2, y: -12, ease: "power4.inOut"}, "+=1.6")
           .delay(1.2)
       }, [])
     //

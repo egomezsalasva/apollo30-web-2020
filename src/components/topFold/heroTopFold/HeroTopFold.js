@@ -180,7 +180,6 @@ const HeroTopFold = () => {
         gsap.to(ctaText02Ref, { duration: 0.8, y: "-18px", ease: "power2.inOut"})
       }
     //
-
     
     return (
         <HeroTopFoldContainer>
@@ -205,7 +204,7 @@ const HeroTopFold = () => {
                 > 
                     <div className="ctaTextContainer">
                       <div className="ctaText" ref={el => {ctaText01Ref = el}}>Establish Connection</div>
-                      <div className="ctaText" ref={el => {ctaText02Ref = el}}>Dial: 933 000 000</div>
+                      <div className="ctaText" ref={el => {ctaText02Ref = el}}>Dial: 93 653 93 43</div>
                     </div>
                     
                 </button>
