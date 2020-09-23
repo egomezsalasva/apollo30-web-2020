@@ -136,8 +136,8 @@ function SideNav() {
               </li>
             </ul>
           </div>
-
         </div>
+
         <div className="sidenavBottom">
           <div className="sidenavBottomTextContainer">
             <div className="sidenavBottomText">
@@ -145,9 +145,9 @@ function SideNav() {
               <div className="sidenavBottomTextInner">Scroll Down</div>
               <div className="sidenavBottomTextInner">Call Houston</div>
             </div>
-          </div>
-          
+          </div>  
         </div>
+        
       </Wrapper>
     </>
   )

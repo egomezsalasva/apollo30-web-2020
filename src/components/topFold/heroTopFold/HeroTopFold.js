@@ -160,6 +160,9 @@ const HeroTopFold = () => {
                 ease: "power2.inOut",
             })
         }, [ctaButtonTl])
+        useEffect(()=>{
+          document.querySelector(".ctaButton").style.width = "25vw"
+        })
     //
     
     return (

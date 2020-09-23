@@ -111,9 +111,9 @@ const App = () => {
       useEffect( () => { 
 
         const checkSection = (sectionId, sectionRef) => {
-          const lauchesSectionTop = document.querySelector(sectionId).getBoundingClientRect().top - 60 - (window.innerHeight * 0.5)
-          const lauchesSectionBottom = document.querySelector(sectionId).getBoundingClientRect().bottom - 60 - (window.innerHeight * 0.5)
-          if( lauchesSectionTop < 0 && lauchesSectionBottom > 0){
+          const launchesSectionTop = document.querySelector(sectionId).getBoundingClientRect().top - 60 - (window.innerHeight * 0.5)
+          const launchesSectionBottom = document.querySelector(sectionId).getBoundingClientRect().bottom - 60 - (window.innerHeight * 0.5)
+          if( launchesSectionTop < 0 && launchesSectionBottom > 0){
             document.querySelector(sectionRef).classList.add("active")
           } else {
             document.querySelector(sectionRef).classList.remove("active")
@@ -125,10 +125,7 @@ const App = () => {
           checkSection( "#services", "#servicesNavRef")
           checkSection( "#crew", "#crewNavRef")
           checkSection( "#base", "#baseNavRef")
-        })
-
-
-        
+        })   
 
       }, [])
     //
