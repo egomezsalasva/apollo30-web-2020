@@ -91,10 +91,17 @@ const HeroTopFoldContainer = styled.section`
       height: 100%;
       background: ${apolloColors.light};
       cursor: pointer;
-      .ctaText{
-        color: ${apolloColors.dark};
-        ${apolloFonts.textSpecial};
+      .ctaTextContainer{
+        height: 18px;
+        overflow: hidden;
+
+        .ctaText{
+          color: ${apolloColors.dark};
+          ${apolloFonts.textSpecial};
+          line-height: 18px;
+        }
       }
+      
     }
     .descriptionBox{
       width: calc(100% - 25vw);
@@ -164,6 +171,16 @@ const HeroTopFold = () => {
           document.querySelector(".ctaButton").style.width = "25vw"
         })
     //
+
+    //CTA BUTTON REVEAL
+      let ctaText01Ref = useRef()
+      let ctaText02Ref = useRef()
+      const revealDial = () =>{
+        gsap.to(ctaText01Ref, { duration: 0.8, y: "-18px", ease: "power2.inOut"})
+        gsap.to(ctaText02Ref, { duration: 0.8, y: "-18px", ease: "power2.inOut"})
+      }
+    //
+
     
     return (
         <HeroTopFoldContainer>
@@ -184,8 +201,13 @@ const HeroTopFold = () => {
                     ref={el => ctaButtonRef = el} 
                     onMouseEnter={() => ctaButtonTl.play()}
                     onMouseLeave={() => ctaButtonTl.reverse()}
-                >
-                    <div className="ctaText">Establish Connection</div>
+                    onClick={revealDial}
+                > 
+                    <div className="ctaTextContainer">
+                      <div className="ctaText" ref={el => {ctaText01Ref = el}}>Establish Connection</div>
+                      <div className="ctaText" ref={el => {ctaText02Ref = el}}>Dial: 933 000 000</div>
+                    </div>
+                    
                 </button>
 
                 <div className="descriptionBox">
