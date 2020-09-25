@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 //-Styles
-import { apolloColors } from '../data/apollo30styles'
+import { apolloColors, apolloFonts } from '../data/apollo30styles'
 //-Images
 // import apolloPortfolio from '../assets/images/apolloPortfolio.gif'
 import apolloDefault from '../assets/images/apolloPortfolio.gif'
@@ -80,30 +80,77 @@ const InnerPage = styled.div`
     top: 0;
     left: -100vw;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: ${props => props.inputColor || apolloColors.dark };
     z-index: 300;
     overflow: scroll;
 
-    .leftSection{
+    .rightSection{
       position: absolute;
-      width: 12.5%;
-      height: 100%;
-      left: 0; 
       right: 0;
-      background: ${apolloColors.light};
-      cursor: pointer;
+      width: calc(100% - 12.5%);
 
-      .backButton{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scaleX(-1);
-        width: 20px;
-        height: 20px;
-        background: url(${internalLinkIcon});
+      .topFoldInner{
+        position: relative;
+        height: 100vh;
+        width: 100%;
+
+        .bgImage{
+          width: 400px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        .titleTopFoldInner{
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          color: ${apolloColors.light};
+          font: ${apolloFonts.heading01};
+          letter-spacing: 10px;
+          text-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+        }
+
       }
+
+      .contentInner{
+        width: 100%;
+        .imageContainerInner{
+          text-align: center;
+          &:first-of-type{
+            /* padding-top: 100px; */
+          }
+          img{
+            width: 75%;
+          }
+        }
+      }
+
     }
+`
+
+const InnerPageBackButton = styled.div`
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 12.5vw;
+  height: 100vh;
+  z-index: 400;
+  background: ${apolloColors.light};
+  cursor: pointer;
+
+  .backButton{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(-1);
+    width: 20px;
+    height: 20px;
+    background: url(${internalLinkIcon});
+  }
 `
 
 
@@ -249,6 +296,7 @@ const LaunchesSection = () => {
 
     //Timelines
       const innerVogueTransition = gsap.timeline({paused: true})
+      let vogueBackButton = useRef(null)
       const innerNikeTransition = gsap.timeline({paused: true})
       const innerCanPizzaTransition = gsap.timeline({paused: true})
       const innerSitaTransition = gsap.timeline({paused: true})
@@ -257,7 +305,8 @@ const LaunchesSection = () => {
     //Animations
       const innerPageTransitionAnim = { duration: 1.2, x: "100vw", ease: "power2.inOut"}
       useEffect( () => {
-        innerVogueTransition.to("#vogueInner", innerPageTransitionAnim)
+        innerVogueTransition.to("#vogueInner", innerPageTransitionAnim, "start")
+                            .to(vogueBackButton, innerPageTransitionAnim, "start")
       }, [innerVogueTransition, innerPageTransitionAnim])
       useEffect( () => {
         innerNikeTransition.to("#nikeInner", innerPageTransitionAnim)
@@ -271,7 +320,7 @@ const LaunchesSection = () => {
 
       let innerBackButtonHoverTl = gsap.timeline({paused: true})
       useEffect( () => {
-          innerBackButtonHoverTl.to("#leftBackSection", { duration: 0.8, width: "18.75%", ease: "power2.inOut"})
+          innerBackButtonHoverTl.to("#leftBackSection", { duration: 0.8, width: "18.75vw", ease: "power2.inOut"})
       })
     //
 
@@ -429,17 +478,53 @@ const LaunchesSection = () => {
     
   //
 
+  //LOCK BODY SCROLL
+      const lockBodyScroll = () => {
+        document.body.style.overflow = "hidden"
+      }
+      const unlockBodyScroll = () => {
+        document.body.style.overflow = "visible"
+      }
+      
+  //
+
 
   
   return (
 
     <>
-    <InnerPage id="vogueInner" inputColor="#D7D7D7">
-        <div className="leftSection" id="leftBackSection" onClick={() => innerVogueTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
-        <div className="backButton"></div>
-        </div>
+    
+    <InnerPage id="vogueInner">
+        {/* "#D7D7D7" */}
+          <div className="rightSection">
+              <div className="topFoldInner">
+                <img src={vogueImg01} className="bgImage" alt="vogue inner"/>
+                <div className="titleTopFoldInner">VOGUE</div>
+              </div>
+              <div className="contentInner">
+                <div className="imageContainerInner">
+                  <img src={vogueImg01} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={vogueImg01} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={vogueImg01} alt=""/>
+                </div>
+              </div>
+          </div>
     </InnerPage>
-    <InnerPage id="nikeInner">
+    <InnerPageBackButton className="leftSection" 
+      id="leftBackSection"
+      ref={el => {vogueBackButton = el}}
+      onClick={() => {innerVogueTransition.reverse(); unlockBodyScroll()}} 
+      onMouseEnter={() => innerBackButtonHoverTl.play()} 
+      onMouseLeave={() => innerBackButtonHoverTl.reverse()}
+    >
+      <div className="backButton" />
+    </InnerPageBackButton>
+
+    {/* <InnerPage id="nikeInner">
         <div className="leftSection" id="leftBackSection" onClick={() => innerNikeTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
         <div className="backButton"></div>
         </div>
@@ -453,7 +538,7 @@ const LaunchesSection = () => {
         <div className="leftSection" id="leftBackSection" onClick={() => innerSitaTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
         <div className="backButton"></div>
         </div>
-    </InnerPage>
+    </InnerPage> */}
 
     <GlobalSection 
         propSectionID="launches" 
@@ -470,7 +555,7 @@ const LaunchesSection = () => {
                     propRole="Creativity" 
                     propInternalIcon
                     // Event Handlers
-                    propOnClick={() => innerVogueTransition.play()}
+                    propOnClick={() => {innerVogueTransition.play(); lockBodyScroll()}}
                     propOnMouseEnter={() => setImage(imagesForLaunches.vogue)}
                     propOnMouseLeave={() => defaultGif()}
                 />
