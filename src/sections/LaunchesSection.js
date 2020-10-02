@@ -297,6 +297,9 @@ const LaunchesSection = () => {
     //Timelines
       const innerVogueTransition = gsap.timeline({paused: true})
       let vogueBackButton = useRef(null)
+      let nikeBackButton = useRef(null)
+      let canPizzaBackButton = useRef(null)
+      let sitaBackButton = useRef(null)
       const innerNikeTransition = gsap.timeline({paused: true})
       const innerCanPizzaTransition = gsap.timeline({paused: true})
       const innerSitaTransition = gsap.timeline({paused: true})
@@ -309,13 +312,16 @@ const LaunchesSection = () => {
                             .to(vogueBackButton, innerPageTransitionAnim, "start")
       }, [innerVogueTransition, innerPageTransitionAnim])
       useEffect( () => {
-        innerNikeTransition.to("#nikeInner", innerPageTransitionAnim)
+        innerNikeTransition.to("#nikeInner", innerPageTransitionAnim, "start")
+                          .to(nikeBackButton, innerPageTransitionAnim, "start")
       }, [innerNikeTransition, innerPageTransitionAnim])
       useEffect( () => {
-        innerCanPizzaTransition.to("#canPizzaInner", innerPageTransitionAnim)
+        innerCanPizzaTransition.to("#canPizzaInner", innerPageTransitionAnim, "start")
+                              .to(canPizzaBackButton, innerPageTransitionAnim, "start")
       }, [innerCanPizzaTransition, innerPageTransitionAnim])
       useEffect( () => {
-        innerSitaTransition.to("#sitaInner", innerPageTransitionAnim)
+        innerSitaTransition.to("#sitaInner", innerPageTransitionAnim, "start")
+                           .to(sitaBackButton, innerPageTransitionAnim, "start")
       }, [innerSitaTransition, innerPageTransitionAnim])
 
       let innerBackButtonHoverTl = gsap.timeline({paused: true})
@@ -494,6 +500,7 @@ const LaunchesSection = () => {
 
     <>
     
+    {/* VOGUE INNER */}
     <InnerPage id="vogueInner">
         {/* "#D7D7D7" */}
           <div className="rightSection">
@@ -524,21 +531,97 @@ const LaunchesSection = () => {
       <div className="backButton" />
     </InnerPageBackButton>
 
-    {/* <InnerPage id="nikeInner">
-        <div className="leftSection" id="leftBackSection" onClick={() => innerNikeTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
-        <div className="backButton"></div>
-        </div>
+    {/* NIKE INNER */}
+    <InnerPage id="nikeInner">
+          <div className="rightSection">
+              <div className="topFoldInner">
+                <img src={nikeImg01} className="bgImage" alt="nike inner"/>
+                <div className="titleTopFoldInner">NIKE</div>
+              </div>
+              <div className="contentInner">
+                <div className="imageContainerInner">
+                  <img src={nikeImg01} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={nikeImg01} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={nikeImg01} alt=""/>
+                </div>
+              </div>
+          </div>
     </InnerPage>
+    <InnerPageBackButton className="leftSection" 
+      id="leftBackSection"
+      ref={el => {nikeBackButton = el}}
+      onClick={() => {innerNikeTransition.reverse(); unlockBodyScroll()}} 
+      onMouseEnter={() => innerBackButtonHoverTl.play()} 
+      onMouseLeave={() => innerBackButtonHoverTl.reverse()}
+    >
+      <div className="backButton" />
+    </InnerPageBackButton>
+
+    {/* CAN PIZZA INNER */}
     <InnerPage id="canPizzaInner" inputColor="#CE0E2D">
-        <div className="leftSection" id="leftBackSection" onClick={() => innerCanPizzaTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
-        <div className="backButton"></div>
-        </div>
+          <div className="rightSection">
+              <div className="topFoldInner">
+                <img src={canPizzaImg01} className="bgImage" alt="can pizza inner"/>
+                <div className="titleTopFoldInner">CAN PIZZA</div>
+              </div>
+              <div className="contentInner">
+                <div className="imageContainerInner">
+                  <img src={canPizzaImg01} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={canPizzaImg01} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={canPizzaImg01} alt=""/>
+                </div>
+              </div>
+          </div>
     </InnerPage>
+    <InnerPageBackButton className="leftSection" 
+      id="leftBackSection"
+      ref={el => {canPizzaBackButton = el}}
+      onClick={() => {innerCanPizzaTransition.reverse(); unlockBodyScroll()}} 
+      onMouseEnter={() => innerBackButtonHoverTl.play()} 
+      onMouseLeave={() => innerBackButtonHoverTl.reverse()}
+    >
+      <div className="backButton" />
+    </InnerPageBackButton>
+
+    {/* SITA ABELLAN INNER */}
     <InnerPage id="sitaInner">
-        <div className="leftSection" id="leftBackSection" onClick={() => innerSitaTransition.reverse()} onMouseEnter={() => innerBackButtonHoverTl.play()} onMouseLeave={() => innerBackButtonHoverTl.reverse()}>
-        <div className="backButton"></div>
-        </div>
-    </InnerPage> */}
+          <div className="rightSection">
+              <div className="topFoldInner">
+                <img src={sitaImg01} className="bgImage" alt="sita inner"/>
+                <div className="titleTopFoldInner">SITA ABELLÁN</div>
+              </div>
+              <div className="contentInner">
+                <div className="imageContainerInner">
+                  <img src={sitaImg01} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={sitaImg01} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={sitaImg01} alt=""/>
+                </div>
+              </div>
+          </div>
+    </InnerPage>
+    <InnerPageBackButton className="leftSection" 
+      id="leftBackSection"
+      ref={el => {sitaBackButton = el}}
+      onClick={() => {innerSitaTransition.reverse(); unlockBodyScroll()}} 
+      onMouseEnter={() => innerBackButtonHoverTl.play()} 
+      onMouseLeave={() => innerBackButtonHoverTl.reverse()}
+    >
+      <div className="backButton" />
+    </InnerPageBackButton>
+
+    
 
     <GlobalSection 
         propSectionID="launches" 
@@ -564,7 +647,7 @@ const LaunchesSection = () => {
                     propRole="Creativity" 
                     propInternalIcon
                     // Event Handlers
-                    propOnClick={() => innerNikeTransition.play()}
+                    propOnClick={() => {innerNikeTransition.play(); lockBodyScroll()}}
                     propOnMouseEnter={() => setImage(imagesForLaunches.nike)}
                     propOnMouseLeave={() => defaultGif()}
                 />
@@ -573,7 +656,7 @@ const LaunchesSection = () => {
                     propRole="All Services" 
                     propInternalIcon
                     // Event Handlers
-                    propOnClick={() => innerCanPizzaTransition.play()}
+                    propOnClick={() => {innerCanPizzaTransition.play(); lockBodyScroll()}}
                     propOnMouseEnter={() => setImage(imagesForLaunches.canPizza)}
                     propOnMouseLeave={() => defaultGif()}
                 />
@@ -582,7 +665,7 @@ const LaunchesSection = () => {
                     propRole="Creativity / Development" 
                     propInternalIcon
                     // Event Handlers
-                    propOnClick={() => innerSitaTransition.play()}
+                    propOnClick={() => {innerSitaTransition.play(); lockBodyScroll()}}
                     propOnMouseEnter={() => setImage(imagesForLaunches.sita)}
                     propOnMouseLeave={() => defaultGif()}
                 />
