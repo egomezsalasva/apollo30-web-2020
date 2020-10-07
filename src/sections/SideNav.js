@@ -90,6 +90,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: ${topFoldStripHeight};
     background: url(${spaceTextureNav});
+    /* background: url(${apolloColors.light}); */
     background-size: cover;
     background-position: center;
 
@@ -106,11 +107,13 @@ const Wrapper = styled.div`
         .sidenavBottomTextInner{
           text-align: center;
           color: ${apolloColors.light};
+          /* color: ${apolloColors.dark}; */
           ${apolloFonts.textSmall}
         }
         .sidenavBottomTextInnerDial{
           text-align: center;
-          color: ${apolloColors.light};
+          /* color: ${apolloColors.light}; */
+          color: ${apolloColors.dark};
           ${apolloFonts.textSpecial}
         }
       }

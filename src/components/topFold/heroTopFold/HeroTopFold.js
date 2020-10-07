@@ -17,6 +17,7 @@ const HeroTopFoldContainer = styled.section`
   width: 100%;
   height: 100vh;
   background: url(${spaceTextureHero});
+  /* background: ${apolloColors.light}; */
   background-size: cover;
   background-position: center;
 
@@ -53,6 +54,7 @@ const HeroTopFoldContainer = styled.section`
       top: 0;
       left: 138px;
       color: ${apolloColors.light};
+      /* color: ${apolloColors.dark}; */
       font-family: ${apolloFonts.textSpecial};
       font-family: 'VCR OSD Mono';
       font-size: 12px;
@@ -63,7 +65,8 @@ const HeroTopFoldContainer = styled.section`
     .circleTextLogoScrollWrapper{
       display: inline-block;
       position: absolute;
-      top: calc(50% - 138px);
+      /* top: calc(50% - 138px); */
+      top: calc(50vh - 138px);
       left: calc(50% - 138px);
       width: calc(138px * 2);
       height: calc(138px * 2);
@@ -86,7 +89,9 @@ const HeroTopFoldContainer = styled.section`
     width: 100%;
     height: 150px;
     display: flex;
+    display: none;
     .ctaButton{
+      display: none;
       width: 25vw;
       height: 100%;
       background: ${apolloColors.light};
@@ -104,7 +109,8 @@ const HeroTopFoldContainer = styled.section`
       
     }
     .descriptionBox{
-      width: calc(100% - 25vw);
+      /* width: calc(100% - 25vw); */
+      width: calc(100%);
       align-self: center;
       text-align: center;
 
@@ -112,6 +118,8 @@ const HeroTopFoldContainer = styled.section`
         display: inline-block;
         padding: 40px;
         text-align: left;
+        text-align: center;
+        /* color: ${apolloColors.dark}; */
         color: ${apolloColors.light};
         ${apolloFonts.textLarge};
       }

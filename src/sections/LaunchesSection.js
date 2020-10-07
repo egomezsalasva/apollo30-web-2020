@@ -11,8 +11,18 @@ import { apolloColors, apolloFonts } from '../data/apollo30styles'
 import apolloDefault from '../assets/images/apolloPortfolio.gif'
 import internalLinkIcon from '../assets/images/internalLink.svg'
 import vogueImg01 from '../assets/images/vogue/vogue01.gif'
+import vogueImgInner01 from '../assets/images/vogue/inner/vogueInner01.png'
+import vogueImgInner02 from '../assets/images/vogue/inner/vogueInner02.png'
+import vogueImgInner03 from '../assets/images/vogue/inner/vogueInner03.png'
+import vogueImgInner04 from '../assets/images/vogue/inner/vogueInner04.png'
 import nikeImg01 from '../assets/images/nike/nike01.gif'
+import nikeImgInner01 from '../assets/images/nike/inner/nikeInner01.png'
+import nikeImgInner02 from '../assets/images/nike/inner/nikeInner02.png'
+import nikeImgInner03 from '../assets/images/nike/inner/nikeInner03.png'
+import nikeImgInner04 from '../assets/images/nike/inner/nikeInner04.png'
+import nikeImgInner05 from '../assets/images/nike/inner/nikeInner05.png'
 import canPizzaImg01 from '../assets/images/canPizza/canPizza01.gif'
+import canPizzaVidInner01 from '../assets/images/canPizza/inner/canPizzaInnerVid01.mp4'
 import sitaImg01 from '../assets/images/sitaAbellan/sitaAbellan02.gif'
 import cambridgeImg01 from '../assets/images/cambridge/cambridge01.gif'
 import muchoMuchachoImg01 from '../assets/images/muchoMuchacho/muchoMuchacho01.gif'
@@ -120,11 +130,19 @@ const InnerPage = styled.div`
         width: 100%;
         .imageContainerInner{
           text-align: center;
+          margin-bottom: 300px;
           &:first-of-type{
             /* padding-top: 100px; */
           }
+          &:last-of-type{
+            margin-bottom: 150px;
+          }
           img{
             width: 75%;
+          }
+          video{
+            width: 75%;
+            outline: none;
           }
         }
       }
@@ -501,22 +519,24 @@ const LaunchesSection = () => {
     <>
     
     {/* VOGUE INNER */}
-    <InnerPage id="vogueInner">
-        {/* "#D7D7D7" */}
+    <InnerPage id="vogueInner" inputColor="#D7D7D7">
           <div className="rightSection">
               <div className="topFoldInner">
                 <img src={vogueImg01} className="bgImage" alt="vogue inner"/>
-                <div className="titleTopFoldInner">VOGUE</div>
+                {/* <div className="titleTopFoldInner">VOGUE</div> */}
               </div>
               <div className="contentInner">
                 <div className="imageContainerInner">
-                  <img src={vogueImg01} alt=""/>
+                  <img src={vogueImgInner01} alt=""/>
                 </div>
                 <div className="imageContainerInner">
-                  <img src={vogueImg01} alt=""/>
+                  <img src={vogueImgInner02} alt=""/>
                 </div>
                 <div className="imageContainerInner">
-                  <img src={vogueImg01} alt=""/>
+                  <img src={vogueImgInner03} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={vogueImgInner04} alt=""/>
                 </div>
               </div>
           </div>
@@ -536,17 +556,23 @@ const LaunchesSection = () => {
           <div className="rightSection">
               <div className="topFoldInner">
                 <img src={nikeImg01} className="bgImage" alt="nike inner"/>
-                <div className="titleTopFoldInner">NIKE</div>
+                {/* <div className="titleTopFoldInner">NIKE</div> */}
               </div>
               <div className="contentInner">
                 <div className="imageContainerInner">
-                  <img src={nikeImg01} alt=""/>
+                  <img src={nikeImgInner01} alt=""/>
                 </div>
                 <div className="imageContainerInner">
-                  <img src={nikeImg01} alt=""/>
+                  <img src={nikeImgInner02} alt=""/>
                 </div>
                 <div className="imageContainerInner">
-                  <img src={nikeImg01} alt=""/>
+                  <img src={nikeImgInner03} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={nikeImgInner04} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <img src={nikeImgInner05} alt=""/>
                 </div>
               </div>
           </div>
@@ -566,11 +592,18 @@ const LaunchesSection = () => {
           <div className="rightSection">
               <div className="topFoldInner">
                 <img src={canPizzaImg01} className="bgImage" alt="can pizza inner"/>
-                <div className="titleTopFoldInner">CAN PIZZA</div>
+                {/* <div className="titleTopFoldInner">CAN PIZZA</div> */}
               </div>
               <div className="contentInner">
                 <div className="imageContainerInner">
                   <img src={canPizzaImg01} alt=""/>
+                </div>
+                <div className="imageContainerInner">
+                  <video controls width="100%">
+                    {/* <source src="/media/cc0-videos/flower.webm" type="video/webm" /> */}
+                    <source src={canPizzaVidInner01} type="video/mp4" />
+                    Sorry, your browser doesn't support embedded videos.
+                  </video>
                 </div>
                 <div className="imageContainerInner">
                   <img src={canPizzaImg01} alt=""/>
